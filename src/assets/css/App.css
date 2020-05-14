@@ -13,8 +13,9 @@ body{
 }
 
 #header {
-  
+  display: block;
   top: 0; /*Para quitar el espacio que habia*/
+  left: 0;
   height: 85px;
   width: 100%;
   background: white;
@@ -409,7 +410,7 @@ textarea{
 
   font-size: 38px;
   padding-top: 20px;
-  margin-top: 90px;
+  margin-top: 20px;
   
   text-align: center;
   border-bottom: 1px solid #eee; /*linea divisoria*/
@@ -535,7 +536,8 @@ textarea{
 }
 
 #slider.slider-big{
-  padding-top: 101px; /*Para el texto*/
+  margin-top: 90px;
+  padding-top: 80px; /*Para el texto*/
 }
 
 #slider.slider-bienvenida{
@@ -635,10 +637,10 @@ textarea{
 
 
 /* BOTONES A ETSI, MOODLE Y UHU */
-.botonAPaginas{
+.botonAPaginas a{
 
 margin-right: 100px;
-  margin-left: 120px;
+  margin-top: 60px;
   text-shadow: none;
   color: gray;
   font-size:21px;
@@ -648,11 +650,14 @@ margin-right: 100px;
 
 }
 
-.botonAPaginas:hover{
+.slider-data{
+ text-align: center;
+}
 
-  
-  background: rgb(36, 3, 224);
-  color: white;
+.botonAPaginas a:hover{
+
+  text-decoration: underline;
+  color: rgb(167, 162, 162);;
   
 }
 

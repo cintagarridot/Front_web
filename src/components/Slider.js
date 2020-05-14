@@ -66,11 +66,13 @@ class Slider extends Component {
             <div id="slider" className={this.props.size} > {/*<!--le podemos poner varias clases para usarlas dependiendo de que pagina estemos-->*/}
 
                 {this.props.size === 'slider-big' &&
-                    <div>
-                        <h1 className="titulo">{this.props.title}</h1>
-                        <a href="http://www.uhu.es/etsi/" className="botonAPaginas">{this.props.button}</a>
-                        <a href="https://moodle.uhu.es/" className="botonAPaginas">{this.props.button2}</a>
-                        <a href="http://www.uhu.es/index.php" className="botonAPaginas">{this.props.button3}</a>
+                    <div className="slider-data">
+                        <h1>{this.props.title}</h1>
+                        <div className="botonAPaginas">
+                            <a href="http://www.uhu.es/etsi/" >{this.props.button}</a>
+                            <a href="https://moodle.uhu.es/">{this.props.button2}</a>
+                            <a href="http://www.uhu.es/index.php" >{this.props.button3}</a>
+                        </div>
                     </div>
                 }
 
