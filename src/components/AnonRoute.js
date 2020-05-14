@@ -15,7 +15,7 @@ const AnonRoute = (props) => {
       /> : <Redirect to='/private' />}
     </>
 
-   
+     
   );
 }
 
