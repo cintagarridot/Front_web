@@ -29,7 +29,6 @@ const DataListView = ({ isSelect, subject, onCheckItem, ...props }) => {
                 </p>
               </Col>
 
-
             </div>
           </div>
         </Card>

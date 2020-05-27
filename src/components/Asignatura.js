@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DataListView from 'components/DataListView';
+import AuthService from 'services/auth-service';
 
 class Asignatura extends Component {
 
     state = {
 
+        userSubjects: {},
         subjects: {},
         status: null,
         lastChecked: null,
         selectedItems: null,
     }
 
-    componentWillMount() {
-        this.getSubjects();
+    componentDidMount() {
+        //sthis.getSubjects();       
+       this.getUserSubjects();
     }
 
     clickItem = (item, event) => {
@@ -75,19 +78,42 @@ class Asignatura extends Component {
             });
     }
 
+    getUserSubjects = async() => {
+        const user = await AuthService.me();
+ 
+        await axios.get("http://localhost:3800/users/" + user._id + "/subjects/") //url a la que le vamos a hacer una peticion por get a la API REST
+            .then(response => {
+                this.setState({
+                    userSubjects: response.data,
+                    status: 'usersubjects'
+                });
+               
+            })
+            .catch(err => {
+                console.log(err);
+            })
+            console.log("----------");
+            console.log(this.state.userSubjects);
+            console.log('******')
+            
+    }
+
 
     render() {
 
 
         return (
 
+            console.log(this.state.userSubjects),
+
             <section id="content" >
 
-                {this.state.status === 'success' &&
-
+                {this.state.status === 'usersubjects' &&
+                    
                     <div>
+                        {console.log('entra en el return')}
                         <h2 className="subheaderdos">Asignaturas</h2>
-                        {this.state.subjects.map((subject, i) => {
+                        {this.state.userSubjects.response.map((subject, i) => {
                             return (
                                 <DataListView
                                     key={subject.id}
