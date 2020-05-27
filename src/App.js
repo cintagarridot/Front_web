@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import Navbar from './components/Navbar.js';
 import PrivateRoute from './components/routes/PrivateRoute.js';
 import AnonRoute from './components/routes/AnonRoute.js';
-
 import Private from './pages/Private';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -13,6 +12,7 @@ import AuthProvider from './contexts/auth-context.js';
 import Principal from 'pages/Principal.js';
 import NewsPage from 'pages/NewsPage.js';
 import User from 'pages/User';
+import {Route} from 'react-router';
 
 import 'assets/css/App.css';
 import 'milligram';
@@ -26,9 +26,9 @@ class App extends Component {
         <AuthProvider>
           <div className="container">
             <Switch>
+            {/*<Route path="/" render={() => <Redirect from="/" to="/login"/> } />*/}
               <AnonRoute path="/signup" component={Signup} />
               <AnonRoute path="/login" component={Login} />
-              {/*<PrivateRoute path="/" render={() => <Redirect from="/" to="/home"/> } />*/}
               <PrivateRoute path="/home" component={Principal} />
               <PrivateRoute path="/news" component={NewsPage} />
               <PrivateRoute path="/chat" component={Chat} />
