@@ -398,13 +398,20 @@ textarea{
 
 }
 
+.items-center{
+  margin-top: 80px;
+}
+
 .subheader{
   font-size: 38px;
   padding-top: 20px;
   margin-top: 10px;
+  margin-bottom: 30px;
   border-bottom: 1px solid #eee; /*linea divisoria*/
   padding-bottom: 10px;
+  text-align: center;
 }
+
 
 .subheaderdos{
 
@@ -751,20 +758,12 @@ margin-right: 100px;
 
 /*BUSCADOR NOTICIAS*/
 .searchNews{
-  width: 100px;
+  width: 200px;
   height: 20px;
   
 }
 
 .buttonSearch{
- 
-  width: 100px;
-  height: 35px;
-  margin-left: 8px;
-  background: white;
-  font-size: 16px;
-
-  transition: 300ms all;
   cursor: pointer;
 }
 
@@ -1047,3 +1046,16 @@ margin-right: 100px;
 
 
 }
+
+.link-to-pages{
+  font-style: none;
+  color: black;
+  text-decoration: none;
+}
+
+.link-to-pages:hover{
+  font-style: none;
+  color: black;
+  text-decoration: none;
+}
+

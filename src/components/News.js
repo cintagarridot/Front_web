@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Table from 'components/Table';
 import axios from 'axios';
 import Slider from 'components/Slider';
+import DataListView from './DataListView';
 
 class News extends Component {
 
@@ -21,11 +22,11 @@ class News extends Component {
         console.log("search desde props");
         console.log(search);
 
-        if(this.props.update === 'true'){
+        if (this.props.update === 'true') {
             this.updateNews(this.props.idToUpdate);
         }
 
-        if(this.props.delete === 'true'){
+        if (this.props.delete === 'true') {
             this.deleteNews(this.props.idToDelete);
         }
 
@@ -112,6 +113,10 @@ class News extends Component {
             })
     }
 
+    onCheckItem  = (event, id) => {
+        document.activeElement.blur();
+    }
+
 
     render() {
 
@@ -133,13 +138,22 @@ class News extends Component {
 
                             this.state.news.map(n => {
                                 return (
-                                    <Table
-                                        key={n._id}
-                                        title={n.title}
-                                        date={n.date}
-                                        author={n.author}
-                                        linktonews={"/noticias/" + n._id}>
-                                    </Table>
+                                    /*}  <Table
+                                          key={n._id}
+                                          title={n.title}
+                                          date={n.date}
+                                          author={n.author}
+                                          linktonews={"/noticias/" + n._id}>
+                                        </Table>*/
+
+                                    <DataListView
+                                        key={n.id}
+                                        element={n}
+                                        news
+                                        onCheckItem={this.onCheckItem}
+                                    />
+
+
                                 );
                             })
 

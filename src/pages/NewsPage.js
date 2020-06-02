@@ -4,41 +4,43 @@ import SideBar from 'components/SideBar';
 import News from 'components/News';
 import withAuth from 'components/withAuth';
 import Header from 'components/Header';
+import { Col, Row } from 'reactstrap';
 
 class NewsPage extends Component {
 
-      
+
 
     render() {
 
         return (
             <>
                 <Header />
-                <div className="center">
-
-                    <section id="content">
+                {/*} <div className="center">*/}
 
 
-                        <h2 className="subheaderdos">Noticias</h2>
-                        
-                        
-                            <th>
-                                <input className= "searchNews" type="text" placeholder="Buscar noticia..." />
-                            </th>  
-                            <th>
-                                <button className="buttonSearch">Buscar</button>
-                            </th>
-                            
-                      
-                        <input type="date" className="dateSearchNews"/>
+                <div className={'items-center'}>
 
-                        <News/>
-                        <div className="clearfix"></div>
+                    <h2 className="subheader">Noticias</h2>
 
-                    </section>
+                    <Row className={'mb-5 ml-1'}>
+                        <Col xs={'6'}>
+                            <input className="searchNews" type="text" placeholder="Buscar noticia..." />
+                        </Col>
 
-                    <SideBar texto="¿Desea crear una nueva noticia?" btn="Crear noticia"></SideBar>
-                </div >
+                        <Col xs={'0.5'}>
+                            <button className="buttonSearch">Buscar</button>
+                        </Col>
+
+                        <Col xs={'1'}>
+                            <button className="buttonSearch">Añadir noticia</button>
+                        </Col>
+                    </Row>
+                    <News />
+                    <div className="clearfix"></div>
+
+                </div>
+
+                {/*}  </div >*/}
 
             </>
 
