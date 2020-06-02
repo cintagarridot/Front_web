@@ -17,6 +17,7 @@ import {Route} from 'react-router';
 import 'assets/css/App.css';
 import 'milligram';
 import Chat from 'pages/Chat.js';
+import NewsForm from 'components/NewsForm.js';
 
 class App extends Component {
   render() {
@@ -30,9 +31,11 @@ class App extends Component {
               <AnonRoute path="/signup" component={Signup} />
               <AnonRoute path="/login" component={Login} />
               <PrivateRoute path="/home" component={Principal} />
-              <PrivateRoute path="/news" component={NewsPage} />
+              <PrivateRoute exact path="/news" component={NewsPage} />
+              <PrivateRoute exact path="/news/create-news" component={NewsForm} />
               <PrivateRoute path="/chat" component={Chat} />
               <PrivateRoute path="/user" component={User} />
+         
             </Switch>
           </div>
         </AuthProvider>

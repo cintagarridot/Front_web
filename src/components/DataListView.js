@@ -37,7 +37,7 @@ const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props
               {news &&
                 <>
                   <Col xs={"4"}>
-                    <Link to='/noticias/crear-nueva-noticia' className={'link-to-pages'} >
+                    <Link to='/noticias/crear-nueva-noticia' className={'link-to-news'} >
                       <p className="list-item-heading mb-1 truncate">
                         {element.title}
                       </p>

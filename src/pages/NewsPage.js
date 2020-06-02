@@ -5,19 +5,27 @@ import News from 'components/News';
 import withAuth from 'components/withAuth';
 import Header from 'components/Header';
 import { Col, Row } from 'reactstrap';
+import { Link, Redirect } from 'react-router-dom';
+
 
 class NewsPage extends Component {
 
+    state = {
+        create: false,
+    }
 
+    createNews = () => {
+        this.setState({
+            create: !this.state.create
+        })
+    }
 
     render() {
 
         return (
             <>
                 <Header />
-                {/*} <div className="center">*/}
-
-
+               
                 <div className={'items-center'}>
 
                     <h2 className="subheader">Noticias</h2>
@@ -32,15 +40,22 @@ class NewsPage extends Component {
                         </Col>
 
                         <Col xs={'1'}>
-                            <button className="buttonSearch">Añadir noticia</button>
+                            <button className="buttonSearch" onClick={this.createNews}>
+                               Crear noticia
+                            </button>
                         </Col>
                     </Row>
                     <News />
                     <div className="clearfix"></div>
+                   
 
                 </div>
 
-                {/*}  </div >*/}
+                {this.state.create &&
+                
+                    <Redirect to='/news/create-news'/>
+
+                }
 
             </>
 
