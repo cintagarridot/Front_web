@@ -18,6 +18,7 @@ import 'assets/css/App.css';
 import 'milligram';
 import Chat from 'pages/Chat.js';
 import NewsForm from 'components/NewsForm.js';
+import NewsDetail from 'components/News/Details.js';
 
 class App extends Component {
   render() {
@@ -33,8 +34,10 @@ class App extends Component {
               <PrivateRoute path="/home" component={Principal} />
               <PrivateRoute exact path="/news" component={NewsPage} />
               <PrivateRoute exact path="/news/create-news" component={NewsForm} />
+              <PrivateRoute exact path="/news/detail/:id" component={NewsDetail} />
               <PrivateRoute path="/chat" component={Chat} />
               <PrivateRoute path="/user" component={User} />
+              
          
             </Switch>
           </div>

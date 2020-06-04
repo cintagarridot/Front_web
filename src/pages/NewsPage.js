@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import SideBar from 'components/SideBar';
-
-import News from 'components/News';
+import NewsList from '../components/News/List';
 import withAuth from 'components/withAuth';
 import Header from 'components/Header';
 import { Col, Row } from 'reactstrap';
@@ -45,7 +43,7 @@ class NewsPage extends Component {
                             </button>
                         </Col>
                     </Row>
-                    <News />
+                    <NewsList />
                     <div className="clearfix"></div>
                    
 

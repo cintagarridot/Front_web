@@ -2,7 +2,6 @@ import React, { Component, Redirect } from 'react';
 import { Formik, withFormik } from 'formik';
 import Header from './Header';
 import { FormGroup, Label, Card, CardTitle, CardBody, Button, Row, Col } from 'reactstrap';
-import News from './News';
 import NewsFormSchema from '../schemas/newsFormSchema';
 import axios from 'axios';
 import withAuth from 'components/withAuth';
