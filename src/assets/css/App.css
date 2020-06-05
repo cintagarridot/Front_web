@@ -527,7 +527,6 @@ textarea{
   text-align: left;
   margin-top: 150px;
   margin-bottom: 40px;
-  margin-left: 180px;
   padding-top: 10px;
   padding-bottom: 0px;
   /*border: 2px;*/
@@ -809,17 +808,18 @@ margin-right: 100px;
 /*BOTON PARA VOLVER A LA PAG DE NOTICIAS*/
 #goBackButton a{
   float: left;
-  margin-top: 0px;
+  margin-top: 10px;
+  padding-left: 10px;
   text-decoration: none;
   color:rgb(129, 129, 129);
   font-size: 20px;
 }
 
-#goBackButton a:hover{
+/*#goBackButton a:hover{
   color: black;
   text-decoration: underline;
   font-size: 22px;
-}
+}*/
 
 
 /* VER UNA NOTICIA CON IMAGEN*/
