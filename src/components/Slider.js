@@ -9,6 +9,7 @@ import Header from 'components/Header';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'
 import moment from 'moment';
+import axios from 'axios';
 
 class Slider extends Component {
 
@@ -58,6 +59,20 @@ class Slider extends Component {
 
 
     };
+
+     /*Peticion para eliminar una noticia*/
+     deleteNews = (toDelete) => {
+        axios.delete("http://localhost:3800/news/" + toDelete)
+            .then(res => {
+                console.log("NOTICIA BORRADA: ");
+                console.log(res.data);
+                this.setState({
+                    deleted: true,
+                    status: 'success'
+                })
+            })
+    }
+
 
 
     render() {
@@ -169,17 +184,12 @@ class Slider extends Component {
 
                     {this.state.toDelete && this.state.idToDelete !== null &&
                         <div>
-                            <News
-                                idToDelete={this.state.idToDelete}
-                                delete="true"
-                            ></News>
+                            {this.deleteNews(this.state.idToDelete)}
                             <Redirect to="/news"></Redirect>
                         </div>
                     }
 
-                    {this.props.size === 'slider-form'
-
-                    }
+                
 
                     < div className="clearfix"></div>
                 </div >

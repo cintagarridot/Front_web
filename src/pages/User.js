@@ -7,7 +7,8 @@ import withAuth from 'components/withAuth';
 class User extends Component {
 
     render() {
-
+        console.log('props del user')
+console.log(this.props)
         return (
 
             <div id="user">

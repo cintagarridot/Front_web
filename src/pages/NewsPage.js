@@ -19,7 +19,7 @@ class NewsPage extends Component {
     }
 
     render() {
-
+      
         return (
             <>
                 <Header />
@@ -43,7 +43,7 @@ class NewsPage extends Component {
                             </button>
                         </Col>
                     </Row>
-                    <NewsList />
+                    <NewsList props={this.props}/>
                     <div className="clearfix"></div>
                    
 

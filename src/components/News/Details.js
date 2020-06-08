@@ -85,19 +85,6 @@ class NewsDetail extends Component {
 
     }
 
-    /*Peticion para eliminar una noticia*/
-    deleteNews = (toDelete) => {
-        axios.delete("http://localhost:3800/news/" + toDelete)
-            .then(res => {
-                console.log("NOTICIA BORRADA: ");
-                console.log(res.data);
-                this.setState({
-                    deleted: true,
-                    status: 'success'
-                })
-            })
-    }
-
 
 
     render() {

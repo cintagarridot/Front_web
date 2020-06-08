@@ -19,7 +19,7 @@ class NewsList extends Component {
     componentDidMount() {
 
        this.getNews();
-        
+       
     }
 
     /*Peticion para traer todas las noticias */
@@ -45,9 +45,8 @@ class NewsList extends Component {
 
     render() {
 
-
         return (
-
+          
             <section id="content" >
 
                 {this.state.status === 'success' &&

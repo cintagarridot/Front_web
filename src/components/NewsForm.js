@@ -9,8 +9,23 @@ import withAuth from 'components/withAuth';
 
 class NewsForm extends Component {
 
-    
+    state = {
+
+        user: {}
+
+    }
+
+    componentDidMount () {
+        this.setState({
+            user: this.props.user
+        })
+        console.log('user dep del estado')
+        console.log(this.state.user);
+    }
+
     handleSubmit = (values) => {
+       
+      
         console.log(values);
         /*newsService
             .addNews(values)*/
