@@ -503,6 +503,7 @@ textarea{
 
 }
 
+
 .slider-asignatura h3{
 
   margin-left: 30px;
@@ -532,6 +533,13 @@ textarea{
   /*border: 2px;*/
   /*border-radius: .5rem;*/
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+}
+
+#slider.slider-noticia p{
+
+  font-size: 17px;
+
 }
 
 #slider.titulo-noticias{

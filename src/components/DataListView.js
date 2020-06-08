@@ -5,10 +5,9 @@ import { ContextMenuTrigger } from "react-contextmenu";
 import classnames from "classnames";
 
 import moment from 'moment';
+import 'moment/locale/es';
 import Col from "reactstrap/es/Col";
 import { Link } from 'react-router-dom';
-
-
 
 const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props }) => {
 
@@ -44,7 +43,8 @@ const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props
                   </Col>
 
                   <Col xs={"3"}>
-                    <p className="mb-1 text-muted text-small w-15 w-sm-100">
+                    <p className="mb-1 text-muted text-small ">
+                      
                       {moment(element.date).format('L')}
                     </p>
                   </Col>
