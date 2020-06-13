@@ -1047,3 +1047,14 @@ margin-right: 100px;
 
 
 }
+
+.subheaderUser{
+  font-size: 32px;
+  padding-top: 20px;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  
+  text-align: center;
+  border-bottom: 1px solid #eee; /*linea divisoria*/
+  padding-bottom: 10px;
+}
