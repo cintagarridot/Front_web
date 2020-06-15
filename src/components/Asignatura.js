@@ -117,8 +117,9 @@ class Asignatura extends Component {
                             return (
                                 <DataListView
                                     key={subject.id}
-                                    subject={subject}
+                                    element={subject}
                                     onCheckItem={this.onCheckItem}
+                                    subjects
                                 />
                             );
                         })

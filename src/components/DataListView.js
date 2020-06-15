@@ -5,35 +5,57 @@ import { ContextMenuTrigger } from "react-contextmenu";
 import classnames from "classnames";
 
 import moment from 'moment';
+import 'moment/locale/es';
 import Col from "reactstrap/es/Col";
+import { Link } from 'react-router-dom';
 
+const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props }) => {
 
-
-const DataListView = ({ isSelect, subject, onCheckItem, ...props }) => {
-
- 
+  console.log(element);
   return (
-    <Col xxs="12" className="mb-3">
-      <ContextMenuTrigger id="menu_id" data={subject.id}>
+    <Col xxs="12" className="mb-5">
+      <ContextMenuTrigger id="menu_id" data={element.id}>
         <Card
-          onClick={event => onCheckItem(event, subject.id)}
-          //className={classnames("d-flex flex-row", 
-            
+          onClick={event => onCheckItem(event, element.id)}
+
         >
           <div className="pl-2 d-flex flex-grow-1 min-width-zero">
             <div className="card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center">
 
-              <Col xs={"4"}>
-                <p className="list-item-heading mb-1 truncate">
-                  {subject.title}
-                </p>
-              </Col>
+              {subjects &&
 
+                <Col xs={"4"}>
+                  <p className="list-item-heading mb-1 truncate">
+                    {element.title}
+                  </p>
+                </Col>
+
+              }
+
+              {news &&
+                <>
+                  <Col xs={"4"}>
+                    <Link to={'/news/detail/'+element._id} className={'link-to-news'} >
+                      <p className="list-item-heading mb-1 truncate">
+                        {element.title}
+                      </p>
+                    </Link>
+                  </Col>
+
+                  <Col xs={"3"}>
+                    <p className="mb-1 text-muted text-small ">
+                      
+                      {moment(element.date).format('L')}
+                    </p>
+                  </Col>
+                </>
+              }
             </div>
           </div>
+
         </Card>
       </ContextMenuTrigger>
-   </Col>
+    </Col>
   );
 };
 

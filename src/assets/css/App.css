@@ -398,12 +398,18 @@ textarea{
 
 }
 
+.items-center{
+  margin-top: 80px;
+}
+
 .subheader{
   font-size: 38px;
   padding-top: 20px;
   margin-top: 10px;
+  margin-bottom: 30px;
   border-bottom: 1px solid #eee; /*linea divisoria*/
   padding-bottom: 10px;
+  text-align: center;
 }
 
 .subheaderdos{
@@ -520,12 +526,18 @@ textarea{
   text-align: left;
   margin-top: 150px;
   margin-bottom: 40px;
-  margin-left: 180px;
   padding-top: 10px;
   padding-bottom: 0px;
   /*border: 2px;*/
   /*border-radius: .5rem;*/
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+}
+
+#slider.slider-noticia p{
+
+  font-size: 17px;
+
 }
 
 #slider.titulo-noticias{
@@ -751,20 +763,12 @@ margin-right: 100px;
 
 /*BUSCADOR NOTICIAS*/
 .searchNews{
-  width: 100px;
+  width: 200px;
   height: 20px;
   
 }
 
 .buttonSearch{
- 
-  width: 100px;
-  height: 35px;
-  margin-left: 8px;
-  background: white;
-  font-size: 16px;
-
-  transition: 300ms all;
   cursor: pointer;
 }
 
@@ -810,17 +814,18 @@ margin-right: 100px;
 /*BOTON PARA VOLVER A LA PAG DE NOTICIAS*/
 #goBackButton a{
   float: left;
-  margin-top: 0px;
+  margin-top: 10px;
+  padding-left: 10px;
   text-decoration: none;
   color:rgb(129, 129, 129);
   font-size: 20px;
 }
 
-#goBackButton a:hover{
+/*#goBackButton a:hover{
   color: black;
   text-decoration: underline;
   font-size: 22px;
-}
+}*/
 
 
 /* VER UNA NOTICIA CON IMAGEN*/
@@ -1048,6 +1053,29 @@ margin-right: 100px;
 
 }
 
+.link-to-pages{
+  font-style: none;
+  color: white;
+  text-decoration: none;
+}
+
+.link-to-pages:hover{
+  font-style: none;
+  color: white;
+  text-decoration: none;
+}
+
+.link-to-news{
+  font-style: none;
+  color: black;
+  text-decoration: none;
+}
+
+.link-to-news:hover{
+  font-style: none;
+  color: black;
+  text-decoration: none;
+}
 .subheaderUser{
   font-size: 32px;
   padding-top: 20px;

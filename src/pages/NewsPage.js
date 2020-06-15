@@ -1,44 +1,59 @@
 import React, { Component } from 'react';
-import SideBar from 'components/SideBar';
-
-import News from 'components/News';
+import NewsList from '../components/News/List';
 import withAuth from 'components/withAuth';
 import Header from 'components/Header';
+import { Col, Row } from 'reactstrap';
+import { Link, Redirect } from 'react-router-dom';
+
 
 class NewsPage extends Component {
 
-      
+    state = {
+        create: false,
+    }
+
+    createNews = () => {
+        this.setState({
+            create: !this.state.create
+        })
+    }
 
     render() {
-
+      
         return (
             <>
                 <Header />
-                <div className="center">
+               
+                <div className={'items-center'}>
 
-                    <section id="content">
+                    <h2 className="subheader">Noticias</h2>
 
+                    <Row className={'mb-5 ml-1'}>
+                        <Col xs={'6'}>
+                            <input className="searchNews" type="text" placeholder="Buscar noticia..." />
+                        </Col>
 
-                        <h2 className="subheaderdos">Noticias</h2>
-                        
-                        
-                            <th>
-                                <input className= "searchNews" type="text" placeholder="Buscar noticia..." />
-                            </th>  
-                            <th>
-                                <button className="buttonSearch">Buscar</button>
-                            </th>
-                            
-                      
-                        <input type="date" className="dateSearchNews"/>
+                        <Col xs={'0.5'}>
+                            <button className="buttonSearch">Buscar</button>
+                        </Col>
 
-                        <News/>
-                        <div className="clearfix"></div>
+                        <Col xs={'1'}>
+                            <button className="buttonSearch" onClick={this.createNews}>
+                               Crear noticia
+                            </button>
+                        </Col>
+                    </Row>
+                    <NewsList props={this.props}/>
+                    <div className="clearfix"></div>
+                   
 
-                    </section>
+                </div>
 
-                    <SideBar texto="¿Desea crear una nueva noticia?" btn="Crear noticia"></SideBar>
-                </div >
+                {this.state.create &&
+                
+                    <Redirect to='/news/create-news'/>
+
+                }
 
             </>
 

@@ -1,4 +1,4 @@
-simport React, { Component, Redirect } from 'react';
+import React, { Component, Redirect } from 'react';
 import { Formik, withFormik } from 'formik';
 import Header from './Header';
 import { FormGroup, Label, Card, CardTitle, CardBody, Button, Row, Col } from 'reactstrap';
@@ -16,7 +16,6 @@ class NewsForm extends Component {
     }
 
     componentDidMount () {
-      
         this.setState({
             user: this.props.user
         })
