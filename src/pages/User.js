@@ -41,10 +41,13 @@ console.log(this.props)
                                 <h3 className='profile-text'>Username</h3>
                                 <h3>{this.props.user.username}</h3>
                             </Col>
-                            <Col xs={'12'}>
-                                <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
-                                <h3>{this.props.user.subjects.length}</h3>
-                            </Col>
+                            {this.user &&
+                                 <Col xs={'12'}>
+                                 <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
+                                 <h3>{this.props.user.subjects.length}</h3>
+                             </Col>
+                            }
+                           
                         </Row>
 
 

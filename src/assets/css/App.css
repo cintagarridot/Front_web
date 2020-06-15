@@ -1100,4 +1100,36 @@ margin-right: 100px;
   color: #909090;
 }
 
+.auth-card{
 
+  margin: auto;
+  margin-top: 150px;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 900px;
+ 
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.link:hover{
+  text-decoration: none;
+  color: rgb(52, 150, 231);
+}
+
+.button-color{
+  background-color: rgb(52, 150, 231);
+  border-color: rgb(52, 150, 231);
+
+}
+
+.button-color:hover{
+  background-color: rgb(103, 164, 243);
+  border-color: rgb(103, 164, 243);
+}
