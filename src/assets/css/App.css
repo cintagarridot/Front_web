@@ -1107,8 +1107,21 @@ margin-right: 100px;
   justify-content: center;
   align-items: center;
   height: 400px;
-  width: 900px;
+  width: 70%;
  
+}
+
+.auth-card-signup{
+  margin: auto;
+  margin-top: 120px;
+  width: 70%;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card-signup input[text]{
+  width: 200px;
 }
 
 .link{
