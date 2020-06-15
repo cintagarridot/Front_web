@@ -43,15 +43,15 @@ class Login extends Component {
         }
         <Card style={{ background: '#fffdfd' }} className="auth-card">
           <form onSubmit={this.handleFormSubmit}>
-            <label htmlFor='username' >Username:</label>
-            <input className={'mt-2'} id='username' type='text' name='username' value={username} onChange={this.handleChange} />
-            <label className={'mt-2'} htmlFor='password'>Password:</label>
-            <input className={'mt-2'} id='password' type='password' name='password' value={password} onChange={this.handleChange} />
+            <label htmlFor='username' >Username</label>
+            <input className={'mt-2'} required='true' id='username' type='text' name='username' value={username} onChange={this.handleChange} />
+            <label className={'mt-2'} htmlFor='password'>Password</label>
+            <input className={'mt-2'} required='true' id='password' type='password' name='password' value={password} onChange={this.handleChange} />
             <input className={'mt-4 button-color'} type='submit' value='Login' />
           </form>
 
           <p style={{ fontSize: '12px' }}>¿No tienes cuenta?
-            <Link to={'/signup'} className={'link'}> Signup</Link>
+            <Link to={'/signup'} className={'link'}> Regístrate</Link>
           </p>
 
         </Card>
