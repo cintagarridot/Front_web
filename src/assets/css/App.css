@@ -1047,3 +1047,29 @@ margin-right: 100px;
 
 
 }
+
+.subheaderUser{
+  font-size: 32px;
+  padding-top: 20px;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  
+  text-align: center;
+  border-bottom: 1px solid #eee; /*linea divisoria*/
+  padding-bottom: 10px;
+}
+
+.profile-text{
+
+  height: 15px;
+  font-family: Muli;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #909090;
+}
+
+
