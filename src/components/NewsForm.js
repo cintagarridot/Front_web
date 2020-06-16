@@ -1,31 +1,33 @@
 import React, { Component, Redirect } from 'react';
 import { Formik, withFormik } from 'formik';
 import Header from './Header';
-import { FormGroup, Label, Card, CardTitle, CardBody, Button, Row, Col } from 'reactstrap';
+import { FormGroup, Input, Label, Card, CardTitle, CardBody, Button, Row, Col } from 'reactstrap';
 import NewsFormSchema from '../schemas/newsFormSchema';
 import axios from 'axios';
 import withAuth from 'components/withAuth';
+import NewsList from './News/List';
+import { Link, withRouter } from 'react-router-dom';
 
 
 class NewsForm extends Component {
 
     state = {
 
-        user: {}
-
+        userId: '',
+        redirection: false,
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.setState({
-            user: this.props.user
+            userId: this.props.user._id
         })
         console.log('user dep del estado')
         console.log(this.state.user);
     }
 
     handleSubmit = (values) => {
-       
-      
+
+        values.usuario = this.state.userId;
         console.log(values);
         /*newsService
             .addNews(values)*/
@@ -37,10 +39,10 @@ class NewsForm extends Component {
             .catch((data) => {
                 console.log('error', data);
             });
+
     };
 
-
-
+   
     render() {
 
         return (
@@ -86,6 +88,7 @@ class NewsForm extends Component {
                                     <FormGroup>
                                         <Label class="col-sm-2 col-form-label">Contenido</Label>
                                         <textarea
+                                            style={{ background: 'white' }}
                                             type="content"
                                             name="content"
                                             onChange={handleChange}
@@ -101,7 +104,7 @@ class NewsForm extends Component {
                                     <FormGroup>
                                         <Row>
                                             <Col xs={'1'}>
-                                                <button className="btn btn-primary" color="primary" size='lg' >Crear</button>
+                                            <a href='/news'><Input type="submit" value='Crear'></Input></a>
                                             </Col>
 
                                             <Col xs={'0.1'}>
@@ -112,8 +115,10 @@ class NewsForm extends Component {
                                 </form>
                             )}
                     </Formik>
-                    
+
                 </div>
+              
+
             </div>
 
         );
@@ -132,7 +137,7 @@ export default withFormik({
 
             setSubmitting(true);
             this.handleSubmit(values);
-            console.log('entra');
+            
             /*  setTimeout(() => {
                   {this.handleSubmit};
                   console.log('entra');
@@ -142,4 +147,4 @@ export default withFormik({
         },
     displayName: 'NewsForm'
 
-})(NewsForm);
+})(withRouter(withAuth(NewsForm)));

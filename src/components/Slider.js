@@ -119,10 +119,8 @@ class Slider extends Component {
 
                             <div id="newsDivAuthor">
                                 <h2>Autor</h2>
-                                <Slider
-                                    size="slider-smallInfo"
-                                    nameAuthor={this.props.author}
-                                />
+                                <h3>{this.props.user.firstName} {this.props.user.lastName}</h3>
+                                
                             </div>
                             <div id="newsDivDate">
                                 <h2>Fecha: {this.props.date}</h2>
@@ -139,16 +137,14 @@ class Slider extends Component {
 
                     {this.props.size === 'slider-noticia' && !this.props.image &&
                         <div>
+                            { console.log(this.props.author)}
                             <h1 className="subheaderdos">{this.props.title}</h1>
                             <div id="newsDivContent2">
                                 <p>{this.props.content}</p>
                             </div>
                             <div id="newsDivAuthor">
                                 <h2>Autor</h2>
-                                <Slider
-                                    size="slider-smallInfo"
-                                    nameAuthor={this.props.author}
-                                />
+                                <h3>{this.props.author.firstName} {this.props.author.lastName}</h3>
                             </div>
                             <div id="newsDivDate">
                                 <h2>Fecha: {moment(this.props.date).format('L')}</h2>
