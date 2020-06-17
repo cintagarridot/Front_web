@@ -15,7 +15,8 @@ const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props
   return (
     <Col xxs="12" className="mb-5">
       <ContextMenuTrigger id="menu_id" data={element.id}>
-        <Card style={{ width: '1000px', height: '90px', fontSize: '16px', justifyContent: 'center', padding: '20px' }}
+        <Card style={{ width: '1000px', height: '90px', fontSize: '16px',
+         justifyContent: 'center', padding: '20px' }}
           onClick={event => onCheckItem(event, element.id)}
 
         >

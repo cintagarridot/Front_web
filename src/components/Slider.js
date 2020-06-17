@@ -60,8 +60,8 @@ class Slider extends Component {
 
     };
 
-     /*Peticion para eliminar una noticia*/
-     deleteNews = (toDelete) => {
+    /*Peticion para eliminar una noticia*/
+    deleteNews = (toDelete) => {
         axios.delete("http://localhost:3800/news/" + toDelete)
             .then(res => {
                 console.log("NOTICIA BORRADA: ");
@@ -81,7 +81,7 @@ class Slider extends Component {
             <>
                 <Header />
 
-
+            
                 <div id="slider" className={this.props.size} > {/*<!--le podemos poner varias clases para usarlas dependiendo de que pagina estemos-->*/}
 
                     {this.props.size === 'slider-big' &&
@@ -120,7 +120,7 @@ class Slider extends Component {
                             <div id="newsDivAuthor">
                                 <h2>Autor</h2>
                                 <h3>{this.props.user.firstName} {this.props.user.lastName}</h3>
-                                
+
                             </div>
                             <div id="newsDivDate">
                                 <h2>Fecha: {this.props.date}</h2>
@@ -137,14 +137,14 @@ class Slider extends Component {
 
                     {this.props.size === 'slider-noticia' && !this.props.image &&
                         <div>
-                            { console.log(this.props.author)}
+                            {console.log(this.props.author)}
                             <h1 className="subheaderdos">{this.props.title}</h1>
                             <div id="newsDivContent2">
                                 <p>{this.props.content}</p>
                             </div>
                             <div id="newsDivAuthor">
-                                <h2>Autor</h2>
-                                <h3>{this.props.author.firstName} {this.props.author.lastName}</h3>
+                                <h3>Autor</h3>
+                                <h4>{this.props.author.firstName} {this.props.author.lastName}</h4>
                             </div>
                             <div id="newsDivDate">
                                 <h2>Fecha: {moment(this.props.date).format('L')}</h2>
@@ -181,11 +181,11 @@ class Slider extends Component {
                     {this.state.toDelete && this.state.idToDelete !== null &&
                         <div>
                             {this.deleteNews(this.state.idToDelete)}
-                            <Redirect to="/news"></Redirect>
+                            <Redirect to="/news?deleted=true"></Redirect>
                         </div>
                     }
 
-                
+
 
                     < div className="clearfix"></div>
                 </div >
