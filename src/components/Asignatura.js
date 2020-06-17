@@ -104,8 +104,6 @@ class Asignatura extends Component {
 
         return (
 
-            console.log(this.state.userSubjects),
-
             <section id="content" >
 
                 {this.state.status === 'usersubjects' &&
