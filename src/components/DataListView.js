@@ -6,7 +6,7 @@ import classnames from "classnames";
 
 import moment from 'moment';
 import 'moment/locale/es';
-import Col from "reactstrap/es/Col";
+import {Col, Row} from "reactstrap";
 import { Link } from 'react-router-dom';
 
 const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props }) => {
@@ -15,43 +15,46 @@ const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props
   return (
     <Col xxs="12" className="mb-5">
       <ContextMenuTrigger id="menu_id" data={element.id}>
-        <Card
+        <Card style={{ width: '1000px', height: '90px', fontSize: '16px',
+         justifyContent: 'center', padding: '20px' }}
           onClick={event => onCheckItem(event, element.id)}
 
         >
-          <div className="pl-2 d-flex flex-grow-1 min-width-zero">
-            <div className="card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center">
 
-              {subjects &&
+          {subjects &&
+
+            <Col xs={"4"}>
+              <p className="list-item-heading mb-1 truncate">
+                {element.title}
+              </p>
+            </Col>
+
+          }
+
+          {news &&
+            <>
+              <Row>
+                <Col xs={"4"}>
+                    <p className="list-item-heading mb-1 truncate">
+                      {element.title}
+                    </p>
+                </Col>
 
                 <Col xs={"4"}>
-                  <p className="list-item-heading mb-1 truncate">
-                    {element.title}
+                  <p className="mb-1 text-muted text-small ">
+
+                    {moment(element.date).format('L')}
                   </p>
                 </Col>
 
-              }
+                <Col xs={"4"} style={{textAlign: 'center'}}>
+                  <Link to={'/news/detail/' + element._id} className={'btn btn-primary'} style={{fontSize: '14px'}} >Ver detalles</Link>
+                </Col>
+              </Row>
 
-              {news &&
-                <>
-                  <Col xs={"4"}>
-                    <Link to={'/news/detail/'+element._id} className={'link-to-news'} >
-                      <p className="list-item-heading mb-1 truncate">
-                        {element.title}
-                      </p>
-                    </Link>
-                  </Col>
+            </>
+          }
 
-                  <Col xs={"3"}>
-                    <p className="mb-1 text-muted text-small ">
-                      
-                      {moment(element.date).format('L')}
-                    </p>
-                  </Col>
-                </>
-              }
-            </div>
-          </div>
 
         </Card>
       </ContextMenuTrigger>

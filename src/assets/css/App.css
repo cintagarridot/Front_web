@@ -407,7 +407,7 @@ textarea{
   padding-top: 20px;
   margin-top: 10px;
   margin-bottom: 30px;
-  border-bottom: 1px solid #eee; /*linea divisoria*/
+  border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
   padding-bottom: 10px;
   text-align: center;
 }
@@ -420,7 +420,7 @@ textarea{
   margin-bottom: 30px;
   
   text-align: center;
-  border-bottom: 1px solid #eee; /*linea divisoria*/
+  border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
   padding-bottom: 10px;
 
 }
@@ -770,6 +770,7 @@ margin-right: 100px;
 
 .buttonSearch{
   cursor: pointer;
+  font-size: 13px;
 }
 
 .dateSearchNews{
@@ -1083,7 +1084,7 @@ margin-right: 100px;
   margin-bottom: 30px;
   
   text-align: center;
-  border-bottom: 1px solid #eee; /*linea divisoria*/
+  border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
   padding-bottom: 10px;
 }
 

@@ -4,11 +4,11 @@ const NewsFormSchema = Yup.object().shape({
     title: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
-        .required('Required'), 
+        .required('Completa este campo'), 
     content: Yup.string()
         .min(6, 'Too short!')
         .max(255, 'Too Long!')
-        .required('Required'),
+        .required('Completa este campo'),
     /*image: Yup.image()
         .image('Invalid image')*/
 });

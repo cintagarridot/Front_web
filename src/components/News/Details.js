@@ -10,6 +10,8 @@ class NewsDetail extends Component {
     state = {
         news: {},
         id: '',
+        userId: '',
+        user: {},
         status: null,
     }
 
@@ -32,34 +34,24 @@ class NewsDetail extends Component {
             this.deleteNews(this.props.idToDelete);
         }
 
-        
-
-
+    
     }
 
 
 
     /*Peticion para traer una noticia por id */
-    getNewsById = (id) => {
+    getNewsById = async(id) => {
         console.log("search axios");
         console.log(id);
-        axios.get("http://localhost:3800/news/" + id) //url a la que le vamos a hacer una peticion por get a la API REST
+        await axios.get("http://localhost:3800/news/" + id) //url a la que le vamos a hacer una peticion por get a la API REST
             .then(res => {
-                console.log("ENTRAAAAA");
-                console.log("search axios");
-                console.log(id);
-                console.log("respuesta dentro del axiossss");
-                console.log(res.data);
                 if (res.data) {
                     this.setState({
                         news: res.data.noticia,
+                        userId: res.data.noticia.usuario,
                         searchById: true,
                         status: 'success'
                     });
-                    console.log("SOL DESPUES DEL IF")
-                    console.log(this.state.searchById);
-                    console.log(res.data.noticia);
-                    console.log(this.state.news);
                 } else {
                     console.log("error")
                     this.setState({
@@ -67,6 +59,27 @@ class NewsDetail extends Component {
                     });
                 }
             });
+
+            this.getUser(this.state.userId);
+    
+    }
+
+    getUser = (id) => {
+        console.log('entra en el getUser')
+       console.log(id)
+        axios.get("http://localhost:3800/users/one/" + id)
+            .then( res => {
+                if(res.data){
+                    console.log('hola:')
+                    console.log(res.data);
+                    this.setState({
+                        user: res.data.usuario
+                    })
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     /*Peticion para editar una noticia */
@@ -100,6 +113,7 @@ class NewsDetail extends Component {
                                 Volver
                             </a>
                         </div>
+                       
                         {this.state.news.image ? (
                             <div>
                                 <Slider
@@ -108,7 +122,7 @@ class NewsDetail extends Component {
                                     title={this.state.news.title}
                                     content={this.state.news.content}
                                     image={this.state.news.image}
-                                    author={this.state.news.usuario}
+                                    author={this.state.user}
                                     date={this.state.news.date}
                                 ></Slider>
                             </div>
@@ -119,7 +133,7 @@ class NewsDetail extends Component {
                                         id={this.state.news._id}
                                         title={this.state.news.title}
                                         content={this.state.news.content}
-                                        author={this.state.news.usuario}
+                                        author={this.state.user}
                                         date={this.state.news.date}
                                     ></Slider>
                                 </div>

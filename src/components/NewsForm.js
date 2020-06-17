@@ -1,121 +1,149 @@
 import React, { Component, Redirect } from 'react';
 import { Formik, withFormik } from 'formik';
 import Header from './Header';
-import { FormGroup, Label, Card, CardTitle, CardBody, Button, Row, Col } from 'reactstrap';
+import { FormGroup, Input, Label, Card, CardTitle, CardBody, Button, Row, Col, Alert, UncontrolledAlert } from 'reactstrap';
 import NewsFormSchema from '../schemas/newsFormSchema';
 import axios from 'axios';
 import withAuth from 'components/withAuth';
+import NewsList from './News/List';
+import { Link, withRouter } from 'react-router-dom';
 
 
 class NewsForm extends Component {
 
     state = {
-
-        user: {}
-
+        userId: '',
+        redirection: false,
+        alert: '',
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.setState({
-            user: this.props.user
+            userId: this.props.user._id
         })
         console.log('user dep del estado')
         console.log(this.state.user);
     }
 
     handleSubmit = (values) => {
-       
-      
+
+        values.usuario = this.state.userId;
         console.log(values);
         /*newsService
             .addNews(values)*/
         axios.post("http://localhost:3800/news/", values)
             .then((data) => {
-                console.log('added', data);
+                this.setState({
+                    alert: 'success'
+                })
             })
             /* 404 */
             .catch((data) => {
-                console.log('error', data);
+                this.setState({
+                    alert: 'fail'
+                })
             });
-    };
 
+    };
 
 
     render() {
 
         return (
 
-            <div id="formulario">
+            <>
                 <Header />
-                <div className="center">
 
-                    <Formik
-                        initialValues={{ title: '', content: '', image: '' }}
-                        validationSchema={NewsFormSchema}
-                        onSubmit={(values, { setSubmitting }) => {
-                            setTimeout(() => {
-                                console.log('entra');
-                                this.handleSubmit(values);
-                                setSubmitting(true);
-                            }, 400);
-                        }}
-                    >
-                        {({
-                            values,
-                            errors,
-                            touched,
-                            handleChange,
-                            handleBlur,
-                            handleSubmit,
-                            isSubmitting,
-                        }) => (
-                                <form className="formCompleto" onSubmit={handleSubmit}>
-                                    <FormGroup>
-                                        <Label class="col-sm-2 col-form-label">Titulo</Label>
-                                        <input
-                                            className="form-control"
-                                            type="title"
-                                            name="title"
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.title}
-                                        />
+                <div className={'items-center'}>
+                    {this.state.alert === 'success' ?
+                        <>
+                            <UncontrolledAlert color="success" fade={false} style={{ fontSize: '20px' }}>
+                                Noticia creada correctamente
+                        </UncontrolledAlert>
 
-                                        {errors.title && touched.title && errors.title}
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label class="col-sm-2 col-form-label">Contenido</Label>
-                                        <textarea
-                                            type="content"
-                                            name="content"
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            value={values.content}
-                                        />
+                        </>
+                        : (this.state.alert === 'fail' &&
+                            <Alert color="danger" fade={false} style={{ fontSize: '20px' }}>
+                                Error. No se ha creado la noticia
+                        </Alert>
+                        )
+                    }
+                    <div id="formulario">
+                        <div className="center">
 
-                                        {errors.content && touched.content && errors.content}
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <input type="file" />
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Row>
-                                            <Col xs={'1'}>
-                                                <button className="btn btn-primary" color="primary" size='lg' >Crear</button>
-                                            </Col>
+                            <Formik
+                                initialValues={{ title: '', content: '', image: '' }}
+                                validationSchema={NewsFormSchema}
+                                onSubmit={(values, { setSubmitting }) => {
+                                    setTimeout(() => {
+                                        console.log('entra');
+                                        this.handleSubmit(values);
+                                        setSubmitting(true);
+                                    }, 400);
+                                }}
+                            >
+                                {({
+                                    values,
+                                    errors,
+                                    touched,
+                                    handleChange,
+                                    handleBlur,
+                                    handleSubmit,
+                                    isSubmitting,
+                                }) => (
+                                        <form className="formCompleto" onSubmit={handleSubmit}>
+                                            <FormGroup>
+                                                <Label class="col-sm-2 col-form-label">Titulo</Label>
+                                                <input
+                                                    className="form-control"
+                                                    type="title"
+                                                    name="title"
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    value={values.title}
+                                                    style={{ fontSize: '14px' }}
+                                                />
 
-                                            <Col xs={'0.1'}>
-                                                <button className="btn btn-secondary" size='lg' color="secondary"><a className={'link-to-pages'} href="/news">Cancelar</a></button>
-                                            </Col>
-                                        </Row>
-                                    </FormGroup>
-                                </form>
-                            )}
-                    </Formik>
-                    
+                                                {errors.title && touched.title && errors.title}
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <Label class="col-sm-2 col-form-label">Contenido</Label>
+                                                <textarea
+                                                    style={{ background: 'white', fontSize: '14px' }}
+                                                    type="content"
+                                                    name="content"
+                                                    onChange={handleChange}
+                                                    onBlur={handleBlur}
+                                                    value={values.content}
+
+                                                />
+
+                                                {errors.content && touched.content && errors.content}
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <input type="file" style={{ fontSize: '14px', marginTop: '10px', marginBottom: '10px' }} />
+                                            </FormGroup>
+                                            <FormGroup>
+                                                <Row>
+                                                    <Col xs={'2'}>
+                                                        <a href='/news'><Input type="submit" value='Crear' style={{ fontSize: '14px' }}></Input></a>
+                                                    </Col>
+
+                                                    <Col xs={'0.1'}>
+                                                        <button style={{ fontSize: '14px', textTransform: 'uppercase' }} className="btn btn-secondary" size='lg' color="secondary"><a className={'link-to-pages'} href="/news">Cancelar</a></button>
+                                                    </Col>
+                                                </Row>
+                                            </FormGroup>
+                                        </form>
+                                    )}
+                            </Formik>
+
+                        </div>
+
+                    </div>
+
                 </div>
-            </div>
-
+            </>
         );
 
 
@@ -132,7 +160,7 @@ export default withFormik({
 
             setSubmitting(true);
             this.handleSubmit(values);
-            console.log('entra');
+
             /*  setTimeout(() => {
                   {this.handleSubmit};
                   console.log('entra');
@@ -142,4 +170,4 @@ export default withFormik({
         },
     displayName: 'NewsForm'
 
-})(NewsForm);
+})(withRouter(withAuth(NewsForm)));
