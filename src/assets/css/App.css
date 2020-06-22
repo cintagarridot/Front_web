@@ -148,37 +148,6 @@ body{
   text-align: center;
 }
 
-#slider.titulo-inicioSesion{
- 
-  margin-top: 15px;
-  font-size: inherit;
-  font-family: inherit;
-  font-style: inherit;
-}
-
-#slider.slider-sesion{
-
-  display:block;
-  background: white;
-  color: rgb(71, 176, 236);
-
-  text-decoration: none;
-  
-  text-shadow: none;
-  text-align: center;
-
-  float: right;
-  width: 35%;
-  margin-right: 180px;
-
-  font-family: Georgia, 'Times New Roman', Times, serif;
-
-  border-radius: 0px; /*Redondear los bordes del slider*/
-  box-shadow: 0px 0px 2px rgb(124, 124, 124); /*Resaltar el slider*/
-
-
-}
-
 
 #slider.slider-sesion .btn {
 
@@ -1141,7 +1110,8 @@ margin-right: 100px;
 .button-color{
   background-color: rgb(52, 150, 231);
   border-color: rgb(52, 150, 231);
-
+  transition: 300ms all; /*para que al pasar por encima lo haga de una forma mas suavizada*/
+  cursor: pointer; /*cuando haga hover me pinta la mano del dedito y no el cursor normal de la flecha*/
 }
 
 .button-color:hover{
