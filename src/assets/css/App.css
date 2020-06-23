@@ -518,9 +518,10 @@ textarea{
   font-style: inherit;
 }
 
-#slider.slider-big{
+#slider.slider-initial{
+  height: 80px;
   margin-top: 90px;
-  padding-top: 80px; /*Para el texto*/
+  
 }
 
 #slider.slider-bienvenida{

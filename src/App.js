@@ -28,7 +28,8 @@ class App extends Component {
         <AuthProvider>
           <div className="container">
             <Switch>
-            {/*<Route path="/" render={() => <Redirect from="/" to="/login"/> } />*/}
+            <Route exact path="/" render={() => <Redirect from="/" to="/login"/> } />
+              
               <AnonRoute path="/signup" component={Signup} />
               <AnonRoute path="/login" component={Login} />
               <PrivateRoute path="/home" component={Principal} />
@@ -37,7 +38,7 @@ class App extends Component {
               <PrivateRoute exact path="/news/detail/:id" component={NewsDetail} />
               <PrivateRoute path="/chat" component={Chat} />
               <PrivateRoute path="/user" component={User} />
-              
+          {/*}    <Redirect exact from="/" to="/login"/>*/}
          
             </Switch>
           </div>

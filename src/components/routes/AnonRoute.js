@@ -7,7 +7,7 @@ const AnonRoute = (props) => {
   const {isLoggedIn, component: Component, ...rest} = props;
   return (
     <>
-      {!isLoggedIn ?  <Route 
+      {!isLoggedIn ? <Route 
         render={(props) => {
           return <Component {...props}/>
         }}

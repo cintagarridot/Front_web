@@ -158,7 +158,6 @@ class User extends Component {
                 <div className="clearfix"></div>
 
 
-
             </div>
 
         );

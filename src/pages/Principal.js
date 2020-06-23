@@ -20,7 +20,7 @@ class Principal extends Component {
             <div>
                 <Header />
                 <Slider
-                    size="slider-big"
+                    size="slider-initial"
                     title="Departamento de Tecnología de la Información"
                     button="etsi"
                     button2="moodle"
