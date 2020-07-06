@@ -102,7 +102,7 @@ class User extends Component {
                                     <h3 className='profile-text'>Username</h3>
                                     <h3>{this.state.username}</h3>
                                 </Col>
-                                {this.props.user &&
+                                {(this.props.user.type !== 'admin' && this.props.user) &&
                                     <Col xs={'12'}>
                                         <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
                                         <h3>{this.props.user.subjects.length}</h3>
@@ -124,7 +124,7 @@ class User extends Component {
                                     <h3 className='profile-text'>Username</h3>
                                     <input className={'font'} name='username' type="text" onChange={this.handleChange}></input>
                                 </Col>
-                                {this.props.user &&
+                                {(this.props.user.type !== 'admin' && this.props.user) &&
                                     <Col xs={'12'}>
                                         <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
                                         <h3>{this.props.user.subjects.length}</h3>

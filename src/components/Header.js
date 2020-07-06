@@ -36,6 +36,12 @@ class Header extends Component{
                             <li>
                                 <NavLink to="/user" activeClassName="active">Usuario</NavLink>
                             </li>
+                            {this.props.user.type === 'admin' &&
+                                <li>
+                                    <NavLink to="/users-list" activeClassName="active">Lista de Usuarios</NavLink>
+                                </li>
+                            }
+                            
 
                         </ul>
                     </nav>
@@ -53,4 +59,4 @@ class Header extends Component{
 
 }
 
-export default Header;
+export default withAuth(Header);
