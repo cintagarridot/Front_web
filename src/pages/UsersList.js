@@ -12,6 +12,7 @@ import Header from 'components/Header';
 import Slider from 'components/Slider';
 import DataListView from 'components/DataListView';
 import axios from 'axios';
+import {Row, Col} from 'reactstrap';
 
 
 class UsersList extends Component {
@@ -48,6 +49,16 @@ class UsersList extends Component {
             <div>
                 <Header />
                            
+                <div id="user">
+                    <Row className="pt-5 mt-5">
+                        <Col xs='11'>
+                            <h2 className="subheaderdos">Usuarios</h2>
+                        </Col>
+                        <Col xs='1' className=" pt-5 mt-5">
+                            <button>Añadir usuario</button>
+                        </Col>
+                    </Row>
+               
                 {this.state.users.map(u => {
                      return (
                         <DataListView
@@ -58,7 +69,7 @@ class UsersList extends Component {
                         />
                      )
                 })}
-
+</div>
             </div>
 
         );
