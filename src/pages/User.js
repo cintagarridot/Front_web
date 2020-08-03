@@ -88,7 +88,7 @@ class User extends Component {
                         <img src={logo} class="app-logo" alt="Logotipo" />
                     </Col>
                     <Col xs={'7'}>
-                        {!this.state.edit ?
+                        {!this.state.edit ? (
                             <Row>
                                 <Col xs={'12'} className={'pb-3'}>
                                     <h3 className='profile-text'>Nombre</h3>
@@ -102,7 +102,7 @@ class User extends Component {
                                     <h3 className='profile-text'>Username</h3>
                                     <h3>{this.state.username}</h3>
                                 </Col>
-                                {(this.props.user.type !== 'admin' && this.props.user) &&
+                                {(this.props.user.type === 'alumn' && this.props.user) &&
                                     <Col xs={'12'}>
                                         <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
                                         <h3>{this.props.user.subjects.length}</h3>
@@ -110,6 +110,7 @@ class User extends Component {
                                 }
 
                             </Row>
+                        )
                             : (
                                 <Row>
                                 <Col xs={'12'} className={'pb-3'}>
@@ -124,10 +125,10 @@ class User extends Component {
                                     <h3 className='profile-text'>Username</h3>
                                     <input className={'font'} name='username' type="text" onChange={this.handleChange}></input>
                                 </Col>
-                                {(this.props.user.type !== 'admin' && this.props.user) &&
+                                {(this.props.user.type === 'teacher' && this.props.user) &&
                                     <Col xs={'12'}>
-                                        <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
-                                        <h3>{this.props.user.subjects.length}</h3>
+                                        <h3 className='profile-text'>Número de asignaturas impartidas</h3>
+                                       {/*} <h3>{this.props.user.subjects.length}</h3>*/}
                                     </Col>
                                 }
 
