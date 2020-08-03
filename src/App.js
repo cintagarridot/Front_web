@@ -19,6 +19,7 @@ import 'milligram';
 import Chat from 'pages/Chat.js';
 import NewsForm from 'components/NewsForm.js';
 import NewsDetail from 'components/News/Details.js';
+import UsersList from 'pages/UsersList.js';
 
 class App extends Component {
   render() {
@@ -28,7 +29,8 @@ class App extends Component {
         <AuthProvider>
           <div className="container">
             <Switch>
-            {/*<Route path="/" render={() => <Redirect from="/" to="/login"/> } />*/}
+            <Route exact path="/" render={() => <Redirect from="/" to="/login"/> } />
+              
               <AnonRoute path="/signup" component={Signup} />
               <AnonRoute path="/login" component={Login} />
               <PrivateRoute path="/home" component={Principal} />
@@ -37,7 +39,8 @@ class App extends Component {
               <PrivateRoute exact path="/news/detail/:id" component={NewsDetail} />
               <PrivateRoute path="/chat" component={Chat} />
               <PrivateRoute path="/user" component={User} />
-              
+              <PrivateRoute path="/users-list" component={UsersList} />
+          {/*}    <Redirect exact from="/" to="/login"/>*/}
          
             </Switch>
           </div>

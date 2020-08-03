@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import withAuth from '../components/withAuth.js';
 import axios from 'axios';
-import { Card, Col, Row, Alert } from 'reactstrap';
+import { Card, Col, Row, Alert, UncontrolledAlert } from 'reactstrap';
 
 class Signup extends Component {
 
@@ -12,6 +12,7 @@ class Signup extends Component {
     firstName: '',
     lastName: '',
     toHome: false,
+    alert: '',
   };
 
 
@@ -35,7 +36,14 @@ class Signup extends Component {
 
 
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        if (error.message === 'Request failed with status code 422') {
+          this.setState({
+            alert: 'danger'
+          })
+        }
+      }
+      )
   }
 
   handleChange = (event) => {
@@ -47,6 +55,12 @@ class Signup extends Component {
     const { username, password, firstName, lastName } = this.state;
     return (
       <>
+        {
+          this.state.alert === 'danger' &&
+          <UncontrolledAlert color={'danger'} className={'font'}>
+            No se ha podido registrar. Ya existe un usuario con ese username.
+          </UncontrolledAlert>
+        }
         <Card style={{ background: '#fffdfd' }} className="auth-card-signup">
           <form onSubmit={this.handleFormSubmit}>
             <Row className={''}>
@@ -54,7 +68,7 @@ class Signup extends Component {
                 <label htmlFor='firstName'>Nombre</label>
               </Col>
               <Col xs={'12'} >
-                <input className={'mt-2'} id='firstName' required='true' type='text' name='firstName' value={firstName} onChange={this.handleChange} />
+                <input className={'mt-2 font'} id='firstName' required='true' type='text' name='firstName' value={firstName} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -63,35 +77,35 @@ class Signup extends Component {
                 <label className={'mt-2'} htmlFor='lastName'>Apellidos</label>
               </Col>
               <Col xs={'12'}>
-                <input className={'mt-2'} id='lastName' required='true' type='text' name='lastName' value={lastName} onChange={this.handleChange} />
+                <input className={'mt-2 font'} id='lastName' required='true' type='text' name='lastName' value={lastName} onChange={this.handleChange} />
               </Col>
 
               <Col xs={'12'}>
                 <label className={'mt-2'} htmlFor='username'>Username</label>
               </Col>
               <Col xs={'12'}>
-                <input className={'mt-2'} id='username' required='true' type='text' name='username' value={username} onChange={this.handleChange} />
+                <input className={'mt-2 font'} id='username' required='true' type='text' name='username' value={username} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
               <Col xs={'12'}>
-                <label className={'mt-2'} htmlFor='password'>Password</label>
+                <label className={'mt-2'} htmlFor='password'>Contraseña</label>
               </Col>
               <Col xs={'12'}>
-                <input className={'mt-2'} id='password' required='true' type='password' name='password' value={password} onChange={this.handleChange} />
+                <input className={'mt-2 font'} id='password' required='true' type='password' name='password' value={password} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
               <Col xs={'12'}>
-                <input className={'mt-4'} type='submit' value='Signup' />
+                <input className={'mt-4'} type='submit' value='Registrar' />
               </Col>
             </Row>
 
           </form>
 
-          <p style={{ fontSize: '12px' }}>¿Ya tienes cuenta?
+          <p className={'font'}>¿Ya tienes cuenta?
           <Link to={'/login'} className={'link'}> Entra aquí</Link>
           </p>
         </Card>

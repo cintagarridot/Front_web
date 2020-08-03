@@ -43,11 +43,22 @@ class AuthProvider extends Component {
   componentDidMount() {
     authService.me()
     .then(user => {
-      this.setState({
-        user,
-        isLoggedIn: true,
-        isLoading: false,
-      })
+      if(user !== ""){
+        this.setState({
+          user,
+          isLoggedIn: true,
+          isLoading: false,
+        })
+      
+      }
+      else{
+        this.setState({
+          isLoggedIn: false,
+          user: {},
+          isLoading: false,
+        })
+      }
+     
     })
     .catch(() => {
       this.setState({

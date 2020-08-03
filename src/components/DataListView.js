@@ -9,7 +9,7 @@ import 'moment/locale/es';
 import {Col, Row} from "reactstrap";
 import { Link } from 'react-router-dom';
 
-const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props }) => {
+const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, ...props }) => {
 
   console.log(element);
   return (
@@ -52,6 +52,21 @@ const DataListView = ({ isSelect, element, subjects, news, onCheckItem, ...props
                 </Col>
               </Row>
 
+            </>
+          }
+
+          {usersList &&
+            <>
+               <Col xs={"4"}>
+                <p className="list-item-heading mb-1 truncate">
+                  {element.firstName} {element.lastName}
+                </p>
+             </Col>
+             <Col xs={"4"}>
+                <p className="list-item-heading mb-1 truncate">
+                  {element.username}
+                </p>
+            </Col>
             </>
           }
 
