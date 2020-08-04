@@ -10,23 +10,23 @@ class AuthService {
 
   signup(user) {
     const { username, password } = user;
-    return this.auth.post('/users/signup', {username, password})
+    return this.auth.post('/auth/signup', {username, password})
       .then(({ data }) => data);
   }
 
   login(user) {
     const { username, password } = user;
-    return this.auth.post('/users/login', {username, password})
+    return this.auth.post('/auth/login', {username, password})
       .then(({ data }) => data);
   }
 
   logout() {
-    return this.auth.post('/users/logout')
+    return this.auth.post('/auth/logout')
       .then(response => response.data)
   }
 
   me() {
-    return this.auth.get('/users/me')
+    return this.auth.get('/auth/me')
     .then(response => response.data)
   }
 }

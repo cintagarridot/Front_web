@@ -37,7 +37,7 @@ class App extends Component {
               <PrivateRoute exact path="/news" component={NewsPage} />
               <PrivateRoute exact path="/news/create-news" component={NewsForm} />
               <PrivateRoute exact path="/news/detail/:id" component={NewsDetail} />
-              <PrivateRoute path="/chat" component={Chat} />
+              <PrivateRoute path="/chat/:id" component={Chat} />
               <PrivateRoute path="/user" component={User} />
               <PrivateRoute path="/users-list" component={UsersList} />
           {/*}    <Redirect exact from="/" to="/login"/>*/}
