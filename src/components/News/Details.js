@@ -4,6 +4,7 @@ import Table from 'components/Table';
 import axios from 'axios';
 import Slider from 'components/Slider';
 import DataListView from '../DataListView';
+import newsService from 'services/news-service';
 
 class NewsDetail extends Component {
 
@@ -17,10 +18,7 @@ class NewsDetail extends Component {
 
     componentDidMount() {
 
-        console.log('++++')
-        console.log(this.props)
         const id = this.props.match.params.id;
-        console.log(id)
 
         if(id){
             this.getNewsById(id);
@@ -41,37 +39,39 @@ class NewsDetail extends Component {
 
     /*Peticion para traer una noticia por id */
     getNewsById = async(id) => {
-        console.log("search axios");
-        console.log(id);
-        await axios.get("http://localhost:3800/news/" + id) //url a la que le vamos a hacer una peticion por get a la API REST
+        const service = axios.create({
+            baseURL: 'http://localhost:3800/',
+            withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
+          })    
+        await service.get('/news/' + id) 
             .then(res => {
                 if (res.data) {
                     this.setState({
                         news: res.data.noticia,
-                        userId: res.data.noticia.usuario,
+                        userId: res.data.noticia.user,
                         searchById: true,
                         status: 'success'
                     });
                 } else {
-                    console.log("error")
                     this.setState({
                         status: 'failed'
                     });
                 }
             });
-
+            
             this.getUser(this.state.userId);
     
     }
 
     getUser = (id) => {
-        console.log('entra en el getUser')
-       console.log(id)
-        axios.get("http://localhost:3800/users/one/" + id)
+        const service = axios.create({
+            baseURL: 'http://localhost:3800/',
+            withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
+          }) 
+        service.get("/users/one/" + id)
             .then( res => {
                 if(res.data){
-                    console.log('hola:')
-                    console.log(res.data);
+                 
                     this.setState({
                         user: res.data.usuario
                     })
@@ -87,8 +87,6 @@ class NewsDetail extends Component {
 
         axios.put("http://localhost:3800/news/" + toUpdate) //url a la que le vamos a hacer una peticion por get a la API REST
             .then(res => {
-                console.log("NOTICIA EDITADA: ");
-                console.log(res.data);
                 this.setState({
                     news: res.data.noticia,
                     updated: true,
@@ -146,15 +144,14 @@ class NewsDetail extends Component {
                 }
 
 
-                }
-
+                
             </section>
 
 
         );
 
 
-    } s
+    } 
 
 
 

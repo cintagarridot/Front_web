@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+/*import React, { useEffect } from 'react'
 import chatService from 'services/chat-service'
 
 const ListChats = () => {
@@ -11,13 +11,17 @@ const ListChats = () => {
 /*getOtherUser = (users) => {   POR SI NO SE PUEDE USAR FILTER EN EL RENDER
 return users.filter(user => user !== user.id)
 }*/
-  return(
+ /* return(
     <div>
-      chats.map(chat => 
-     <link to={`/chat/${chat.id}`}>{getOtherUser()}</link> {/*que el id del usuario no sea el tuyo, asi sacas el nombre del otro user*/}
+      {chats.map(chat => {
+        <link to={`/chat/${chat.id}`}>{getOtherUser()}</link> /*que el id del usuario no sea el tuyo, asi sacas el nombre del otro user*/
+   /*   }
+      
       )
+      }
+     
       </div>  
   )
 }
 
-export default ListChats;
+export default ListChats;*/

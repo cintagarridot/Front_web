@@ -29,10 +29,14 @@ class NewsForm extends Component {
 
         values.usuario = this.state.userId;
         console.log(values);
-        /*newsService
-            .addNews(values)*/
-        axios.post("http://localhost:3800/news/", values)
+        const news = axios.create({
+                baseURL: 'http://localhost:3800/',
+                withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
+        })
+        news.post("/news/", values)
             .then((data) => {
+                console.log('data')
+                console.log(data)
                 this.setState({
                     alert: 'success'
                 })

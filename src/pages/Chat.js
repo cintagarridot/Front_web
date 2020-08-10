@@ -40,18 +40,17 @@ const Chat = ({user, ...props}) => {
     const [form, setForm] = useState({ message: ''})
     const [chat, setChat] = useState();
 
-    useEffect(() => {
-
+   /* useEffect(() => {
         
-        chatService.getChat(idDelChat/* react-router-dom useLocation()*/ ).then(chatFromApi => {
+       /* chatService.getChat(/*idDelChat/* react-router-dom useLocation()*/ /*).then(chatFromApi => {
             /*hago esto una vez tengo el chat */
-            socket.on("message_receive", data => {
-            setMessages(old => [...old, data])
-        });
-        setChat(chatFromApi)
+          /*  socket.on("message_receive", data => {
+            setMessages(old => [...old, data])*/
+        //});
+       // setChat(chatFromApi)
 
-        })
-    }, [])
+    /*    })
+    }, [])*/
 
     useEffect(() => {
         setMessages(chat.messages)

@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 
 const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, ...props }) => {
 
-  console.log(element);
   return (
     <Col xxs="12" className="mb-5">
       <ContextMenuTrigger id="menu_id" data={element.id}>

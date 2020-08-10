@@ -16,7 +16,6 @@ class Asignatura extends Component {
     }
 
     componentDidMount() {
-        //sthis.getSubjects();       
        this.getUserSubjects();
     }
 
