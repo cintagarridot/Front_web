@@ -8,9 +8,9 @@ class ChatService {
     })
   }
 
-  createChat = (idUser) => this.service.post('/', { idUser }) ;
+  createChat = (idUser) => this.service.post('/', { idUser });
 
-  getChatsByUser = () => this.service.get('/').then(({data}) => data);
+  getChatsByUser = () => this.service.get('/').then(({data}) => { console.log(data); return data;});
 
   postMessage = (message) => this.service.post('/addMessage', message).then(({data}) => data) 
 }
