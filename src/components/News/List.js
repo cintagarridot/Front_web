@@ -52,7 +52,7 @@ class NewsList extends Component {
 
                 {this.state.status === 'success' &&
                     <div>
-                        {!this.state.searchById &&
+                        {!this.state.searchById && this.state.news.length > 0 &&
 
                             this.state.news.map(n => {
                                 return (
@@ -66,6 +66,10 @@ class NewsList extends Component {
                             })
 
                         
+                        }
+
+                        {!this.state.searchById && this.state.news.length === 0 &&
+                            <h2 className="text-center">No hay noticias</h2>
                         }
 
 
