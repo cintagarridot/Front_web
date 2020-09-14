@@ -10,6 +10,7 @@ import withAuth from 'components/withAuth';
 
 import chatService from 'services/chat-service'
 
+import { useHistory, useLocation } from 'react-router-dom';
 const URL = 'http://localhost:3800/';
 
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
@@ -53,15 +54,17 @@ const Chat = ({user, ...props}) => {
     }, [])*/
 
     useEffect(() => {
-        setMessages(chat.messages)
+        //setMessages(chat.messages)
     }, [chat])
 
     const handleSendMessage = () => {
         const message = { owner: user._id , text: form.message }
         socket.emit('message_send', message);
         setMessages(oldMessages => [...oldMessages, message]);
+        let paths = window.location.pathname.split('/');
+        let chatId = paths[paths.length-1];
+        chatService.postMessage(message, chatId);
         setForm({ message: ''})
-        chatService.postMessage()
     }
 
     const handleChange = e => {

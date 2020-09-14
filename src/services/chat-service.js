@@ -12,7 +12,9 @@ class ChatService {
 
   getChatsByUser = () => this.service.get('/').then(({data}) => { console.log(data); return data;});
 
-  postMessage = (message) => this.service.post('/addMessage', message).then(({data}) => data) 
+  postMessage = (message, chatId) => {
+    this.service.post('/addMessage', {message, chatId}).then(({data}) => data)
+   }
 }
 
 const chatService = new ChatService();

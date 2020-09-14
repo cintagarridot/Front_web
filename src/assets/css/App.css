@@ -395,6 +395,13 @@ textarea{
 
 }
 
+.subheaderSpace{
+ 
+  margin-top: 400px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
 .article-detail .image-wrap{
   float: none;
   width: 100%;
