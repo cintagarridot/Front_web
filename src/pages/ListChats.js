@@ -22,7 +22,7 @@ const ListChats = (props) => {
     chatService.getChatsByUser().then(data =>{
       console.log('dentro del then del listChats')
       console.log(data)
-      setChats(data);
+      //setChats(data);
       console.log('chats')
       console.log(chats)
     })

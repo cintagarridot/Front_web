@@ -41,21 +41,18 @@ const Chat = ({user, ...props}) => {
     const [form, setForm] = useState({ message: ''})
     const [chat, setChat] = useState();
 
-   /* useEffect(() => {
-        
-       /* chatService.getChat(/*idDelChat/* react-router-dom useLocation()*/ /*).then(chatFromApi => {
-            /*hago esto una vez tengo el chat */
-          /*  socket.on("message_receive", data => {
-            setMessages(old => [...old, data])*/
-        //});
-       // setChat(chatFromApi)
-
-    /*    })
-    }, [])*/
-
     useEffect(() => {
-        //setMessages(chat.messages)
-    }, [chat])
+        let paths = window.location.pathname.split('/');
+        let chatId = paths[paths.length-1];
+        chatService.getChat(chatId).then(chatFromApi => {
+            socket.on("message_receive", data => {
+                console.log('data')
+                console.log(data)
+                setMessages(old => [...old, data])
+            });
+            setChat(chatFromApi);
+        })
+    }, [])
 
     const handleSendMessage = () => {
         const message = { owner: user._id , text: form.message }
