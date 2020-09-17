@@ -45,12 +45,17 @@ const Chat = ({user, ...props}) => {
         let paths = window.location.pathname.split('/');
         let chatId = paths[paths.length-1];
         chatService.getChat(chatId).then(chatFromApi => {
-            socket.on("message_receive", data => {
+            console.log('chatFromApi')
+            console.log(chatFromApi)
+            const data = chatFromApi.messages;
+          
+            socket.on("message_receive", data  => {
                 console.log('data')
                 console.log(data)
                 setMessages(old => [...old, data])
             });
             setChat(chatFromApi);
+            setMessages(chatFromApi.messages)
         })
     }, [])
 
@@ -83,7 +88,12 @@ const Chat = ({user, ...props}) => {
                 <ChatWrapper>
                     <MessagesWrapper>
                         {messages && messages.map((message, index) => (
+                           <>
+                            {console.log('message')}
+                            {console.log(message)}
+
                             <Message key={index} message={message.text} owner={message.owner} />
+                            </>
                         ))}
                     </MessagesWrapper>
 
