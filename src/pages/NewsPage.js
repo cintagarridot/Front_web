@@ -29,6 +29,8 @@ class NewsPage extends Component {
 
     render() {
 
+        const { user } = this.props;
+
         return (
             <>
                 <Header />
@@ -50,12 +52,14 @@ class NewsPage extends Component {
                         <Col xs={'0.5'}>
                             <button className="buttonSearch" >Buscar</button>
                         </Col>
-
-                        <Col xs={'1'}>
-                            <button className="buttonSearch" onClick={this.createNews}>
-                                Crear noticia
-                            </button>
-                        </Col>
+                        {user.type === 'teacher' &&
+                            <Col xs={'1'}>
+                                <button className="buttonSearch" onClick={this.createNews}>
+                                    Crear noticia
+                                </button>
+                            </Col>
+                        }
+                        
                     </Row>
                     <NewsList props={this.props} />
                     <div className="clearfix"></div>
