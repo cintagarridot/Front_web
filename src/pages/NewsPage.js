@@ -43,7 +43,7 @@ class NewsPage extends Component {
                     <h2 className="subheader">Noticias</h2>
 
                     <Row className={'pt-4 mb-5 ml-1'}>
-                        <Col xs={'6'}>
+                        <Col xs={'9'}>
                             <input className="searchNews" type="text" style={{ fontSize: '12px' }} placeholder="Buscar noticia..." />
                         </Col>
 

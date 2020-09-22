@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DataListView from 'components/DataListView';
 import AuthService from 'services/auth-service';
+import subjectService from 'services/subject-service';
 
 class Asignatura extends Component {
 
@@ -15,7 +16,6 @@ class Asignatura extends Component {
     }
 
     componentDidMount() {
-        //sthis.getSubjects();       
        this.getUserSubjects();
     }
 
@@ -67,41 +67,20 @@ class Asignatura extends Component {
     };
 
     getSubjects = () => {
-        //peticion ajax
-        axios.get("http://localhost:3800/subjects/") //url a la que le vamos a hacer una peticion por get a la API REST
-            .then(res => {
-                console.log(res.data);
-                this.setState({
-                    subjects: res.data.subjects,
-                    status: 'success'
-                });
-            });
+        subjectService.getSubjects().then(subjects => this.setState({ subjects, status: 'success' }))
     }
 
     getUserSubjects = async() => {
         const user = await AuthService.me();
  
-        await axios.get("http://localhost:3800/users/" + user._id + "/subjects/") //url a la que le vamos a hacer una peticion por get a la API REST
-            .then(response => {
-                this.setState({
-                    userSubjects: response.data,
-                    status: 'usersubjects'
-                });
-               
-            })
-            .catch(err => {
-                console.log(err);
-            })
-            console.log("----------");
-            console.log(this.state.userSubjects);
-            console.log('******')
-            
+        subjectService.getUserSubjects(user._id).then(userSubjects => this.setState({userSubjects, status: 'usersubjects'}))
+   
     }
 
 
     render() {
 
-
+        const { userSubjects } = this.state;
         return (
 
             <section id="content" >
@@ -111,7 +90,7 @@ class Asignatura extends Component {
                     <div>
                         {console.log('entra en el return')}
                         <h2 className="subheaderdos">Asignaturas</h2>
-                        {this.state.userSubjects.response.map((subject, i) => {
+                        {userSubjects && userSubjects.map((subject, i) => {
                             return (
                                 <DataListView
                                     key={subject.id}

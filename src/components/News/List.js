@@ -4,11 +4,12 @@ import Table from 'components/Table';
 import axios from 'axios';
 import Slider from 'components/Slider';
 import DataListView from '../DataListView';
+import newsService from 'services/news-service';
 
 class NewsList extends Component {
 
     state = {
-        news: {},
+        news: [],
         byId: {},
         searchById: false,
         updated: false,
@@ -18,23 +19,23 @@ class NewsList extends Component {
 
     componentDidMount() {
 
-       this.getNews();
+       this.getNewsList();
        
     }
 
-    /*Peticion para traer todas las noticias */
-    getNews = () => {
-        //peticion ajax
-        axios.get("http://localhost:3800/news/") //url a la que le vamos a hacer una peticion por get a la API REST
-            .then(res => {
-                console.log(res.data);
-                this.setState({
-                    news: res.data.noticias,
-                    status: 'success'
-
-                });
-            });
-
+    getNewsList = async() => {
+     
+        const news = axios.create({
+            baseURL: 'http://localhost:3800/news',
+            withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
+          })
+        news.get("/").then(({data}) => {
+            this.setState({
+                news: data.noticias,
+                status: 'success'
+            })
+        })
+           
     }
 
    
@@ -51,13 +52,12 @@ class NewsList extends Component {
 
                 {this.state.status === 'success' &&
                     <div>
-
-                        {!this.state.searchById &&
+                        {!this.state.searchById && this.state.news.length > 0 &&
 
                             this.state.news.map(n => {
                                 return (
                                   <DataListView
-                                        key={n.id}
+                                        key={n._id}
                                         element={n}
                                         news
                                         onCheckItem={this.onCheckItem}
@@ -66,6 +66,10 @@ class NewsList extends Component {
                             })
 
                         
+                        }
+
+                        {!this.state.searchById && this.state.news.length === 0 &&
+                            <h2 className="text-center">No hay noticias</h2>
                         }
 
 
