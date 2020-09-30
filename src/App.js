@@ -21,6 +21,7 @@ import NewsForm from 'components/NewsForm.js';
 import NewsDetail from 'components/News/Details.js';
 import UsersList from 'pages/UsersList.js';
 import ListChats from 'pages/ListChats';
+import SelectSubjects from 'pages/SelectSubjects';
 
 class App extends Component {
   render() {
@@ -42,8 +43,7 @@ class App extends Component {
               <PrivateRoute path="/chat" component={ListChats} />
               <PrivateRoute path="/user" component={User} />
               <PrivateRoute path="/users-list" component={UsersList} />
-          {/*}    <Redirect exact from="/" to="/login"/>*/}
-         
+              <Route exact path="/select-subjects" component={SelectSubjects} />
             </Switch>
           </div>
         </AuthProvider>

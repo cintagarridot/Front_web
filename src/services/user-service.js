@@ -8,6 +8,11 @@ class UserService {
     })
   }
 
+  getUserList = () => {
+    return this.user.get('/users/')
+    .then(({data}) => data);
+  }
+
   getTeachersList = () => {
     return this.user.get('/users/teachers')
       .then(({ data }) => data);
@@ -18,6 +23,14 @@ class UserService {
     .then(({ data }) => data);
   }
 
+  addSubjectsInUser = (user, subjects) => {
+    const { _id } = user;
+    const data = {
+      subjects: subjects
+    }
+    return this.user.post(`/users/${_id}/addSubjects`, data)
+    .then(({ data }) => data);
+  }
 
 }
 

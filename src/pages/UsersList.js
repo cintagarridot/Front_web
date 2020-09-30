@@ -9,11 +9,10 @@ import Header from './Header';*/
 import withAuth from 'components/withAuth';
 import Asignatura from 'components/Asignatura';
 import Header from 'components/Header';
-import Slider from 'components/Slider';
 import DataListView from 'components/DataListView';
 import axios from 'axios';
 import {Row, Col} from 'reactstrap';
-
+import userService from 'services/user-service';
 
 class UsersList extends Component {
 
@@ -33,11 +32,11 @@ class UsersList extends Component {
      };
 
     getUsersList = async() => {
-        await axios.get('http://localhost:3800/users/')
+        await userService.getUserList()
         .then(res => {
             console.log(res.data);
             this.setState({
-                users: res.data.usuarios,
+                users: res.usuarios,
                 status: 'success'
             });
         });
