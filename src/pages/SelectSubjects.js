@@ -29,22 +29,6 @@ class SelectSubjects extends Component {
         
     }
 
-    componentDidUpdate(prevProps, prevState){
-        console.log('prev')
-        console.log(prevState)
-        if (this.state.userSubjects !== prevState.userSubjects) {
-            this.setState({
-                redirectToHome: true,
-            })
-            console.log('this.state.userSubjects')
-            console.log(this.state.userSubjects)
-
-            console.log('prevState.userSubjects')
-            console.log(prevState.userSubjects)
-
-        }
-    }
-
 
     checkSelected = (target) => {
         const { subjectsSelected } = this.state;
@@ -59,9 +43,13 @@ class SelectSubjects extends Component {
 
     addSubjectsInUser = () => {
         userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
-            this.setState({
-                userSubjects: data.userStored.subjects,
-            })
+            if(data && data.subjects.length > 0){
+                this.setState({
+                    userSubjects: data.subjects,
+                })
+            }
+
+           
         });
         
     }
@@ -92,15 +80,10 @@ class SelectSubjects extends Component {
                         })
                         }
 
-                        <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                        <a href={'/home'}> <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button></a>
                     </>    
                 }
-                
-                {redirectToHome &&
-                    <Redirect to="/home" />
-                }
-
-
+                       
             </div>
 
         );

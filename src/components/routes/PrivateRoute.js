@@ -10,14 +10,14 @@ const PrivateRoute = (props) => {
   
   return (
     <>
-      {isLoggedIn /*&& user.subjects.length > 0*/  ? ( <Route 
+      {isLoggedIn && user.subjects.length > 0 ? ( <Route 
         render={(props) => {
           return <Component {...props}/>
         }}
         {...rest}
-      /> ) /*: isLoggedIn && user.subjects.length === 0  ? (
+      /> ) : isLoggedIn && user.subjects.length === 0  ? (
         <Redirect to='/select-subjects' />
-      )*/ : ( 
+      ) : ( 
             <Redirect to='/login' />
         ) 
       }

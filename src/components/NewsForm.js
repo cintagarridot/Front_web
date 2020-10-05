@@ -15,6 +15,9 @@ class NewsForm extends Component {
         userId: '',
         redirection: false,
         alert: '',
+        title: '',
+        content: '',
+        image: '',
     }
 
     componentDidMount() {
@@ -33,13 +36,15 @@ class NewsForm extends Component {
                 baseURL: 'http://localhost:3800/',
                 withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
         })
-        news.post("/news/", values)
+         news.post("/news/", values)
             .then((data) => {
                 console.log('data')
                 console.log(data)
                 this.setState({
-                    alert: 'success'
+                    alert: 'success',
                 })
+                window.location.reload();
+                
             })
             /* 404 */
             .catch((data) => {
@@ -52,6 +57,8 @@ class NewsForm extends Component {
 
 
     render() {
+        const { title, content, image } = this.state;
+        const initialValues = { title, content, image }
 
         return (
 
@@ -76,7 +83,7 @@ class NewsForm extends Component {
                         <div className="center">
 
                             <Formik
-                                initialValues={{ title: '', content: '', image: '' }}
+                                initialValues={ initialValues}
                                 validationSchema={NewsFormSchema}
                                 onSubmit={(values, { setSubmitting }) => {
                                     setTimeout(() => {
