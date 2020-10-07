@@ -79,6 +79,10 @@ const ListChats = (props) => {
 
   }
 
+  const goBack = () => {
+      setShowList(false);
+  }
+
   return (
     <div>
       <Header />
@@ -127,6 +131,9 @@ const ListChats = (props) => {
               }
 
             </ListGroup>
+            <button onClick={goBack} style={{float: 'right'}}>
+                Atrás
+            </button>
           </div>
         )
 
