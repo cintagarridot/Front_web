@@ -16,6 +16,8 @@ class ChatService {
 
   getMessages = () => this.service.get('/id/messages').then(({data}) => data)
 
+  getOtherUser = (id) => this.service.get(`/${id}/otherUser`).then(({data}) => data);
+
   postMessage = (message, chatId) => {
     this.service.post('/addMessage', {message, chatId}).then(({data}) => data)
    }
