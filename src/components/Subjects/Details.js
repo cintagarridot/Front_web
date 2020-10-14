@@ -45,9 +45,13 @@ class SubjectDetails extends Component {
 
         return (
             <>
+                {console.log('subject')}
+                {console.log(subject)}
+
                 <Header />
             
                     {subject &&
+                    
                         <div className={'mt-5 pt-5'}>
                             <Row>
                                 <>

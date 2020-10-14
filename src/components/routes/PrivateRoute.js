@@ -7,16 +7,16 @@ import subjectService from 'services/subject-service';
 const PrivateRoute = (props) => {
 
   const {isLoggedIn, user, component: Component, ...rest} = props;
-  
+  console.log(user)
   return (
     <>
-      {isLoggedIn && user.subjects.length > 0 ? ( <Route 
+      {(isLoggedIn && user.subjects.length > 0 || isLoggedIn && user.type === 'admin') ? ( <Route 
         render={(props) => {
           return <Component {...props}/>
         }}
         {...rest}
       /> ) : isLoggedIn && user.subjects.length === 0  ? (
-        <Redirect to='/select-subjects' />
+              <Redirect to='/select-subjects' />  
       ) : ( 
             <Redirect to='/login' />
         ) 

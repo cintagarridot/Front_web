@@ -23,16 +23,22 @@ import UsersList from 'pages/UsersList.js';
 import ListChats from 'pages/ListChats';
 import SelectSubjects from 'pages/SelectSubjects';
 import SubjectDetails from 'components/Subjects/Details.js';
+import withAuth from 'components/withAuth';
+
 
 class App extends Component {
   render() {
+    
     return (
       <Router>
      
         <AuthProvider>
+        {console.log('props dep app')}
+
+          {console.log(this.props)}
           <div className="container">
             <Switch>
-            <Route exact path="/" render={() => <Redirect from="/" to="/login"/> } />
+              <Route exact path="/" render={() => <Redirect from="/" to="/login"/> } />
               
               <AnonRoute path="/signup" component={Signup} />
               <AnonRoute path="/login" component={Login} />
