@@ -1158,3 +1158,18 @@ margin-right: 100px;
   }
 }
 
+
+/*Tabset*/
+.react-tabs__tab-list {
+  border-bottom: 3px solid rgb(103, 164, 243) !important;
+  color:  rgb(103, 164, 243);
+  font-size: 1.3rem !important;
+}
+
+.selected-tab-style {
+  background-color:  rgb(103, 164, 243);
+  border-radius: 5px;
+  width: 200px;
+  color: white;
+  text-align: center;
+}

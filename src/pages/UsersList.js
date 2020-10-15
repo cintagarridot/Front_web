@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-
-
-//import Asignatura from './Asignatura';
-
-/*import Slider from './Slider';
-import Header from './Header';*/
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import withAuth from 'components/withAuth';
 import Asignatura from 'components/Asignatura';
@@ -13,6 +8,10 @@ import DataListView from 'components/DataListView';
 import axios from 'axios';
 import {Row, Col} from 'reactstrap';
 import userService from 'services/user-service';
+import TeacherList from 'components/TeacherList';
+import AlumnList from 'components/AlumnList';
+
+import "react-tabs/style/react-tabs.css";
 
 class UsersList extends Component {
 
@@ -54,11 +53,32 @@ class UsersList extends Component {
                             <h2 className="subheaderdos">Usuarios</h2>
                         </Col>
                         <Col xs='1' className=" pt-5 mt-5">
-                            <button>Añadir usuario</button>
+                            <button>Añadir profesor</button>
                         </Col>
                     </Row>
+
+                    <Tabs>
+                        <TabList>
+                            <Tab selectedClassName="selected-tab-style">
+                                Alumnos
+                            </Tab>
+                            <Tab
+                                selectedClassName="selected-tab-style"
+                            >
+                                Profesores
+                            </Tab>
+                        </TabList>
+                  </Tabs>
+
+                  <TabPanel>
+                    <AlumnList/>
+                  </TabPanel>
                
-                {this.state.users.map(u => {
+                  <TabPanel>
+                    <TeacherList/>
+                  </TabPanel>
+
+                {/*this.state.users.map(u => {
                      return (
                         <DataListView
                         key={u.id}
@@ -67,7 +87,7 @@ class UsersList extends Component {
                         usersList
                         />
                      )
-                })}
+                })*/}
 </div>
             </div>
 
