@@ -7,7 +7,7 @@ import withAuth from './withAuth';
 class Header extends Component{
 
     render() {
-
+        const { user } = this.props;
         return (
             <header id="header">
                 {/* <!-- creamos una etiqueta para centrar el contenido -->*/}
@@ -24,9 +24,16 @@ class Header extends Component{
                     {/*-- MENU DE NAVEGACIÓN -->*/}
                     <nav id="menu"> {/*<!-- La etiqueta nav representa la parte de los links que llevan a otras paginas--> */}
                         <ul>
-                            <li>
-                                <NavLink to="/home" activeClassName="active">Inicio</NavLink>
-                            </li>
+                            {user.type !== 'admin' && 
+                                <li>
+                                    <NavLink to="/home" activeClassName="active">Inicio</NavLink>
+                                </li>
+                            }
+                            {this.props.user.type === 'admin' &&
+                                <li>
+                                    <NavLink to="/users-list" activeClassName="active">Lista de Usuarios</NavLink>
+                                </li>
+                            }
                             <li>
                                 <NavLink to="/chat" activeClassName="active">Chat</NavLink>
                             </li>
@@ -36,11 +43,7 @@ class Header extends Component{
                             <li>
                                 <NavLink to="/user" activeClassName="active">Usuario</NavLink>
                             </li>
-                            {this.props.user.type === 'admin' &&
-                                <li>
-                                    <NavLink to="/users-list" activeClassName="active">Lista de Usuarios</NavLink>
-                                </li>
-                            }
+                            
                             
 
                         </ul>

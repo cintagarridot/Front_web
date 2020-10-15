@@ -5,6 +5,8 @@ import axios from 'axios';
 import Slider from 'components/Slider';
 import DataListView from '../DataListView';
 import newsService from 'services/news-service';
+import loading from 'assets/images/loading.jpg';
+
 
 class NewsList extends Component {
 
@@ -50,9 +52,12 @@ class NewsList extends Component {
           
             <section id="content" >
 
-                {this.state.status === 'success' &&
-                    <div>
-                        {!this.state.searchById && this.state.news.length > 0 &&
+                {this.state.status !== 'success' ? (
+                    <div className={'loading'}>
+                        <img src={loading} />
+                    </div>
+                ) : (
+                        !this.state.searchById && this.state.news.length > 0 ?
 
                             this.state.news.map(n => {
                                 return (
@@ -65,17 +70,15 @@ class NewsList extends Component {
                                 );
                             })
 
+                            : (
+                                <h2 className="text-center">No hay noticias</h2>
+                            )
                         
-                        }
-
-                        {!this.state.searchById && this.state.news.length === 0 &&
-                            <h2 className="text-center">No hay noticias</h2>
-                        }
-
-
-                    </div>
+                        
+                )
 
                 }
+             
 
             </section>
 

@@ -10,6 +10,8 @@ class SubjectService {
 
   getSubjects = () => this.service.get('/subjects').then(({data}) => data);
 
+  getSubjectById = (id) => this.service.get(`/subjects/${id}`).then(({data}) => data);
+
   getUserSubjects = (userId) => {
     return this.service.get("/users/" + userId + "/subjects/") 
         .then(({data}) => data)

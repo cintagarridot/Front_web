@@ -21,13 +21,21 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
         >
 
           {subjects &&
+            <>
+              <Row>
+                <Col xs={"10"}>
+                  <p className="list-item-heading mb-1 truncate">
+                    {element.title}
+                  </p>
+                </Col>
 
-            <Col xs={"4"}>
-              <p className="list-item-heading mb-1 truncate">
-                {element.title}
-              </p>
-            </Col>
-
+                <Col xs={"2"}>
+                  <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
+                    Ver detalles
+                  </Link>
+                </Col>
+              </Row>
+            </>
           }
 
           {news &&

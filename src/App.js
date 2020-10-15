@@ -21,16 +21,24 @@ import NewsForm from 'components/NewsForm.js';
 import NewsDetail from 'components/News/Details.js';
 import UsersList from 'pages/UsersList.js';
 import ListChats from 'pages/ListChats';
+import SelectSubjects from 'pages/SelectSubjects';
+import SubjectDetails from 'components/Subjects/Details.js';
+import withAuth from 'components/withAuth';
+
 
 class App extends Component {
   render() {
+    
     return (
       <Router>
      
         <AuthProvider>
+        {console.log('props dep app')}
+
+          {console.log(this.props)}
           <div className="container">
             <Switch>
-            <Route exact path="/" render={() => <Redirect from="/" to="/login"/> } />
+              <Route exact path="/" render={() => <Redirect from="/" to="/login"/> } />
               
               <AnonRoute path="/signup" component={Signup} />
               <AnonRoute path="/login" component={Login} />
@@ -42,8 +50,8 @@ class App extends Component {
               <PrivateRoute path="/chat" component={ListChats} />
               <PrivateRoute path="/user" component={User} />
               <PrivateRoute path="/users-list" component={UsersList} />
-          {/*}    <Redirect exact from="/" to="/login"/>*/}
-         
+              <PrivateRoute path="/subject/details/:id" component={SubjectDetails} />
+              <Route exact path="/select-subjects" component={SelectSubjects} />
             </Switch>
           </div>
         </AuthProvider>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import DataListView from 'components/DataListView';
 import AuthService from 'services/auth-service';
 import subjectService from 'services/subject-service';
+import loading from 'assets/images/loading.jpg';
 
 class Asignatura extends Component {
 
@@ -13,6 +14,7 @@ class Asignatura extends Component {
         status: null,
         lastChecked: null,
         selectedItems: null,
+        loading: true,
     }
 
     componentDidMount() {
@@ -73,40 +75,46 @@ class Asignatura extends Component {
     getUserSubjects = async () => {
         const user = await AuthService.me();
 
-        subjectService.getUserSubjects(user._id).then(userSubjects => this.setState({ userSubjects, status: 'usersubjects' }))
+        subjectService.getUserSubjects(user._id).then(userSubjects => this.setState({ userSubjects, status: 'usersubjects', loading: false }))
 
     }
 
 
     render() {
 
-        const { userSubjects } = this.state;
+        const { userSubjects, status } = this.state;
         return (
 
             <section id="content" >
                 <h2 className="subheaderdos">Asignaturas</h2>
-                {userSubjects && userSubjects.length > 0 ? (
-
-                    <div>
-                                              
-                        {userSubjects.map((subject, i) => {
-                            return (
-                                <DataListView
-                                    key={subject.id}
-                                    element={subject}
-                                    onCheckItem={this.onCheckItem}
-                                    subjects
-                                />
-                            );
-                        })
-                        }
+                {status !== 'usersubjects' ? (
+                    <div className={'loading'}>
+                        <img src={loading} />
                     </div>
+                ) : (
+                    userSubjects && userSubjects.length > 0 ? (
+                        <div>
+                  
+                            {userSubjects.map((subject, i) => {
+                                return (
+                                    <DataListView
+                                        key={subject.id}
+                                        element={subject}
+                                        onCheckItem={this.onCheckItem}
+                                        subjects
+                                    />
+                                );
+                            })
+                            }
+                        </div>
                     ) : (
                         <h2 className="text-center">No tienes asignaturas</h2>
+
                     )
+                )
+
                 }
-
-
+              
 
             </section>
 

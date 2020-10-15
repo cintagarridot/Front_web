@@ -3,7 +3,8 @@ import {Route, Redirect} from 'react-router-dom';
 import withAuth from '../withAuth';
 
 const AnonRoute = (props) => {
-  const {isLoggedIn, component: Component, ...rest} = props;
+  const {user, isLoggedIn, component: Component, ...rest} = props;
+
   return (
     <>
       {!isLoggedIn ? <Route 
@@ -11,7 +12,10 @@ const AnonRoute = (props) => {
           return <Component {...props}/>
         }}
         {...rest}
-      /> : <Redirect to='/home' />}
+      />
+      : isLoggedIn && user.type === 'admin' ? (
+          <Redirect to='/user'/>
+      ) : <Redirect to='/home' />}
     </>
 
      

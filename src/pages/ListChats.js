@@ -14,14 +14,14 @@ const ListChats = (props) => {
   const [showList, setShowList] = useState(false);
   const [redirectToChat, setRedirectToChat] = useState(false);
   const [idChat, setIdChat] = useState('');
-
+  const [userChats, setUserChats] = useState([]);
+  const [otherUser, setOtherUser] = useState();
 
   useEffect(() => {
     console.log('props');
     console.log(props)
-    chatService.getChatsByUser().then(data => {
-      setChats([data])
-    })
+    getUserChatsAction();
+   
   }, []);
 
   const createNewChat = (otherId) => {
@@ -60,23 +60,27 @@ const ListChats = (props) => {
 
   }
 
+  const getUserChatsAction = async () => {
+    const user = props.user;
 
-  const getOtherUser = (users) => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
-    const { user } = props;
-    let otheruser = '';
-    users.map(us => {
-      us.map(u => {
-        if (u._id === user._id) {
-          console.log('entra ' + u.username)
-          return 0;
-        } else {
-          otheruser = u.username;
-        }
-      })
+    userService.getUserChats(user._id).then(chats => {
+      setUserChats(chats);
     });
+     
 
-    return otheruser;
+  }
 
+
+  const getOtherUserAction = (id) => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
+    
+      chatService.getOtherUser(id).then((data) => {
+        setOtherUser(data.username)
+      })
+
+  }
+
+  const goBack = () => {
+      setShowList(false);
   }
 
   return (
@@ -85,34 +89,41 @@ const ListChats = (props) => {
       {!showList ? (
         <>
         {console.log(props.user)}
-          { props.user.chats && props.user.chats.length > 0 ? (
-            <>
-              <ListGroup className="subheaderSpace" style={{ fontSize: '25px' }}>
-                { props.user.chats.map(chat => {
-                 
+          { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 ? (
+            <div className="subheaderSpace">
+              <h2>Chats recientes</h2>
+              <ListGroup  style={{ fontSize: '25px' }}>
+                { userChats.map(chat => {
+                  console.log('chat')
+                  console.log(chat)
+                        const otherUserFilteredId = chat.users.filter((e) => e._id !== props.user._id)
+                    
                         return <Link to={`/chat/${chat._id}`}>
-                          <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{getOtherUser(chat.users)}</ListGroupItem>
+                          <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{otherUserFilteredId}</ListGroupItem>
                         </Link>
                       })
                 }
       
               </ListGroup>
-                
-            </>
+              <button onClick={showUsersList} style={{float: 'right'}}>
+                  Crea uno
+              </button>
+            </div>
           ) : (
               <>
                 <h1 className="subheaderSpace">No tienes ningún chat</h1>
                 <button onClick={showUsersList}>
                   Crea uno
-            </button>
+              </button>
               </>
             )
           }
         </>
 
       ) : (
-          <>
-            <ListGroup className="subheaderSpace" style={{ fontSize: '25px' }}>
+        <div className={'subheaderSpace'}>
+            <h2>Usuarios</h2>
+            <ListGroup style={{ fontSize: '25px' }}>
               {list && list.length > 0 &&
                 list.map(l => {
                   return <ListGroupItem tag="a" onClick={() => createNewChat(l._id)} style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{l.firstName} {l.lastName}</ListGroupItem>
@@ -120,7 +131,10 @@ const ListChats = (props) => {
               }
 
             </ListGroup>
-          </>
+            <button onClick={goBack} style={{float: 'right'}}>
+                Atrás
+            </button>
+          </div>
         )
 
       }
