@@ -14,7 +14,7 @@ const AnonRoute = (props) => {
         {...rest}
       />
       : isLoggedIn && user.type === 'admin' ? (
-          <Redirect to='/users-list'/>
+          <Redirect to='/user'/>
       ) : <Redirect to='/home' />}
     </>
 
