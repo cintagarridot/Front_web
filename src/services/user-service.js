@@ -3,7 +3,7 @@ import axios from 'axios';
 class UserService {
   constructor() {
     this.user = axios.create({
-      baseURL: '',
+      baseURL: 'http://localhost:3800',
       withCredentials: true,
     })
   }

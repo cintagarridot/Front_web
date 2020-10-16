@@ -3,7 +3,7 @@ import axios from 'axios';
 class AuthService {
   constructor() {
     this.auth = axios.create({
-      baseURL: '',
+      baseURL: process.env.PUBLIC_BACK,
       withCredentials: true,
     })
   }
