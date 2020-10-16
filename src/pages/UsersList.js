@@ -16,31 +16,16 @@ import "react-tabs/style/react-tabs.css";
 class UsersList extends Component {
 
     state = {
-
         users: [Object],
         status: null,
     }
 
-    componentDidMount() {
-        //sthis.getSubjects();       
-       this.getUsersList();
-    }
-
+  
     onCheckItem = (event, id) => {     
         document.activeElement.blur();
      };
 
-    getUsersList = async() => {
-        await userService.getUserList()
-        .then(res => {
-            console.log(res.data);
-            this.setState({
-                users: res.usuarios,
-                status: 'success'
-            });
-        });
-    }
-
+   
     render() {
 
         return (
@@ -78,16 +63,6 @@ class UsersList extends Component {
                     <TeacherList/>
                   </TabPanel>
 
-                {/*this.state.users.map(u => {
-                     return (
-                        <DataListView
-                        key={u.id}
-                        element={u}
-                        onCheckItem={this.onCheckItem}
-                        usersList
-                        />
-                     )
-                })*/}
 </div>
             </div>
 
