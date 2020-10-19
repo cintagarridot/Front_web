@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Link } from 'react-router-dom';
 
 import withAuth from 'components/withAuth';
 import Asignatura from 'components/Asignatura';
@@ -23,7 +24,7 @@ class UsersList extends Component {
   
     onCheckItem = (event, id) => {     
         document.activeElement.blur();
-     };
+    };
 
    
     render() {
@@ -34,11 +35,11 @@ class UsersList extends Component {
                            
                 <div id="user">
                     <Row className="pt-5 mt-5">
-                        <Col xs='11'>
+                        <Col xs='10'>
                             <h2 className="subheaderdos">Usuarios</h2>
                         </Col>
-                        <Col xs='1' className=" pt-5 mt-5">
-                            <button>Añadir profesor</button>
+                        <Col xs='2' className="pt-5 mt-5">
+                            <Link to={'/add-teacher'} className={'btn btn-primary'} >Añadir profesor</Link>
                         </Col>
                     </Row>
 
@@ -53,16 +54,16 @@ class UsersList extends Component {
                                 Profesores
                             </Tab>
                         </TabList>
+                 
+
+                        <TabPanel>
+                            <AlumnList/>
+                        </TabPanel>
+                    
+                        <TabPanel>
+                            <TeacherList/>
+                        </TabPanel>
                   </Tabs>
-
-                  <TabPanel>
-                    <AlumnList/>
-                  </TabPanel>
-               
-                  <TabPanel>
-                    <TeacherList/>
-                  </TabPanel>
-
 </div>
             </div>
 

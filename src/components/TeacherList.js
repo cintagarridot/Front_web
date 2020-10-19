@@ -25,7 +25,7 @@ class TeacherList extends Component {
      };
 
      getTeacherList = async() => {
-        await userService.getTeacherList()
+        await userService.getTeachersList()
         .then(res => {
             console.log(res.data);
             this.setState({

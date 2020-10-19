@@ -24,7 +24,7 @@ class AlumnList extends Component {
      };
 
      getAlumnList = async() => {
-        await userService.getTeacherList()
+        await userService.getAlumnsList()
         .then(res => {
             console.log(res.data);
             this.setState({

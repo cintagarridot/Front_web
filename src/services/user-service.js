@@ -38,6 +38,11 @@ class UserService {
     .then(({ data }) => data);
   }
 
+  addTeacher = (firstName, lastName, username, password) => {
+    this.user.post(`/users/add-teacher`, {firstName, lastName, username, password})
+    .then(({data}) => data);
+  }
+
 }
 
 const userService = new UserService();

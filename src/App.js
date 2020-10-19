@@ -23,7 +23,9 @@ import UsersList from 'pages/UsersList.js';
 import ListChats from 'pages/ListChats';
 import SelectSubjects from 'pages/SelectSubjects';
 import SubjectDetails from 'components/Subjects/Details.js';
+import AddTeacher from 'pages/AddTeacher.js';
 import withAuth from 'components/withAuth';
+import AdminRoute from 'components/routes/AdminRoute.js';
 
 
 class App extends Component {
@@ -51,6 +53,7 @@ class App extends Component {
               <PrivateRoute path="/user" component={User} />
               <PrivateRoute path="/users-list" component={UsersList} />
               <PrivateRoute path="/subject/details/:id" component={SubjectDetails} />
+              <AdminRoute path="/add-teacher" component={AddTeacher} />
               <Route exact path="/select-subjects" component={SelectSubjects} />
             </Switch>
           </div>

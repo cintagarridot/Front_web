@@ -800,6 +800,14 @@ margin-right: 100px;
   font-size: 20px;
 }
 
+.goBackButtonTeacher{
+  float: left;
+  margin-top: 10px;
+  text-decoration: none;
+  color:rgb(129, 129, 129);
+  font-size: 12px;
+}
+
 /*#goBackButton a:hover{
   color: black;
   text-decoration: underline;
