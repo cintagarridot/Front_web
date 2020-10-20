@@ -20,6 +20,8 @@ class SubjectService {
         })
       
   }
+
+  deleteSubject = (id) => this.service.delete(`/subjects/${id}`).then(({data}) => data);
 }
 
 const subjectService = new SubjectService();

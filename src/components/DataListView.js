@@ -1,15 +1,40 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Card, CustomInput, Badge } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import { ContextMenuTrigger } from "react-contextmenu";
 import classnames from "classnames";
-
+import withAuth from 'components/withAuth';
 import moment from 'moment';
 import 'moment/locale/es';
 import {Col, Row} from "reactstrap";
 import { Link } from 'react-router-dom';
+import subjectService from "services/subject-service";
+import { confirmAlert } from 'react-confirm-alert';
+
 
 const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, ...props }) => {
+
+  const deleteSubject  = (element) => {
+    confirmAlert({
+      title: 'Borrar '+element.title,
+      message: '¿Estás seguro de borrar esta asignatura?',
+      buttons: [
+          {
+              label: 'Borrar',
+              onClick: () => {
+                subjectService.deleteSubject(element._id);
+                window.location.reload();
+              }
+          },
+          {
+              label: 'Cancelar',
+              
+          }
+      ]
+  })
+      
+  }
+
 
   return (
     <Col xxs="12" className="mb-5">
@@ -23,17 +48,32 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           {subjects &&
             <>
               <Row>
-                <Col xs={"10"}>
+                <Col xs={"8"}>
                   <p className="list-item-heading mb-1 truncate">
                     {element.title}
                   </p>
                 </Col>
 
-                <Col xs={"2"}>
+                
+                {props.user.type === 'admin' ?
+                <>
+                 <Col xs={"2"}>
                   <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
                     Ver detalles
                   </Link>
                 </Col>
+                  <Col xs={'2'}>
+                    <button className={'btn-danger mt-1'} style={{height: '30px'}} onClick={() => deleteSubject(element)}>Borrar</button>
+                  </Col>
+                </>
+                :(
+                  <Col xs={"4"}>
+                  <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
+                    Ver detalles
+                  </Link>
+                </Col>
+                  )
+                } 
               </Row>
             </>
           }
@@ -57,6 +97,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 <Col xs={"4"} style={{textAlign: 'center'}}>
                   <Link to={'/news/detail/' + element._id} className={'btn btn-primary'} style={{fontSize: '14px'}} >Ver detalles</Link>
                 </Col>
+                
               </Row>
 
             </>
@@ -85,4 +126,4 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 };
 
 /* React.memo detail : https://reactjs.org/docs/react-api.html#reactpurecomponent  */
-export default React.memo(withRouter(DataListView));
+export default React.memo(withRouter(withAuth(DataListView)));
