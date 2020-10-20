@@ -35,7 +35,6 @@ class AlumnList extends Component {
     }
 
     render() {
-console.log('alumn')
         return (
             <div>  
                 {this.state.alumns && this.state.alumns.length > 0 && this.state.alumns.map(a => {

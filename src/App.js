@@ -24,6 +24,8 @@ import ListChats from 'pages/ListChats';
 import SelectSubjects from 'pages/SelectSubjects';
 import SubjectDetails from 'components/Subjects/Details.js';
 import AddTeacher from 'pages/AddTeacher.js';
+import SubjectsList from 'pages/SubjectsList.js';
+import AddSubject from 'pages/AddSubject.js';
 import withAuth from 'components/withAuth';
 import AdminRoute from 'components/routes/AdminRoute.js';
 
@@ -51,9 +53,11 @@ class App extends Component {
               <PrivateRoute path="/chat/:id" component={Chat} />
               <PrivateRoute path="/chat" component={ListChats} />
               <PrivateRoute path="/user" component={User} />
-              <PrivateRoute path="/users-list" component={UsersList} />
               <PrivateRoute path="/subject/details/:id" component={SubjectDetails} />
+              <AdminRoute path="/users-list" component={UsersList} />
               <AdminRoute path="/add-teacher" component={AddTeacher} />
+              <AdminRoute path="/subjects-list" component={SubjectsList} />
+              <AdminRoute path="/add-subject" component={AddSubject} />
               <Route exact path="/select-subjects" component={SelectSubjects} />
             </Switch>
           </div>

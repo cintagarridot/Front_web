@@ -30,9 +30,14 @@ class Header extends Component{
                                 </li>
                             }
                             {this.props.user.type === 'admin' &&
-                                <li>
-                                    <NavLink to="/users-list" activeClassName="active">Lista de Usuarios</NavLink>
-                                </li>
+                                <>
+                                    <li>
+                                        <NavLink to="/users-list" activeClassName="active">Usuarios</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/subjects-list" activeClassName="active">Asignaturas</NavLink>
+                                    </li>
+                                </>
                             }
                             <li>
                                 <NavLink to="/chat" activeClassName="active">Chat</NavLink>
@@ -41,7 +46,7 @@ class Header extends Component{
                                 <NavLink to="/news" activeClassName="active">Noticias</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/user" activeClassName="active">Usuario</NavLink>
+                                <NavLink to="/user" activeClassName="active">Perfil</NavLink>
                             </li>
                             
                             

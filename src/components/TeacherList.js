@@ -36,7 +36,6 @@ class TeacherList extends Component {
     }
 
     render() {
-console.log('prof')
         return (
             <div>  
                 {this.state.teachers && this.state.teachers.length > 0 && this.state.teachers.map(t => {
