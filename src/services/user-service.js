@@ -43,6 +43,8 @@ class UserService {
     .then(({data}) => data);
   }
 
+  getDocuments = (id) => this.user.get(`/users/${id}/documents`).then(({data}) => data)
+
 }
 
 const userService = new UserService();
