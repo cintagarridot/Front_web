@@ -9,9 +9,12 @@ class AddDocument extends Component {
     state = {
       title: '',
       text: '',
+      disabledButton: true,
+      document: {},
+      modal: false,
+      docName: '',
     }
   
-
     handleForPDF = (event) => {
     event.preventDefault();
     const title = this.state.title;
@@ -19,7 +22,9 @@ class AddDocument extends Component {
 
     if(title !== '' && text !== ''){
    
-
+      this.setState({
+        disabledButton: false,
+      })
     var doc = new jsPDF('p','in', 'letter', true),
     size = 12,
     font = ['Times', 'Roman'],
@@ -52,6 +57,9 @@ class AddDocument extends Component {
     verticalOffset += (lines.length + 0.5) * size / 72
 
     doc.save("documento.pdf");
+    this.setState({
+      document: doc
+    });
       // the 3 blocks of text
       /*for (var i in fonts) {
       if (fonts.hasOwnProperty(i)) {
@@ -90,7 +98,7 @@ class AddDocument extends Component {
         <div className="pt-5 mt-5">
           <h2 className="subheaderdos">Nuevo documento</h2>
         </div>
-        <form onSubmit={this.handleForPDF}>
+        <form /*encType="multipart/form-data"*/ onSubmit={this.handleForPDF}>
             <Row className={''}>
               <Col xs={'12'}>
                 <label htmlFor='title'>Título</label>
@@ -110,15 +118,13 @@ class AddDocument extends Component {
             </Row>
 
             <Row>
-              <Col className={'text-right'}>
+              <Col className={'text-center'}>
                 <input className={'mt-4'} type='submit' value='Generar PDF' />
-              </Col>
-              <Col className={'text-left'}>
-                <input className={'mt-4'} type='submit' value='Guardar documento' />
               </Col>
             </Row>
 
           </form>
+          
       </section>
     </>
     /*<div style={{textAlign: 'center'}}>

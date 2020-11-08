@@ -62,7 +62,7 @@ class App extends Component {
               <AdminRoute path="/subjects-list" component={SubjectsList} />
               <AdminRoute path="/add-subject" component={AddSubject} />
               <DocumentsRoute path="/documents" component={DocumentsList} />
-              <DocumentsRoute exact path="/add-document" component={AddDocument} />
+              <DocumentsRoute exact path="/generate-pdf" component={AddDocument} />
               <DocumentsRoute exact path="/pdf" component={ShowDocument} />
               <Route exact path="/select-subjects" component={SelectSubjects} />
 
