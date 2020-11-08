@@ -92,8 +92,9 @@ class DocumentsList extends Component {
     
 
     render() {
-
+        const { user } = this.props;
         const { documents, status } = this.state;
+        const documentList = user.documents;
         return (
             <>
             <Header/>
@@ -110,16 +111,16 @@ class DocumentsList extends Component {
                         </Col>
                     </Row>
 
-                {documents.length > 0 && status !== 'success' ? (
+                {/*documentList.length > 0 ? (
                     <div className={'text-center'}>
                         <h1>Cargando...</h1>
                     </div>
-                ) : (
-                    documents && documents.length > 0 ? (
+                ) : (*/
+                    documentList && documentList.length > 0 ? (
                         <div>
                             {console.log('documents')}
                             {console.log(documents)}
-                            {documents.map((document, i) => {
+                            {documentList.map((document, i) => {
                                 return (
                                     <DataListView
                                         key={document._id}
@@ -133,7 +134,7 @@ class DocumentsList extends Component {
                     ) : (
                         <h2 className="text-center">No hay documentos</h2>
                     )
-                )
+                
 
                 }
               
