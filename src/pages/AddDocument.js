@@ -31,23 +31,14 @@ class AddDocument extends Component {
     font, size, lines, firstLine,
     margin = 0.5, // inches on a 8.5 x 11 inch sheet.
     verticalOffset = margin,
-    horizontalOffset = margin,
     loremipsum = text;
-    const pageHeight= doc.internal.pageSize.height;
-    var y = 1000 // Height position of new content
-    var rowCount = 0;
-    var rowHeight = 12;
 
     // Margins:
     doc.setDrawColor(0, 255, 0)
-    //.setLineWidth(1 / 72)
-    //.line(margin, margin, margin, 11 - margin)
-    //.line(8.5 - margin, margin, 8.5 - margin, 11 - margin)
 
 
     firstLine = doc.setFont(font[0], font[1])
               .setFontSize('18')
-              .setFontType("bold")
               .splitTextToSize(title, 7.5);
     
 
@@ -58,13 +49,7 @@ class AddDocument extends Component {
 
     doc.text(0.5, verticalOffset + size / 72, firstLine)
     verticalOffset += (firstLine.length + 0.5) * size / 72
-
-    if ( rowCount * rowHeight > 420 ) {
-      doc.addPage();
-      rowCount = 3; // skip 1 and 2 above
-    } else {
-      
-    }
+    
     doc.text(0.5, verticalOffset + size / 72, lines)
 
     verticalOffset += (lines.length + 0.5) * size / 72;
@@ -73,21 +58,7 @@ class AddDocument extends Component {
     this.setState({
       document: doc
     });
-      // the 3 blocks of text
-      /*for (var i in fonts) {
-      if (fonts.hasOwnProperty(i)) {
-        font = fonts[i]
-        size = sizes[i]
-
-        lines = doc.setFont(font[0], font[1])
-              .setFontSize(size)
-              .splitTextToSize(loremipsum, 7.5)
-      
-        
-      }
-      }*/
-
-     
+          
     }else{
       alert('Debes escribir un titulo y texto para generar tu documento.')
     }
