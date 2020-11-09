@@ -33,6 +33,11 @@ class AddDocument extends Component {
     verticalOffset = margin,
     horizontalOffset = margin,
     loremipsum = text;
+    const pageHeight= doc.internal.pageSize.height;
+    var y = 1000 // Height position of new content
+    var rowCount = 0;
+    var rowHeight = 12;
+
     // Margins:
     doc.setDrawColor(0, 255, 0)
     //.setLineWidth(1 / 72)
@@ -41,21 +46,29 @@ class AddDocument extends Component {
 
 
     firstLine = doc.setFont(font[0], font[1])
-              .setFontSize(size)
-              .splitTextToSize(title, 7.5)
+              .setFontSize('18')
+              .setFontType("bold")
+              .splitTextToSize(title, 7.5);
     
 
     lines = doc.setFont(font[0], font[1])
               .setFontSize(size)
-              .splitTextToSize(loremipsum, 7.5)
+              .splitTextToSize(loremipsum, 7.5);
+              
 
     doc.text(0.5, verticalOffset + size / 72, firstLine)
     verticalOffset += (firstLine.length + 0.5) * size / 72
 
+    if ( rowCount * rowHeight > 420 ) {
+      doc.addPage();
+      rowCount = 3; // skip 1 and 2 above
+    } else {
+      
+    }
     doc.text(0.5, verticalOffset + size / 72, lines)
 
-    verticalOffset += (lines.length + 0.5) * size / 72
-
+    verticalOffset += (lines.length + 0.5) * size / 72;
+    
     doc.save("documento.pdf");
     this.setState({
       document: doc
@@ -127,10 +140,6 @@ class AddDocument extends Component {
           
       </section>
     </>
-    /*<div style={{textAlign: 'center'}}>
-      <br />
-      <a href={'/pdf'} target="_blank"><button>Ir a PDF</button></a>
-    </div>  */
   );
   }
 }

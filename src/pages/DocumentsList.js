@@ -25,7 +25,7 @@ class DocumentsList extends Component {
     }
 
     componentDidMount() {
-        this.getDocuments();
+//this.getDocuments();
     }
 
 
@@ -119,13 +119,15 @@ class DocumentsList extends Component {
                     documentList && documentList.length > 0 ? (
                         <div>
                             {console.log('documents')}
-                            {console.log(documents)}
-                            {documentList.map((document, i) => {
+                            {console.log(documentList)}
+                            {documentList.map((document) => {
+                                console.log('document', document)
                                 return (
                                     <DataListView
                                         key={document._id}
                                         element={document}
                                         onCheckItem={this.onCheckItem}
+                                        document={true}
                                     />
                                 );
                             })

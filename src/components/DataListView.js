@@ -12,7 +12,9 @@ import subjectService from "services/subject-service";
 import { confirmAlert } from 'react-confirm-alert';
 
 
-const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, ...props }) => {
+const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, ...props }) => {
+
+  const [ documentPath, setDocumentPath ] = useState('');
 
   const deleteSubject  = (element) => {
     confirmAlert({
@@ -28,13 +30,20 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           },
           {
               label: 'Cancelar',
-              
           }
       ]
   })
       
   }
 
+  useEffect (() => {
+    if(document && element.path) {
+      var file_split = element.path.split('\\');
+      const file_name = file_split[6];
+
+      setDocumentPath(file_name);
+    }
+  })
 
   return (
     <Col xxs="12" className="mb-5">
@@ -116,6 +125,34 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 </p>
             </Col>
             </>
+          }
+
+          {document && 
+            <>
+              <Row>
+                <Col xs={"4"}>
+                    <p className="list-item-heading mb-1 truncate">
+                      {element.title}
+                    </p>
+                </Col>
+                <Col xs={"4"}>
+                    <p className="list-item-heading mb-1 truncate">
+                      {element.user.username}
+                    </p>
+                </Col>
+                <Col xs={"4"}>
+                  {console.log('path', element.path)}
+                  
+                  {documentPath !== '' &&
+                    <a href={require('../docs/'+documentPath)} id="enlaceDescargarPdf"
+                    download={element.file_name}>
+                        Descargar
+                  </a>
+                  }
+                  
+                </Col>
+              </Row>    
+            </>      
           }
 
 

@@ -16,23 +16,23 @@ class ShowDocument extends Component {
                 <Row>
                 <Col xs="12">
                     <Row>
-                        <a href={require('../docs/documento.pdf')} id="enlaceDescargarPdf"
+                        {/*<a href={require('../docs/documento.pdf')} id="enlaceDescargarPdf"
                             download="documento.pdf"
                         >
                             Tu dispositivo no puede visualizar los PDF, da click aquí para descargarlo
-                        </a>
+        </a>*/}
                     </Row>
                 </Col>
                 <Col xs="12">
                     <Row>
-                        <object
+                        {/*<object
                             data={require('../docs/documento.pdf')}
                             type="application/pdf"
                             width="100%"
                             height="100%"
                             >
                             
-                        </object>
+    </object>*/}
                     </Row> 
                 </Col>
                 </Row>
