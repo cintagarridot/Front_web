@@ -10,6 +10,8 @@ import documentService from 'services/document-service';
 import { Link } from 'react-router-dom';
 import userService from 'services/user-service';
 import withAuth from 'components/withAuth';
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+
 
 class DocumentsList extends Component {
 
@@ -22,10 +24,22 @@ class DocumentsList extends Component {
         modal: false,
         selectedDocument: null,
         docName: '',
+        allDocuments: [],
     }
 
     componentDidMount() {
-//this.getDocuments();
+        if(this.props.user.type === 'admin'){
+            this.getAllDocuments();
+        }
+    }
+
+    getAllDocuments = async () => {
+        await documentService.getAllDocuments().then(({documents}) =>{ 
+            console.log('allDocs', documents)
+            if(documents !== undefined){
+                this.setState({ allDocuments: documents, status: 'success' })
+            }
+        })
     }
 
 
@@ -93,15 +107,19 @@ class DocumentsList extends Component {
 
     render() {
         const { user } = this.props;
-        const { documents, status } = this.state;
+        const { documents, status, allDocuments } = this.state;
         const documentList = user.documents;
         return (
             <>
             <Header/>
             <section id="content" >
-                <Row className="pt-5 mt-5">
+                    <Row className="pt-5 mt-5">
                         <Col xs='10'>
-                            <h2 className="subheaderdos">Mis documentos</h2>
+                            {user.type === 'alumn' ? (
+                                <h2 className="subheaderdos">Mis documentos</h2>
+                            ) : (
+                                <h2 className="subheaderdos">Documentos</h2>
+                            )}
                         </Col>
                         <Col xs='1' className="pt-5 mt-5">
                             <Link to={'/generate-pdf'} className={'btn btn-primary'} >Generar PDF</Link>
@@ -110,35 +128,91 @@ class DocumentsList extends Component {
                             <Button color="primary" onClick={this.toggleModal} >Subir un documento</Button>
                         </Col>
                     </Row>
-
-                {/*documentList.length > 0 ? (
-                    <div className={'text-center'}>
-                        <h1>Cargando...</h1>
-                    </div>
-                ) : (*/
-                    documentList && documentList.length > 0 ? (
-                        <div>
-                            {console.log('documents')}
-                            {console.log(documentList)}
-                            {documentList.map((document) => {
-                                console.log('document', document)
-                                return (
-                                    <DataListView
-                                        key={document._id}
-                                        element={document}
-                                        onCheckItem={this.onCheckItem}
-                                        document={true}
-                                    />
-                                );
-                            })
-                            }
-                        </div>
+                {user.type === 'alumn' && (
+                    <>
+                    
+                    {documentList && documentList.length > 0 ? (
+                     <div>
+                         {console.log('documents')}
+                         {console.log(documentList)}
+                         {documentList.map((document) => {
+                             console.log('document', document)
+                             return (
+                                 <DataListView
+                                     key={document._id}
+                                     element={document}
+                                     onCheckItem={this.onCheckItem}
+                                     document={true}
+                                 />
+                             );
+                         })
+                         }
+                     </div>
                     ) : (
-                        <h2 className="text-center">No hay documentos</h2>
-                    )
+                        <h2 className="text-center mt-3">No hay documentos</h2>
+                    )}
                 
+                </>
+             
+                )}
 
-                }
+                {user.type === 'admin' && (
+                    <>
+                        <Tabs>
+                            <TabList>
+                                <Tab selectedClassName="selected-tab-style">
+                                    Documentos
+                                </Tab>
+                                <Tab
+                                    selectedClassName="selected-tab-style"
+                                >
+                                    Mis documentos
+                                </Tab>
+                            </TabList>
+                    
+                            <TabPanel>
+                                {allDocuments && allDocuments.length > 0 ? (
+                                <div>
+                                    {allDocuments.map((document) => {
+                                        return (
+                                            <DataListView
+                                                key={document._id}
+                                                element={document}
+                                                onCheckItem={this.onCheckItem}
+                                                document={true}
+                                            />
+                                        );
+                                    })
+                                    }
+                                </div>
+                                ) : (
+                                    <h2 className="text-center">No hay documentos</h2>
+                                )}
+                            </TabPanel>
+                        
+                            <TabPanel>
+                            {documentList && documentList.length > 0 ? (
+                                <div>
+                                    {documentList.map((document) => {
+                                        return (
+                                            <DataListView
+                                                key={document._id}
+                                                element={document}
+                                                onCheckItem={this.onCheckItem}
+                                                document={true}
+                                            />
+                                        );
+                                    })
+                                    }
+                                </div>
+                                ) : (
+                                    <h2 className="text-center">No hay documentos</h2>
+                                )}
+                            </TabPanel>
+                        </Tabs>
+                    </>
+                )}
+               
               
                 {this.state.modal &&
                     <div>

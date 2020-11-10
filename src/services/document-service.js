@@ -15,6 +15,8 @@ class DocumentService {
     return this.service.post(`/documents/`, formData).then(({data}) => data);
   }
 
+  getAllDocuments = () => this.service.get(`/documents/all`).then(({data}) => data)
+
 }
 
 const documentService = new DocumentService();
