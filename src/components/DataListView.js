@@ -130,12 +130,12 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           {document && 
             <>
               <Row>
-                <Col xs={"5"}>
+                <Col xs={"6"}>
                     <p className="list-item-heading mb-1 truncate">
                       {element.title}
                     </p>
                 </Col>
-                <Col xs={"3"}>
+                <Col xs={"2"}>
                     <p className="list-item-heading mb-1 truncate">
                       {element.user.username}
                     </p>
