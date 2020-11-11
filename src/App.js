@@ -28,7 +28,10 @@ import SubjectsList from 'pages/SubjectsList.js';
 import AddSubject from 'pages/AddSubject.js';
 import withAuth from 'components/withAuth';
 import AdminRoute from 'components/routes/AdminRoute.js';
-
+import DocumentsRoute from 'components/routes/DocumentsRoute.js';
+import DocumentsList from 'pages/DocumentsList.js';
+import AddDocument from 'pages/AddDocument.js';
+import ShowDocument from 'pages/ShowDocument.js';
 
 class App extends Component {
   render() {
@@ -58,7 +61,11 @@ class App extends Component {
               <AdminRoute path="/add-teacher" component={AddTeacher} />
               <AdminRoute path="/subjects-list" component={SubjectsList} />
               <AdminRoute path="/add-subject" component={AddSubject} />
+              <DocumentsRoute path="/documents" component={DocumentsList} />
+              <DocumentsRoute exact path="/generate-pdf" component={AddDocument} />
+              <DocumentsRoute exact path="/pdf" component={ShowDocument} />
               <Route exact path="/select-subjects" component={SelectSubjects} />
+
             </Switch>
           </div>
         </AuthProvider>

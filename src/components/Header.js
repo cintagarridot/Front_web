@@ -45,6 +45,11 @@ class Header extends Component{
                             <li>
                                 <NavLink to="/news" activeClassName="active">Noticias</NavLink>
                             </li>
+                            {(this.props.user.type === 'alumn' || this.props.user.type === 'admin') && 
+                                <li>
+                                    <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
+                                </li>
+                            }
                             <li>
                                 <NavLink to="/user" activeClassName="active">Perfil</NavLink>
                             </li>
