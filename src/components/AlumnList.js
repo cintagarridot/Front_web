@@ -47,6 +47,11 @@ class AlumnList extends Component {
                         />
                      )
                 })}
+                 {this.state.alumns && this.state.alumns.length === 0 &&
+
+                    <h2 className="text-center">No hay alumnos registrados</h2>
+
+                }
             </div>
 
         );

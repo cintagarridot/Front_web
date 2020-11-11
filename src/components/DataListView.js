@@ -130,19 +130,22 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           {document && 
             <>
               <Row>
-                <Col xs={"4"}>
+                <Col xs={"5"}>
                     <p className="list-item-heading mb-1 truncate">
                       {element.title}
                     </p>
                 </Col>
-                <Col xs={"4"}>
+                <Col xs={"3"}>
                     <p className="list-item-heading mb-1 truncate">
                       {element.user.username}
                     </p>
                 </Col>
-                <Col xs={"4"}>
-                  {console.log('path', element.path)}
-                  
+                <Col xs={'2'}>
+                  <p>
+                    {moment(element.date).format('L')}
+                  </p>
+                </Col>
+                <Col xs={"2"}>            
                   {documentPath !== '' &&
                     <a href={require('../docs/'+documentPath)} id="enlaceDescargarPdf"
                     download={element.file_name}>
@@ -151,6 +154,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                   }
                   
                 </Col>
+               
               </Row>    
             </>      
           }

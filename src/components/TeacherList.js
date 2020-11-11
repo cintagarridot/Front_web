@@ -48,6 +48,11 @@ class TeacherList extends Component {
                         />
                      )
                 })}
+                {this.state.teachers && this.state.teachers.length === 0 &&
+
+                    <h2 className="text-center">No hay profesores registrados</h2>
+
+                }
             </div>
 
         );

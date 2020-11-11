@@ -38,8 +38,8 @@ class AddDocument extends Component {
 
 
     firstLine = doc.setFont(font[0], font[1])
-              .setFontSize('18')
-              .splitTextToSize(title, 7.5);
+              .setFontSize(18)
+              .splitTextToSize(title, 18);
     
 
     lines = doc.setFont(font[0], font[1])
@@ -47,8 +47,8 @@ class AddDocument extends Component {
               .splitTextToSize(loremipsum, 7.5);
               
 
-    doc.text(0.5, verticalOffset + size / 72, firstLine)
-    verticalOffset += (firstLine.length + 0.5) * size / 72
+    doc.text(3.2, verticalOffset + 18 / 72, firstLine)
+    verticalOffset += (firstLine.length + 0.5) * 30 / 72
     
     doc.text(0.5, verticalOffset + size / 72, lines)
 

@@ -133,10 +133,7 @@ class DocumentsList extends Component {
                     
                     {documentList && documentList.length > 0 ? (
                      <div>
-                         {console.log('documents')}
-                         {console.log(documentList)}
                          {documentList.map((document) => {
-                             console.log('document', document)
                              return (
                                  <DataListView
                                      key={document._id}
