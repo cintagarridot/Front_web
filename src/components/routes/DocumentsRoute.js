@@ -9,7 +9,7 @@ const AlumnRoute = (props) => {
   const {isLoggedIn, user, component: Component, ...rest} = props;
   return (
     <>
-      {isLoggedIn && user.type !== 'teacher' ? ( <Route 
+      {isLoggedIn ? ( <Route 
         render={(props) => {
           return <Component {...props}/>
         }}

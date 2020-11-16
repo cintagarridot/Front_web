@@ -5,7 +5,8 @@ import AuthService from 'services/auth-service';
 import subjectService from 'services/subject-service';
 import loading from 'assets/images/loading.jpg';
 import Header from 'components/Header.js';
-import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown,
+    DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 import documentService from 'services/document-service';
 import { Link } from 'react-router-dom';
 import userService from 'services/user-service';
@@ -25,6 +26,7 @@ class DocumentsList extends Component {
         selectedDocument: null,
         docName: '',
         allDocuments: [],
+        dropdownOpen: false,
     }
 
     componentDidMount() {
@@ -103,32 +105,56 @@ class DocumentsList extends Component {
         this.setState({ selectedFile: event.target.files[0] }); 
        
     }; 
-    
+
+    toggle = () => {
+        this.setState({
+            dropdownOpen: !this.state.dropdownOpen
+        })
+    }
+
 
     render() {
         const { user } = this.props;
-        const { documents, status, allDocuments } = this.state;
+        const { documents, status, allDocuments, dropdownOpen } = this.state;
         const documentList = user.documents;
+
         return (
             <>
             <Header/>
             <section id="content" >
                     <Row className="pt-5 mt-5">
                         <Col xs='10'>
-                            {user.type === 'alumn' ? (
+                            {user.type !== 'admin' ? (
                                 <h2 className="subheaderdos">Mis documentos</h2>
                             ) : (
                                 <h2 className="subheaderdos">Documentos</h2>
                             )}
                         </Col>
                         <Col xs='1' className="pt-5 mt-5">
-                            <Link to={'/generate-pdf'} className={'btn btn-primary'} >Generar PDF</Link>
+                            <Dropdown isOpen={dropdownOpen} toggle={this.toggle}>
+                                <DropdownToggle caret>
+                                    Generar PDF    
+                                </DropdownToggle>
+                                <DropdownMenu>
+                                    <DropdownItem>
+                                        <Link to={'/generate-subject-guide-request'}>Petición de guía de una asignatura</Link>
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>
+                                        <Link to={'/generate-pdf'}>Petición de guía de una asignatura</Link>
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>
+                                        <Link to={'/generate-pdf'}>Generar documento libre</Link>
+                                    </DropdownItem>                                
+                            </DropdownMenu>
+                            </Dropdown>
                         </Col>
                         <Col xs='1' className="pt-5 mt-5">
                             <Button color="primary" onClick={this.toggleModal} >Subir un documento</Button>
                         </Col>
                     </Row>
-                {user.type === 'alumn' && (
+                {user.type !== 'admin' && (
                     <>
                     
                     {documentList && documentList.length > 0 ? (

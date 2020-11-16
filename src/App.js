@@ -32,6 +32,7 @@ import DocumentsRoute from 'components/routes/DocumentsRoute.js';
 import DocumentsList from 'pages/DocumentsList.js';
 import AddDocument from 'pages/AddDocument.js';
 import ShowDocument from 'pages/ShowDocument.js';
+import AddSubjectGuideRequest from 'pages/AddSubjectGuideRequest.js';
 
 class App extends Component {
   render() {
@@ -63,6 +64,7 @@ class App extends Component {
               <AdminRoute path="/add-subject" component={AddSubject} />
               <DocumentsRoute path="/documents" component={DocumentsList} />
               <DocumentsRoute exact path="/generate-pdf" component={AddDocument} />
+              <DocumentsRoute exact path="/generate-subject-guide-request" component={AddSubjectGuideRequest} />
               <DocumentsRoute exact path="/pdf" component={ShowDocument} />
               <Route exact path="/select-subjects" component={SelectSubjects} />
 
