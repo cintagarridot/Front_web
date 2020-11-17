@@ -3,7 +3,7 @@ import axios from 'axios';
 class ChatService {
   constructor() {
     this.service = axios.create({
-      baseURL: 'http://localhost:3800',
+      baseURL: 'https://git.heroku.com/back-uhu.git',
       withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
     })
   }

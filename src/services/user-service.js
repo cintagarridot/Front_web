@@ -3,7 +3,7 @@ import axios from 'axios';
 class UserService {
   constructor() {
     this.user = axios.create({
-      baseURL: 'http://localhost:3800',
+      baseURL: 'https://git.heroku.com/back-uhu.git',
       withCredentials: true,
     })
   }
