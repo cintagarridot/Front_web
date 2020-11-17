@@ -141,10 +141,6 @@ class DocumentsList extends Component {
                                     </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>
-                                        <Link to={'/generate-pdf'}>Petición de guía de una asignatura</Link>
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
                                         <Link to={'/generate-pdf'}>Generar documento libre</Link>
                                     </DropdownItem>                                
                             </DropdownMenu>
