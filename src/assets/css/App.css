@@ -1,0 +1,1183 @@
+body{
+  text-align: center;
+  /* Para quitar los margenes por defecto */
+  margin: 0px;
+  padding: 0px;
+  background: #f7f7f7;
+
+  /*FUENTES*/
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased; /*para que nos suavicen las fuentes*/
+  -moz-font-smoothing: antialiased; /*para mozilla*/
+  -moz-osx-font-smoothing: antialiased; /*para mac*/
+}
+
+#header {
+  display: block;
+  top: 0; /*Para quitar el espacio que habia*/
+  left: 0;
+  height: 85px;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #ccc;
+  /*border-top: 5px solid #61dafb; /*color azul de react*/
+  position: fixed;
+
+}
+
+.center {
+  width: 75%;
+  margin: 0px auto; /* auto centra automaticamente el elemento de la pagina*/
+}
+
+.clearfix{
+  clear: both; /*si yo no pongo esto y sigo añadiendo elementos despues de terminar el menu y el logo, se me subirian esos elementos encima de otros.*/
+  float: none;
+}
+
+.active{ /*resaltar un elemento de la barra de navegacion*/
+
+  border-bottom: 2px solid #3cb2d3;  /*El elemento que este activo en ese mmomento osea en la pagina que este en ese momento*/
+
+}
+
+#logo {
+  width: 30%; /*Para que la caja del logo tenga un tamaño del 30%*/
+  font-size: 20px;
+  float: left; /*Para que nos mueva el elemento a un lado*/
+  margin-top: 25px; /*Margen para el texto del logo*/
+}
+
+#logo img{
+  display: block; 
+  float: left;
+  height: 50px;
+  margin-top: -10px; /*Margen para la imagen del logo*/
+  margin-right: -2px; /*Margen de la derecha d la imagen*/
+  animation: nombre-animacion infinite 30s linear; /*linear significa que siempre va a tener la misma velocidad*/
+}
+
+/*
+@keyframes nombre-animacion{
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+}*/
+
+#brand{
+  display: block;
+  margin: 0px;
+  float: left;
+}
+
+#menu{
+  width: 70%;
+  text-align: center;
+  float: right;
+  font-size: 16px;
+}
+
+#menu ul{
+  line-height: 45px; /* La altura que van a tener los elementos en linea qe aparecen en la lista*/
+  width: 60%;
+  float: right;
+
+}
+
+#menu ul li { /*Para cada elemento li del menu*/
+ display: inline-block; /*En vez de poner los elementos uno debajo de otro, los alinea y que se comporten como un bloque*/
+ list-style: none; /*no me pongas estilo de lista: ejemplo quitame los puntos */
+ height: 46px;
+ /*Separacion entre cada li*/
+ margin-top: 18px;
+ margin-left: 7px; 
+ margin-right: 7px;
+}
+
+#menu a{ 
+  text-decoration: none; /*Con este no aparece el subrayado*/
+  color: #444; 
+  transition: 300ms all; /*Si yo hago hover en esos elementos me cambia el color(si paso por encima de los links)*/
+}
+
+#menu a:hover{
+  color: #3cb2d3;
+}
+
+#slider{
+ 
+  width: 100%;
+  height: 320px;
+  /*line-height: 320px;*/
+  color:white;
+  text-shadow: 0px 0px 5px #444;
+  
+  /*DEGRADADO CSS*/
+  background: rgba(183,222,237,1);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(183,222,237,1) 19%, rgba(113,206,239,1) 48%, rgba(33,180,226,1) 82%, rgba(33,180,226,1) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(183,222,237,1)), color-stop(6%, rgba(183,222,237,1)), color-stop(19%, rgba(183,222,237,1)), color-stop(48%, rgba(113,206,239,1)), color-stop(82%, rgba(33,180,226,1)), color-stop(100%, rgba(33,180,226,1)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(183,222,237,1) 19%, rgba(113,206,239,1) 48%, rgba(33,180,226,1) 82%, rgba(33,180,226,1) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(183,222,237,1) 19%, rgba(113,206,239,1) 48%, rgba(33,180,226,1) 82%, rgba(33,180,226,1) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(183,222,237,1) 19%, rgba(113,206,239,1) 48%, rgba(33,180,226,1) 82%, rgba(33,180,226,1) 100%);
+  background: radial-gradient(ellipse at center, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(183,222,237,1) 19%, rgba(113,206,239,1) 48%, rgba(33,180,226,1) 82%, rgba(33,180,226,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#21b4e2', GradientType=1 );
+}
+
+/*MODIFICAR LOS ESTILOS DEL H1 PARA QUE NO NOS SALGA EL BORDE SUPERIOR*/
+#slider h1{
+  margin-top: 0px; /*hacemos eso para que se vea bien en tdos los navegadores.*/
+  padding: 0px;
+  padding-top: 20px; /*Para el texto*/
+  text-align: center;
+}
+
+
+
+#slider.slider-small{ /*IMPORTANTE PONER SLIDER. Y LA CLASE PARA QUE EL .CSS TE ECHE CUENTA*/
+  height: 150px;
+
+}
+
+#slider.slider-small h1{
+  margin-top: 0px;
+  padding: 0px;
+  padding-top: 50px; /*Para el texto*/
+  text-align: center;
+}
+
+
+#slider.slider-sesion .btn {
+
+  display: block;
+  background: black;
+  color: white;
+  padding: 15px;
+  font-weight: bold; /*letra en negrita*/
+  text-transform: uppercase;
+  font-size: 14px;
+  text-decoration: none;
+  max-width: 120px;
+  transition: 300ms all; /*para que al pasar por encima lo haga de una forma mas suavizada*/
+ 
+  cursor: pointer; /*cuando haga hover me pinta la mano del dedito y no el cursor normal de la flecha*/
+}
+
+.slider-sesion .btn:hover{
+  background: green;
+  color: white;
+}
+
+
+
+#slider.slider-registro{
+
+  display:block;
+  background: white;
+  color: rgb(71, 176, 236);
+
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: none;
+  text-align: center;
+
+  float: right;
+  width: 40%;
+  margin-right: 50px;
+
+  border-radius: 6px; /*Redondear los bordes del slider*/
+  box-shadow: 0px 0px 7px #444; /*Resaltar el slider*/
+
+}
+
+#slider.slider-smallInfo{
+  display: block;
+  background: rgb(219, 219, 219);
+  border-radius: 20px;
+  width: 90%;
+  height: 70px;
+}
+
+
+#sesion{
+  width: 100%;
+
+  background:#f7f7f7d7;
+  padding-top: 200px;
+  margin: 0px auto;
+  min-height: 1000px;
+  margin-right: 0px;
+}
+
+#content{
+  width: 100%;
+  float: left;
+  
+  min-height: 600px;
+  margin-right: 25px;
+}
+
+#contentuser{
+
+  width: 50%;
+  float: left;
+
+  margin-left: 15px;
+  min-height: 865px;
+  margin-right: 25px;
+
+}
+
+#sidebar{
+  width: 25%;
+  float:left;
+  
+}
+
+.sidebar-item{
+  background: #f7f7f7;
+  padding: 20px;
+  margin-top: 115px;
+}
+
+.sidebar-item h3{
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0px;
+  padding-bottom: 10px;/*para que le haga una separacion por abajo*/
+  margin-bottom: 10px;
+  border-bottom: 3px solid #eeee;
+
+}
+
+.sidebar-item .btn{
+
+  margin: 0px auto;
+  margin-top: 10px;
+
+}
+
+
+
+
+/*En general, para todos los campos que haya que meter textos*/
+input[type="text"],
+textarea{ /*Reutilizamos para la textarea*/
+  width: 100%;
+  min-height: 30px;
+  border: 1px solid #eee;
+  padding: 3px; /*Para que el campo sea mas grande*/
+  margin-bottom: 5px;
+  transition: 300ms all;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus{ /*focus es para cuando pinche*/
+  box-shadow: 0px 0px 2px #eee inset; /*inset es para que sea dentro del campo, no por fuera el efecto*/
+}
+
+input[type="date"]{
+
+  float:left;
+  margin-left: 0px;
+  margin-top: 10px;
+  width: 30%;
+  padding: 3px;
+
+}
+
+textarea{
+  width: 100%; /*Para que ocupe todo el ancho*/
+  height: 150px; /*tamaño por defecto*/
+  min-height: 150px; /*para que no se pueda hacer mas pequeño*/
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 300px; /*maxima altura*/
+}
+
+#footer{ /*Para el pie de pagina*/
+  background: #f7f7f7;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  color: #444;
+}
+
+#footer p{ /*para quitar los margenes del parrafo dentro del pie de pagina*/
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.article-item{ /*Para darle un estilo a cada uno de los articulos*/
+
+  width: 100%;
+  margin-left:15px;
+  margin-top:200px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px; /*margen interior*/
+  padding-top: 20px;
+  text-align: left;
+
+}
+
+
+.article-item .image-wrap { /*Las imagenes de los articulos*/
+
+  width: 130px;
+  height: 130px;
+  overflow: hidden; /*Para que oculte todo lo que sobresalga de ese tamaño de la imagen.*/
+  float: left;
+  margin-right: 15px; /*Para que le meta un margen a la derecha y lo separe de lo que es el texto del titulo del articulo*/
+  border: 1px solid #ccc;
+}
+
+.article-item .image-wrap img { 
+  height: 100%;
+  text-align: center;
+}
+
+.article-item h2{
+  display: block;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  padding-bottom: 7px;
+}
+
+.article-item .date{
+  display: block;
+  width: 100%;
+  color: rgb(124, 122, 122);
+}
+
+.article-item a{
+  display: block;
+  color: #444;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.article-item a:hover{
+
+  text-decoration: underline; /*Para cuando pase por encima de Leer mas se subraye.*/
+
+}
+
+.items-center{
+  margin-top: 80px;
+}
+
+.subheader{
+  font-size: 38px;
+  padding-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.subheaderdos{
+
+  font-size: 38px;
+  padding-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  
+  text-align: center;
+  border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
+  padding-bottom: 10px;
+
+}
+
+.subheaderSpace{
+ 
+  margin-top: 150px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.article-detail .image-wrap{
+  float: none;
+  width: 100%;
+  height: 300px;
+
+}
+
+.article-detail .image-wrap img{
+  
+  width: 100%; /*Para que se adapte al 100% del ancho del div*/
+  height: auto;
+}
+
+.article-detail .subheader{
+  margin-bottom: 0px;
+  border: none;
+  margin-top: 15px;
+
+}
+
+@viewport{
+  zoom: 1.0;
+  width: device-width;
+}
+
+.mid-form{ /*Campos del formulario*/
+  width: 50%;
+  margin: opx auto;
+}
+
+.mid-form label{ /*Labels (definicion) de los campos del formulario*/
+  display: block;
+  float: left;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 17px;
+  margin-top: 10px;
+}
+
+.radiobuttons{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float:left; /*Al hacer esto ahora en el formulario.html que es donde estan los radiobuttons tengo que desflotar para los siguientes elementos.*/
+
+}
+
+
+#asig li{
+  display: block;
+  float:left;
+  text-align: left;
+  font-size: 22px;
+  width: 100%;
+  margin-top: 50px;
+
+}
+
+/*SLIDER DE CADA ASIGNATURA*/
+.slider-asignatura{
+  
+  display: block;
+  width: 100%;
+  height: 180px;
+  background: white;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  border: 2px;
+  border-radius: .5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  
+
+}
+
+.slider-asignatura h3{
+
+  margin-left: 30px;
+  text-align: left;
+  color: #444;
+  font-size: 16px;
+  margin-top:10px;
+
+}
+
+.slider-asignatura a {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#slider.slider-noticia{
+  
+  display: block;
+  width: 1200px;
+  height: 740px;
+  background: rgba(248, 238, 238, 0.774);
+  text-align: left;
+  margin-top: 150px;
+  margin-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  /*border: 2px;*/
+  /*border-radius: .5rem;*/
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+}
+
+#slider.slider-noticia p{
+
+  font-size: 17px;
+
+}
+
+#slider.titulo-noticias{
+ 
+  margin-top: 15px;
+  font-size: inherit;
+  font-family: inherit;
+  font-style: inherit;
+}
+
+#slider.slider-initial{
+  height: 80px;
+  margin-top: 90px;
+  
+}
+
+#slider.slider-bienvenida{
+  
+  display: block;
+  width: 100%;
+  height: 100px;
+  background: green;
+  margin-top: 20px;
+  text-align: left;
+
+}
+
+
+/*Cada boton del nombre de la asignatura*/
+.botonAsignatura {
+
+  text-transform: uppercase;
+  color: black;
+  font-size: 22px;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: 300ms all;
+
+}
+
+.botonAsignatura:hover{
+
+  color: rgb(97, 97, 97);
+  text-decoration: underline; /*Para cuando pase por encima de Leer mas se subraye.*/
+
+}
+
+
+
+/*PAGINA USUARIO*/
+
+/*imagen usuario*/
+#imgUsuario{
+    width: 70%; /*Para que la caja del logo tenga un tamaño del 30%*/
+    float: left; /*Para que nos mueva el elemento a un lado*/
+    margin-top: 0px; /*Margen para el texto del logo*/
+}
+
+#imgUsuario h3{
+
+  
+  font-size: 20px;
+  text-transform: uppercase;
+  background: #ccc;
+  margin-left: 350px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  text-align: center;
+
+}
+
+#imgUsuario img{
+ 
+  display: block; 
+  float: left;
+  height: 50px;
+  margin-left: 25px;
+  margin-top: 20px; /*Margen para la imagen*/
+  margin-right: -2px; /*Margen de la derecha d la imagen*/
+  
+}
+
+
+/*botones cerrar sesion y cambiar contraseña*/
+#botonUser{
+
+  margin-top: 300px;
+  margin-left: 0px;
+}
+
+.datosUser{
+
+  text-transform: uppercase;
+  background: #3cb2d3;
+  color: white;
+  font-size: 12px;
+
+  text-decoration: none;
+  transition: 300ms all;
+  cursor: pointer;
+
+}
+
+
+/*TITULO INICIO*/
+.titulo{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  margin-bottom: 50px;
+}
+
+
+/* BOTONES A ETSI, MOODLE Y UHU */
+.botonAPaginas a{
+
+margin-right: 100px;
+  margin-top: 60px;
+  text-shadow: none;
+  color: gray;
+  font-size:21px;
+
+  transition: 300ms all;
+  cursor: pointer;
+
+}
+
+.slider-data{
+ text-align: center;
+}
+
+.botonAPaginas a:hover{
+
+  text-decoration: underline;
+  color: rgb(167, 162, 162);;
+  
+}
+
+/* PAGINA NOTICIA */
+
+/* SIDEBAR CREAR NUEVA NOTICIA */
+
+.sideBarNoticia{
+  
+  border: 1px solid rgb(121, 188, 236); /*Borde del recuadro*/
+  background: white;
+  padding: 20px;
+  margin-top: 115px;
+
+}
+
+.crearNoticiaText{
+
+  font-size: 16px;
+  text-transform: uppercase;
+  font-style: normal;
+
+}
+
+.botonNoticia {
+  margin: 0px auto;
+  margin-top: 15px;
+  background: white;
+  font-size: 18px;
+
+  transition: 300ms all;
+  cursor: pointer;
+}
+
+.botonNoticia:hover{
+  background: rgb(214, 214, 214);
+}
+
+/* NUEVA NOTICIA */
+
+.cssH1{
+
+  width: 30%;
+  margin: 140px auto;
+  margin-bottom: 50px;
+  font-size: 40px;
+  background: rgb(63, 134, 241);
+  color:white;
+
+}
+
+#formCompleto{
+  width: 70%;
+  margin: 0px auto;
+}
+
+#formCompleto label{
+
+  font-size: 18px;
+  float: left;
+
+}
+
+#formCompleto input[type="text"]
+{
+
+  width: 100%;
+  height: 35px;
+}
+
+#formCompleto input[type="submit"]{
+
+  width: 20%;
+  height: 30px;
+
+}
+
+#formCompleto textarea{
+
+  width: 100%;
+  height: 35px;
+
+}
+
+.form-group{
+
+  margin-bottom: 30px;
+
+}
+
+/*BUSCADOR NOTICIAS*/
+.searchNews{
+  width: 200px;
+  height: 20px;
+  
+}
+
+.buttonSearch{
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.dateSearchNews{
+  margin-bottom: 20px;
+}
+
+.tableNews{
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;   
+  margin: center; 
+  margin-top: 40px;  
+  width: 480px; 
+  text-align: left;    
+  border-collapse: collapse; 
+  
+}
+
+.tableNews th{
+  font-size: 13px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
+  border-top: 4px solid #aabcfe;    border-bottom: 1px solid #fff; color: #039; 
+}
+
+.tableNews td{
+  padding: 8px;     background: #e8edff;     border-bottom: 1px solid #fff;
+  color: #669;    border-top: 1px solid transparent;
+  text-align: center;
+  padding-right: 300px;
+}
+
+.tableNews tr:hover td{
+  background: #d0dafd; color: #339;
+}
+
+
+.seeNews {
+  width: 22px;
+  height: 22px;
+}
+
+/*BOTON PARA VOLVER A LA PAG DE NOTICIAS*/
+#goBackButton a{
+  float: left;
+  margin-top: 10px;
+  padding-left: 10px;
+  text-decoration: none;
+  color:rgb(129, 129, 129);
+  font-size: 20px;
+}
+
+.goBackButtonTeacher{
+  float: left;
+  margin-top: 10px;
+  text-decoration: none;
+  color:rgb(129, 129, 129);
+  font-size: 12px;
+}
+
+/*#goBackButton a:hover{
+  color: black;
+  text-decoration: underline;
+  font-size: 22px;
+}*/
+
+
+/* VER UNA NOTICIA CON IMAGEN*/
+
+#newsDivImage{
+  float: left;
+  width: 50%;
+  height: 300px;
+}
+
+#newsDivContent{
+  float: right;
+  width: 50%;
+  height: 300px;
+}
+
+#newsDivAuthor{
+  display: block;
+  margin-left: 140px;
+  color: black;
+  font-size: 18px;
+  padding-bottom: 10px;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+#newsDivDate{
+  display: block;
+  width: 30%;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  margin-left: 140px;
+}
+
+#newsDivDate h2{
+  color: black;
+  font-size: 16px;
+  padding-bottom: 10px;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+#newsButton {
+  display: block;
+  width: 30%;
+  height: 40%;
+  float: right;
+  margin-right: 110px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+}
+
+.update{
+  margin-top: 20px;
+  float: right;
+  color: black;
+  font-size: 15px;
+  width: 30%;
+  background-color: #4899f0;
+}
+
+.delete{
+  margin-top: 20px;
+  float: right;
+  color: black;
+  font-size: 15px;
+  width: 30%;
+  background-color:rgb(253, 65, 65);
+}
+
+/*Imagen destacada a la izquierda en el blog*/
+#newsDivImage img{
+  display: block;
+ margin: 0px auto;
+}
+
+#newsDivContent p{
+  display: block;
+  margin: 0px auto;
+  font-style: normal;
+  text-align: center;
+  text-shadow: none;
+  text-decoration: none;
+  color: black;
+}
+
+
+/*VER UNA NOTICIA SIN IMAGEN*/
+#newsDivContent2{
+  display: block;
+  margin-left: 100px;
+  margin-right: 100px;
+  float: center;
+  height: 200px;
+}
+
+#newsDivContent2 p{
+  display: block;
+  margin: 0px auto;
+  font-style: normal;
+  text-align: center;
+  text-shadow: none;
+  text-decoration: none;
+  color: black;
+}
+
+#newsButton2{
+  display: block;
+  width: 30%;
+  height: 40%;
+  float: right;
+  margin-top: 60px;
+  margin-right: 110px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+}
+
+/*CUADRO CONFIRMACIÓN PARA BORRAR UNA NOTICIA*/
+#boxConfirm{
+  width: 400px;
+  height: 150px;
+  margin: center;
+  float: center;
+  background: rgb(184, 178, 178);
+
+}
+
+#boxConfirm h3{
+  color: black;
+  margin: center;
+  font-style: none;
+  font-size: 16px;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+#boxConfirm button{
+  width: 50px;
+  height: 50px;
+  margin: center;
+}
+
+
+/* FORMULARIO FORMIK */
+#formulario{
+
+  margin-top: 175px;
+  margin-bottom: 690px;
+  height: 0px;
+
+}
+
+
+/*RESPONSIVE*/
+
+/*Desde la anchura 0px hasta la anchura 1334px de pantalla se van a producir estos estilos*/
+@media (max-width: 1480px){ /*estoy creando un mediaquery*/
+
+  .center{ /*para que cuando pongamos la pagina mas chica no se deforme*/
+      width: 85%;
+  }
+}
+
+@media (max-width: 1346px){
+
+
+  .center{ /*para que cuando pongamos la pagina mas chica no se deforme*/
+      width: 95%;
+  }
+
+  #menu ul{
+      width: auto; /*Para que el menu se quede fijo*/
+  }
+}
+
+@media (max-width: 692px){
+
+
+  .center{ /*para que cuando pongamos la pagina mas chica no se deforme*/
+      width:100%;
+  }
+
+  #menu ul{
+      width: auto; /*Para que el menu se quede fijo*/
+  }
+}
+
+
+@media (max-width: 658px){
+
+
+  .center{ /*para que cuando pongamos la pagina mas chica no se deforme*/
+      width:100%;
+  }
+
+  #menu ul{
+      width: auto; /*Para que el menu se quede fijo*/
+  }
+}
+
+@media (max-width: 510px) {/*estoy creando un mediaquery*/
+
+  #logo{
+      float:none;
+      width: 240px;
+      margin: 0px auto;
+      margin-top: 20px;
+  }
+
+  #menu,
+  #menu ul{
+      clear: both; /*Para que limpie los posibles flotados que haya*/
+      float: none;
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+      line-height: 43px;
+  }
+
+  #content{
+      float: none; /*le quitamos el flotado*/
+      width: 100%;
+  }
+
+
+}
+
+.link-to-pages{
+  font-style: none;
+  color: white;
+  text-decoration: none;
+}
+
+.link-to-pages:hover{
+  font-style: none;
+  color: white;
+  text-decoration: none;
+}
+
+.link-to-news{
+  font-style: none;
+  color: black;
+  text-decoration: none;
+}
+
+.link-to-news:hover{
+  font-style: none;
+  color: black;
+  text-decoration: none;
+}
+.subheaderUser{
+  font-size: 32px;
+  padding-top: 20px;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  
+  text-align: center;
+  border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
+  padding-bottom: 10px;
+}
+
+.profile-text{
+
+  height: 15px;
+  font-family: Muli;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #909090;
+}
+
+.auth-card{
+
+  margin: auto;
+  margin-top: 150px;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 70%;
+ 
+}
+
+.auth-card-signup{
+  margin: auto;
+  margin-top: 120px;
+  width: 70%;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card-signup input[text]{
+  width: 200px;
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.link:hover{
+  text-decoration: none;
+  color: rgb(52, 150, 231);
+}
+
+.button-color{
+  background-color: rgb(52, 150, 231);
+  border-color: rgb(52, 150, 231);
+  transition: 300ms all; /*para que al pasar por encima lo haga de una forma mas suavizada*/
+  cursor: pointer; /*cuando haga hover me pinta la mano del dedito y no el cursor normal de la flecha*/
+}
+
+.button-color:hover{
+  background-color: rgb(103, 164, 243);
+  border-color: rgb(103, 164, 243);
+}
+
+.font{
+  font-size: 13px;
+}
+
+.loading{
+  margin-top: 50px;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(red, 0.2);
+  border-radius: 50%;
+  border-top-color: red - 1;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  left: calc(50% - 15px);
+  top: calc(50% - 15px);
+  z-index: 1;
+}
+
+@keyframes spin {
+  to {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+
+/*Tabset*/
+.react-tabs__tab-list {
+  border-bottom: 3px solid rgb(103, 164, 243) !important;
+  color:  rgb(103, 164, 243);
+  font-size: 1.3rem !important;
+}
+
+.selected-tab-style {
+  background-color:  rgb(103, 164, 243);
+  border-radius: 5px;
+  width: 200px;
+  color: white;
+  text-align: center;
+}

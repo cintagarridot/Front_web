@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {AuthContext} from '../contexts/auth-context.js';
+import {AuthContext} from 'contexts/auth-context.js';
 
 const withAuth = (Comp) => {
   return class WithAuth extends Component {
