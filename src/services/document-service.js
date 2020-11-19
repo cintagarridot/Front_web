@@ -4,7 +4,7 @@ class DocumentService {
   constructor() {
     this.service = axios.create({
       baseURL: 'https://back-web.vercel.app/',
-      withCredentials: true,
+      withCredentials: false,
     })
   }
 

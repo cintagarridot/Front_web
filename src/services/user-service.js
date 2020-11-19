@@ -4,7 +4,7 @@ class UserService {
   constructor() {
     this.user = axios.create({
       baseURL: 'https://back-web.vercel.app/',
-      withCredentials: true,
+      withCredentials: false,
     })
   }
 

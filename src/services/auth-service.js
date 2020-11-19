@@ -4,7 +4,7 @@ class AuthService {
   constructor() {
     this.auth = axios.create({
       baseURL: 'https://back-web.vercel.app/',
-      withCredentials: true,
+      withCredentials: false,
     })
   }
 
