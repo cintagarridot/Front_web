@@ -3,8 +3,8 @@ import axios from 'axios';
 class DocumentService {
   constructor() {
     this.service = axios.create({
-      baseURL: 'https://back-web.vercel.app/',
-      withCredentials: false,
+      baseURL: 'http://localhost:3800',
+      withCredentials: true,
     })
   }
 
