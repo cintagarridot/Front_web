@@ -3,7 +3,7 @@ import axios from 'axios';
 class AuthService {
   constructor() {
     this.auth = axios.create({
-      baseURL: 'https://back-web-krqc0165t.vercel.app',
+      baseURL: 'https://back-web.vercel.app',
       withCredentials: true,
     })
   }
