@@ -2,7 +2,7 @@
   "name": "basic-frontend-auth",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://cintagarridot.github.io/Front_web",
+  "homepage": "https://cintagarridot.github.io/Front_web",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
