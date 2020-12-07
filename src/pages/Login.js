@@ -17,6 +17,7 @@ class Login extends Component {
     this.props.login({ username, password })
       .then((user) => {
         console.log(user)
+        console.log('props login inside then', this.props);
       })
       .catch(error =>
         this.setState({
