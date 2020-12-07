@@ -23,9 +23,10 @@ class Signup extends Component {
     const firstName = this.state.firstName;
     const lastName = this.state.lastName;
 
-    axios.post("http://localhost:3800/auth/signup", { firstName, lastName, username, password })
+    //axios.post("http://localhost:3800/auth/signup", { firstName, lastName, username, password })
+    this.props.signup({ firstName, lastName, username, password })
       .then((user) => {
-
+        console.log('user signup', user);
         this.setState({
           username: '',
           password: '',
