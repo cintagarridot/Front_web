@@ -51,7 +51,7 @@ class App extends Component {
 
                 <AnonRoute path="/signup" component={Signup} />
                 <AnonRoute path="/login" component={Login} />
-                <PrivateRoute path="/home" component={Principal} />
+                <Route path="/home" component={Principal} />
                 <PrivateRoute exact path="/news" component={NewsPage} />
                 <PrivateRoute exact path="/news/create-news" component={NewsForm} />
                 <PrivateRoute exact path="/news/detail/:id" component={NewsDetail} />
