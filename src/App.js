@@ -45,7 +45,7 @@ class App extends Component {
 
           {console.log(this.props)}
           <div className="container">
-            <HashRouter basename={'/Front_web/#'}>
+            <HashRouter basename={'/'}>
               <Switch>
                 <Route exact path="/" render={() => <Redirect from="/" to="/login"/> } />
 
