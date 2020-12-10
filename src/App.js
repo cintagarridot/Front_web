@@ -45,13 +45,13 @@ class App extends Component {
 
           {console.log(this.props)}
           <div className="container">
-            <HashRouter basename={'/'}>
+            <HashRouter basename={'/Front_web/#'}>
               <Switch>
                 <Route exact path="/" render={() => <Redirect from="/" to="/login"/> } />
 
                 <AnonRoute path="/signup" component={Signup} />
                 <AnonRoute path="/login" component={Login} />
-                <Route path="/home" component={Principal} />
+                <PrivateRoute path="/home" component={Principal} />
                 <PrivateRoute exact path="/news" component={NewsPage} />
                 <PrivateRoute exact path="/news/create-news" component={NewsForm} />
                 <PrivateRoute exact path="/news/detail/:id" component={NewsDetail} />
