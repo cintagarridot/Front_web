@@ -11,12 +11,12 @@ const PrivateRoute = (props) => {
   console.log('props private route', props)
   return (
     <>
-      {(isLoggedIn && user.subjects.length > 0 || isLoggedIn && user.type === 'admin') ? ( <Route
+      {(isLoggedIn /*&& user.subjects.length > 0 */|| isLoggedIn && user.type === 'admin') ? ( <Route
         render={(props) => {
           return <Component {...props}/>
         }}
         {...rest}
-      /> ) : isLoggedIn && user.subjects.length === 0  ? (
+      /> ) : isLoggedIn && user.subjects.length > 0  ? (
               <Redirect to='/select-subjects' />
       ) : (
             <Redirect to='/login' />
