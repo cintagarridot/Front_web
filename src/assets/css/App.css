@@ -3,7 +3,7 @@ body{
   /* Para quitar los margenes por defecto */
   margin: 0px;
   padding: 0px;
-  background: white;
+  background: #f7f7f7;
 
   /*FUENTES*/
   font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -19,11 +19,11 @@ body{
   left: 0;
   height: 85px;
   width: 100%;
-  background: #f7f7f7;
+  background: white;
   border-bottom: 1px solid #ccc;
   /*border-top: 5px solid #61dafb; /*color azul de react*/
-  /*position: fixed;*/
-  clear: both;
+  position: fixed;
+  clear-after: bottom;
 }
 
 .center {
