@@ -49,7 +49,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     <Col xxs="12" className="mb-5">
       <ContextMenuTrigger id="menu_id" data={element.id}>
         <Card style={{ width: '1000px', height: '90px', fontSize: '16px',
-         justifyContent: 'center', padding: '20px', background: 'f7f7f7d7' }}
+         justifyContent: 'center', padding: '20px', backgroundColor: '#f7f7f7d7' }}
           onClick={event => onCheckItem(event, element.id)}
 
         >
