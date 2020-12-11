@@ -11,7 +11,7 @@ import withAuth from 'components/withAuth';
 import chatService from 'services/chat-service'
 
 import { useHistory, useLocation } from 'react-router-dom';
-const URL = 'http://localhost:3800/';
+const URL = 'https://uhu-back.herokuapp.com/';
 
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
 const ChatWrapper = styled.div`
@@ -48,7 +48,7 @@ const Chat = ({user, ...props}) => {
             console.log('chatFromApi')
             console.log(chatFromApi)
             const data = chatFromApi.messages;
-          
+
             socket.on("message_receive", data  => {
                 console.log('data')
                 console.log(data)
@@ -82,7 +82,7 @@ const Chat = ({user, ...props}) => {
 
 
     return (
-        
+
             <div className="chat">
                 <Header/>
                 <ChatWrapper>
@@ -119,7 +119,7 @@ const Chat = ({user, ...props}) => {
 
                 <div className="clearfix"></div>
             </div>
-            
+
     )
 }
 
