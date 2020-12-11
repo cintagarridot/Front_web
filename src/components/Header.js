@@ -9,7 +9,7 @@ class Header extends Component{
     render() {
         const { user } = this.props;
         return (
-            <header id="header">
+            <header id="header" className={'clearfix'}>
                 {/* <!-- creamos una etiqueta para centrar el contenido -->*/}
                 <div className="center">
                     {/*<!-- LOGO -->*/}
@@ -24,7 +24,7 @@ class Header extends Component{
                     {/*-- MENU DE NAVEGACIÓN -->*/}
                     <nav id="menu"> {/*<!-- La etiqueta nav representa la parte de los links que llevan a otras paginas--> */}
                         <ul>
-                            {user.type !== 'admin' && 
+                            {user.type !== 'admin' &&
                                 <li>
                                     <NavLink to="/home" activeClassName="active">Inicio</NavLink>
                                 </li>
@@ -51,8 +51,8 @@ class Header extends Component{
                             <li>
                                 <NavLink to="/user" activeClassName="active">Perfil</NavLink>
                             </li>
-                            
-                            
+
+
 
                         </ul>
                     </nav>

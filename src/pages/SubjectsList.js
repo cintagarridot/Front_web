@@ -47,7 +47,7 @@ class SubjectsList extends Component {
                 <Row className="pt-5 mt-5">
                         <Col xs='10'>
                             <h2 className="subheaderdos">Asignaturas</h2>
-                           
+
                         </Col>
                         <Col xs='2' className="pt-5 mt-5">
                             <Link to={'/add-subject'} className={'btn btn-primary'} >Añadir asignatura</Link>
@@ -55,8 +55,11 @@ class SubjectsList extends Component {
                     </Row>
 
                 {status !== 'success' ? (
-                    <div className={'loading'}>
-                        <img src={loading} />
+                    // <div className={'loading'}>
+                    //     <img src={loading} />
+                    // </div>
+                    <div>
+                        <h2>Cargando...</h2>
                     </div>
                 ) : (
                     subjects && subjects.length > 0 ? (
@@ -81,7 +84,7 @@ class SubjectsList extends Component {
                 )
 
                 }
-              
+
 
             </section>
 
