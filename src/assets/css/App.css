@@ -13,12 +13,13 @@ body{
 }
 
 #header {
-  display: block;
+  display: flex;
+  align-content: flex-start;
   top: 0; /*Para quitar el espacio que habia*/
   left: 0;
   height: 85px;
   width: 100%;
-  background: white;
+  background: #f7f7f7d7;
   border-bottom: 1px solid #ccc;
   /*border-top: 5px solid #61dafb; /*color azul de react*/
   position: fixed;
@@ -49,7 +50,7 @@ body{
 }
 
 #logo img{
-  display: block; 
+  display: block;
   float: left;
   height: 50px;
   margin-top: -10px; /*Margen para la imagen del logo*/
@@ -93,13 +94,13 @@ body{
  height: 46px;
  /*Separacion entre cada li*/
  margin-top: 18px;
- margin-left: 7px; 
+ margin-left: 7px;
  margin-right: 7px;
 }
 
-#menu a{ 
+#menu a{
   text-decoration: none; /*Con este no aparece el subrayado*/
-  color: #444; 
+  color: #444;
   transition: 300ms all; /*Si yo hago hover en esos elementos me cambia el color(si paso por encima de los links)*/
 }
 
@@ -108,13 +109,13 @@ body{
 }
 
 #slider{
- 
+
   width: 100%;
   height: 320px;
   /*line-height: 320px;*/
   color:white;
   text-shadow: 0px 0px 5px #444;
-  
+
   /*DEGRADADO CSS*/
   background: rgba(183,222,237,1);
   background: -moz-radial-gradient(center, ellipse cover, rgba(183,222,237,1) 0%, rgba(183,222,237,1) 6%, rgba(183,222,237,1) 19%, rgba(113,206,239,1) 48%, rgba(33,180,226,1) 82%, rgba(33,180,226,1) 100%);
@@ -161,7 +162,7 @@ body{
   text-decoration: none;
   max-width: 120px;
   transition: 300ms all; /*para que al pasar por encima lo haga de una forma mas suavizada*/
- 
+
   cursor: pointer; /*cuando haga hover me pinta la mano del dedito y no el cursor normal de la flecha*/
 }
 
@@ -214,7 +215,7 @@ body{
 #content{
   width: 100%;
   float: left;
-  
+
   min-height: 600px;
   margin-right: 25px;
 }
@@ -233,7 +234,7 @@ body{
 #sidebar{
   width: 25%;
   float:left;
-  
+
 }
 
 .sidebar-item{
@@ -336,7 +337,7 @@ textarea{
   border: 1px solid #ccc;
 }
 
-.article-item .image-wrap img { 
+.article-item .image-wrap img {
   height: 100%;
   text-align: center;
 }
@@ -388,7 +389,7 @@ textarea{
   padding-top: 20px;
   margin-top: 20px;
   margin-bottom: 30px;
-  
+
   text-align: center;
   border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
   padding-bottom: 10px;
@@ -396,7 +397,7 @@ textarea{
 }
 
 .subheaderSpace{
- 
+
   margin-top: 150px;
   margin-bottom: 30px;
   text-align: center;
@@ -410,7 +411,7 @@ textarea{
 }
 
 .article-detail .image-wrap img{
-  
+
   width: 100%; /*Para que se adapte al 100% del ancho del div*/
   height: auto;
 }
@@ -461,7 +462,7 @@ textarea{
 
 /*SLIDER DE CADA ASIGNATURA*/
 .slider-asignatura{
-  
+
   display: block;
   width: 100%;
   height: 180px;
@@ -475,7 +476,7 @@ textarea{
   border: 2px;
   border-radius: .5rem;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-  
+
 
 }
 
@@ -495,7 +496,7 @@ textarea{
 }
 
 #slider.slider-noticia{
-  
+
   display: block;
   width: 1200px;
   height: 740px;
@@ -518,7 +519,7 @@ textarea{
 }
 
 #slider.titulo-noticias{
- 
+
   margin-top: 15px;
   font-size: inherit;
   font-family: inherit;
@@ -528,11 +529,11 @@ textarea{
 #slider.slider-initial{
   height: 80px;
   margin-top: 90px;
-  
+
 }
 
 #slider.slider-bienvenida{
-  
+
   display: block;
   width: 100%;
   height: 100px;
@@ -575,7 +576,7 @@ textarea{
 
 #imgUsuario h3{
 
-  
+
   font-size: 20px;
   text-transform: uppercase;
   background: #ccc;
@@ -587,14 +588,14 @@ textarea{
 }
 
 #imgUsuario img{
- 
-  display: block; 
+
+  display: block;
   float: left;
   height: 50px;
   margin-left: 25px;
   margin-top: 20px; /*Margen para la imagen*/
   margin-right: -2px; /*Margen de la derecha d la imagen*/
-  
+
 }
 
 
@@ -649,7 +650,7 @@ margin-right: 100px;
 
   text-decoration: underline;
   color: rgb(167, 162, 162);;
-  
+
 }
 
 /* PAGINA NOTICIA */
@@ -657,7 +658,7 @@ margin-right: 100px;
 /* SIDEBAR CREAR NUEVA NOTICIA */
 
 .sideBarNoticia{
-  
+
   border: 1px solid rgb(121, 188, 236); /*Borde del recuadro*/
   background: white;
   padding: 20px;
@@ -743,7 +744,7 @@ margin-right: 100px;
 .searchNews{
   width: 200px;
   height: 20px;
-  
+
 }
 
 .buttonSearch{
@@ -759,18 +760,18 @@ margin-right: 100px;
   font-family: Arial, Helvetica, sans-serif;
 
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  font-size: 12px;   
-  margin: center; 
-  margin-top: 40px;  
-  width: 480px; 
-  text-align: left;    
-  border-collapse: collapse; 
-  
+  font-size: 12px;
+  margin: center;
+  margin-top: 40px;
+  width: 480px;
+  text-align: left;
+  border-collapse: collapse;
+
 }
 
 .tableNews th{
   font-size: 13px;     font-weight: normal;     padding: 8px;     background: #b9c9fe;
-  border-top: 4px solid #aabcfe;    border-bottom: 1px solid #fff; color: #039; 
+  border-top: 4px solid #aabcfe;    border-bottom: 1px solid #fff; color: #039;
 }
 
 .tableNews td{
@@ -1068,7 +1069,7 @@ margin-right: 100px;
   padding-top: 20px;
   margin-top: 90px;
   margin-bottom: 30px;
-  
+
   text-align: center;
   border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
   padding-bottom: 10px;
@@ -1095,7 +1096,7 @@ margin-right: 100px;
   align-items: center;
   height: 400px;
   width: 70%;
- 
+
 }
 
 .auth-card-signup{

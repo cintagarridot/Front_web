@@ -33,7 +33,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           }
       ]
   })
-      
+
   }
 
   useEffect (() => {
@@ -49,7 +49,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     <Col xxs="12" className="mb-5">
       <ContextMenuTrigger id="menu_id" data={element.id}>
         <Card style={{ width: '1000px', height: '90px', fontSize: '16px',
-         justifyContent: 'center', padding: '20px' }}
+         justifyContent: 'center', padding: '20px', background: 'f7f7f7d7' }}
           onClick={event => onCheckItem(event, element.id)}
 
         >
@@ -63,7 +63,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                   </p>
                 </Col>
 
-                
+
                 {props.user.type === 'admin' ?
                 <>
                  <Col xs={"2"}>
@@ -82,7 +82,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                   </Link>
                 </Col>
                   )
-                } 
+                }
               </Row>
             </>
           }
@@ -106,7 +106,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 <Col xs={"4"} style={{textAlign: 'center'}}>
                   <Link to={'/news/detail/' + element._id} className={'btn btn-primary'} style={{fontSize: '14px'}} >Ver detalles</Link>
                 </Col>
-                
+
               </Row>
 
             </>
@@ -127,7 +127,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             </>
           }
 
-          {document && 
+          {document &&
             <>
               <Row>
                 <Col xs={"6"}>
@@ -145,18 +145,18 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     {moment(element.date).format('L')}
                   </p>
                 </Col>
-                <Col xs={"2"}>            
+                <Col xs={"2"}>
                   {documentPath !== '' &&
                     <a href={require('../docs/'+documentPath)} id="enlaceDescargarPdf"
                     download={element.file_name}>
                         Descargar
                   </a>
                   }
-                  
+
                 </Col>
-               
-              </Row>    
-            </>      
+
+              </Row>
+            </>
           }
 
 
