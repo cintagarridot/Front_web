@@ -44,6 +44,7 @@ const Chat = ({user, ...props}) => {
     useEffect(() => {
         let paths = window.location.pathname.split('/');
         let chatId = paths[paths.length-1];
+        console.log('chatId', chatId)
         chatService.getChat(chatId).then(chatFromApi => {
             console.log('chatFromApi')
             console.log(chatFromApi)
@@ -65,6 +66,7 @@ const Chat = ({user, ...props}) => {
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
         let chatId = paths[paths.length-1];
+        console.log('chatID al enviar mensaje', chatId);
         chatService.postMessage(message, chatId);
         setForm({ message: ''})
     }
