@@ -65,6 +65,8 @@ const Chat = ({user, ...props}) => {
         socket.emit('message_send', message);
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
+        console.log('paths', paths)
+        console.log('paths[paths.length-1]', paths[paths.length-1]);
         let chatId = paths[paths.length-1];
         console.log('chatID al enviar mensaje', chatId);
         chatService.postMessage(message, chatId);
