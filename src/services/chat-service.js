@@ -4,7 +4,7 @@ class ChatService {
   constructor() {
     this.service = axios.create({
       baseURL: 'https://uhu-back.herokuapp.com/chat',
-      withCredentials: false,
+      withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
     })
   }
 
