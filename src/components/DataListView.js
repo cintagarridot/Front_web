@@ -147,7 +147,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 </Col>
                 <Col xs={"2"}>
                   {documentPath !== '' &&
-                    <a href={require('../docs/'+documentPath)} id="enlaceDescargarPdf"
+                    <a href={'https://api.cloudinary.com/v1_1/uhu-cloud/pdf/upload'} id="enlaceDescargarPdf"   //href=require('../docs/'+documentPath)
                     download={element.file_name}>
                         Descargar
                   </a>
