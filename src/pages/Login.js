@@ -34,7 +34,7 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div className={'loginDiv'}>
+      <>
 
         {
           this.state.dangerAlert &&
@@ -57,8 +57,7 @@ class Login extends Component {
 
         </Card>
 
-
-      </div>
+      </>
     )
   }
 }
