@@ -3,7 +3,7 @@ body{
   /* Para quitar los margenes por defecto */
   margin: 0px;
   padding: 0px;
-  background: #f7f7f7;
+  /*background: #f7f7f7;*/
 
   /*FUENTES*/
   font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
