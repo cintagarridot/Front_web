@@ -1,8 +1,8 @@
 body{
   text-align: center;
   /* Para quitar los margenes por defecto */
-  margin: 0px;
-  padding: 0px;
+  margin: 15px;
+  padding: 10px;
   /*background: #f7f7f7;*/
 
   /*FUENTES*/
@@ -1140,7 +1140,7 @@ margin-right: 100px;
 }
 
 .loginDiv{
-  background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fes%2Fvideo%2Fclip-1012174943-multicolored-motion-gradient-background-seamless-loop-smooth&psig=AOvVaw1A5BLjXk4Hgkw37OgaxN96&ust=1608661861096000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJiO84Hc3-0CFQAAAAAdAAAAABAr");
+  background-image: url("https://image.freepik.com/foto-gratis/dos-colores-fondo-azul-rosa_136346-1404.jpg");
 }
 
 .loading{
