@@ -9,13 +9,17 @@ class DocumentService {
   }
 
   postOneDocument = (formData) => {
-      
+
 
       console.log('formData', formData)
     return this.service.post(`/documents/`, formData).then(({data}) => data);
   }
 
-  getAllDocuments = () => this.service.get(`/documents/all`).then(({data}) => data)
+  getAllDocuments = () => this.service.get(`/documents/all`).then(({data}) => data);
+
+  deleteDocument = (id) => this.service.delete(`/documents/${id}`).then(({data}) => data);
+
+  editDocument = (id, formData) => this.service.put(`/documents/${id}`, formData).then(({data}) => data);
 
 }
 
