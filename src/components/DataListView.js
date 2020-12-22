@@ -256,7 +256,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="primary" onClick={saveDocument}>Guardar</Button>{' '}
-                                <Button color="secondary" onClick={toggleModal}>Cancelar</Button>
+                                <Button color="secondary" onClick={toggleEditDocModal}>Cancelar</Button>
                             </ModalFooter>
                         </Modal>
                     </div>
