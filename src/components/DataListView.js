@@ -29,7 +29,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
   const [dropdownEditDoc, setDropdownEditDoc] = useState(false);
   const [editDocId, setEditDocId] = useState('');
-  const [docName, setDocName] = useState(element.title);
+  const [docName, setDocName] = useState('');
   const [selectedFile, setSelectedFile] = useState(element);
 
   const deleteSubject  = (element) => {
@@ -231,7 +231,8 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
               </Row>
 
-
+                {console.log('selectedFile', selectedFile)}
+                {console.log('name', docName)}
                 {dropdownEditDoc &&
                     <div>
                         <Modal isOpen={dropdownEditDoc} toggle={toggleEditDocModal} >
@@ -242,7 +243,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                         <label className={'mt-2'} htmlFor='text'>Nombre del documento</label>
                                     </Col>
                                     <Col xs={'12'}>
-                                        <input className={'mt-2 font'} id='text' required='true' type='text' name='docName' onChange={handleChangeEditDocName} />
+                                        <input className={'mt-2 font'} id='text' required='true' type='text' name='docName' value={element.title} onChange={handleChangeEditDocName} />
                                     </Col>
                                 </Row>
                                 <Row>
