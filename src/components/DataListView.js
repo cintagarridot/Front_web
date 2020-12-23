@@ -101,7 +101,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             docName,
         );
 
-        this.toggleModal();
+        toggleEditDocModal();
         return await documentService.editDocument(editDocId, formData);
 
     }
