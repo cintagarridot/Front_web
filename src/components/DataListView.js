@@ -29,7 +29,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
   const [dropdownEditDoc, setDropdownEditDoc] = useState(false);
   const [editDocId, setEditDocId] = useState('');
-  const [docName, setDocName] = useState('');
+  const [docName, setDocName] = useState(element.title);
   const [selectedFile, setSelectedFile] = useState(element);
 
   const deleteSubject  = (element) => {
@@ -243,7 +243,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                         <label className={'mt-2'} htmlFor='text'>Nombre del documento</label>
                                     </Col>
                                     <Col xs={'12'}>
-                                        <input className={'mt-2 font'} id='text' required='true' type='text' name='docName' value={element.title} onChange={handleChangeEditDocName} />
+                                        <input className={'mt-2 font'} id='text' required='true' type='text' name='docName' defaultValue={docName} onChange={handleChangeEditDocName} />
                                     </Col>
                                 </Row>
                                 <Row>
@@ -251,7 +251,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                         <label className={'mt-2'} htmlFor='text'>Suba un pdf</label>
                                     </Col>
                                     <Col xs={'12'}>
-                                        <input className={'mt-2 font'} required='true' type='file' name='document' onChange={onFileChange} />
+                                        <input className={'mt-2 font'} required='true' type='file' name='document' defaultValue={selectedFile} onChange={onFileChange} />
                                     </Col>
                                 </Row>
                             </ModalBody>
