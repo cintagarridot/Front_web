@@ -213,7 +213,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                         </DropdownToggle>
                         <DropdownMenu>
                             <DropdownItem>
-                                <a href={element.secure_url} id="enlaceVerPdf">
+                                <a href={element.secure_url} id="enlaceVerPdf" target="_blank">
                                     Ver
                                 </a>
                             </DropdownItem>
@@ -242,7 +242,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                         <label className={'mt-2'} htmlFor='text'>Nombre del documento</label>
                                     </Col>
                                     <Col xs={'12'}>
-                                        <input className={'mt-2 font'} id='text' required='true' type='text' name='docName' value={docName} onChange={handleChangeEditDocName} />
+                                        <input className={'mt-2 font'} id='text' required='true' type='text' name='docName' onChange={handleChangeEditDocName} />
                                     </Col>
                                 </Row>
                                 <Row>
@@ -250,7 +250,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                         <label className={'mt-2'} htmlFor='text'>Suba un pdf</label>
                                     </Col>
                                     <Col xs={'12'}>
-                                        <input className={'mt-2 font'} required='true' type='file' name='document' value={selectedFile} onChange={onFileChange} />
+                                        <input className={'mt-2 font'} required='true' type='file' name='document' onChange={onFileChange} />
                                     </Col>
                                 </Row>
                             </ModalBody>
