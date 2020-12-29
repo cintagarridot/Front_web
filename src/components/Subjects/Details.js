@@ -66,29 +66,29 @@ class SubjectDetails extends Component {
                                     <Card>
                                         <CardBody>
                                             {/*<CardTitle tag="h5">Card title</CardTitle>*/}
-                                            <CardSubtitle tag="h5" className="mt-2 mb-2 text-muted">Información general</CardSubtitle>
-                                            <CardText>
-                                                <Row xs={'2'} sm={'2'} lg={'2'} xl={'2'} >
+                                            <CardSubtitle tag="h3" className="mt-2 mb-2 text-muted">Información general</CardSubtitle>
+                                            <CardText className={'justify-content-center'}>
+                                                <Row xs={'2'} sm={'2'} lg={'2'} xl={'2'} className={'justify-content-center mt-4'}>
                                                     <Col xs={'1'} sm={'1'} lg={'1'} xl={'1'}>
                                                         <div>
-                                                            <h6>Curso</h6>
+                                                            <h5>Curso</h5>
                                                         </div>
                                                     </Col>
                                                     <Col xs={'1'} sm={'1'} lg={'1'} xl={'1'}>
                                                         <div>
-                                                            <h6>{subject.curso}</h6>
+                                                            <h5>{subject.curso}</h5>
                                                         </div>
                                                     </Col>
                                                 </Row>
-                                                <Row xs={'2'} sm={'2'} lg={'2'} xl={'2'} >
+                                                <Row xs={'2'} sm={'2'} lg={'2'} xl={'2'} className={'justify-content-center mt-2'}>
                                                     <Col xs={'1'} sm={'1'} lg={'1'} xl={'1'}>
                                                         <div>
-                                                            <h6>Créditos</h6>
+                                                            <h5>Créditos</h5>
                                                         </div>
                                                     </Col>
                                                     <Col xs={'1'} sm={'1'} lg={'1'} xl={'1'}>
                                                         <div>
-                                                            <h6>{subject.creditos}</h6>
+                                                            <h5>{subject.creditos}</h5>
                                                         </div>
                                                     </Col>
                                                 </Row>
@@ -103,9 +103,9 @@ class SubjectDetails extends Component {
                                     <Card>
                                         <CardBody>
                                             {/*<CardTitle tag="h5">Card title</CardTitle>*/}
-                                            <CardSubtitle tag="h5" className="mt-2 mb-2 text-muted">Contenido</CardSubtitle>
+                                            <CardSubtitle tag="h3" className="mt-2 mb-2 text-muted">Contenido</CardSubtitle>
                                             <CardText>
-                                                {subject.content}
+                                                <h5>{subject.content}</h5>
                                             </CardText>
                                         </CardBody>
                                     </Card>
@@ -117,7 +117,7 @@ class SubjectDetails extends Component {
                                     <Card>
                                         <CardBody>
                                             {/*<CardTitle tag="h5">Card title</CardTitle>*/}
-                                            <CardSubtitle tag="h5" className="mt-2 mb-2 text-muted">Profesor/es</CardSubtitle>
+                                            <CardSubtitle tag="h3" className="mt-2 mb-2 text-muted">Profesor/es</CardSubtitle>
                                             <CardText>
                                                 <Row className={'mt-3'}>
                                                     <>
@@ -146,7 +146,7 @@ class SubjectDetails extends Component {
                                     <Card>
                                         <CardBody>
                                             {/*<CardTitle tag="h5">Card title</CardTitle>*/}
-                                            <CardSubtitle tag="h5" className="mt-2 mb-2 text-muted">Alummos</CardSubtitle>
+                                            <CardSubtitle tag="h3" className="mt-2 mb-2 text-muted">Alummos</CardSubtitle>
                                             <CardText>
                                                 <Row className={'mt-3'}>
                                                     <>
