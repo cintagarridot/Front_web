@@ -42,24 +42,27 @@ class NewsPage extends Component {
                             La noticia se ha borrado correctamente
                         </UncontrolledAlert>
                     }
-                    <h2 className="subheader">Noticias</h2>
 
-                    <Row className={'pt-4 mb-5 ml-1'}>
-                        <Col xs={'9'}>
-                            <input className="searchNews" type="text" style={{ fontSize: '12px' }} placeholder="Buscar noticia..." />
-                        </Col>
 
-                        <Col xs={'0.5'}>
-                            <button className="buttonSearch" >Buscar</button>
-                        </Col>
-                        {user.type === 'teacher' &&
-                            <Col xs={'1'}>
-                                <button className="buttonSearch" onClick={this.createNews}>
-                                    Crear noticia
-                                </button>
-                            </Col>
+                    <Row>
+
+                        {user.type !== 'alumn' ?
+                            <>
+                                <Col xs={'8'} sm={'8'} md={'8'}>
+                                    <h2 className="subheader">Noticias</h2>
+                                </Col>
+                                <Col xs={'4'} sm={'4'} md={'4'}>
+                                    <button className="buttonSearch" onClick={this.createNews}>
+                                        Crear noticia
+                                    </button>
+                                </Col>
+                            </>
+                            : (
+                                <Col xs={'12'} sm={'12'} md={'12'}>
+                                    <h2 className="subheader">Noticias</h2>
+                                </Col>
+                            )
                         }
-                        
                     </Row>
                     <NewsList props={this.props} />
                     <div className="clearfix"></div>
