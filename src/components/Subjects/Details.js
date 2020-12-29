@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Col, Row} from "reactstrap";
+import {Card, CardBody, CardSubtitle, CardText, Col, Row} from "reactstrap";
 
 import subjectService from 'services/subject-service';
 import Header from 'components/Header';
@@ -23,7 +23,7 @@ class SubjectDetails extends Component {
                 id: paramId
             })
             this.getSubject(paramId);
-        
+
         }
 
     }
@@ -49,9 +49,9 @@ class SubjectDetails extends Component {
                 {console.log(subject)}
 
                 <Header />
-            
+
                     {subject &&
-                    
+
                         <div className={'mt-5 pt-5'}>
                             <Row>
                                 <>
@@ -60,102 +60,125 @@ class SubjectDetails extends Component {
                                     </Col>
                                 </>
                             </Row>
-                           
-                            <Row>
-                               <>
-                                    <Col xs={'12'}>
-                                        <h2>Curso: {subject.curso}</h2>
-                                    </Col>
-                               </>
+
+                            <Row className={'mt-3'}>
+                                <Col xs={'12'} sm={'12'} xl={'12'} lg={'12'}>
+                                    <Card>
+                                        <CardBody>
+                                            {/*<CardTitle tag="h5">Card title</CardTitle>*/}
+                                            <CardSubtitle tag="h5" className="mt-2 mb-2 text-muted">Información general</CardSubtitle>
+                                            <CardText>
+                                                <Row xs={'2'} sm={'2'} lg={'2'} xl={'2'} >
+                                                    <Col xs={'1'} sm={'1'} lg={'1'} xl={'1'}>
+                                                        <div>
+                                                            <h6>Curso</h6>
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={'1'} sm={'1'} lg={'1'} xl={'1'}>
+                                                        <div>
+                                                            <h6>{subject.curso}</h6>
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                                <Row xs={'2'} sm={'2'} lg={'2'} xl={'2'} >
+                                                    <Col xs={'1'} sm={'1'} lg={'1'} xl={'1'}>
+                                                        <div>
+                                                            <h6>Créditos</h6>
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={'1'} sm={'1'} lg={'1'} xl={'1'}>
+                                                        <div>
+                                                            <h6>{subject.creditos}</h6>
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                            </CardText>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
                            </Row>
+
                             <Row className={'mt-5'}>
-                               <>
-                                    <Col xs={'12'}>
-                                        <h2>Créditos: {subject.creditos}</h2>
-                                    </Col>
-                               </>
-                           </Row>
-                           
-                           <Row className={'mt-5'}>
-                               <>
-                                    <Col xs={'12'}>
-                                        <h2>Contenido</h2>
-                                    </Col>
-                               </>
-                           </Row>
-                           <Row className={'mt-3'}>
-                               <>
-                                    <Col xs={'12'}>
-                                        <h4>{subject.content}</h4>
-                                    </Col>
-                               </>
-                           </Row>
+                                <Col xs={'12'} sm={'12'} xl={'12'} lg={'12'}>
+                                    <Card>
+                                        <CardBody>
+                                            {/*<CardTitle tag="h5">Card title</CardTitle>*/}
+                                            <CardSubtitle tag="h5" className="mt-2 mb-2 text-muted">Contenido</CardSubtitle>
+                                            <CardText>
+                                                {subject.content}
+                                            </CardText>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                            </Row>
 
-                           <Row className={'mt-5'}>
-                               <>
-                                    <Col xs={'12'}>
-                                        <h2>Profesor/es</h2>
-                                    </Col>
-                               </>
-                           </Row>
-                           <Row className={'mt-3'}>
-                               <>
-                                    {subject.teachers && subject.teachers.length > 0 ?
-                                        subject.teachers.map(t => {
-                                        return <Col xs={'12'}>
-                                         <h4>{t.firstName}{t.lastName}</h4>
-                                        </Col>
-                                    })
-                                : (
-                                    <Col xs={'12'}>
-                                        <h4>No hay profesores que impartan esta asignatura</h4>
-                                    </Col>
-                                )}
-                                   
-                               </>
-                           </Row>
+                            <Row className={'mt-5'}>
+                                <Col xs={'12'} sm={'12'} xl={'12'} lg={'12'}>
+                                    <Card>
+                                        <CardBody>
+                                            {/*<CardTitle tag="h5">Card title</CardTitle>*/}
+                                            <CardSubtitle tag="h5" className="mt-2 mb-2 text-muted">Profesor/es</CardSubtitle>
+                                            <CardText>
+                                                <Row className={'mt-3'}>
+                                                    <>
+                                                        {subject.teachers && subject.teachers.length > 0 ?
+                                                            subject.teachers.map(t => {
+                                                                return <Col xs={'12'}>
+                                                                    <h5>{t.firstName} {t.lastName}</h5>
+                                                                </Col>
+                                                            })
+                                                            : (
+                                                                <Col xs={'12'}>
+                                                                    <h5>No hay profesores que impartan esta asignatura</h5>
+                                                                </Col>
+                                                            )}
 
-                           <Row className={'mt-5'}>
-                               <>
-                                    <Col xs={'12'}>
-                                        <h2>Alumnos</h2>
-                                    </Col>
-                               </>
-                           </Row>
-                           <Row className={'mt-3'}>
-                               <>
-                                    {subject.alumns && subject.alumns.length > 0 ?
-                                        subject.alumns.map(a => {
-                                        return <Col xs={'12'}>
-                                         <h4>{a.firstName}{a.lastName}</h4>
-                                        </Col>
-                                    })
-                                    : (
-                                        <Col xs={'12'}>
-                                            <h4>No hay alumnos en esta asignatura</h4>
-                                        </Col>
-                                    )}
-                                   
-                               </>
-                           </Row>
+                                                    </>
+                                                </Row>
+                                            </CardText>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                            </Row>
 
+                            <Row className={'mt-5'}>
+                                <Col xs={'12'} sm={'12'} xl={'12'} lg={'12'}>
+                                    <Card>
+                                        <CardBody>
+                                            {/*<CardTitle tag="h5">Card title</CardTitle>*/}
+                                            <CardSubtitle tag="h5" className="mt-2 mb-2 text-muted">Alummos</CardSubtitle>
+                                            <CardText>
+                                                <Row className={'mt-3'}>
+                                                    <>
+                                                        {subject.alumns && subject.alumns.length > 0 ?
+                                                            subject.alumns.map(a => {
+                                                                return <Col xs={'12'}>
+                                                                    <h5>{a.firstName} {a.lastName}</h5>
+                                                                </Col>
+                                                            })
+                                                            : (
+                                                                <Col xs={'12'}>
+                                                                    <h5>No hay alumnos en esta asignatura</h5>
+                                                                </Col>
+                                                            )}
 
-                            
-
+                                                    </>
+                                                </Row>
+                                            </CardText>
+                                        </CardBody>
+                                    </Card>
+                                </Col>
+                            </Row>
                         </div>
 
                     }
 
-
-                    
             </>
 
         );
 
 
-    } 
-
-
+    }
 
 }
 

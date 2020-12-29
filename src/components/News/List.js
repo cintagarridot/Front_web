@@ -5,8 +5,7 @@ import axios from 'axios';
 import Slider from 'components/Slider';
 import DataListView from '../DataListView';
 import newsService from 'services/news-service';
-import loading from 'assets/images/loading.jpg';
-
+import { Spinner } from 'reactstrap';
 
 class NewsList extends Component {
 
@@ -53,11 +52,9 @@ class NewsList extends Component {
             <section id="content" >
 
                 {this.state.status !== 'success' ? (
-                    /*<div className={'loading'}>
-                        <img src={loading} />
-                    </div>*/
                     <div>
-                        <h2>Cargando...</h2>
+                        <Spinner color="info" />
+                        {/*<h2>Cargando...</h2>*/}
                     </div>
                 ) : (
                         !this.state.searchById && this.state.news.length > 0 ?

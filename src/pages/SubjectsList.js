@@ -5,7 +5,7 @@ import AuthService from 'services/auth-service';
 import subjectService from 'services/subject-service';
 import loading from 'assets/images/loading.jpg';
 import Header from 'components/Header.js';
-import {Row, Col} from 'reactstrap';
+import {Row, Col, Spinner} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -59,7 +59,8 @@ class SubjectsList extends Component {
                     //     <img src={loading} />
                     // </div>
                     <div>
-                        <h2>Cargando...</h2>
+                        <Spinner color="info" />
+                        {/*<h2>Cargando...</h2>*/}
                     </div>
                 ) : (
                     subjects && subjects.length > 0 ? (

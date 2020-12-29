@@ -4,6 +4,7 @@ import DataListView from 'components/DataListView';
 import AuthService from 'services/auth-service';
 import subjectService from 'services/subject-service';
 import loading from 'assets/images/loading.jpg';
+import {Spinner} from "reactstrap";
 
 class Asignatura extends Component {
 
@@ -92,7 +93,8 @@ class Asignatura extends Component {
                     //     <img src={loading} />
                     // </div>
                     <div>
-                        <h2>Cargando...</h2>
+                        <Spinner color="info" />
+                        {/*<h2>Cargando...</h2>*/}
                     </div>
                 ) : (
                     userSubjects && userSubjects.length > 0 ? (
