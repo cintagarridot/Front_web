@@ -63,7 +63,7 @@ class Slider extends Component {
     /*Peticion para eliminar una noticia*/
     deleteNews = (toDelete) => {
         const news = axios.create({
-            baseURL: 'http://localhost:3800/',
+            baseURL: 'https://uhu-back.herokuapp.com',
             withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
           })
         news.delete("/news/" + toDelete)
@@ -85,13 +85,13 @@ class Slider extends Component {
             <>
                 <Header />
 
-            
+
                 <div id="slider" className={this.props.size} > {/*<!--le podemos poner varias clases para usarlas dependiendo de que pagina estemos-->*/}
 
                     {this.props.size === 'slider-initial' &&
                         <div className="slider-data">
                             <h1>{this.props.title}</h1>
-                            
+
                         </div>
                     }
 

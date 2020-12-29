@@ -32,7 +32,7 @@ class NewsDetail extends Component {
             this.deleteNews(this.props.idToDelete);
         }
 
-    
+
     }
 
 
@@ -40,10 +40,10 @@ class NewsDetail extends Component {
     /*Peticion para traer una noticia por id */
     getNewsById = async(id) => {
         const service = axios.create({
-            baseURL: 'http://localhost:3800/',
+            baseURL: 'https://uhu-back.herokuapp.com',
             withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
-          })    
-        await service.get('/news/' + id) 
+          })
+        await service.get('/news/' + id)
             .then(res => {
                 if (res.data) {
                     this.setState({
@@ -58,20 +58,20 @@ class NewsDetail extends Component {
                     });
                 }
             });
-            
+
             this.getUser(this.state.userId);
-    
+
     }
 
     getUser = (id) => {
         const service = axios.create({
-            baseURL: 'http://localhost:3800/',
+            baseURL: 'https://uhu-back.herokuapp.com',
             withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
-          }) 
+          })
         service.get("/users/one/" + id)
             .then( res => {
                 if(res.data){
-                 
+
                     this.setState({
                         user: res.data.usuario
                     })
@@ -111,7 +111,7 @@ class NewsDetail extends Component {
                                 Volver
                             </a>
                         </div>
-                       
+
                         {this.state.news.image ? (
                             <div>
                                 <Slider
@@ -144,14 +144,14 @@ class NewsDetail extends Component {
                 }
 
 
-                
+
             </section>
 
 
         );
 
 
-    } 
+    }
 
 
 

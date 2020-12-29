@@ -26,7 +26,7 @@ class AddSubject extends Component {
     const curso = this.state.curso;
 
     const newSubject = axios.create({
-        baseURL: 'http://localhost:3800/',
+        baseURL: 'https://uhu-back.herokuapp.com',
         withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
     })
     newSubject.post("/subjects/", {title, content, creditos, curso})
@@ -69,13 +69,13 @@ class AddSubject extends Component {
         }
         <Card style={{ background: '#fffdfd' }} className="auth-card-signup">
             <form onSubmit={this.handleFormSubmit}>
-            
+
             <Row className={''}>
-            
+
                 <Col xs={'12'}>
                     <h2 className={'text-center mt-5'}>Nueva asignatura</h2>
                 </Col>
-            
+
                 </Row>
                 <Row className={''}>
                 <Col xs={'12'}>
@@ -125,11 +125,11 @@ class AddSubject extends Component {
 
                 <Row className={'justify-content-center'}>
                 <Col xs={'1.5'} className={'mt-5 pt-3 goBackButtonTeacher'} >
-                    
+
                     <a href="javascript:history.back()">
                         Volver
                     </a>
-                
+
                     </Col>
                 <Col xs={'1'} >
                     <input className={'mt-5'} type='submit' value='Añadir' />
