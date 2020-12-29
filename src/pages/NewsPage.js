@@ -48,17 +48,17 @@ class NewsPage extends Component {
 
                         {user.type !== 'alumn' ?
                             <>
-                                <Col xs={'8'} sm={'8'} md={'8'}>
+                                <Col xs={'10'} sm={'10'} md={'10'} lg={'10'}>
                                     <h2 className="subheader">Noticias</h2>
                                 </Col>
-                                <Col xs={'4'} sm={'4'} md={'4'}>
+                                <Col xs={'2'} sm={'2'} md={'2'} lg={'2'}>
                                     <button className="buttonSearch" onClick={this.createNews}>
                                         Crear noticia
                                     </button>
                                 </Col>
                             </>
                             : (
-                                <Col xs={'12'} sm={'12'} md={'12'}>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'}>
                                     <h2 className="subheader">Noticias</h2>
                                 </Col>
                             )

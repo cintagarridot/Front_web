@@ -747,6 +747,7 @@ margin-right: 100px;
 }
 
 .buttonSearch{
+  margin-top: 15px;
   cursor: pointer;
   font-size: 13px;
 }
