@@ -89,12 +89,8 @@ class Asignatura extends Component {
             <section id="content" >
                 <h2 className="subheaderdos">Asignaturas</h2>
                 {status !== 'usersubjects' ? (
-                    // <div className={'loading'}>
-                    //     <img src={loading} />
-                    // </div>
                     <div>
                         <Spinner color="info" />
-                        {/*<h2>Cargando...</h2>*/}
                     </div>
                 ) : (
                     userSubjects && userSubjects.length > 0 ? (

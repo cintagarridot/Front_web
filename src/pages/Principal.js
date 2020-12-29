@@ -21,12 +21,12 @@ class Principal extends Component {
                 <Header />
                 <Slider
                     size="slider-initial"
-                    title="Departamento de Tecnología de la Información"
+                    title="Departamento de Tecnologías de la Información"
                     button="etsi"
                     button2="moodle"
                     button3="uhu"
                 />
-               
+
                 <Asignatura />
 
             </div>

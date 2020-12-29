@@ -119,8 +119,8 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
           {subjects &&
             <>
-              <Row>
-                <Col xs={"8"}>
+              <Row xs={'12'} sm={'12'} lg={'12'} xl={'12'} >
+                <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
                   <p className="list-item-heading mb-1 truncate">
                     {element.title}
                   </p>
@@ -129,17 +129,17 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
                 {props.user.type === 'admin' ?
                 <>
-                 <Col xs={"2"}>
+                 <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
                   <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
                     Ver detalles
                   </Link>
                 </Col>
-                  <Col xs={'2'}>
+                  <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
                     <button className={'btn-danger mt-1'} style={{height: '30px'}} onClick={() => deleteSubject(element)}>Borrar</button>
                   </Col>
                 </>
                 :(
-                  <Col xs={"4"}>
+                  <Col xs={'4'} sm={'4'} lg={'4'} xl={'4'}>
                   <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
                     Ver detalles
                   </Link>
@@ -161,7 +161,6 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
                 <Col xs={"4"}>
                   <p className="mb-1 text-muted text-small ">
-
                     {moment(element.date).format('L')}
                   </p>
                 </Col>
