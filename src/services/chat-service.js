@@ -3,7 +3,7 @@ import axios from 'axios';
 class ChatService {
   constructor() {
     this.service = axios.create({
-      baseURL: 'https://uhu-back.herokuapp.com',
+      baseURL: 'https://uhu-back.herokuapp.com/chat',
       withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
     })
   }
@@ -19,6 +19,7 @@ class ChatService {
   getOtherUser = (id) => this.service.get(`/${id}/otherUser`).then(({data}) => data);
 
   postMessage = (message, chatId) => {
+    console.log('chatID  en chat service', chatId);
     this.service.post('/addMessage', {message, chatId}).then(({data}) => data)
    }
 

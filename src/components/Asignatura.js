@@ -4,6 +4,7 @@ import DataListView from 'components/DataListView';
 import AuthService from 'services/auth-service';
 import subjectService from 'services/subject-service';
 import loading from 'assets/images/loading.jpg';
+import {Spinner} from "reactstrap";
 
 class Asignatura extends Component {
 
@@ -39,7 +40,7 @@ class Asignatura extends Component {
                  lastChecked: id,
              });
          }
- 
+
          let selectedItems = this.state.selectedItems;
          if (selectedItems.includes(id)) {
              selectedItems = selectedItems.filter((x) => x !== id);
@@ -49,7 +50,7 @@ class Asignatura extends Component {
          this.setState({
              selectedItems,
          });
- 
+
          if (event.shiftKey) {
              var items = this.state.items;
              var start = this.getIndex(id, items, 'id');
@@ -88,13 +89,17 @@ class Asignatura extends Component {
             <section id="content" >
                 <h2 className="subheaderdos">Asignaturas</h2>
                 {status !== 'usersubjects' ? (
-                    <div className={'loading'}>
-                        <img src={loading} />
+                    // <div className={'loading'}>
+                    //     <img src={loading} />
+                    // </div>
+                    <div>
+                        <Spinner color="info" />
+                        {/*<h2>Cargando...</h2>*/}
                     </div>
                 ) : (
                     userSubjects && userSubjects.length > 0 ? (
                         <div>
-                  
+
                             {userSubjects.map((subject, i) => {
                                 return (
                                     <DataListView
@@ -114,7 +119,7 @@ class Asignatura extends Component {
                 )
 
                 }
-              
+
 
             </section>
 

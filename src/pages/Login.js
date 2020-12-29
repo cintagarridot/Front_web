@@ -13,10 +13,11 @@ class Login extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state
-
+    console.log('props login', this.props);
     this.props.login({ username, password })
       .then((user) => {
         console.log(user)
+        console.log('props login inside then', this.props);
       })
       .catch(error =>
         this.setState({
@@ -56,10 +57,9 @@ class Login extends Component {
 
         </Card>
 
-
       </>
     )
   }
 }
 
-export default Login;
+export default withAuth(Login);

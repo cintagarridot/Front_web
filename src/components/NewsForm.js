@@ -33,7 +33,7 @@ class NewsForm extends Component {
         values.usuario = this.state.userId;
         console.log(values);
         const news = axios.create({
-                baseURL: 'http://localhost:3800/',
+                baseURL: 'https://uhu-back.herokuapp.com',
                 withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
         })
          news.post("/news/", values)
@@ -44,7 +44,7 @@ class NewsForm extends Component {
                     alert: 'success',
                 })
                 window.location.reload();
-                
+
             })
             /* 404 */
             .catch((data) => {
@@ -137,11 +137,11 @@ class NewsForm extends Component {
                                             <FormGroup>
                                                 <Row>
                                                     <Col xs={'2'}>
-                                                        <a href='/news'><Input type="submit" value='Crear' style={{ fontSize: '14px' }}></Input></a>
+                                                        <a href='/Front_web/#/news'><Input type="submit" value='Crear' style={{ fontSize: '14px' }}></Input></a>
                                                     </Col>
 
                                                     <Col xs={'0.1'}>
-                                                        <button style={{ fontSize: '14px', textTransform: 'uppercase' }} className="btn btn-secondary" size='lg' color="secondary"><a className={'link-to-pages'} href="/news">Cancelar</a></button>
+                                                        <button style={{ fontSize: '14px', textTransform: 'uppercase' }} className="btn btn-secondary" size='lg' color="secondary"><a className={'link-to-pages'} href="/Front_web/#/news">Cancelar</a></button>
                                                     </Col>
                                                 </Row>
                                             </FormGroup>

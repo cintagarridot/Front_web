@@ -9,24 +9,24 @@ import { CustomInput } from 'reactstrap';
 
 class SelectSubjects extends Component {
 
-    
+
         state = {
             list: [],
             subjectsSelected: [],
             userSubjects: this.props.user.subjects,
             redirectToHome: false,
         }
-    
-  
+
+
     componentDidMount() {
-        
+
         subjectService.getSubjects().then(data => {
             console.log('data list subject', data)
             this.setState({
                 list: data.subjects
             })
         })
-        
+
     }
 
 
@@ -49,12 +49,12 @@ class SelectSubjects extends Component {
                 })
             }
 
-           
+
         });
-        
+
     }
 
-    
+
 
     render() {
 
@@ -64,7 +64,7 @@ class SelectSubjects extends Component {
             <div>
                 <h2 className="subheaderdos">Listado de asignaturas para escoger</h2>
 
-                {list && list.length > 0 && 
+                {list && list.length > 0 &&
                     <>
                        { list.map(a => {
                             return <div className={"mt-4"}>
@@ -80,17 +80,17 @@ class SelectSubjects extends Component {
                         })
                         }
 
-                        <a href={'/home'}> <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button></a>
-                    </>    
+                        <a href={'/Front_web/#/home'}> <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button></a>
+                    </>
                 }
-                       
+
             </div>
 
         );
 
     }
 
-   
+
 
 }
 

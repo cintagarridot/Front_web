@@ -5,7 +5,7 @@ import AuthService from 'services/auth-service';
 import subjectService from 'services/subject-service';
 import loading from 'assets/images/loading.jpg';
 import Header from 'components/Header.js';
-import {Row, Col} from 'reactstrap';
+import {Row, Col, Spinner} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -47,7 +47,7 @@ class SubjectsList extends Component {
                 <Row className="pt-5 mt-5">
                         <Col xs='10'>
                             <h2 className="subheaderdos">Asignaturas</h2>
-                           
+
                         </Col>
                         <Col xs='2' className="pt-5 mt-5">
                             <Link to={'/add-subject'} className={'btn btn-primary'} >Añadir asignatura</Link>
@@ -55,8 +55,12 @@ class SubjectsList extends Component {
                     </Row>
 
                 {status !== 'success' ? (
-                    <div className={'loading'}>
-                        <img src={loading} />
+                    // <div className={'loading'}>
+                    //     <img src={loading} />
+                    // </div>
+                    <div>
+                        <Spinner color="info" />
+                        {/*<h2>Cargando...</h2>*/}
                     </div>
                 ) : (
                     subjects && subjects.length > 0 ? (
@@ -81,7 +85,7 @@ class SubjectsList extends Component {
                 )
 
                 }
-              
+
 
             </section>
 

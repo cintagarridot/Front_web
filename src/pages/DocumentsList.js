@@ -36,7 +36,7 @@ class DocumentsList extends Component {
     }
 
     getAllDocuments = async () => {
-        await documentService.getAllDocuments().then(({documents}) =>{ 
+        await documentService.getAllDocuments().then(({documents}) =>{
             console.log('allDocs', documents)
             if(documents !== undefined){
                 this.setState({ allDocuments: documents, status: 'success' })
@@ -63,8 +63,8 @@ class DocumentsList extends Component {
     getDocuments = async () => {
         const user = this.props.user;
         console.log(user)
-        await userService.getDocuments(user._id).then(({documents}) =>{ 
-            console.log(documents); 
+        await userService.getDocuments(user._id).then(({documents}) =>{
+            console.log(documents);
             if(documents !== undefined){
                 this.setState({ documents, status: 'success' })
             }
@@ -75,36 +75,38 @@ class DocumentsList extends Component {
         const { docName, selectedDocument } = this.state;
         console.log('document', selectedDocument)
 
-        // Create an object of formData 
-        const formData = new FormData(); 
-        
-        // Update the formData object 
-        formData.append( 
-            "file0", 
-            this.state.selectedFile, 
-        ); 
+        // Create an object of formData
+        const formData = new FormData();
 
-        formData.append( 
-            "title", 
-            this.state.docName, 
-        ); 
-      
+        // Update the formData object
+        formData.append(
+            "file0",
+            this.state.selectedFile,
+        );
+
+        formData.append(
+            "title",
+            this.state.docName,
+        );
+
         this.toggleModal();
-        return await documentService.postOneDocument(formData);
-    
+        return await documentService.postOneDocument(formData).then((result) => {
+            window.location.reload();
+        });
+
     }
 
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value });
     }
-    
-    onFileChange = event => { 
-     
-        // Update the state 
-        this.setState({ selectedFile: event.target.files[0] }); 
-       
-    }; 
+
+    onFileChange = event => {
+
+        // Update the state
+        this.setState({ selectedFile: event.target.files[0] });
+
+    };
 
     toggle = () => {
         this.setState({
@@ -133,7 +135,7 @@ class DocumentsList extends Component {
                         <Col xs='1' className="pt-5 mt-5">
                             <Dropdown isOpen={dropdownOpen} toggle={this.toggle}>
                                 <DropdownToggle caret>
-                                    Generar PDF    
+                                    Generar PDF
                                 </DropdownToggle>
                                 <DropdownMenu>
                                     <DropdownItem>
@@ -142,7 +144,7 @@ class DocumentsList extends Component {
                                     <DropdownItem divider />
                                     <DropdownItem>
                                         <Link to={'/generate-pdf'}>Generar documento libre</Link>
-                                    </DropdownItem>                                
+                                    </DropdownItem>
                             </DropdownMenu>
                             </Dropdown>
                         </Col>
@@ -152,7 +154,7 @@ class DocumentsList extends Component {
                     </Row>
                 {user.type !== 'admin' && (
                     <>
-                    
+
                     {documentList && documentList.length > 0 ? (
                      <div>
                          {documentList.map((document) => {
@@ -170,9 +172,9 @@ class DocumentsList extends Component {
                     ) : (
                         <h2 className="text-center mt-3">No hay documentos</h2>
                     )}
-                
+
                 </>
-             
+
                 )}
 
                 {user.type === 'admin' && (
@@ -188,7 +190,7 @@ class DocumentsList extends Component {
                                     Mis documentos
                                 </Tab>
                             </TabList>
-                    
+
                             <TabPanel>
                                 {allDocuments && allDocuments.length > 0 ? (
                                 <div>
@@ -208,7 +210,7 @@ class DocumentsList extends Component {
                                     <h2 className="text-center">No hay documentos</h2>
                                 )}
                             </TabPanel>
-                        
+
                             <TabPanel>
                             {documentList && documentList.length > 0 ? (
                                 <div>
@@ -231,8 +233,8 @@ class DocumentsList extends Component {
                         </Tabs>
                     </>
                 )}
-               
-              
+
+
                 {this.state.modal &&
                     <div>
                         <Modal isOpen={this.state.modal} toggle={this.toggleModal} >

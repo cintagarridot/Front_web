@@ -11,7 +11,7 @@ import withAuth from 'components/withAuth';
 import chatService from 'services/chat-service'
 
 import { useHistory, useLocation } from 'react-router-dom';
-const URL = 'http://localhost:3800/';
+const URL = 'https://uhu-back.herokuapp.com/';
 
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
 const ChatWrapper = styled.div`
@@ -44,11 +44,12 @@ const Chat = ({user, ...props}) => {
     useEffect(() => {
         let paths = window.location.pathname.split('/');
         let chatId = paths[paths.length-1];
+        console.log('chatId', chatId)
         chatService.getChat(chatId).then(chatFromApi => {
             console.log('chatFromApi')
             console.log(chatFromApi)
             const data = chatFromApi.messages;
-          
+
             socket.on("message_receive", data  => {
                 console.log('data')
                 console.log(data)
@@ -64,7 +65,10 @@ const Chat = ({user, ...props}) => {
         socket.emit('message_send', message);
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
+        console.log('paths', paths)
+        console.log('paths[paths.length-1]', paths[paths.length-1]);
         let chatId = paths[paths.length-1];
+        console.log('chatID al enviar mensaje', chatId);
         chatService.postMessage(message, chatId);
         setForm({ message: ''})
     }
@@ -82,7 +86,7 @@ const Chat = ({user, ...props}) => {
 
 
     return (
-        
+
             <div className="chat">
                 <Header/>
                 <ChatWrapper>
@@ -119,7 +123,7 @@ const Chat = ({user, ...props}) => {
 
                 <div className="clearfix"></div>
             </div>
-            
+
     )
 }
 
