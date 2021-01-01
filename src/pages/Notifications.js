@@ -21,7 +21,7 @@ class Notifications extends Component {
 
                 <Row>
                     <Col xs={'6'} sm={'8'} md={'12'} lg={'12'} xl={'12'}>
-                        <h2 className="subheader">Notificaciones</h2>
+                        <h2 className="subheader" style={{marginTop: '20px'}}>Notificaciones</h2>
                     </Col>
                 </Row>
 

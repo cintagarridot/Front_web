@@ -82,8 +82,6 @@ class Header extends Component{
                                 </Dropdown>
                             </li>
 
-
-
                         </ul>
                     </nav>
 
