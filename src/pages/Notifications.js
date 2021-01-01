@@ -17,8 +17,6 @@ class Notifications extends Component {
         console.log('user notifications', user.notifications);
         return (
             <>
-                <Header />
-
                 <Row>
                     <Col xs={'6'} sm={'8'} md={'12'} lg={'12'} xl={'12'}>
                         <h2 className="subheader" style={{marginTop: '70px'}}>Notificaciones</h2>
