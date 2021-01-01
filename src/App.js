@@ -33,6 +33,7 @@ import DocumentsList from 'pages/DocumentsList.js';
 import AddDocument from 'pages/AddDocument.js';
 import ShowDocument from 'pages/ShowDocument.js';
 import AddSubjectGuideRequest from 'pages/AddSubjectGuideRequest.js';
+import Notifications from 'pages/Notifications.js';
 
 class App extends Component {
   render() {
@@ -59,6 +60,7 @@ class App extends Component {
                 <PrivateRoute path="/chat" component={ListChats} />
                 <PrivateRoute path="/user" component={User} />
                 <PrivateRoute path="/subject/details/:id" component={SubjectDetails} />
+                <PrivateRoute path="/notifications" component={Notifications} />
                 <AdminRoute path="/users-list" component={UsersList} />
                 <AdminRoute path="/add-teacher" component={AddTeacher} />
                 <AdminRoute path="/subjects-list" component={SubjectsList} />

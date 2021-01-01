@@ -23,7 +23,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import documentService from "../services/document-service";
 
 
-const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, ...props }) => {
+const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, ...props }) => {
 
   const [ documentPath, setDocumentPath ] = useState('');
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
@@ -106,6 +106,13 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             window.location.reload();
         });
 
+    }
+
+    const deleteNotification = (notification) => {
+        console.log('deleted notifica')
+        // return notificationService.deleteNotification(notification._id).then((result) => {
+        //     window.location.reload();
+        // });
     }
 
   return (
@@ -266,6 +273,27 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             </>
           }
 
+            {notifications &&
+            <>
+                <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} >
+                    <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
+                        <p className="list-item-heading mb-1 truncate">
+                            {element.title}
+                        </p>
+                    </Col>
+
+                    <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                        <button className={'btn btn-primary'} style={{fontSize: '15px'}} >
+                            Ver detalles
+                        </button>
+                    </Col>
+                    <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                        <button className={'btn-danger mt-1'} style={{height: '30px'}} onClick={() => deleteNotification(element)}>Borrar</button>
+                    </Col>
+
+                </Row>
+            </>
+            }
 
         </Card>
       </ContextMenuTrigger>
