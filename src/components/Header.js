@@ -59,11 +59,11 @@ class Header extends Component{
                             <li>
                                 <NavLink to="/news" activeClassName="active">Noticias</NavLink>
                             </li>
-                                <li>
-                                    <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
-                                </li>
                             <li>
                                 <NavLink to="/notifications" activeClassName="active">Notificaciones</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
                             </li>
                             <li>
                                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -81,7 +81,6 @@ class Header extends Component{
                                     </DropdownMenu>
                                 </Dropdown>
                             </li>
-
                         </ul>
                     </nav>
 
