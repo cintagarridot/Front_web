@@ -66,30 +66,20 @@ class Header extends Component{
                                 <NavLink to="/notifications" activeClassName="active">Notificaciones</NavLink>
                             </li>
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {user.username}
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="#">Cerrar sesión</a>
-                                </div>
-                                {/*<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>*/}
-                                {/*    <DropdownToggle carret className={'dropDown-header'}>*/}
-                                {/*        {user.username}*/}
-                                {/*    </DropdownToggle>*/}
-                                {/*    <DropdownMenu className={'dropdown-header-menu'}>*/}
-                                {/*        <DropdownItem>*/}
-                                {/*            <Link to={'/user'}>Ver perfil</Link>*/}
-                                {/*        </DropdownItem>*/}
-                                {/*        <DropdownItem divider />*/}
-                                {/*        <DropdownItem>*/}
-                                {/*            <p onClick={this.props.logout}>Cerrar sesión</p>*/}
-                                {/*        </DropdownItem>*/}
-                                {/*    </DropdownMenu>*/}
-                                {/*</Dropdown>*/}
+                                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                                    <DropdownToggle carret className={'dropDown-header'}>
+                                        {user.username}
+                                    </DropdownToggle>
+                                    <DropdownMenu className={'dropdown-header-menu'}>
+                                        <DropdownItem>
+                                            <Link to={'/user'}>Ver perfil</Link>
+                                        </DropdownItem>
+                                        <DropdownItem divider />
+                                        <DropdownItem>
+                                            <p onClick={this.props.logout}>Cerrar sesión</p>
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </Dropdown>
                             </li>
                         </ul>
                     </nav>
