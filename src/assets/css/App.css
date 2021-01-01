@@ -45,11 +45,25 @@ body{
   background-color: transparent;
   color: black;
   border: none;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-decoration: none;
 }
 .dropDown-header:hover{
   background-color: transparent;
   color: black;
   border: none;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+}
+.dropDown-header:active{
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-decoration: none;
 }
 
 .dropdown-header-menu{
