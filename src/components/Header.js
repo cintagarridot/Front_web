@@ -70,7 +70,7 @@ class Header extends Component{
                                     <DropdownToggle carret className={'dropDown-header'}>
                                         {user.username}
                                     </DropdownToggle>
-                                    <DropdownMenu>
+                                    <DropdownMenu className={'dropdown-header-menu'}>
                                         <DropdownItem>
                                             <Link to={'/user'}>Ver perfil</Link>
                                         </DropdownItem>

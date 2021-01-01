@@ -46,6 +46,10 @@ body{
   border: none;
 }
 
+.dropdown-header-menu{
+  position: absolute;
+}
+
 #logo {
   width: 30%; /*Para que la caja del logo tenga un tamaño del 30%*/
   font-size: 20px;
