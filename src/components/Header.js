@@ -67,7 +67,7 @@ class Header extends Component{
                             </li>
                             <li>
                                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                    <DropdownToggle caret>
+                                    <DropdownToggle>
                                         {user.username}
                                     </DropdownToggle>
                                     <DropdownMenu>
