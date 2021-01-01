@@ -43,6 +43,12 @@ body{
 
 .dropDown-header{
   background-color: transparent;
+  color: black;
+  border: none;
+}
+.dropDown-header:hover{
+  background-color: transparent;
+  color: black;
   border: none;
 }
 
