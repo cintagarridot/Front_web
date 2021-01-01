@@ -1,10 +1,24 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import logo from 'assets/images/logo.svg';
 
 import withAuth from './withAuth';
+import {Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from "reactstrap";
 
 class Header extends Component{
+
+    constructor() {
+        super();
+        this.state = {
+            dropdownOpen: false,
+        }
+    }
+
+    toggle = () => {
+        this.setState({
+            dropdownOpen: !this.state.dropdownOpen
+        })
+    }
 
     render() {
         const { user } = this.props;
@@ -49,7 +63,23 @@ class Header extends Component{
                                     <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
                                 </li>
                             <li>
-                                <NavLink to="/user" activeClassName="active">Perfil</NavLink>
+                                <NavLink to="/notifications" activeClassName="active">Notificaciones</NavLink>
+                            </li>
+                            <li>
+                                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                                    <DropdownToggle caret>
+                                        {user.username}
+                                    </DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem>
+                                            <Link to={'/user'}>Ver perfil</Link>
+                                        </DropdownItem>
+                                        <DropdownItem divider />
+                                        <DropdownItem>
+                                            <p onClick={this.props.logout}>Cerrar sesión</p>
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </Dropdown>
                             </li>
 
 
