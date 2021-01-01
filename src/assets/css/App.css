@@ -41,6 +41,11 @@ body{
 
 }
 
+.dropDown-header{
+  background-color: transparent;
+  border: none;
+}
+
 #logo {
   width: 30%; /*Para que la caja del logo tenga un tamaño del 30%*/
   font-size: 20px;
