@@ -21,6 +21,7 @@ import { Link } from 'react-router-dom';
 import subjectService from "services/subject-service";
 import { confirmAlert } from 'react-confirm-alert';
 import documentService from "../services/document-service";
+import notificationService from "../services/notification-service";
 
 
 const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, ...props }) => {
@@ -31,6 +32,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [editDocId, setEditDocId] = useState('');
   const [docName, setDocName] = useState('');
   const [selectedFile, setSelectedFile] = useState();
+  const [notificationOpen, setNotificationOpen] = useState(false);
 
   const deleteSubject  = (element) => {
     confirmAlert({
@@ -115,11 +117,25 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
         // });
     }
 
+    const openNotification = (notification) => {
+        setNotificationOpen(!notificationOpen);
+        notificationService.markAsRead(notification._id).then((result) => {
+            window.location.reload();
+        })
+    }
+
   return (
     <Col xs={'6'} sm={'8'} md={'12'} lg={'12'} xl={'12'} className="mb-5">
       <ContextMenuTrigger id="menu_id" data={element.id}>
-        <Card style={{ width: '1000px', height: '90px', fontSize: '16px',
-         justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'}}
+        <Card style={ !notifications ? { width: '1000px', height: '90px', fontSize: '16px',
+         justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?
+            { width: '1000px', height: '90px', fontSize: '16px',
+                justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
+            notifications && element.read ? { width: '1000px', height: '90px', fontSize: '16px',
+                justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : notifications && notificationOpen ?
+                {  width: '1000px', height: '300px', fontSize: '16px',
+                    justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
+        }
           onClick={event => onCheckItem(event, element.id)}
 
         >
@@ -283,7 +299,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     </Col>
 
                     <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
-                        <button className={'btn btn-primary'} style={{fontSize: '15px'}} >
+                        <button className={'btn btn-primary'} style={{fontSize: '15px'}}  onClick={() => openNotification(element)}>
                             Ver detalles
                         </button>
                     </Col>
