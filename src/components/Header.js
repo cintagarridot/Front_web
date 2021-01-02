@@ -3,7 +3,7 @@ import {Link, NavLink} from 'react-router-dom';
 import logo from 'assets/images/logo.svg';
 
 import withAuth from './withAuth';
-import {Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from "reactstrap";
+import {Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem} from "reactstrap";
 
 class Header extends Component{
 
@@ -65,9 +65,9 @@ class Header extends Component{
                             <li>
                                 <NavLink to="/notifications" activeClassName="active">Notificaciones</NavLink>
                             </li>
-                            <li className="nav-item dropdown">
-                                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                    <DropdownToggle carret className={'dropDown-header'}>
+                            <li>
+                                <Dropdown as={NavItem} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                                    <DropdownToggle as={NavLink} className={'dropDown-header'}>
                                         {user.username}
                                     </DropdownToggle>
                                     <DropdownMenu className={'dropdown-header-menu'}>
