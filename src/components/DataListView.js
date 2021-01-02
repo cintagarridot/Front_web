@@ -119,6 +119,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
     const openNotification = (notification) => {
         setNotificationOpen(!notificationOpen);
+        console.log('notification', notification);
         notificationService.markAsRead(notification._id).then((result) => {
             window.location.reload();
         })
