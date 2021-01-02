@@ -63,11 +63,13 @@ class Header extends Component{
                                 <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/notifications" activeClassName="active">Mensajes</NavLink>
+                                <NavLink to="/notifications" activeClassName="active">
+                                    Notificaciones
+                                </NavLink>
                             </li>
                             <li>
                                 <Dropdown as={NavItem} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                    <DropdownToggle carret /*className={'dropDown-header'}*/>
+                                    <DropdownToggle caret className={'dropDown-header'}>
                                         {user.username}
                                     </DropdownToggle>
                                     <DropdownMenu className={'dropdown-header-menu'}>

@@ -27,13 +27,18 @@ class Notifications extends Component {
 
                 <Row>
                     <Col xs={'6'} sm={'8'} md={'12'} lg={'12'} xl={'12'}>
-                        {user.notifications.map((notification) => {
-                            return <DataListView
-                                key={notification._id}
-                                element={notification}
-                                notifications
-                            />
-                        })}
+                        {user.notifications.length > 0 ?
+                            user.notifications.map((notification) => {
+                                    return <DataListView
+                                        key={notification._id}
+                                        element={notification}
+                                        notifications
+                                    />
+                                })
+                        : (
+                            <h2 className="text-center">No tienes notificaciones</h2>
+                        )}
+
 
                     </Col>
 
