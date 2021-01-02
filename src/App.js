@@ -60,7 +60,7 @@ class App extends Component {
                 <PrivateRoute path="/chat" component={ListChats} />
                 <PrivateRoute path="/user" component={User} />
                 <PrivateRoute path="/subject/details/:id" component={SubjectDetails} />
-                <PrivateRoute path="/notifications" component={Notifications} />
+                <PrivateRoute exact path="/notifications" component={Notifications} />
                 <AdminRoute path="/users-list" component={UsersList} />
                 <AdminRoute path="/add-teacher" component={AddTeacher} />
                 <AdminRoute path="/subjects-list" component={SubjectsList} />
