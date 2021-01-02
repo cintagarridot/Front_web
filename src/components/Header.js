@@ -65,22 +65,22 @@ class Header extends Component{
                             <li>
                                 <NavLink to="/notifications" activeClassName="active">Notificaciones</NavLink>
                             </li>
-                            <li>
-                                <Dropdown as={NavItem} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                    <DropdownToggle as={NavLink} /*className={'dropDown-header'}*/>
-                                        {user.username}
-                                    </DropdownToggle>
-                                    <DropdownMenu /*className={'dropdown-header-menu'}*/>
-                                        <DropdownItem>
-                                            <Link to={'/user'}>Ver perfil</Link>
-                                        </DropdownItem>
-                                        <DropdownItem divider />
-                                        <DropdownItem>
-                                            <p onClick={this.props.logout}>Cerrar sesión</p>
-                                        </DropdownItem>
-                                    </DropdownMenu>
-                                </Dropdown>
-                            </li>
+                            {/*<li>*/}
+                            {/*    <Dropdown as={NavItem} isOpen={this.state.dropdownOpen} toggle={this.toggle}>*/}
+                            {/*        <DropdownToggle /*className={'dropDown-header'}>
+                            {/*            {user.username}*/}
+                            {/*        </DropdownToggle>*/}
+                            {/*        <DropdownMenu /*className={'dropdown-header-menu'}>*/}
+                            {/*            <DropdownItem>*/}
+                            {/*                <Link to={'/user'}>Ver perfil</Link>*/}
+                            {/*            </DropdownItem>*/}
+                            {/*            <DropdownItem divider />*/}
+                            {/*            <DropdownItem>*/}
+                            {/*                <p onClick={this.props.logout}>Cerrar sesión</p>*/}
+                            {/*            </DropdownItem>*/}
+                            {/*        </DropdownMenu>*/}
+                            {/*    </Dropdown>*/}
+                            {/*</li>*/}
                         </ul>
                     </nav>
 
