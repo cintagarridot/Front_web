@@ -67,10 +67,10 @@ class Header extends Component{
                             </li>
                             <li>
                                 <Dropdown as={NavItem} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                    <DropdownToggle as={NavLink} className={'dropDown-header'}>
+                                    <DropdownToggle as={NavLink} /*className={'dropDown-header'}*/>
                                         {user.username}
                                     </DropdownToggle>
-                                    <DropdownMenu className={'dropdown-header-menu'}>
+                                    <DropdownMenu /*className={'dropdown-header-menu'}*/>
                                         <DropdownItem>
                                             <Link to={'/user'}>Ver perfil</Link>
                                         </DropdownItem>
