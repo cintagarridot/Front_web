@@ -307,7 +307,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                         </button>
                     </Col>
                     <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
-                        <button className={'btn-danger mt-1'} style={{height: '25px'}} onClick={() => deleteNotification(element)}>Borrar</button>
+                        <button className={'btn btn-primary'} style={{fontSize: '12px', backgroundColor: 'red'}} onClick={() => deleteNotification(element)}>Borrar</button>
                     </Col>
 
                 </Row>
