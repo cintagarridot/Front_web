@@ -3,7 +3,7 @@ import {Link, NavLink} from 'react-router-dom';
 import logo from 'assets/images/logo.svg';
 
 import withAuth from './withAuth';
-import {Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem} from "reactstrap";
+import {Badge, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem} from "reactstrap";
 
 class Header extends Component{
 
@@ -63,9 +63,15 @@ class Header extends Component{
                                 <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/notifications" activeClassName="active">
-                                    Notificaciones
-                                </NavLink>
+                                {user.notifications.length > 0 ? (
+                                    <NavLink to="/notifications" activeClassName="active">
+                                        Notificaciones <Badge pill variant="danger">{user.notifications.length}</Badge>
+                                    </NavLink>
+                                ) : (
+                                    <NavLink to="/notifications" activeClassName="active">
+                                        Notificaciones
+                                    </NavLink>
+                                )}
                             </li>
                             <li>
                                 <Dropdown as={NavItem} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
