@@ -134,7 +134,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
          justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?
             { width: '1000px', height: '90px', fontSize: '16px',
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
-            notifications && element.read ? { width: '1000px', height: '90px', fontSize: '16px',
+            notifications && element.read && !notificationOpen ? { width: '1000px', height: '90px', fontSize: '16px',
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : notifications && notificationOpen ?
                 {  width: '1000px', height: '250px', fontSize: '16px',
                     justifyContent: 'center', padding: '10px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
