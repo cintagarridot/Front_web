@@ -120,9 +120,11 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     const openNotification = (notification) => {
         setNotificationOpen(!notificationOpen);
         console.log('notification', notification);
-        notificationService.markAsRead(notification._id).then((result) => {
-            window.location.reload();
-        })
+        if(!notification.read) {
+            notificationService.markAsRead(notification._id).then((result) => {
+                window.location.reload();
+            })
+        }
     }
 
   return (
@@ -300,36 +302,38 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     </Col>
 
                     <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
-                        <button className={'btn btn-primary'} style={{fontSize: '15px'}}  onClick={() => openNotification(element)}>
+                        <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => openNotification(element)}>
                             Ver detalles
                         </button>
                     </Col>
                     <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
-                        <button className={'btn-danger mt-1'} style={{height: '30px'}} onClick={() => deleteNotification(element)}>Borrar</button>
+                        <button className={'btn-danger mt-1'} style={{height: '25px'}} onClick={() => deleteNotification(element)}>Borrar</button>
                     </Col>
 
                 </Row>
             </>
             ) : notifications && notificationOpen ? (
                 <>
-                    <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} >
-                        <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
-                            <p className="list-item-heading mb-1 truncate">
+                    <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} className={'justify-content-center'}>
+                        <Col xs={'6'} md={'8'} sm={'8'} lg={'12'} xl={'12'}>
+                            <p className="list-item-heading truncate">
                                 {element.title}
                             </p>
                         </Col>
 
-                        <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
-                            <button className={'btn btn-primary'} style={{fontSize: '15px'}}  onClick={() => openNotification(element)}>
-                                Ocultar detalles
-                            </button>
-                        </Col>
                     </Row>
                     <Row className={'mt-5'}>
                         <Col xs={'6'} md={'8'} sm={'12'} lg={'12'} xl={'12'}>
-                            <p className="list-item-heading mb-1 truncate">
+                            <p className="list-item-heading truncate">
                                 {element.content}
                             </p>
+                        </Col>
+                    </Row>
+                    <Row className={'justify-content-center mt-5'}>
+                        <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                            <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => openNotification(element)}>
+                                Ocultar detalles
+                            </button>
                         </Col>
                     </Row>
                 </>
