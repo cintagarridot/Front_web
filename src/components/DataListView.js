@@ -134,8 +134,8 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
             notifications && element.read ? { width: '1000px', height: '90px', fontSize: '16px',
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : notifications && notificationOpen ?
-                {  width: '1000px', height: '300px', fontSize: '16px',
-                    justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
+                {  width: '1000px', height: '250px', fontSize: '16px',
+                    justifyContent: 'center', padding: '10px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
         }
           onClick={event => onCheckItem(event, element.id)}
 
@@ -290,7 +290,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             </>
           }
 
-            {notifications &&
+            {notifications && !openNotification ?
             <>
                 <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} >
                     <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
@@ -310,6 +310,30 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
                 </Row>
             </>
+              : notifications && openNotification (
+                <>
+                    <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} >
+                        <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
+                            <p className="list-item-heading mb-1 truncate">
+                                {element.title}
+                            </p>
+                        </Col>
+
+                        <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                            <button className={'btn btn-primary'} style={{fontSize: '15px'}}  onClick={() => openNotification(element)}>
+                                Ocultar detalles
+                            </button>
+                        </Col>
+                    </Row>
+                    <Row className={'mt-5'}>
+                        <Col xs={'6'} md={'8'} sm={'12'} lg={'12'} xl={'12'}>
+                            <p className="list-item-heading mb-1 truncate">
+                                {element.content}
+                            </p>
+                        </Col>
+                    </Row>
+                </>
+                )
             }
 
         </Card>
