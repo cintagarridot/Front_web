@@ -290,7 +290,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             </>
           }
 
-            {notifications && !openNotification ? (
+            {notifications && !notificationOpen ? (
             <>
                 <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} >
                     <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
@@ -310,7 +310,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
                 </Row>
             </>
-            ) : notifications && openNotification ? (
+            ) : notifications && notificationOpen ? (
                 <>
                     <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} >
                         <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
