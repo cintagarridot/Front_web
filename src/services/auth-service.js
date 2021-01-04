@@ -31,7 +31,12 @@ class AuthService {
     .then(response => response.data)
   }
 
-  changePassword = (id, password) => this.auth.put(`/auth/${id}/changePassword`, password).then(({data}) => data);
+  changePassword = (id, password) => {
+    const data = {
+      password: password
+    }
+    this.auth.put(`/auth/${id}/changePassword`, data).then(({data}) => data);
+  }
 
 }
 
