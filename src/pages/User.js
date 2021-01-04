@@ -98,6 +98,8 @@ class User extends Component {
     }
 
     changePassword = () => {
+        console.log('newpass',this.state.newPass)
+        console.log('newpass2', this.state.newPass2)
         if(this.state.newPass === this.state.newPass2){
             authService.changePassword(this.state.id, this.state.newPass).then((result) => {
                 window.location.reload();
