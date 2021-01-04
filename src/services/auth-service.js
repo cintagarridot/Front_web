@@ -30,6 +30,9 @@ class AuthService {
     return this.auth.get('/auth/me')
     .then(response => response.data)
   }
+
+  changePassword = (id, password) => this.auth.put(`/auth/${id}/changePassword`, password).then(({data}) => data);
+
 }
 
 const authService = new AuthService();

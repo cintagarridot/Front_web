@@ -120,6 +120,10 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     const openNotification = (notification) => {
         setNotificationOpen(!notificationOpen);
         console.log('notification', notification);
+    }
+
+    const closeNotification = (notification) => {
+        setNotificationOpen(!notificationOpen);
         if(!notification.read) {
             notificationService.markAsRead(notification._id).then((result) => {
                 window.location.reload();
@@ -333,7 +337,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     </Row>
                     <Row className={'justify-content-center mt-5'}>
                         <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
-                            <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => openNotification(element)}>
+                            <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => closeNotification(element)}>
                                 Ocultar detalles
                             </button>
                         </Col>

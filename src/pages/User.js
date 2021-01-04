@@ -3,8 +3,9 @@ import logo from 'assets/images/logoetsi.png'
 
 import Header from 'components/Header';
 import withAuth from 'components/withAuth';
-import { Col, Row } from 'reactstrap';
+import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row, UncontrolledAlert} from 'reactstrap';
 import axios from 'axios';
+import authService from "../services/auth-service";
 
 class User extends Component {
 
@@ -14,6 +15,10 @@ class User extends Component {
         username: '',
         firstName: '',
         lastName: '',
+        modalNewPassword: false,
+        newPass: '',
+        newPass2: '',
+        alert: '',
     }
 
     componentDidMount() {
@@ -72,17 +77,56 @@ class User extends Component {
 
     }
 
+    handleChangeNewPassword = (event) => {
+        if(event.target.name === 'newPass'){
+            this.setState({
+                newPass: event.target.value
+            });
+        }
+
+        if(event.target.name === 'newPass2') {
+            this.setState({
+                newPass2: event.target.value
+            });
+        }
+    }
+
+    toggleNewPassword = () => {
+        this.setState({
+            modalNewPassword: !this.state.modalNewPassword
+        })
+    }
+
+    changePassword = () => {
+        if(this.state.newPass === this.state.newPass2){
+            authService.changePassword(this.state.id, this.state.newPass).then((result) => {
+                window.location.reload();
+            })
+        }else{
+            this.setState({
+                alert: 'danger'
+            })
+        }
+    }
+
     render() {
+
+        const { modalNewPassword } = this.state;
 
         return (
 
             <div id="user">
                 <Header />
 
+                {
+                    this.state.alert === 'danger' &&
+                    <UncontrolledAlert color={'danger'} className={'font'}>
+                        No se ha podido cambiar la contraseña. Las contraseñas que se han introducido no son iguales.
+                    </UncontrolledAlert>
+                }
 
                 <h2 className="subheaderUser">Datos</h2>
-
-
+                
                 <Row className={'mb-5 pb-5'}>
                     <Col xs={'3'} style={{ marginRight: '20px' }}>
                         <img src={logo} class="app-logo" alt="Logotipo" />
@@ -132,7 +176,7 @@ class User extends Component {
                                     </Col>
                                 }
 
-                            </Row>  
+                            </Row>
                             )
                         }
                     </Col>
@@ -145,21 +189,49 @@ class User extends Component {
                     </Col>
                 </Row>
 
-                <Row className={'mt-5'}>
-                    <Col xs={'2'} className={'mt-5 mr-3'}>
-                        <button style={{ fontSize: '12px' }} >Cambiar contraseña</button>
-                    </Col>
+                <Row className={'mt-5 justify-content-center'}>
                     <Col xs={'2'} className={'mt-5'}>
-                        <button style={{ fontSize: '12px' }} onClick={this.props.logout}>Cerrar sesión</button>
-
+                        <button style={{ fontSize: '12px' }} onClick={this.changePassword} >Cambiar contraseña</button>
                     </Col>
                 </Row>
 
+
+                {modalNewPassword &&
+                <div>
+                    <Modal isOpen={modalNewPassword} toggle={this.toggleNewPassword} >
+                        <ModalHeader>Nueva contraseña</ModalHeader>
+                        <ModalBody>
+                            <Row>
+                                <Col xs={'12'}>
+                                    <label className={'mt-2'} htmlFor='text'>Introduce la nueva contraseña</label>
+                                </Col>
+                                <Col xs={'12'}>
+                                    <input className={'mt-2 font'} id='text' required='true' type='text' name='newPass' onChange={this.handleChangeNewPassword} />
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={'12'}>
+                                    <label className={'mt-2'} htmlFor='text'>Repite la nueva contraseña</label>
+                                </Col>
+                                <Col xs={'12'}>
+                                    <input className={'mt-2 font'} id='text' required='true' type='text' name='newPass2' onChange={this.handleChangeNewPassword} />
+                                </Col>
+                            </Row>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="primary" onClick={this.changePassword}>Guardar</Button>{' '}
+                            <Button color="secondary" onClick={this.toggleNewPassword}>Cancelar</Button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
+                }
 
                 <div className="clearfix"></div>
 
 
             </div>
+
+
 
         );
 
