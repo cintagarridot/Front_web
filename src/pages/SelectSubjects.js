@@ -41,15 +41,14 @@ class SelectSubjects extends Component {
         console.log('subjectsSelected', subjectsSelected)
     }
 
-    addSubjectsInUser = () => {
-        userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
+    addSubjectsInUser = async () => {
+        await userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
             if(data && data.subjects.length > 0){
                 this.setState({
                     userSubjects: data.subjects,
-                })
+                });
+                window.location.reload();
             }
-
-
         });
 
     }
@@ -58,11 +57,11 @@ class SelectSubjects extends Component {
 
     render() {
 
-        const { list, redirectToHome } = this.state;
+        const { list } = this.state;
 
         return (
             <div>
-                <h2 className="subheaderdos">Listado de asignaturas para escoger</h2>
+                <h2 className="subheaderdos">Selecciona las asignaturas de las que estés matriculado</h2>
 
                 {list && list.length > 0 &&
                     <>
