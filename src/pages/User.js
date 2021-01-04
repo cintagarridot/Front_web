@@ -92,9 +92,11 @@ class User extends Component {
     }
 
     toggleNewPassword = () => {
+        console.log('antes', this.state.modalNewPassword)
         this.setState({
             modalNewPassword: !this.state.modalNewPassword
-        })
+        });
+        console.log('despues', this.state.modalNewPassword);
     }
 
     changePassword = () => {
@@ -110,9 +112,6 @@ class User extends Component {
     }
 
     render() {
-
-        const { modalNewPassword } = this.state;
-
         return (
 
             <div id="user">
@@ -126,7 +125,7 @@ class User extends Component {
                 }
 
                 <h2 className="subheaderUser">Datos</h2>
-                
+
                 <Row className={'mb-5 pb-5'}>
                     <Col xs={'3'} style={{ marginRight: '20px' }}>
                         <img src={logo} class="app-logo" alt="Logotipo" />
@@ -196,9 +195,9 @@ class User extends Component {
                 </Row>
 
 
-                {modalNewPassword &&
+                {this.state.modalNewPassword &&
                 <div>
-                    <Modal isOpen={modalNewPassword} toggle={this.toggleNewPassword} >
+                    <Modal isOpen={this.state.modalNewPassword} toggle={this.toggleNewPassword} >
                         <ModalHeader>Nueva contraseña</ModalHeader>
                         <ModalBody>
                             <Row>
