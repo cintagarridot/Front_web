@@ -69,7 +69,7 @@ class App extends Component {
                 <DocumentsRoute exact path="/generate-pdf" component={AddDocument} />
                 <DocumentsRoute exact path="/generate-subject-guide-request" component={AddSubjectGuideRequest} />
                 <DocumentsRoute exact path="/pdf" component={ShowDocument} />
-                <Route exact path="/select-subjects" component={SelectSubjects} />
+                <PrivateRoute exact path="/select-subjects" component={SelectSubjects} />
 
               </Switch>
             </HashRouter>
