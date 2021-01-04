@@ -92,11 +92,9 @@ class User extends Component {
     }
 
     toggleNewPassword = () => {
-        console.log('antes', this.state.modalNewPassword)
         this.setState({
             modalNewPassword: !this.state.modalNewPassword
         });
-        console.log('despues', this.state.modalNewPassword);
     }
 
     changePassword = () => {
@@ -190,7 +188,7 @@ class User extends Component {
 
                 <Row className={'mt-5 justify-content-center'}>
                     <Col xs={'2'} className={'mt-5'}>
-                        <button style={{ fontSize: '12px' }} onClick={this.changePassword} >Cambiar contraseña</button>
+                        <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar contraseña</button>
                     </Col>
                 </Row>
 
