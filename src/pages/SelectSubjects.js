@@ -79,7 +79,7 @@ class SelectSubjects extends Component {
                         })
                         }
 
-                        <a href={'/Front_web/#/home'}> <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button></a>
+                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> <a href={'/Front_web/#/home'}> Guardar asignaturas</a> </button>
                     </>
                 }
 
