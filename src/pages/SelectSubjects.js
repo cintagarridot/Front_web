@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 import subjectService from '../services/subject-service';
 import userService from '../services/user-service';
@@ -42,15 +42,17 @@ class SelectSubjects extends Component {
     }
 
     addSubjectsInUser = async () => {
-        await userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
-            if(data && data.subjects.length > 0){
-                this.setState({
-                    userSubjects: data.subjects,
+            if(this.state.subjectsSelected.length > 0) {
+                await userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
+                    if(data && data.subjects.length > 0){
+                        this.setState({
+                            userSubjects: data.subjects,
+                        });
+                        window.location.reload();
+                        window.location.reload();
+                    }
                 });
-                window.location.reload();
             }
-        });
-
     }
 
 
@@ -79,7 +81,7 @@ class SelectSubjects extends Component {
                         })
                         }
 
-                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> <a href={'/Front_web/#/home'}> Guardar asignaturas</a> </button>
+                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> <Link to={'/Front_web/#/home'}> Guardar asignaturas</Link> </button>
                     </>
                 }
 
