@@ -81,7 +81,7 @@ class SelectSubjects extends Component {
                         })
                         }
 
-                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> <Link to={'/#/home'}> Guardar asignaturas</Link> </button>
+                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> <Link to={'/home'}>Guardar asignaturas</Link> </button>
                     </>
                 }
 
