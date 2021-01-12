@@ -34,6 +34,7 @@ import AddDocument from 'pages/AddDocument.js';
 import ShowDocument from 'pages/ShowDocument.js';
 import AddSubjectGuideRequest from 'pages/AddSubjectGuideRequest.js';
 import Notifications from 'pages/Notifications.js';
+import CreateAnexoII from "./components/CreateAnexoII";
 
 class App extends Component {
   render() {
@@ -68,6 +69,7 @@ class App extends Component {
                 <DocumentsRoute path="/documents" component={DocumentsList} />
                 <DocumentsRoute exact path="/generate-pdf" component={AddDocument} />
                 <DocumentsRoute exact path="/generate-subject-guide-request" component={AddSubjectGuideRequest} />
+                <DocumentsRoute exact path="/generate-anexo-II" component={CreateAnexoII} />
                 <DocumentsRoute exact path="/pdf" component={ShowDocument} />
                 <Route exact path="/select-subjects" component={SelectSubjects} />
 

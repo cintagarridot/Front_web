@@ -143,6 +143,10 @@ class DocumentsList extends Component {
                                     </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>
+                                        <Link to={'/generate-anexo-II'}>Crear Anexo II</Link>
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>
                                         <Link to={'/generate-pdf'}>Generar documento libre</Link>
                                     </DropdownItem>
                             </DropdownMenu>
