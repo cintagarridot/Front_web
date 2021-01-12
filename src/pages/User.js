@@ -206,7 +206,7 @@ class User extends Component {
                                     <label className={'mt-2'} htmlFor='text'>Introduce la nueva contraseña</label>
                                 </Col>
                                 <Col xs={'12'}>
-                                    <input className={'mt-2 font'} id='text' required='true' type='text' name='newPass' onChange={this.handleChangeNewPassword} />
+                                    <input className={'mt-2 font'} id='text' required='true' type="hidden" name='newPass' onChange={this.handleChangeNewPassword} />
                                 </Col>
                             </Row>
                             <Row>
@@ -214,7 +214,7 @@ class User extends Component {
                                     <label className={'mt-2'} htmlFor='text'>Repite la nueva contraseña</label>
                                 </Col>
                                 <Col xs={'12'}>
-                                    <input className={'mt-2 font'} id='text' required='true' type='text' name='newPass2' onChange={this.handleChangeNewPassword} />
+                                    <input className={'mt-2 font'} id='text' required='true' type="hidden" name='newPass2' onChange={this.handleChangeNewPassword} />
                                 </Col>
                             </Row>
                         </ModalBody>
