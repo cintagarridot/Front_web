@@ -105,6 +105,7 @@ class User extends Component {
                 window.location.reload();
             })
         }else{
+            this.toggleNewPassword();
             this.setState({
                 alert: 'danger'
             })
@@ -179,13 +180,13 @@ class User extends Component {
                             )
                         }
                     </Col>
-                    <Col xs={'1'} style={{textAlign: 'end', fontSize: '14px', cursor: 'pointer'}}>
-                        {!this.state.edit ?
-                            <a className={'profile-edit'} onClick={this.editUser}>Editar</a>
-                            : (
-                                <a className={'profile-edit'} onClick={this.saveUser}>Guardar</a>
-                            )}
-                    </Col>
+                    {/*<Col xs={'1'} style={{textAlign: 'end', fontSize: '14px', cursor: 'pointer'}}>*/}
+                    {/*    {!this.state.edit ?*/}
+                    {/*        <a className={'profile-edit'} onClick={this.editUser}>Editar</a>*/}
+                    {/*        : (*/}
+                    {/*            <a className={'profile-edit'} onClick={this.saveUser}>Guardar</a>*/}
+                    {/*        )}*/}
+                    {/*</Col>*/}
                 </Row>
 
                 <Row className={'mt-5 justify-content-center'}>
