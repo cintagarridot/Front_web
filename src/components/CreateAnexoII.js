@@ -35,7 +35,10 @@ class CreateAnexoII extends Component {
 
             const segundoParrafo = `Que le sea asignado, de entre los temas para Trabajo Fin de Grado, aprobados y hechos públicos por la Comisión Académica del TFG, uno de los siguientes temas/líneas de trabajo, ordenados según preferencia, de arriba a abajo y de mayor a menor preferencia:`
 
-            const tema1Parrafo = `- ${tema1}`
+            const tema1Parrafo = `- ${tema1}
+            - ${tema2}
+            - ${tema3}
+            `
             const tema2Parrafo = `- ${tema2}`
             const tema3Parrafo = `- ${tema3}`
 
@@ -103,18 +106,13 @@ class CreateAnexoII extends Component {
 
             doc.text(0.5, verticalOffset + 18 / 72, fourthLine)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
+            verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
             doc.text(3.4, verticalOffset + 18 / 72, 'Temas')
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
             doc.text(0.5, verticalOffset + 18 / 72, tema1Parrafo)
             verticalOffset += (tema1Parrafo.length + 0.5) * 30 / 72
-
-            doc.text(0.5, verticalOffset + 18 / 72, tema2Parrafo)
-            verticalOffset += (tema2Parrafo.length + 0.5) * 30 / 72
-
-            doc.text(0.5, verticalOffset + 18 / 72, tema3Parrafo)
-            verticalOffset += (tema3Parrafo.length + 0.5) * 30 / 72
 
             doc.text(3.2, verticalOffset + 18 / 72, 'Datos del alumno/a')
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
@@ -129,6 +127,8 @@ class CreateAnexoII extends Component {
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
             doc.text(0.5, verticalOffset + 18 / 72, movil)
+            verticalOffset += (firstLine.length + 0.5) * 30 / 72
+
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
             doc.save("anexoII.pdf");
