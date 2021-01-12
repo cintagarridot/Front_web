@@ -11,7 +11,19 @@ class Header extends Component{
         super();
         this.state = {
             dropdownOpen: false,
+            unreadNotifications: 0,
         }
+    }
+
+    componentDidMount() {
+        const { user } = this.props;
+        user.notifications.map((notification) => {
+            if(notification.read === false){
+                this.setState({
+                    unreadNotifications: this.state.unreadNotifications + 1
+                })
+            }
+        })
     }
 
     toggle = () => {
@@ -63,10 +75,13 @@ class Header extends Component{
                                 <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
                             </li>
                             <li>
-                                {user.notifications.length > 0 ? (
-                                    <NavLink to="/notifications" activeClassName="active">
-                                        Notificaciones <Badge pill variant="danger">{user.notifications.length}</Badge>
-                                    </NavLink>
+                                {this.state.unreadNotifications !== 0 ? (
+                                    <>
+
+                                        <NavLink to="/notifications" activeClassName="active">
+                                            Notificaciones <Badge pill variant="danger">{user.notifications.length}</Badge>
+                                        </NavLink>
+                                    </>
                                 ) : (
                                     <NavLink to="/notifications" activeClassName="active">
                                         Notificaciones
