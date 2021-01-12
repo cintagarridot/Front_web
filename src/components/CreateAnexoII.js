@@ -104,31 +104,31 @@ class CreateAnexoII extends Component {
             doc.text(0.5, verticalOffset + 18 / 72, fourthLine)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
-            doc.text(3.4, verticalOffset + size / 72, 'Temas')
+            doc.text(3.4, verticalOffset + 18 / 72, 'Temas')
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
-            doc.text(0.5, verticalOffset + size / 72, tema1Parrafo)
+            doc.text(0.5, verticalOffset + 18 / 72, tema1Parrafo)
             verticalOffset += (tema1Parrafo.length + 0.5) * 30 / 72
 
-            doc.text(0.5, verticalOffset + size / 72, tema2Parrafo)
+            doc.text(0.5, verticalOffset + 18 / 72, tema2Parrafo)
             verticalOffset += (tema2Parrafo.length + 0.5) * 30 / 72
 
-            doc.text(0.5, verticalOffset + size / 72, tema3Parrafo)
+            doc.text(0.5, verticalOffset + 18 / 72, tema3Parrafo)
             verticalOffset += (tema3Parrafo.length + 0.5) * 30 / 72
 
-            doc.text(3.2, verticalOffset + size / 72, 'Datos del alumno/a')
+            doc.text(3.2, verticalOffset + 18 / 72, 'Datos del alumno/a')
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
-            doc.text(0.5, verticalOffset + size / 72, nombreCompleto)
+            doc.text(0.5, verticalOffset + 18 / 72, nombreCompleto)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
-            doc.text(0.5, verticalOffset + size / 72, nif)
+            doc.text(0.5, verticalOffset + 18 / 72, nif)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
-            doc.text(0.5, verticalOffset + size / 72, gmail)
+            doc.text(0.5, verticalOffset + 18 / 72, gmail)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
-            doc.text(0.5, verticalOffset + size / 72, movil)
+            doc.text(0.5, verticalOffset + 18 / 72, movil)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
             doc.save("anexoII.pdf");
