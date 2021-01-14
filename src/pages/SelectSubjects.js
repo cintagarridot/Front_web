@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 import subjectService from '../services/subject-service';
 import userService from '../services/user-service';
@@ -41,28 +41,29 @@ class SelectSubjects extends Component {
         console.log('subjectsSelected', subjectsSelected)
     }
 
-    addSubjectsInUser = () => {
-        userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
-            if(data && data.subjects.length > 0){
-                this.setState({
-                    userSubjects: data.subjects,
-                })
+    addSubjectsInUser = async () => {
+            if(this.state.subjectsSelected.length > 0) {
+                await userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
+                    if(data && data.subjects.length > 0){
+                        this.setState({
+                            userSubjects: data.subjects,
+                        });
+                        window.location.reload();
+                        window.location.reload();
+                    }
+                });
             }
-
-
-        });
-
     }
 
 
 
     render() {
 
-        const { list, redirectToHome } = this.state;
+        const { list } = this.state;
 
         return (
             <div>
-                <h2 className="subheaderdos">Listado de asignaturas para escoger</h2>
+                <h2 className="subheaderdos">Selecciona las asignaturas de las que estés matriculado</h2>
 
                 {list && list.length > 0 &&
                     <>
@@ -80,7 +81,7 @@ class SelectSubjects extends Component {
                         })
                         }
 
-                        <a href={'/Front_web/#/home'}> <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button></a>
+                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> <Link to={'/home'}>Guardar asignaturas</Link> </button>
                     </>
                 }
 

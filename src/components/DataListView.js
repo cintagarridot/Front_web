@@ -21,9 +21,10 @@ import { Link } from 'react-router-dom';
 import subjectService from "services/subject-service";
 import { confirmAlert } from 'react-confirm-alert';
 import documentService from "../services/document-service";
+import notificationService from "../services/notification-service";
 
 
-const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, ...props }) => {
+const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, ...props }) => {
 
   const [ documentPath, setDocumentPath ] = useState('');
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
@@ -31,6 +32,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [editDocId, setEditDocId] = useState('');
   const [docName, setDocName] = useState('');
   const [selectedFile, setSelectedFile] = useState();
+  const [notificationOpen, setNotificationOpen] = useState(false);
 
   const deleteSubject  = (element) => {
     confirmAlert({
@@ -108,19 +110,47 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
     }
 
+    const deleteNotification = (notification) => {
+        console.log('deleted notifica')
+        // return notificationService.deleteNotification(notification._id).then((result) => {
+        //     window.location.reload();
+        // });
+    }
+
+    const openNotification = (notification) => {
+        setNotificationOpen(!notificationOpen);
+        console.log('notification', notification);
+    }
+
+    const closeNotification = (notification) => {
+        setNotificationOpen(!notificationOpen);
+        if(!notification.read) {
+            notificationService.markAsRead(notification._id).then((result) => {
+                window.location.reload();
+            })
+        }
+    }
+
   return (
-    <Col xxs="12" className="mb-5">
+    <Col xs={'6'} sm={'8'} md={'12'} lg={'12'} xl={'12'} className="mb-5">
       <ContextMenuTrigger id="menu_id" data={element.id}>
-        <Card style={{ width: '1000px', height: '90px', fontSize: '16px',
-         justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'}}
+        <Card style={ !notifications ? { width: '1000px', height: '90px', fontSize: '16px',
+         justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?
+            { width: '1000px', height: '90px', fontSize: '16px',
+                justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
+            notifications && element.read && !notificationOpen ? { width: '1000px', height: '90px', fontSize: '16px',
+                justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : notifications && notificationOpen ?
+                {  width: '1000px', height: '250px', fontSize: '16px',
+                    justifyContent: 'center', padding: '10px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
+        }
           onClick={event => onCheckItem(event, element.id)}
 
         >
 
           {subjects &&
             <>
-              <Row>
-                <Col xs={"8"}>
+              <Row xs={'12'} sm={'12'} lg={'12'} xl={'12'} >
+                <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
                   <p className="list-item-heading mb-1 truncate">
                     {element.title}
                   </p>
@@ -129,17 +159,17 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
                 {props.user.type === 'admin' ?
                 <>
-                 <Col xs={"2"}>
+                 <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
                   <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
                     Ver detalles
                   </Link>
                 </Col>
-                  <Col xs={'2'}>
+                  <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
                     <button className={'btn-danger mt-1'} style={{height: '30px'}} onClick={() => deleteSubject(element)}>Borrar</button>
                   </Col>
                 </>
                 :(
-                  <Col xs={"4"}>
+                  <Col xs={'4'} sm={'4'} lg={'4'} xl={'4'}>
                   <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
                     Ver detalles
                   </Link>
@@ -161,7 +191,6 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
                 <Col xs={"4"}>
                   <p className="mb-1 text-muted text-small ">
-
                     {moment(element.date).format('L')}
                   </p>
                 </Col>
@@ -267,6 +296,55 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             </>
           }
 
+            {notifications && !notificationOpen ? (
+            <>
+                <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} >
+                    <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
+                        <p className="list-item-heading mb-1 truncate">
+                            {element.title}
+                        </p>
+                    </Col>
+
+                    <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                        <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => openNotification(element)}>
+                            Ver detalles
+                        </button>
+                    </Col>
+                    <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                        <button className={'btn btn-primary'} style={{fontSize: '12px', backgroundColor: 'red', border: 'none'}} onClick={() => deleteNotification(element)}>
+                            Borrar
+                        </button>
+                    </Col>
+
+                </Row>
+            </>
+            ) : notifications && notificationOpen ? (
+                <>
+                    <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} className={'justify-content-center'}>
+                        <Col xs={'6'} md={'8'} sm={'8'} lg={'12'} xl={'12'}>
+                            <p className="list-item-heading truncate">
+                                {element.title}
+                            </p>
+                        </Col>
+
+                    </Row>
+                    <Row className={'mt-5'}>
+                        <Col xs={'6'} md={'8'} sm={'12'} lg={'12'} xl={'12'}>
+                            <p className="list-item-heading truncate">
+                                {element.content}
+                            </p>
+                        </Col>
+                    </Row>
+                    <Row className={'justify-content-center mt-5'}>
+                        <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                            <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => closeNotification(element)}>
+                                Ocultar detalles
+                            </button>
+                        </Col>
+                    </Row>
+                </>
+                ) : ( <></> )
+            }
 
         </Card>
       </ContextMenuTrigger>

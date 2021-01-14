@@ -33,6 +33,9 @@ import DocumentsList from 'pages/DocumentsList.js';
 import AddDocument from 'pages/AddDocument.js';
 import ShowDocument from 'pages/ShowDocument.js';
 import AddSubjectGuideRequest from 'pages/AddSubjectGuideRequest.js';
+import Notifications from 'pages/Notifications.js';
+import CreateAnexoII from "./components/CreateAnexoII";
+import CreateAnexoV from "./components/CreateAnexoV";
 
 class App extends Component {
   render() {
@@ -59,6 +62,7 @@ class App extends Component {
                 <PrivateRoute path="/chat" component={ListChats} />
                 <PrivateRoute path="/user" component={User} />
                 <PrivateRoute path="/subject/details/:id" component={SubjectDetails} />
+                <PrivateRoute exact path="/notifications" component={Notifications} />
                 <AdminRoute path="/users-list" component={UsersList} />
                 <AdminRoute path="/add-teacher" component={AddTeacher} />
                 <AdminRoute path="/subjects-list" component={SubjectsList} />
@@ -66,6 +70,8 @@ class App extends Component {
                 <DocumentsRoute path="/documents" component={DocumentsList} />
                 <DocumentsRoute exact path="/generate-pdf" component={AddDocument} />
                 <DocumentsRoute exact path="/generate-subject-guide-request" component={AddSubjectGuideRequest} />
+                <DocumentsRoute exact path="/generate-anexo-II" component={CreateAnexoII} />
+                <DocumentsRoute exact path="/generate-anexo-V" component={CreateAnexoV} />
                 <DocumentsRoute exact path="/pdf" component={ShowDocument} />
                 <Route exact path="/select-subjects" component={SelectSubjects} />
 

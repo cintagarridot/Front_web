@@ -7,7 +7,7 @@ import subjectService from 'services/subject-service';
 const PrivateRoute = (props) => {
 
   const {isLoggedIn, user, component: Component, ...rest} = props;
-  console.log(user)
+  console.log('USER PRIVATE ROUTE', user)
   console.log('props private route', props)
   return (
     <>

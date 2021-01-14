@@ -1,10 +1,36 @@
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import logo from 'assets/images/logo.svg';
 
 import withAuth from './withAuth';
+import {Badge, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem} from "reactstrap";
 
 class Header extends Component{
+
+    constructor() {
+        super();
+        this.state = {
+            dropdownOpen: false,
+            unreadNotifications: 0,
+        }
+    }
+
+    componentDidMount() {
+        const { user } = this.props;
+        user.notifications.map((notification) => {
+            if(notification.read === false){
+                this.setState({
+                    unreadNotifications: this.state.unreadNotifications + 1
+                })
+            }
+        })
+    }
+
+    toggle = () => {
+        this.setState({
+            dropdownOpen: !this.state.dropdownOpen
+        })
+    }
 
     render() {
         const { user } = this.props;
@@ -45,15 +71,39 @@ class Header extends Component{
                             <li>
                                 <NavLink to="/news" activeClassName="active">Noticias</NavLink>
                             </li>
-                                <li>
-                                    <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
-                                </li>
                             <li>
-                                <NavLink to="/user" activeClassName="active">Perfil</NavLink>
+                                <NavLink to="/documents" activeClassName="active">Documentos</NavLink>
                             </li>
+                            <li>
+                                {this.state.unreadNotifications !== 0 ? (
+                                    <>
 
-
-
+                                        <NavLink to="/notifications" activeClassName="active">
+                                            Notificaciones <Badge pill variant="danger">{user.notifications.length}</Badge>
+                                        </NavLink>
+                                    </>
+                                ) : (
+                                    <NavLink to="/notifications" activeClassName="active">
+                                        Notificaciones
+                                    </NavLink>
+                                )}
+                            </li>
+                            <li>
+                                <Dropdown as={NavItem} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                                    <DropdownToggle caret className={'dropDown-header'}>
+                                        {user.username}
+                                    </DropdownToggle>
+                                    <DropdownMenu className={'dropdown-header-menu'}>
+                                        <DropdownItem>
+                                            <Link to={'/user'}>Ver perfil</Link>
+                                        </DropdownItem>
+                                        <DropdownItem divider />
+                                        <DropdownItem>
+                                            <p onClick={this.props.logout}>Cerrar sesión</p>
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </Dropdown>
+                            </li>
                         </ul>
                     </nav>
 
