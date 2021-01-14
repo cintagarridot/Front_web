@@ -53,7 +53,7 @@ class ComplaintToATeacher extends Component {
             verticalOffset += (firstLine.length + 0.8) * 30 / 72
 
 
-            doc.save("citaDirector.pdf");
+            doc.save("quejaProfesor.pdf");
             this.setState({
                 document: doc
             });
@@ -80,7 +80,7 @@ class ComplaintToATeacher extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">Queja a un Profesor</h2>
+                        <h2 className="subheaderdos">QUEJA A UN PROFESOR</h2>
                     </div>
                     <form onSubmit={this.handleForPDF}>
 

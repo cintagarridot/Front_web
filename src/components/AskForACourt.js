@@ -111,7 +111,7 @@ class AskForACourt extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">Tribunal</h2>
+                        <h2 className="subheaderdos">ELECCIÓN TRIBUNAL</h2>
                     </div>
                     <form onSubmit={this.handleForPDF}>
 

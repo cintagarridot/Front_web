@@ -91,7 +91,7 @@ class AskForCorrection extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">Anexo V</h2>
+                        <h2 className="subheaderdos">SOLICITAR CORRECCIÓN</h2>
                     </div>
                     <form onSubmit={this.handleForPDF}>
 

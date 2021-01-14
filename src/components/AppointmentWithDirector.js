@@ -80,7 +80,7 @@ class AppointmentWithDirector extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">Solicitar cita con el Director</h2>
+                        <h2 className="subheaderdos">SOLICITAR CITA CON EL DIRECTOR</h2>
                     </div>
                     <form onSubmit={this.handleForPDF}>
 
