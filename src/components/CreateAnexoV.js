@@ -20,13 +20,13 @@ class CreateAnexoV extends Component {
 
     handleForPDF = (event) => {
         event.preventDefault();
-        const { name, dni, correo, tlf, tema2, tema1, tema3, nombreTutor } = this.state;
+        const { nombreAlumno, dniAlumno, tema, nombreTutor, estadoTFG } = this.state;
 
         const title = 'Trabajo de fin de grado. Anexo V';
         const subtitle = 'INFORME FINAL DEL/A TUTOR/A DEL TFG';
 
-        if(name !== '' && dni !== '' && tlf !== '' && nombreTutor !== '' && correo !== '' && tema1 !== '' &&
-            tema2 !== '' && tema3 !== '' ){
+        if(nombreAlumno !== '' && dniAlumno !== '' && nombreTutor !== '' && tema !== '' &&
+            estadoTFG !== '' ){
 
             const primerParrafo = `D./Dª ${nombreTutor}, en su calidad de Tutor Académico del Trabajo de Fin de Grado titulado: ${tema}, realizado por D./Dª. ${nombreAlumno}, con DNI nº ${dniAlumno}, en el Grado en Ingeniería Informática, informa ${estadoTFG} el mismo, dado que en principio reúne las condiciones necesarias para su calificación y posterior exposición pública.`;
 
