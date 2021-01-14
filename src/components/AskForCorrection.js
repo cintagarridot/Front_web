@@ -24,7 +24,7 @@ class AskForCorrection extends Component {
         const title = 'Trabajo de fin de grado';
         const subtitle = 'SOLICITUD DE CORRECCIÓN';
 
-        if(nombreAlumno !== '' && dniAlumno !== '' && nombreTutor !== '' && tema !== '' &&){
+        if(nombreAlumno !== '' && dniAlumno !== '' && nombreTutor !== '' && tema !== ''){
 
             const primerParrafo = `D./Dª ${nombreAlumno}, con DNI nº ${dniAlumno} y con el Trabajo de Fin de Grado titulado: ${tema}, en el Grado en Ingeniería Informática, cuyo tutor es ${nombreTutor}, solicita la corrección del mismo.`;
 
