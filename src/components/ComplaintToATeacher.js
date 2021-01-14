@@ -16,7 +16,7 @@ class ComplaintToATeacher extends Component {
 
     handleForPDF = (event) => {
         event.preventDefault();
-        const { nombreAlumno, dniAlumno } = this.state;
+        const { nombreAlumno, dniAlumno, nombreProfesor } = this.state;
 
         const title = 'QUEJA A UN PROFESOR';
 
