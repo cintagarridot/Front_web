@@ -104,16 +104,6 @@ class CreateAnexoII extends Component {
             doc.text(0.5, verticalOffset + 18 / 72, thirdLine)
             verticalOffset += (firstLine.length + 0.8) * 30 / 72
 
-            doc.text(0.5, verticalOffset + 18 / 72, fourthLine)
-            verticalOffset += (firstLine.length + 0.5) * 30 / 72
-            verticalOffset += (firstLine.length + 0.5) * 30 / 72
-
-            doc.text(3.4, verticalOffset + 18 / 72, 'Temas')
-            verticalOffset += (firstLine.length + 0.5) * 30 / 72
-
-            doc.text(0.5, verticalOffset + 18 / 72, tema1Parrafo)
-            verticalOffset += (tema1Parrafo.length + 0.5) * 30 / 72
-
             doc.text(3.2, verticalOffset + size / 72, 'Datos del alumno/a')
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
@@ -128,6 +118,18 @@ class CreateAnexoII extends Component {
 
             doc.text(0.5, verticalOffset + 18 / 72, movil)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
+
+            doc.text(0.5, verticalOffset + 18 / 72, fourthLine)
+            verticalOffset += (firstLine.length + 0.5) * 30 / 72
+            verticalOffset += (firstLine.length + 0.2) * 30 / 72
+
+            doc.text(3.4, verticalOffset + 18 / 72, 'Temas')
+            verticalOffset += (firstLine.length + 0.5) * 30 / 72
+
+            doc.text(0.5, verticalOffset + 18 / 72, tema1Parrafo)
+            verticalOffset += (tema1Parrafo.length + 0.5) * 30 / 72
+
+
 
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
