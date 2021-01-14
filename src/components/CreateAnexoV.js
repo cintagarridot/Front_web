@@ -61,7 +61,7 @@ class CreateAnexoV extends Component {
             doc.text(3, verticalOffset + 18 / 72, firstLine)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
-            doc.text(3, verticalOffset + 18 / 72, secondLine)
+            doc.text(2.5, verticalOffset + 18 / 72, secondLine)
             verticalOffset += (secondLine.length + 0.5) * 30 / 72
             verticalOffset += (firstLine.length + 0.3) * 30 / 72
 
