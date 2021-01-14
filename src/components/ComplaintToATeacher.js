@@ -3,15 +3,12 @@ import { Col, Row } from 'reactstrap';
 import { jsPDF } from "jspdf";
 import Header from 'components/Header';
 
-class AskForCorrection extends Component {
-
+class ComplaintToATeacher extends Component {
 
     state = {
         nombreAlumno: '',
         dniAlumno: '',
-        tema: '',
-        nombreTutor: '',
-
+        nombreProfesor: '',
         document: {},
         modal: false,
         docName: '',
@@ -19,14 +16,13 @@ class AskForCorrection extends Component {
 
     handleForPDF = (event) => {
         event.preventDefault();
-        const { nombreAlumno, dniAlumno, tema, nombreTutor } = this.state;
+        const { nombreAlumno, dniAlumno, nombreProfesor } = this.state;
 
-        const title = 'Trabajo de fin de grado';
-        const subtitle = 'SOLICITUD DE CORRECCIÓN';
+        const title = 'QUEJA A UN PROFESOR';
 
-        if(nombreAlumno !== '' && dniAlumno !== '' && nombreTutor !== '' && tema !== ''){
+        if(nombreAlumno !== '' && dniAlumno !== '' && nombreProfesor !== ''){
 
-            const primerParrafo = `D./Dª ${nombreAlumno}, con DNI nº ${dniAlumno} y con el Trabajo de Fin de Grado titulado: ${tema}, en el Grado en Ingeniería Informática, cuyo tutor es ${nombreTutor}, solicita la corrección del mismo.`;
+            const primerParrafo = `D./Dª ${nombreAlumno}, con DNI nº ${dniAlumno}, que cursa el Grado en Ingeniería Informática, añade una queja al Profesor ${nombreProfesor}.`;
 
             this.setState({
                 disabledButton: false,
@@ -45,26 +41,19 @@ class AskForCorrection extends Component {
                 .setFontSize(18)
                 .splitTextToSize(title, 18);
 
-            secondLine = doc.setFont(font[0], font[1])
-                .setFontSize(18)
-                .splitTextToSize(subtitle, 18);
-
             thirdLine = doc.setFont(font[0], font[1])
                 .setFontSize(size)
                 .splitTextToSize(primerParrafo, 7.5);
 
 
             doc.text(3.2, verticalOffset + 18 / 72, firstLine)
-            verticalOffset += (firstLine.length + 0.5) * 30 / 72
-
-            doc.text(3, verticalOffset + 18 / 72, secondLine)
-            verticalOffset += (secondLine.length + 0.6) * 30 / 72
+            verticalOffset += (firstLine.length + 0.7) * 30 / 72
 
             doc.text(0.5, verticalOffset + 18 / 72, thirdLine)
             verticalOffset += (firstLine.length + 0.8) * 30 / 72
 
 
-            doc.save("correccionTFG.pdf");
+            doc.save("quejaProfesor.pdf");
             this.setState({
                 document: doc
             });
@@ -83,7 +72,7 @@ class AskForCorrection extends Component {
 
     render () {
 
-        const { nombreAlumno, nombreTutor, tema, dniAlumno } = this.state;
+        const { nombreAlumno, dniAlumno, nombreProfesor } = this.state;
 
 
         return (
@@ -91,7 +80,7 @@ class AskForCorrection extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">SOLICITAR CORRECCIÓN</h2>
+                        <h2 className="subheaderdos">QUEJA A UN PROFESOR</h2>
                     </div>
                     <form onSubmit={this.handleForPDF}>
 
@@ -113,22 +102,12 @@ class AskForCorrection extends Component {
                             </Col>
                         </Row>
 
-
                         <Row>
                             <Col xs={'4'} className={'text-right'}>
-                                <label className={'mt-2'} htmlFor='text'>Nombre del Tutor</label>
+                                <label className={'mt-2'} htmlFor='text'>Nombre del Profesor</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col xs={'4'} className={'text-right'}>
-                                <label className={'mt-2'} htmlFor='text'>Tema elegido</label>
-                            </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} id='nombreProfesor' required='true' type='text' name='nombreProfesor' value={nombreProfesor} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -145,4 +124,4 @@ class AskForCorrection extends Component {
         );
     }
 }
-export default AskForCorrection;
+export default ComplaintToATeacher;
