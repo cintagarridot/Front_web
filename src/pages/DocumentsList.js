@@ -159,6 +159,10 @@ class DocumentsList extends Component {
                                     </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>
+                                        <Link to={'/generate-correction'}>Solicitar una corrección</Link>
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>
                                         <Link to={'/generate-pdf'}>Generar documento libre</Link>
                                     </DropdownItem>
                             </DropdownMenu>
