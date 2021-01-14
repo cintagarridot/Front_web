@@ -167,6 +167,10 @@ class DocumentsList extends Component {
                                     </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>
+                                        <Link to={'/complaint-a-teacher'}>Poner una queja a un profesor</Link>
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem>
                                         <Link to={'/generate-pdf'}>Generar documento libre</Link>
                                     </DropdownItem>
                             </DropdownMenu>

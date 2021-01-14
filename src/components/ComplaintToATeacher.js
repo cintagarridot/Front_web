@@ -3,12 +3,12 @@ import { Col, Row } from 'reactstrap';
 import { jsPDF } from "jspdf";
 import Header from 'components/Header';
 
-class AppointmentWithDirector extends Component {
+class ComplaintToATeacher extends Component {
 
     state = {
         nombreAlumno: '',
         dniAlumno: '',
-
+        nombreProfesor: '',
         document: {},
         modal: false,
         docName: '',
@@ -18,11 +18,11 @@ class AppointmentWithDirector extends Component {
         event.preventDefault();
         const { nombreAlumno, dniAlumno } = this.state;
 
-        const title = 'CITA CON EL DIRECTOR';
+        const title = 'QUEJA A UN PROFESOR';
 
-        if(nombreAlumno !== '' && dniAlumno !== ''){
+        if(nombreAlumno !== '' && dniAlumno !== '' && nombreProfesor !== ''){
 
-            const primerParrafo = `D./Dª ${nombreAlumno}, con DNI nº ${dniAlumno}, que cursa el Grado en Ingeniería Informática, solicita una cita con el Director.`;
+            const primerParrafo = `D./Dª ${nombreAlumno}, con DNI nº ${dniAlumno}, que cursa el Grado en Ingeniería Informática, añade una queja al Profesor ${nombreProfesor}.`;
 
             this.setState({
                 disabledButton: false,
@@ -72,7 +72,7 @@ class AppointmentWithDirector extends Component {
 
     render () {
 
-        const { nombreAlumno, dniAlumno } = this.state;
+        const { nombreAlumno, dniAlumno, nombreProfesor } = this.state;
 
 
         return (
@@ -80,7 +80,7 @@ class AppointmentWithDirector extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">Solicitar cita con el Director</h2>
+                        <h2 className="subheaderdos">Queja a un Profesor</h2>
                     </div>
                     <form onSubmit={this.handleForPDF}>
 
@@ -103,6 +103,15 @@ class AppointmentWithDirector extends Component {
                         </Row>
 
                         <Row>
+                            <Col xs={'4'} className={'text-right'}>
+                                <label className={'mt-2'} htmlFor='text'>Nombre del Profesor</label>
+                            </Col>
+                            <Col xs={'8'}>
+                                <input className={'mt-2 font'} id='nombreProfesor' required='true' type='text' name='nombreProfesor' value={nombreProfesor} onChange={this.handleChange} />
+                            </Col>
+                        </Row>
+
+                        <Row>
                             <Col className={'text-center'}>
                                 <input className={'mt-4'} type='submit' value='Generar PDF' />
                             </Col>
@@ -115,4 +124,4 @@ class AppointmentWithDirector extends Component {
         );
     }
 }
-export default AppointmentWithDirector;
+export default ComplaintToATeacher;
