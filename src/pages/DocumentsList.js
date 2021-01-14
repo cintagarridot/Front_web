@@ -146,6 +146,15 @@ class DocumentsList extends Component {
                                         <Link to={'/generate-anexo-II'}>Crear Anexo II</Link>
                                     </DropdownItem>
                                     <DropdownItem divider />
+                                    {user.type === 'teacher' &&
+                                        <>
+                                            <DropdownItem>
+                                                <Link to={'/generate-anexo-V'}>Crear Anexo V</Link>
+                                            </DropdownItem>
+                                            <DropdownItem divider />
+                                        </>
+                                    }
+
                                     <DropdownItem>
                                         <Link to={'/generate-pdf'}>Generar documento libre</Link>
                                     </DropdownItem>
