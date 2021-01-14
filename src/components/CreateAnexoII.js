@@ -31,9 +31,9 @@ class CreateAnexoII extends Component {
         if(name !== '' && dni !== '' && tlf !== '' && nombreTutor !== '' && correo !== '' && tema1 !== '' &&
         tema2 !== '' && tema3 !== '' ){
 
-            const primerParrafo = `D/Dña: ${name}, alumno/a del Grado en Informática, que se imparte en la Universidad de Huelva, declara estar matriculado y en condición de cursar el Trabajo de Fin de Grado, según la normativa académica de la UHU, y por lo tanto solicita: `;
+            const primerParrafo = `D/Dña: ${name}, alumno/a del Grado en Informática, que se imparte en la Universidad de Huelva, declara estar matriculado y en condición de cursar el Trabajo de Fin de Grado, según la normativa académica de la UHU.`;
 
-            const segundoParrafo = `Que le sea asignado, de entre los temas para Trabajo Fin de Grado, aprobados y hechos públicos por la Comisión Académica del TFG, uno de los siguientes temas/líneas de trabajo, ordenados según preferencia, de arriba a abajo y de mayor a menor preferencia:`
+            const segundoParrafo = `Solicita que le sea asignado, de entre los temas para Trabajo Fin de Grado, aprobados y hechos públicos por la Comisión Académica del TFG, uno de los siguientes temas/líneas de trabajo, ordenados según preferencia, de arriba a abajo y de mayor a menor preferencia:`
 
             const tema1Parrafo = `- ${tema1}
 - ${tema2}
@@ -128,8 +128,6 @@ class CreateAnexoII extends Component {
 
             doc.text(0.5, verticalOffset + 18 / 72, tema1Parrafo)
             verticalOffset += (tema1Parrafo.length + 0.5) * 30 / 72
-
-
 
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
