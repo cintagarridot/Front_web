@@ -54,12 +54,11 @@ class AskForCorrection extends Component {
                 .splitTextToSize(primerParrafo, 7.5);
 
 
-            doc.text(3, verticalOffset + 18 / 72, firstLine)
+            doc.text(3.2, verticalOffset + 18 / 72, firstLine)
             verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
             doc.text(3, verticalOffset + 18 / 72, secondLine)
-            verticalOffset += (secondLine.length + 0.5) * 30 / 72
-            verticalOffset += (firstLine.length + 0.3) * 30 / 72
+            verticalOffset += (secondLine.length + 0.6) * 30 / 72
 
             doc.text(0.5, verticalOffset + 18 / 72, thirdLine)
             verticalOffset += (firstLine.length + 0.8) * 30 / 72
