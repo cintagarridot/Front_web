@@ -32,10 +32,13 @@ class SelectSubjects extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-            console.log('prevState', prevState.userSubjects)
-            console.log('actualState', this.state.userSubjects)
-            console.log('componentDidUpdate condition', prevState.userSubjects !== this.state.userSubjects)
-            if(prevState.userSubjects !== this.state.userSubjects){
+            console.log('prevProps', prevProps.user.subjects)
+            console.log('actualProps', this.props.user.subjects)
+            console.log('componentDidUpdate condition', prevProps.user.subjects !== this.props.user.subjects)
+            if(prevProps.user.subjects !== this.props.user.subjects){
+                return <Redirect to={'/home'}/>
+            }
+            if(this.props.user.subjects > 0){
                 return <Redirect to={'/home'}/>
             }
     }
@@ -97,14 +100,6 @@ class SelectSubjects extends Component {
                        <Link to={'/home'}><button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button> </Link>
                     </>
                 }
-
-                {console.log('this.props.subjects', this.props.user.subjects) }
-                {console.log('this.props.subjects.length', this.props.user.subjects.length) }
-                {console.log('this.props.subjects condition', this.props.user.subjects.length > 0) }
-                {this.props.user.subjects.length > 0 &&
-                    <Redirect to={'/home'}/>
-                }
-
 
             </div>
 
