@@ -40,6 +40,7 @@ import AskForACourt from "./components/AskForACourt";
 import AskForCorrection from "./components/AskForCorrection";
 import AppointmentWithDirector from "./components/AppointmentWithDirector";
 import ComplaintToATeacher from "./components/ComplaintToATeacher";
+import SelectSubjectRoute from "./components/routes/SelectSubjectRoute";
 
 class App extends Component {
   render() {
@@ -81,7 +82,7 @@ class App extends Component {
                 <DocumentsRoute exact path="/court" component={AskForACourt} />
                 <DocumentsRoute exact path="/complaint-a-teacher" component={ComplaintToATeacher} />
                 <DocumentsRoute exact path="/pdf" component={ShowDocument} />
-                <Route exact path="/select-subjects" component={SelectSubjects} />
+                <SelectSubjectRoute exact path="/select-subjects" component={SelectSubjects} />
 
               </Switch>
             </HashRouter>
