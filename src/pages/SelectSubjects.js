@@ -20,7 +20,10 @@ class SelectSubjects extends Component {
 
     componentDidMount() {
         if(this.props.user.subjects.length > 0){
-            return <Redirect to={'/home'}/>
+           console.log('entraaa')
+            this.setState({
+                redirectToHome: true,
+            })
         }
         subjectService.getSubjects().then(data => {
             console.log('data list subject', data)
@@ -62,7 +65,6 @@ class SelectSubjects extends Component {
                     if(data && data.subjects) {
                         this.setState({
                             userSubjects: data.subjects,
-                            redirectToHome: true,
                         });
                         window.location.reload();
                         window.location.reload();
@@ -97,7 +99,10 @@ class SelectSubjects extends Component {
                         })
                         }
 
-                       <Link to={'/home'}><button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button> </Link>
+                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                        {this.state.redirectToHome &&
+                            <Link to={'/home'}>Entrar en la web</Link>
+                        }
                     </>
                 }
 
