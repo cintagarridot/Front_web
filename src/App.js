@@ -82,7 +82,7 @@ class App extends Component {
                 <DocumentsRoute exact path="/court" component={AskForACourt} />
                 <DocumentsRoute exact path="/complaint-a-teacher" component={ComplaintToATeacher} />
                 <DocumentsRoute exact path="/pdf" component={ShowDocument} />
-                <Route exact path="/select-subjects" component={SelectSubjects} />
+                <SelectSubjectRoute exact path="/select-subjects" component={SelectSubjects} />
 
               </Switch>
             </HashRouter>
