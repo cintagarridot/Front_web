@@ -10,7 +10,7 @@ const SelectSubjectRoute = (props) => {
 
     return (
         <>
-            {(isLoggedIn && user.subjects.length > 0 && user.type !== 'admin') ? (
+            { user.subjects.length > 0 ? (
                     <Redirect to='/home' />
                ) : (
                     <Redirect to='/select-subjects' />

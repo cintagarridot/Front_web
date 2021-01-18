@@ -59,9 +59,10 @@ class SelectSubjects extends Component {
                     if(data && data.subjects) {
                         this.setState({
                             userSubjects: data.subjects,
+                            redirectToHome: true,
                         });
-
-                        console.log('desp del this.setState', this.state.userSubjects)
+                        window.location.reload();
+                        window.location.reload();
                     }
                 });
             }
@@ -95,6 +96,10 @@ class SelectSubjects extends Component {
 
                        <Link to={'/home'}><button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button> </Link>
                     </>
+                }
+
+                {this.state.redirectToHome &&
+                    <Redirect to={'/home'}/>}
                 }
 
             </div>
