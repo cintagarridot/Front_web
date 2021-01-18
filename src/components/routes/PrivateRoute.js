@@ -15,9 +15,7 @@ const PrivateRoute = (props) => {
           return <Component {...props}/>
         }}
         {...rest}
-      /> ) : isLoggedIn && user.subjects.length === 0  ? (
-              <Redirect to='/select-subjects' />
-      ) : (
+      /> ) : (
             <Redirect to='/login' />
         )
       }
