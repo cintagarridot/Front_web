@@ -19,7 +19,7 @@ class SelectSubjects extends Component {
 
 
     componentDidMount() {
-        if(this.state.userSubjects.length > 0){
+        if(this.props.user.subjects.length > 0){
             return <Redirect to={'/home'}/>
         }
         subjectService.getSubjects().then(data => {
