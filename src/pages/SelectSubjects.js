@@ -98,9 +98,13 @@ class SelectSubjects extends Component {
                     </>
                 }
 
-                {this.state.redirectToHome &&
-                    <Redirect to={'/home'}/>}
+                {console.log('this.props.subjects', this.props.user.subjects) }
+                {console.log('this.props.subjects.length', this.props.user.subjects.length) }
+                {console.log('this.props.subjects condition', this.props.user.subjects !== []) }
+                {this.props.user.subjects !== [] &&
+                    <Redirect to={'/home'}/>
                 }
+
 
             </div>
 
