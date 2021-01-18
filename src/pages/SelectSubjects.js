@@ -50,6 +50,7 @@ class SelectSubjects extends Component {
                         });
                         window.location.reload();
                         window.location.reload();
+                        window.location.reload();
                     }
                 });
             }
@@ -81,7 +82,7 @@ class SelectSubjects extends Component {
                         })
                         }
 
-                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> <Link to={'/home'}>Guardar asignaturas</Link> </button>
+                       <Link to={'/home'}><button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button> </Link>
                     </>
                 }
 
