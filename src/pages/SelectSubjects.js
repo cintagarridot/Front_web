@@ -62,8 +62,6 @@ class SelectSubjects extends Component {
                         });
 
                         console.log('desp del this.setState', this.state.userSubjects)
-                        window.location.reload();
-                        window.location.reload();
                     }
                 });
             }
