@@ -25,8 +25,15 @@ class SelectSubjects extends Component {
             this.setState({
                 list: data.subjects
             })
-        })
+        });
 
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+            console.log('componentDidUpdate condition', prevState.userSubjects !== this.state.userSubjects && userService.length > 0)
+            if(prevState.userSubjects !== this.state.userSubjects && userService.length > 0){
+                return <Redirect to={'/home'}/>
+            }
     }
 
 
