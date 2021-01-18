@@ -30,8 +30,10 @@ class SelectSubjects extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-            console.log('componentDidUpdate condition', prevState.userSubjects !== this.state.userSubjects && userService.length > 0)
-            if(prevState.userSubjects !== this.state.userSubjects && userService.length > 0){
+            console.log('prevState', prevState.userSubjects)
+            console.log('actualState', this.state.userSubjects)
+            console.log('componentDidUpdate condition', prevState.userSubjects !== this.state.userSubjects)
+            if(prevState.userSubjects !== this.state.userSubjects){
                 return <Redirect to={'/home'}/>
             }
     }
@@ -51,11 +53,13 @@ class SelectSubjects extends Component {
     addSubjectsInUser = async () => {
             if(this.state.subjectsSelected.length > 0) {
                 await userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
-                    if(data && data.subjects.length > 0){
+                    console.log('data', data)
+                    if(data && data.subjects) {
                         this.setState({
                             userSubjects: data.subjects,
                         });
-                        window.location.reload();
+
+                        console.log('desp del this.setState', this.state.userSubjects)
                         window.location.reload();
                         window.location.reload();
                     }
