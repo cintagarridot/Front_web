@@ -81,30 +81,35 @@ class SelectSubjects extends Component {
 
         return (
             <div>
-                <h2 className="subheaderdos">Selecciona las asignaturas de las que estés matriculado</h2>
 
-                {list && list.length > 0 &&
+
+                {this.state.redirectToHome ? (
+                    <h2 className="subheaderdos">Asignaturas guardadas con éxito</h2>
+
+                    <Link to={'/home'}><button className={"mt-5"}> Entrar en la web </button></Link>
+                ) : (
+                    <h2 className="subheaderdos">Selecciona las asignaturas de las que estés matriculado</h2>
+
+                    list && list.length > 0 &&
                     <>
-                       { list.map(a => {
+                        { list.map(a => {
                             return <div className={"mt-4"}>
-                            <CustomInput
-                                type="checkbox"
-                                name=""
-                                id={a._id}
-                                value={a.title}
-                                onChange={(e) => this.checkSelected(e.target.id)}
-                                label={a.title}
-                            />
+                                <CustomInput
+                                    type="checkbox"
+                                    name=""
+                                    id={a._id}
+                                    value={a.title}
+                                    onChange={(e) => this.checkSelected(e.target.id)}
+                                    label={a.title}
+                                />
                             </div>
                         })
                         }
-
-                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
-                        {this.state.redirectToHome &&
-                            <Link to={'/home'}>Entrar en la web</Link>
-                        }
+                        <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
                     </>
+                )
                 }
+
 
             </div>
 
