@@ -151,7 +151,7 @@ class Slider extends Component {
 
                             {console.log('this.props.author', this.props.author)}
                             {console.log('this.props.user', this.props.user)}
-                            {((this.props.author.id === this.props.user.id) || (this.props.user.type === 'admin')) &&
+                            {((this.props.author._id === this.props.user._id) || (this.props.user.type === 'admin')) &&
                                 <div id="newsButton2">
                                     <button className="delete" onClick={() => this.handleDelete(this.props.id)}>Borrar
                                     </button>
