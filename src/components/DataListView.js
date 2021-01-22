@@ -112,9 +112,31 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
     const deleteNotification = (notification) => {
         console.log('deleted notifica')
-        // return notificationService.deleteNotification(notification._id).then((result) => {
-        //     window.location.reload();
-        // });
+        confirmAlert({
+            title: `${notification.title}`,
+            message: '¿Estás segur@ de borrar esta notificación?',
+            buttons: [
+                {
+                    label: 'Borrar',
+                    onClick: () => {
+                        notificationService.deleteNotification(notification._id, props.user._id).then((result) => {
+                            console.log('result delete notification', result);
+                            window.location.reload();
+                        });
+                    }
+                },
+                {
+                    label: 'Cancelar',
+                    onClick: () => {
+
+                    }
+                }
+            ]
+        })
+         return notificationService.deleteNotification(notification._id).then((result) => {
+             console.log('result delete notification', result);
+             window.location.reload();
+         });
     }
 
     const openNotification = (notification) => {
