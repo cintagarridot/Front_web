@@ -112,32 +112,14 @@ class NewsDetail extends Component {
                             </a>
                         </div>
 
-                        {this.state.news.image ? (
-                            <div>
-                                <Slider
-                                    size="slider-noticia"
-                                    id={this.state.news._id}
-                                    title={this.state.news.title}
-                                    content={this.state.news.content}
-                                    image={this.state.news.image}
-                                    author={this.state.user}
-                                    date={this.state.news.date}
-                                ></Slider>
-                            </div>
-                        ) : (
-                                <div>
-                                    <Slider
-                                        size="slider-noticia"
-                                        id={this.state.news._id}
-                                        title={this.state.news.title}
-                                        content={this.state.news.content}
-                                        author={this.state.user}
-                                        date={this.state.news.date}
-                                    ></Slider>
-                                </div>
-                            )
-                        }
-
+                        <Slider
+                            size="slider-noticia"
+                            id={this.state.news._id}
+                            title={this.state.news.title}
+                            content={this.state.news.content}
+                            author={this.state.user}
+                            date={this.state.news.date}
+                        ></Slider>
 
                     </div>
 

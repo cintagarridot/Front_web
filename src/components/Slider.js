@@ -10,6 +10,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css'
 import moment from 'moment';
 import axios from 'axios';
+import withAuth from "./withAuth";
 
 class Slider extends Component {
 
@@ -128,8 +129,6 @@ class Slider extends Component {
 
                             <div id="newsButton">
                                 <button className="delete" onClick={() => this.handleDelete(this.props.id)}>Borrar</button>
-                                <button className="update" onClick={() => this.updateNews(this.props.id)}>Editar</button>
-
                             </div>
 
                         </div>
@@ -150,17 +149,21 @@ class Slider extends Component {
                                 <h2>Fecha: {moment(this.props.date).format('L')}</h2>
                             </div>
 
-                            <div id="newsButton2">
-                                <button className="delete" onClick={() => this.handleDelete(this.props.id)}>Borrar</button>
-                                <button className="update" onClick={() => this.updateNews(this.props.id)}>Editar</button>
-                                {this.state.toUpdate &&
-                                    <News
-                                        idToUpdate={this.state.idToUpdate}
-                                        update="true"
-                                    />
-                                }
+                            {console.log('this.props.author', this.props.author)}
+                            {console.log('this.props.user', this.props.user)}
+                            {((this.props.author.id === this.props.user.id) || (this.props.user.type === 'admin')) &&
+                                <div id="newsButton2">
+                                    <button className="delete" onClick={() => this.handleDelete(this.props.id)}>Borrar
+                                    </button>
+                                    {/*{this.state.toUpdate &&*/}
+                                    {/*<News*/}
+                                    {/*    idToUpdate={this.state.idToUpdate}*/}
+                                    {/*    update="true"*/}
+                                    {/*/>*/}
+                                    {/*}*/}
 
-                            </div>
+                                </div>
+                            }
                         </div>
                     }
 
@@ -185,9 +188,7 @@ class Slider extends Component {
                         </div>
                     }
 
-
-
-                    < div className="clearfix"></div>
+                    <div className="clearfix"></div>
                 </div >
 
             </>
@@ -200,4 +201,4 @@ class Slider extends Component {
 
 }
 
-export default Slider;
+export default withAuth(Slider);
