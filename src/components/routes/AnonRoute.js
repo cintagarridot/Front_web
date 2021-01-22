@@ -7,7 +7,7 @@ const AnonRoute = (props) => {
 
   return (
     <>
-      {!isLoggedIn ? <Route 
+      {!isLoggedIn ? <Route
         render={(props) => {
           return <Component {...props}/>
         }}
@@ -18,7 +18,7 @@ const AnonRoute = (props) => {
       ) : <Redirect to='/home' />}
     </>
 
-     
+
   );
 }
 

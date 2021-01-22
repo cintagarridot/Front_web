@@ -19,14 +19,31 @@ class SelectSubjects extends Component {
 
 
     componentDidMount() {
-
+        if(this.props.user.subjects.length > 0){
+           console.log('entraaa')
+            this.setState({
+                redirectToHome: true,
+            })
+        }
         subjectService.getSubjects().then(data => {
             console.log('data list subject', data)
             this.setState({
                 list: data.subjects
             })
-        })
+        });
 
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+            console.log('prevProps', prevProps.user.subjects)
+            console.log('actualProps', this.props.user.subjects)
+            console.log('componentDidUpdate condition', prevProps.user.subjects !== this.props.user.subjects)
+            if(prevProps.user.subjects !== this.props.user.subjects){
+                return <Redirect to={'/home'}/>
+            }
+            if(this.props.user.subjects > 0){
+                return <Redirect to={'/home'}/>
+            }
     }
 
 
@@ -44,7 +61,8 @@ class SelectSubjects extends Component {
     addSubjectsInUser = async () => {
             if(this.state.subjectsSelected.length > 0) {
                 await userService.addSubjectsInUser(this.props.user, this.state.subjectsSelected).then(data => {
-                    if(data && data.subjects.length > 0){
+                    console.log('data', data)
+                    if(data && data.subjects) {
                         this.setState({
                             userSubjects: data.subjects,
                         });
@@ -63,27 +81,40 @@ class SelectSubjects extends Component {
 
         return (
             <div>
-                <h2 className="subheaderdos">Selecciona las asignaturas de las que estés matriculado</h2>
 
-                {list && list.length > 0 &&
+
+                {this.state.redirectToHome ? (
                     <>
-                       { list.map(a => {
-                            return <div className={"mt-4"}>
-                            <CustomInput
-                                type="checkbox"
-                                name=""
-                                id={a._id}
-                                value={a.title}
-                                onChange={(e) => this.checkSelected(e.target.id)}
-                                label={a.title}
-                            />
-                            </div>
-                        })
-                        }
+                        <h2 className="subheaderdos">Asignaturas guardadas con éxito</h2>
 
-                       <button className={"mt-5"} onClick={this.addSubjectsInUser}> <Link to={'/home'}>Guardar asignaturas</Link> </button>
+                        <Link to={'/home'}><button className={"mt-5"}> Entrar en la web </button></Link>
                     </>
+                ) : (
+                    <>
+                        <h2 className="subheaderdos">Selecciona las asignaturas de las que estés matriculado</h2>
+
+                        {list && list.length > 0 &&
+                            <>
+                                {list.map(a => {
+                                    return <div className={"mt-4"}>
+                                    <CustomInput
+                                    type="checkbox"
+                                    name=""
+                                    id={a._id}
+                                    value={a.title}
+                                    onChange={(e) => this.checkSelected(e.target.id)}
+                                    label={a.title}
+                                    />
+                                    </div>
+                                })
+                                }
+                                    <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                            </>
+                        }
+                    </>
+                )
                 }
+
 
             </div>
 

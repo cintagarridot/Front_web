@@ -40,6 +40,7 @@ import AskForACourt from "./components/AskForACourt";
 import AskForCorrection from "./components/AskForCorrection";
 import AppointmentWithDirector from "./components/AppointmentWithDirector";
 import ComplaintToATeacher from "./components/ComplaintToATeacher";
+import SelectSubjectRoute from "./components/routes/SelectSubjectRoute";
 
 class App extends Component {
   render() {

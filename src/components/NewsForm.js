@@ -132,9 +132,6 @@ class NewsForm extends Component {
                                                 {errors.content && touched.content && errors.content}
                                             </FormGroup>
                                             <FormGroup>
-                                                <input type="file" style={{ fontSize: '14px', marginTop: '10px', marginBottom: '10px' }} />
-                                            </FormGroup>
-                                            <FormGroup>
                                                 <Row>
                                                     <Col xs={'2'}>
                                                         <a href='/Front_web/#/news'><Input type="submit" value='Crear' style={{ fontSize: '14px' }}></Input></a>
