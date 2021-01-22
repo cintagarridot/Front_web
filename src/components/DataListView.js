@@ -119,7 +119,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 {
                     label: 'Borrar',
                     onClick: () => {
-                        notificationService.deleteNotification(notification._id).then((result) => {
+                        notificationService.deleteNotification(notification._id, this.props.user._id).then((result) => {
                             console.log('result delete notification', result);
                             window.location.reload();
                         });
@@ -128,7 +128,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 {
                     label: 'Cancelar',
                     onClick: () => {
-                        
+
                     }
                 }
             ]
