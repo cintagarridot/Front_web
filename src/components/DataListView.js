@@ -34,6 +34,8 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [selectedFile, setSelectedFile] = useState();
   const [notificationOpen, setNotificationOpen] = useState(false);
 
+  console.log('EEELEMENT', element)
+
   const deleteSubject  = (element) => {
     confirmAlert({
       title: 'Borrar '+element.title,
@@ -98,16 +100,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
     const handleChangeEditDocName = (event) => {
         const { name, value } = event.target;
-        console.log('element', element)
-        console.log('valuee', value)
-        if(value === ''){
-            console.log('entra 1')
-            setDocName(element.title);
-        }
-        else{
-            console.log('entra2')
-            setDocName(value);
-        }
+        setDocName(value);
     }
 
     const onFileChange = (event) => {
