@@ -131,11 +131,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     }
                 }
             ]
-        })
-         return notificationService.deleteNotification(notification._id).then((result) => {
-             console.log('result delete notification', result);
-             window.location.reload();
-         });
+        });
     }
 
     const openNotification = (notification) => {
