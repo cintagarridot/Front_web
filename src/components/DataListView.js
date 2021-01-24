@@ -176,6 +176,11 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
   return (
     <Col xs={'6'} sm={'8'} md={'12'} lg={'12'} xl={'12'} className="mb-5">
+        {alertFile &&
+        <UncontrolledAlert color={'danger'} className={'font'}>
+            Es necesario que se elija un PDF para editarlo.
+        </UncontrolledAlert>
+        }
       <ContextMenuTrigger id="menu_id" data={element.id}>
         <Card style={ !notifications ? { width: '1000px', height: '90px', fontSize: '16px',
          justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?
@@ -189,11 +194,6 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           onClick={event => onCheckItem(event, element.id)}
 
         >
-            {alertFile &&
-                <UncontrolledAlert color={'danger'} className={'font'}>
-                    Es necesario que se elija un PDF.
-                </UncontrolledAlert>
-            }
 
           {subjects &&
             <>
