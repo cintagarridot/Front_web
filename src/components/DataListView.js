@@ -111,7 +111,6 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     }
 
     const deleteNotification = (notification) => {
-        console.log('deleted notifica')
         confirmAlert({
             title: `${notification.title}`,
             message: '¿Estás segur@ de borrar esta notificación?',
@@ -119,7 +118,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 {
                     label: 'Borrar',
                     onClick: () => {
-                        notificationService.deleteNotification(notification._id, props.user._id).then((result) => {
+                        notificationService.deleteNotification(notification._id).then((result) => {
                             console.log('result delete notification', result);
                             window.location.reload();
                         });
@@ -132,11 +131,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     }
                 }
             ]
-        })
-         return notificationService.deleteNotification(notification._id).then((result) => {
-             console.log('result delete notification', result);
-             window.location.reload();
-         });
+        });
     }
 
     const openNotification = (notification) => {
@@ -148,6 +143,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
         setNotificationOpen(!notificationOpen);
         if(!notification.read) {
             notificationService.markAsRead(notification._id).then((result) => {
+                console.log('result', result)
                 window.location.reload();
             })
         }
