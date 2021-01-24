@@ -30,7 +30,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
   const [dropdownEditDoc, setDropdownEditDoc] = useState(false);
   const [editDocId, setEditDocId] = useState('');
-  const [docName, setDocName] = useState('');
+  const [docName, setDocName] = useState(element.title !== '' ? element.title : '');
   const [selectedFile, setSelectedFile] = useState();
   const [notificationOpen, setNotificationOpen] = useState(false);
 
