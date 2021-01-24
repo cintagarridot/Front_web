@@ -64,9 +64,27 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   });
 
     const deleteDocument = (id) => {
-        documentService.deleteDocument(id).then((result) => {
-            window.location.reload();
+        confirmAlert({
+            title: `${element.title}`,
+            message: '¿Estás segur@ de borrar este documento?',
+            buttons: [
+                {
+                    label: 'Borrar',
+                    onClick: () => {
+                        documentService.deleteDocument(id).then((result) => {
+                            window.location.reload();
+                        });
+                    }
+                },
+                {
+                    label: 'Cancelar',
+                    onClick: () => {
+
+                    }
+                }
+            ]
         });
+
     }
 
     const toggleDoc = () => {
@@ -80,7 +98,12 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
     const handleChangeEditDocName = (event) => {
         const { name, value } = event.target;
-        setDocName(value);
+        if(value === ''){
+            setDocName(element.title);
+        }
+        else{
+            setDocName(value);
+        }
     }
 
     const onFileChange = (event) => {
