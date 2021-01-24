@@ -98,10 +98,14 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
     const handleChangeEditDocName = (event) => {
         const { name, value } = event.target;
+        console.log('element', element)
+        console.log('valuee', value)
         if(value === ''){
+            console.log('entra 1')
             setDocName(element.title);
         }
         else{
+            console.log('entra2')
             setDocName(value);
         }
     }
