@@ -67,7 +67,7 @@ class AddSubject extends Component {
             No se ha podido crear. Ya existe un usuario con ese username.
           </UncontrolledAlert>
         }
-        <Card style={{ background: '#fffdfd' }} className="auth-card-signup">
+        <Card style={{ background: '#fffdfd' }} className="card-add-subject">
             <form onSubmit={this.handleFormSubmit}>
 
             <Row className={''}>
@@ -98,14 +98,15 @@ class AddSubject extends Component {
                     <label className={'mt-2'} htmlFor='creditos'>Creditos</label>
                 </Col>
                 <Col xs={'12'}>
-                <select value={creditos} placeholder={'Seleccionar creditos'} onChange={this.handleChange} name='creditos'>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select>
+                <select value={creditos} onChange={this.handleChange} name='creditos'>
+                    <option value="DEFAULT" disabled>Seleccionar creditos...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
                 </Col>
                 </Row>
 
@@ -115,10 +116,11 @@ class AddSubject extends Component {
                 </Col>
                 <Col xs={'12'}>
                     <select value={curso} placeholder={'Seleccionar curso'} onChange={this.handleChange} name='curso'>
-                      <option value="1º">1º</option>
-                      <option value="2º">2º</option>
-                      <option value="3º">3º</option>
-                      <option value="4º">4º</option>
+                        <option value="DEFAULT" disabled>Seleccionar curso...</option>
+                        <option value="1º">1º</option>
+                        <option value="2º">2º</option>
+                        <option value="3º">3º</option>
+                        <option value="4º">4º</option>
                     </select>
                 </Col>
                 </Row>

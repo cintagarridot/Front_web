@@ -143,6 +143,7 @@ class CreateAnexoV extends Component {
                             </Col>
                             <Col xs={'8'}>
                                 <select value={estadoTFG} placeholder={''} onChange={this.handleChange} name='estadoTFG'>
+                                    <option value="DEFAULT" disabled>Seleccionar estado del TFG...</option>
                                     <option value="favorablemente">Favorable</option>
                                     <option value="desfavorablemente">Desfavorable</option>
                                 </select>
