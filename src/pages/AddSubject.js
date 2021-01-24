@@ -99,7 +99,7 @@ class AddSubject extends Component {
                 </Col>
                 <Col xs={'12'}>
                 <select value={creditos} onChange={this.handleChange} name='creditos'>
-                    <option value="DEFAULT" disabled>Seleccionar creditos...</option>
+                    <option value="">Seleccionar creditos...</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -115,8 +115,8 @@ class AddSubject extends Component {
                     <label className={'mt-2'} htmlFor='curso'>Curso</label>
                 </Col>
                 <Col xs={'12'}>
-                    <select value={curso} placeholder={'Seleccionar curso'} onChange={this.handleChange} name='curso'>
-                        <option value="DEFAULT" disabled>Seleccionar curso...</option>
+                    <select value={curso} onChange={this.handleChange} name='curso'>
+                        <option value="">Seleccionar curso...</option>
                         <option value="1º">1º</option>
                         <option value="2º">2º</option>
                         <option value="3º">3º</option>
