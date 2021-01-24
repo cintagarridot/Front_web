@@ -30,7 +30,7 @@ class AddSubject extends Component {
         baseURL: 'https://uhu-back.herokuapp.com',
         withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
     });
-    if(tittle !== '' && content !== '' && creditos !== '' && curso !== '') {
+    if(title !== '' && content !== '' && creditos !== '' && curso !== '') {
         newSubject.post("/subjects/", {title, content, creditos, curso})
             .then(data => {
                 console.log(data)
