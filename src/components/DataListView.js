@@ -8,7 +8,7 @@ import {
     DropdownMenu,
     DropdownItem,
     Modal,
-    ModalHeader, ModalBody, ModalFooter, Button
+    ModalHeader, ModalBody, ModalFooter, Button, UncontrolledAlert
 } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import { ContextMenuTrigger } from "react-contextmenu";
@@ -33,6 +33,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [docName, setDocName] = useState(element.title !== '' ? element.title : '');
   const [selectedFile, setSelectedFile] = useState();
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [alertFile, setAlertFile] = useState(false);
 
   console.log('EEELEMENT', element)
 
@@ -109,6 +110,10 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
     const saveDocument = async () => {
 
+        if(selectedFile === undefined){
+            setAlertFile(true);
+        }
+
         // Create an object of formData
         const formData = new FormData();
 
@@ -184,6 +189,11 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           onClick={event => onCheckItem(event, element.id)}
 
         >
+            {alertFile &&
+                <UncontrolledAlert color={'danger'} className={'font'}>
+                    Es necesario que se elija un PDF.
+                </UncontrolledAlert>
+            }
 
           {subjects &&
             <>
