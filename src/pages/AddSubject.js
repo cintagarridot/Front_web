@@ -15,6 +15,7 @@ class AddSubject extends Component {
     curso: '',
     toUserSubjectList: false,
     alert: '',
+    missContent: false,
   };
 
 
@@ -28,28 +29,34 @@ class AddSubject extends Component {
     const newSubject = axios.create({
         baseURL: 'https://uhu-back.herokuapp.com',
         withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
-    })
-    newSubject.post("/subjects/", {title, content, creditos, curso})
-      .then(data => {
-        console.log(data)
+    });
+    if(title !== '' && content !== '' && creditos !== '' && curso !== '') {
+        newSubject.post("/subjects/", {title, content, creditos, curso})
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    title: '',
+                    content: '',
+                    creditos: '',
+                    curso: '',
+                    toUserSubjectList: true,
+                });
+
+
+            })
+            .catch(error => {
+                    if (error.message === 'Request failed with status code 422') {
+                        this.setState({
+                            alert: 'danger'
+                        })
+                    }
+                }
+            )
+    } else {
         this.setState({
-          title: '',
-          content: '',
-          creditos: '',
-          curso: '',
-          toUserSubjectList: true,
-        });
-
-
-      })
-      .catch(error => {
-        if (error.message === 'Request failed with status code 422') {
-          this.setState({
-            alert: 'danger'
-          })
-        }
-      }
-      )
+            missContent: true
+        })
+    }
   }
 
   handleChange = (event) => {
@@ -64,10 +71,15 @@ class AddSubject extends Component {
         {
           this.state.alert === 'danger' &&
           <UncontrolledAlert color={'danger'} className={'font'}>
-            No se ha podido crear. Ya existe un usuario con ese username.
+            No se ha podido crear. Ha ocurrido un error.
           </UncontrolledAlert>
         }
-        <Card style={{ background: '#fffdfd' }} className="auth-card-signup">
+          {this.state.missContent &&
+              <UncontrolledAlert color={'danger'} className={'font'}>
+                  Faltan datos por añadir. Por favor, asegúrese que todos los campos están rellenos.
+              </UncontrolledAlert>
+          }
+        <Card style={{ background: '#fffdfd' }} className="card-add-subject">
             <form onSubmit={this.handleFormSubmit}>
 
             <Row className={''}>
@@ -98,14 +110,15 @@ class AddSubject extends Component {
                     <label className={'mt-2'} htmlFor='creditos'>Creditos</label>
                 </Col>
                 <Col xs={'12'}>
-                <select value={creditos} placeholder={'Seleccionar creditos'} onChange={this.handleChange} name='creditos'>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                    </select>
+                <select value={creditos} onChange={this.handleChange} name='creditos'>
+                    <option value="">Seleccionar creditos...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
                 </Col>
                 </Row>
 
@@ -114,11 +127,12 @@ class AddSubject extends Component {
                     <label className={'mt-2'} htmlFor='curso'>Curso</label>
                 </Col>
                 <Col xs={'12'}>
-                    <select value={curso} placeholder={'Seleccionar curso'} onChange={this.handleChange} name='curso'>
-                      <option value="1º">1º</option>
-                      <option value="2º">2º</option>
-                      <option value="3º">3º</option>
-                      <option value="4º">4º</option>
+                    <select value={curso} onChange={this.handleChange} name='curso'>
+                        <option value="">Seleccionar curso...</option>
+                        <option value="1º">1º</option>
+                        <option value="2º">2º</option>
+                        <option value="3º">3º</option>
+                        <option value="4º">4º</option>
                     </select>
                 </Col>
                 </Row>
