@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'reactstrap';
+import {Col, Row, UncontrolledAlert} from 'reactstrap';
 import { jsPDF } from "jspdf";
 import Header from 'components/Header';
 
@@ -16,6 +16,7 @@ class CreateAnexoV extends Component {
         document: {},
         modal: false,
         docName: '',
+        missContent: false,
     }
 
     handleForPDF = (event) => {
@@ -75,7 +76,9 @@ class CreateAnexoV extends Component {
             });
 
         }else{
-            alert('Debes completar todos los campos para generar tu documento.')
+            this.setState({
+                missContent: true,
+            })
         }
 
     }
@@ -94,6 +97,11 @@ class CreateAnexoV extends Component {
         return (
             <>
                 <Header/>
+                {this.state.missContent &&
+                    <UncontrolledAlert color={'danger'} className={'font'}>
+                        Faltan datos por añadir. Por favor, asegúrese que todos los campos están rellenos.
+                    </UncontrolledAlert>
+                }
                 <section id="content" >
                     <div className="pt-5 mt-5">
                         <h2 className="subheaderdos">Anexo V</h2>

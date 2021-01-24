@@ -15,6 +15,7 @@ class AddSubject extends Component {
     curso: '',
     toUserSubjectList: false,
     alert: '',
+    missContent: false,
   };
 
 
@@ -28,28 +29,34 @@ class AddSubject extends Component {
     const newSubject = axios.create({
         baseURL: 'https://uhu-back.herokuapp.com',
         withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
-    })
-    newSubject.post("/subjects/", {title, content, creditos, curso})
-      .then(data => {
-        console.log(data)
+    });
+    if(tittle !== '' && content !== '' && creditos !== '' && curso !== '') {
+        newSubject.post("/subjects/", {title, content, creditos, curso})
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    title: '',
+                    content: '',
+                    creditos: '',
+                    curso: '',
+                    toUserSubjectList: true,
+                });
+
+
+            })
+            .catch(error => {
+                    if (error.message === 'Request failed with status code 422') {
+                        this.setState({
+                            alert: 'danger'
+                        })
+                    }
+                }
+            )
+    } else {
         this.setState({
-          title: '',
-          content: '',
-          creditos: '',
-          curso: '',
-          toUserSubjectList: true,
-        });
-
-
-      })
-      .catch(error => {
-        if (error.message === 'Request failed with status code 422') {
-          this.setState({
-            alert: 'danger'
-          })
-        }
-      }
-      )
+            missContent: true
+        })
+    }
   }
 
   handleChange = (event) => {
@@ -64,9 +71,14 @@ class AddSubject extends Component {
         {
           this.state.alert === 'danger' &&
           <UncontrolledAlert color={'danger'} className={'font'}>
-            No se ha podido crear. Ya existe un usuario con ese username.
+            No se ha podido crear. Ha ocurrido un error.
           </UncontrolledAlert>
         }
+          {this.state.missContent &&
+              <UncontrolledAlert color={'danger'} className={'font'}>
+                  Faltan datos por añadir. Por favor, asegúrese que todos los campos están rellenos.
+              </UncontrolledAlert>
+          }
         <Card style={{ background: '#fffdfd' }} className="card-add-subject">
             <form onSubmit={this.handleFormSubmit}>
 
