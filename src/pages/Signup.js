@@ -129,17 +129,6 @@ class Signup extends Component {
               </Col>
             </Row>
 
-            <Row className={'justify-content-center mt-4'}>
-              <Col xs={'12'}>
-                <Recaptcha
-                    sitekey="6Ldq6zsaAAAAABV8w2e-er3kbGCSFHvAfgOPGQCF"
-                    render="explicit"
-                    verifyCallback={this.verifyCallback}
-                    onloadCallback={this.recaptchaLoaded}
-                />
-              </Col>
-            </Row>
-
             <Row>
               <Col xs={'12'}>
                 <input className={'mt-4'} type='submit' value='Registrar' />
@@ -147,6 +136,17 @@ class Signup extends Component {
             </Row>
 
           </form>
+
+          <Row className={'justify-content-center mt-5'}>
+            <Col xs={'12'}>
+              <Recaptcha
+                  sitekey="6Ldq6zsaAAAAAHbR1voqgk-EcissMmSyv3bfmoKZ"
+                  render="explicit"
+                  verifyCallback={this.verifyCallback}
+                  onloadCallback={this.recaptchaLoaded}
+              />
+            </Col>
+          </Row>
 
           <p className={'font'}>¿Ya tienes cuenta?
           <Link to={'/login'} className={'link'}> Entra aquí</Link>
