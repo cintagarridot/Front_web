@@ -28,7 +28,7 @@ class Signup extends Component {
     console.log('this.state.isVerfied', this.state.isVerified);
 
     //axios.post("http://localhost:3800/auth/signup", { firstName, lastName, username, password })
-    if(this.state.isVerified) {
+    if (this.state.isVerified) {
       this.props.signup({ firstName, lastName, username, password })
           .then((user) => {
             console.log('user signup', user);
@@ -58,12 +58,14 @@ class Signup extends Component {
 
   }
 
-  verifyCallback (response) {
+  verifyCallback = (response) => {
     if(response){
-      console.log('response,', response);
+      console.log('response', response);
       this.setState({
         isVerified: true
       });
+
+      console.log('this.setState', this.state.isVerified);
     }
 
   }
@@ -129,6 +131,17 @@ class Signup extends Component {
               </Col>
             </Row>
 
+            <Row className={'ml-5 mt-5'}>
+              <Col xs={'12'}>
+                <Recaptcha
+                    sitekey="6Ldq6zsaAAAAAHbR1voqgk-EcissMmSyv3bfmoKZ"
+                    render="explicit"
+                    verifyCallback={this.verifyCallback}
+                    onloadCallback={this.recaptchaLoaded}
+                />
+              </Col>
+            </Row>
+
             <Row>
               <Col xs={'12'}>
                 <input className={'mt-4'} type='submit' value='Registrar' />
@@ -136,17 +149,6 @@ class Signup extends Component {
             </Row>
 
           </form>
-
-          <Row className={'justify-content-center mt-5'}>
-            <Col xs={'12'}>
-              <Recaptcha
-                  sitekey="6Ldq6zsaAAAAAHbR1voqgk-EcissMmSyv3bfmoKZ"
-                  render="explicit"
-                  verifyCallback={this.verifyCallback}
-                  onloadCallback={this.recaptchaLoaded}
-              />
-            </Col>
-          </Row>
 
           <p className={'font'}>¿Ya tienes cuenta?
           <Link to={'/login'} className={'link'}> Entra aquí</Link>
