@@ -25,8 +25,8 @@ class Signup extends Component {
     const password = this.state.password;
     const firstName = this.state.firstName;
     const lastName = this.state.lastName;
+    console.log('this.state.isVerfied', this.state.isVerified);
 
-    console.log('signup page', this.props);
     //axios.post("http://localhost:3800/auth/signup", { firstName, lastName, username, password })
     if(this.state.isVerified) {
       this.props.signup({ firstName, lastName, username, password })
@@ -52,7 +52,7 @@ class Signup extends Component {
           )
     } else {
       this.setState({
-        alertNotVerified: true,
+        alertNotVerified: true
       })
     }
 
