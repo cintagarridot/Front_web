@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import withAuth from '../components/withAuth.js';
 import axios from 'axios';
 import { Card, Col, Row, Alert, UncontrolledAlert } from 'reactstrap';
+import Recaptcha from 'react-recaptcha';
 
 class Signup extends Component {
 
@@ -13,6 +14,8 @@ class Signup extends Component {
     lastName: '',
     toHome: false,
     alert: '',
+    isVerified: false,
+    alertNotVerified: false,
   };
 
 
@@ -25,27 +28,48 @@ class Signup extends Component {
 
     console.log('signup page', this.props);
     //axios.post("http://localhost:3800/auth/signup", { firstName, lastName, username, password })
-    this.props.signup({ firstName, lastName, username, password })
-      .then((user) => {
-        console.log('user signup', user);
-        this.setState({
-          username: '',
-          password: '',
-          firstName: '',
-          lastName: '',
-          toHome: true,
-        });
+    if(this.state.isVerified) {
+      this.props.signup({ firstName, lastName, username, password })
+          .then((user) => {
+            console.log('user signup', user);
+            this.setState({
+              username: '',
+              password: '',
+              firstName: '',
+              lastName: '',
+              toHome: true,
+            });
 
 
-      })
-      .catch(error => {
-        if (error.message === 'Request failed with status code 422') {
-          this.setState({
-            alert: 'danger'
           })
-        }
-      }
-      )
+          .catch(error => {
+                if (error.message === 'Request failed with status code 422') {
+                  this.setState({
+                    alert: 'danger'
+                  })
+                }
+              }
+          )
+    } else {
+      this.setState({
+        alertNotVerified: true,
+      })
+    }
+
+  }
+
+  verifyCallback (response) {
+    if(response){
+      console.log('response,', response);
+      this.setState({
+        isVerified: true
+      });
+    }
+
+  }
+
+  recaptchaLoaded = () => {
+    console.log('captcha loaded successfully')
   }
 
   handleChange = (event) => {
@@ -61,6 +85,12 @@ class Signup extends Component {
           this.state.alert === 'danger' &&
           <UncontrolledAlert color={'danger'} className={'font'}>
             No se ha podido registrar. Ya existe un usuario con ese username.
+          </UncontrolledAlert>
+        }
+        {
+          this.state.alertNotVerified &&
+          <UncontrolledAlert color={'danger'} className={'font'}>
+            No se ha podido registrar. Compruebe que todos los campos están marcados y completos.
           </UncontrolledAlert>
         }
         <Card style={{ background: '#fffdfd' }} className="auth-card-signup">
@@ -96,6 +126,17 @@ class Signup extends Component {
               </Col>
               <Col xs={'12'}>
                 <input className={'mt-2 font'} id='password' required='true' type='password' name='password' value={password} onChange={this.handleChange} />
+              </Col>
+            </Row>
+
+            <Row>
+              <Col xs={'12'}>
+                <Recaptcha
+                    sitekey="6Ldq6zsaAAAAAHbR1voqgk-EcissMmSyv3bfmoKZ"
+                    render="explicit"
+                    verifyCallback={this.verifyCallback}
+                    onloadCallback={this.recaptchaLoaded}
+                />
               </Col>
             </Row>
 
