@@ -129,10 +129,10 @@ class Signup extends Component {
               </Col>
             </Row>
 
-            <Row>
+            <Row className={'justify-content-center mt-4'}>
               <Col xs={'12'}>
                 <Recaptcha
-                    sitekey="6Ldq6zsaAAAAAHbR1voqgk-EcissMmSyv3bfmoKZ"
+                    sitekey="6Ldq6zsaAAAAABV8w2e-er3kbGCSFHvAfgOPGQCF"
                     render="explicit"
                     verifyCallback={this.verifyCallback}
                     onloadCallback={this.recaptchaLoaded}
