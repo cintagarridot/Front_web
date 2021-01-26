@@ -5,7 +5,7 @@ import Header from 'components/Header';
 
 class AddDocument extends Component {
 
-  
+
     state = {
       title: '',
       text: '',
@@ -14,14 +14,14 @@ class AddDocument extends Component {
       modal: false,
       docName: '',
     }
-  
+
     handleForPDF = (event) => {
     event.preventDefault();
     const title = this.state.title;
     const text = this.state.text;
 
     if(title !== '' && text !== ''){
-   
+
       this.setState({
         disabledButton: false,
       })
@@ -40,29 +40,29 @@ class AddDocument extends Component {
     firstLine = doc.setFont(font[0], font[1])
               .setFontSize(18)
               .splitTextToSize(title, 18);
-    
+
 
     lines = doc.setFont(font[0], font[1])
               .setFontSize(size)
               .splitTextToSize(loremipsum, 7.5);
-              
+
 
     doc.text(3.2, verticalOffset + 18 / 72, firstLine)
     verticalOffset += (firstLine.length + 0.5) * 30 / 72
-    
+
     doc.text(0.5, verticalOffset + size / 72, lines)
 
     verticalOffset += (lines.length + 0.5) * size / 72;
-    
+
     doc.save("documento.pdf");
     this.setState({
       document: doc
     });
-          
+
     }else{
       alert('Debes escribir un titulo y texto para generar tu documento.')
     }
-   
+
   }
 
   handleChange = (event) => {
@@ -82,13 +82,21 @@ class AddDocument extends Component {
         <div className="pt-5 mt-5">
           <h2 className="subheaderdos">Nuevo documento</h2>
         </div>
+          <div style={{textAlign: 'initial'}}>
+              <h3 className="mt-2 mb-4 text-muted">
+                  Descripción
+              </h3>
+              <h4 className={'mb-2'}>
+                  Esta página es para crear una solicitud libre.
+              </h4>
+          </div>
         <form /*encType="multipart/form-data"*/ onSubmit={this.handleForPDF}>
             <Row className={''}>
               <Col xs={'12'}>
                 <label htmlFor='title'>Título</label>
               </Col>
               <Col xs={'12'} >
-                <input className={'mt-2 font'} id='title' required='true' type='text' name='title' value={title} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='title' required='true' type='text' name='title' value={title} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -108,7 +116,7 @@ class AddDocument extends Component {
             </Row>
 
           </form>
-          
+
       </section>
     </>
   );

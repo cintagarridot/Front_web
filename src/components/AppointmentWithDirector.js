@@ -82,6 +82,15 @@ class AppointmentWithDirector extends Component {
                     <div className="pt-5 mt-5">
                         <h2 className="subheaderdos">Solicitar cita con el Director</h2>
                     </div>
+
+                    <div style={{textAlign: 'initial'}}>
+                        <h3 className="mt-2 mb-4 text-muted">
+                            Descripción
+                        </h3>
+                        <h4 className={'mb-2'}>
+                            Esta solicitud se genera para concertar una cita con el Director del Departamento.
+                        </h4>
+                    </div>
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
