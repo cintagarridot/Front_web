@@ -31,12 +31,7 @@ class Header extends Component{
             dropdownOpen: !this.state.dropdownOpen
         })
     }
-
-    logout = () => {
-        console.log('logout')
-        this.props.logout();
-    }
-
+    
     render() {
         const { user } = this.props;
         return (
@@ -105,7 +100,7 @@ class Header extends Component{
                                             </DropdownItem>
                                         </Link>
                                         <DropdownItem divider />
-                                        <p onClick={() => this.logout}>
+                                        <p onClick={this.props.logout}>
                                             <DropdownItem>
                                                 Cerrar sesión
                                             </DropdownItem>
