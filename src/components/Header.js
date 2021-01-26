@@ -31,7 +31,6 @@ class Header extends Component{
             dropdownOpen: !this.state.dropdownOpen
         })
     }
-    
     render() {
         const { user } = this.props;
         return (

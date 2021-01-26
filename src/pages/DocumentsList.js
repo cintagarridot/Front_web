@@ -135,7 +135,7 @@ class DocumentsList extends Component {
                         <Col xs='1' className="pt-5 mt-5">
                             <Dropdown isOpen={dropdownOpen} toggle={this.toggle}>
                                 <DropdownToggle caret>
-                                    Generar PDF
+                                    Rellenar solicitudes
                                 </DropdownToggle>
                                 <DropdownMenu>
                                     <DropdownItem>
