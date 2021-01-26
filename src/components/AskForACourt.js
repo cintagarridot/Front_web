@@ -111,8 +111,19 @@ class AskForACourt extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">ELECCIÓN TRIBUNAL</h2>
+                        <h2 className="subheaderdos">Elección de un tribunal</h2>
                     </div>
+                    <div>
+                        <h3 className="mt-2 mb-4 text-muted">
+                            Descripción
+                        </h3>
+                        <h4 className={'mb-5 pb-5'}>
+                            Esta solicitud es para la elección del tribunal de un TFG.
+                            Cada tribunal estará compuesto por profesores/as a tiempo completo con vinculación permanente que impartan docencia en el título.
+                            El tutor del TFG no podrá formar parte del Tribunal, aunque podrá estar presente en el acto de exposición pública teniendo derecho a voz, pero no a voto.
+                        </h4>
+                    </div>
+
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>

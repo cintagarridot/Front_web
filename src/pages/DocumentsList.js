@@ -125,14 +125,14 @@ class DocumentsList extends Component {
             <Header/>
             <section id="content" >
                     <Row className="pt-5 mt-5">
-                        <Col xs='10'>
+                        <Col xs='9'>
                             {user.type !== 'admin' ? (
                                 <h2 className="subheaderdos">Mis documentos</h2>
                             ) : (
                                 <h2 className="subheaderdos">Documentos</h2>
                             )}
                         </Col>
-                        <Col xs='1' className="pt-5 mt-5">
+                        <Col xs='2' className="pt-5 mt-5">
                             <Dropdown isOpen={dropdownOpen} toggle={this.toggle}>
                                 <DropdownToggle caret>
                                     Rellenar solicitudes

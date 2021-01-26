@@ -108,13 +108,13 @@ class CreateAnexoV extends Component {
                     </div>
 
                     <div>
-                        <h2 className="mt-2 mb-2 text-muted">
+                        <h3 className="mt-2 mb-4 text-muted">
                             Descripción
-                        </h2>
-                        <h3>
+                        </h3>
+                        <h4 className={'mb-5 pb-5'}>
                             En este Anexo se realiza el informe final o aval del tutor/a (tutores) para la exposición ante el tribunal.
                             Bajo ningún concepto se aceptará la entrega de un TFG sin contar con el Vº Bº del tutor/a a través de este informe.
-                        </h3>
+                        </h4>
                     </div>
 
                     <form onSubmit={this.handleForPDF}>

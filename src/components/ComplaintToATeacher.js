@@ -80,8 +80,18 @@ class ComplaintToATeacher extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">QUEJA A UN PROFESOR</h2>
+                        <h2 className="subheaderdos">Queja a un Profesor</h2>
                     </div>
+
+                    <div>
+                        <h3 className="mt-2 mb-4 text-muted">
+                            Descripción
+                        </h3>
+                        <h4 className={'mb-5 pb-5'}>
+                            Esta solicitud es para crear una carta formal que se dirige a las autoridades del recinto educativo, para expresar una inconformidad con el actuar de un docente, por lo que deberá tener un tono respetuoso.
+                        </h4>
+                    </div>
+
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>

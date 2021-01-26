@@ -162,12 +162,12 @@ class CreateAnexoII extends Component {
                     </div>
 
                     <div>
-                        <h2 className="mt-2 mb-2 text-muted">
+                        <h3 className="mt-2 mb-4 text-muted">
                             Descripción
-                        </h2>
-                        <h3>
-                            En este Anexo se realiza la selección de temas para el TFG en orden de prioridad. (Elección libre, apartado 4.4.a de la normativa)
                         </h3>
+                        <h4 className={'mb-5 pb-5'}>
+                            En este Anexo se realiza la selección de temas para el TFG en orden de prioridad. (Elección libre, apartado 4.4.a de la normativa)
+                        </h4>
                     </div>
 
                     <form onSubmit={this.handleForPDF}>
