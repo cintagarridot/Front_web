@@ -143,7 +143,7 @@ class CreateAnexoV extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Nombre del Tutor</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
                             </Col>
                         </Row>
 

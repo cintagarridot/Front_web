@@ -117,9 +117,13 @@ class AskForACourt extends Component {
                         <h3 className="mt-2 mb-4 text-muted">
                             Descripción
                         </h3>
-                        <h4 className={'mb-5 pb-5'}>
+                        <h4 className={'mb-2'}>
                             Esta solicitud es para la elección del tribunal de un TFG.
+                        </h4>
+                        <h4 className={'mb-2'}>
                             Cada tribunal estará compuesto por profesores/as a tiempo completo con vinculación permanente que impartan docencia en el título.
+                        </h4>
+                        <h4 className={'mb-5 pb-5'}>
                             El tutor del TFG no podrá formar parte del Tribunal, aunque podrá estar presente en el acto de exposición pública teniendo derecho a voz, pero no a voto.
                         </h4>
                     </div>
