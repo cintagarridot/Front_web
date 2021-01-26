@@ -105,9 +105,11 @@ class Header extends Component{
                                             </DropdownItem>
                                         </Link>
                                         <DropdownItem divider />
-                                        <DropdownItem onClick={() => this.logout}>
-                                            Cerrar sesión
-                                        </DropdownItem>
+                                        <p onClick={() => this.logout}>
+                                            <DropdownItem>
+                                                Cerrar sesión
+                                            </pDropdownItem>
+                                        </p>
                                     </DropdownMenu>
                                 </Dropdown>
                             </li>
