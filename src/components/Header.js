@@ -94,11 +94,11 @@ class Header extends Component{
                                         {user.username}
                                     </DropdownToggle>
                                     <DropdownMenu className={'dropdown-header-menu'}>
-                                        <DropdownItem onClick={() => <Redirect to='/user'/>}>
-                                            Ver perfil
+                                        <DropdownItem onClick={<Redirect to='/user'/>}>
+                                            Perfil
                                         </DropdownItem>
                                         <DropdownItem divider />
-                                        <DropdownItem onClick={this.props.logout}>
+                                        <DropdownItem onClick={() => this.props.logout}>
                                             Cerrar sesión
                                         </DropdownItem>
                                     </DropdownMenu>
