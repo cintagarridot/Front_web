@@ -86,7 +86,7 @@ class AddDocument extends Component {
               <h3 className="mt-2 mb-4 text-muted">
                   Descripción
               </h3>
-              <h4 className={'mb-2'}>
+              <h4 className={'mb-5 pb-5'}>
                   Esta página es para crear una solicitud libre.
               </h4>
           </div>

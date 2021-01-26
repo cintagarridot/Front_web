@@ -87,7 +87,7 @@ class AppointmentWithDirector extends Component {
                         <h3 className="mt-2 mb-4 text-muted">
                             Descripción
                         </h3>
-                        <h4 className={'mb-2'}>
+                        <h4 className={'mb-5 pb-5'}>
                             Esta solicitud se genera para concertar una cita con el Director del Departamento.
                         </h4>
                     </div>
