@@ -32,6 +32,11 @@ class Header extends Component{
         })
     }
 
+    logout = () => {
+        console.log('logout')
+        this.props.logout();
+    }
+
     render() {
         const { user } = this.props;
         return (
@@ -94,11 +99,13 @@ class Header extends Component{
                                         {user.username}
                                     </DropdownToggle>
                                     <DropdownMenu className={'dropdown-header-menu'}>
-                                        <DropdownItem onClick={<Redirect to='/user'/>}>
-                                            Perfil
-                                        </DropdownItem>
+                                        <Link to={'/user'}>
+                                            <DropdownItem>
+                                               Ver perfil
+                                            </DropdownItem>
+                                        </Link>
                                         <DropdownItem divider />
-                                        <DropdownItem onClick={() => this.props.logout}>
+                                        <DropdownItem onClick={() => this.logout}>
                                             Cerrar sesión
                                         </DropdownItem>
                                     </DropdownMenu>
