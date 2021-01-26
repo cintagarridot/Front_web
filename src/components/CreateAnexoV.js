@@ -107,7 +107,7 @@ class CreateAnexoV extends Component {
                         <h2 className="subheaderdos">Anexo V</h2>
                     </div>
 
-                    <div>
+                    <div style={{textAlign: 'initial'}}>
                         <h3 className="mt-2 mb-4 text-muted">
                             Descripción
                         </h3>
@@ -124,7 +124,7 @@ class CreateAnexoV extends Component {
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
                             <Col xs={'8'} className={'text-left'} >
-                                <input className={'mt-2 font'} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -133,7 +133,7 @@ class CreateAnexoV extends Component {
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -152,7 +152,7 @@ class CreateAnexoV extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Tema elegido</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -161,7 +161,7 @@ class CreateAnexoV extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Estado del TFG</label>
                             </Col>
                             <Col xs={'8'}>
-                                <select value={estadoTFG} onChange={this.handleChange} name='estadoTFG'>
+                                <select value={estadoTFG} style={{backgroundColor: 'white'}} onChange={this.handleChange} name='estadoTFG'>
                                     <option value="">Seleccionar estado del TFG...</option>
                                     <option value="favorablemente">Favorable</option>
                                     <option value="desfavorablemente">Desfavorable</option>

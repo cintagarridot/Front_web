@@ -94,6 +94,15 @@ class AskForCorrection extends Component {
                         <h2 className="subheaderdos">Solicitar corrección</h2>
                     </div>
 
+                    <div style={{textAlign: 'initial'}}>
+                        <h3 className="mt-2 mb-4 text-muted">
+                            Descripción
+                        </h3>
+                        <h4 className={'mb-5 pb-5'}>
+                            En esta solicitud se quiere pedir la corrección de un TFG.
+                        </h4>
+                    </div>
+
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
@@ -101,7 +110,7 @@ class AskForCorrection extends Component {
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
                             <Col xs={'8'} className={'text-left'} >
-                                <input className={'mt-2 font'} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -110,7 +119,7 @@ class AskForCorrection extends Component {
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -120,7 +129,7 @@ class AskForCorrection extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Nombre del Tutor</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -129,7 +138,7 @@ class AskForCorrection extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Tema elegido</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
                             </Col>
                         </Row>
 

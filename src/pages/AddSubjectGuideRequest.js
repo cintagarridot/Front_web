@@ -164,7 +164,7 @@ class AddSubjectGuideRequest extends Component {
           <h2 className="subheaderdos">Petición de guía de una asignatura</h2>
         </div>
 
-          <div>
+          <div style={{textAlign: 'initial'}}>
               <h3 className="mt-2 mb-4 text-muted">
                   Descripción
               </h3>
@@ -179,7 +179,7 @@ class AddSubjectGuideRequest extends Component {
                 <label htmlFor='name'>Nombre completo</label>
               </Col>
               <Col xs={'8'} className={'text-left'} >
-                <input className={'mt-2 font'} id='name' required='true' type='text' name='name' value={name} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='name' required='true' type='text' name='name' value={name} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -188,7 +188,7 @@ class AddSubjectGuideRequest extends Component {
                 <label className={'mt-2'} htmlFor='text'>DNI</label>
               </Col>
               <Col xs={'8'}>
-                <input className={'mt-2 font'} id='dni' required='true' type='text' name='dni' value={dni} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dni' required='true' type='text' name='dni' value={dni} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -197,7 +197,7 @@ class AddSubjectGuideRequest extends Component {
                 <label className={'mt-2'} htmlFor='text'>Teléfono</label>
               </Col>
               <Col xs={'8'}>
-                <input className={'mt-2 font'} id='tlf' required='true' type='text' name='tlf' value={tlf} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tlf' required='true' type='text' name='tlf' value={tlf} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -206,7 +206,7 @@ class AddSubjectGuideRequest extends Component {
                 <label className={'mt-2'} htmlFor='text'>Correo</label>
               </Col>
               <Col xs={'8'}>
-                <input className={'mt-2 font'} id='correo' required='true' type='text' name='correo' value={correo} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='correo' required='true' type='text' name='correo' value={correo} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -215,7 +215,7 @@ class AddSubjectGuideRequest extends Component {
                 <label className={'mt-2'} htmlFor='text'>Curso que está cursando</label>
               </Col>
               <Col xs={'8'}>
-                <input className={'mt-2 font'} id='curso' required='true' type='text' name='curso' value={curso} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='curso' required='true' type='text' name='curso' value={curso} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -230,7 +230,7 @@ class AddSubjectGuideRequest extends Component {
                 <label className={'mt-2'} htmlFor='text'>Nombre de la Asignatura</label>
               </Col>
               <Col xs={'8'}>
-                <input className={'mt-2 font'} id='AsigName' required='true' type='text' name='AsigName' value={AsigName} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigName' required='true' type='text' name='AsigName' value={AsigName} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -239,7 +239,7 @@ class AddSubjectGuideRequest extends Component {
                 <label className={'mt-2'} htmlFor='text'>Código de la Asignatura</label>
               </Col>
               <Col xs={'8'}>
-                <input className={'mt-2 font'} id='AsigCod' required='true' type='text' name='AsigCod' value={AsigCod} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigCod' required='true' type='text' name='AsigCod' value={AsigCod} onChange={this.handleChange} />
               </Col>
             </Row>
 
@@ -248,7 +248,7 @@ class AddSubjectGuideRequest extends Component {
                 <label className={'mt-2'} htmlFor='text'>Curso de la Asignatura</label>
               </Col>
               <Col xs={'8'}>
-                <input className={'mt-2 font'} id='AsigCurse' required='true' type='text' name='AsigCurse' value={AsigCurse} onChange={this.handleChange} />
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigCurse' required='true' type='text' name='AsigCurse' value={AsigCurse} onChange={this.handleChange} />
               </Col>
             </Row>
 

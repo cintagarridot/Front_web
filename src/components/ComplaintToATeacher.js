@@ -83,7 +83,7 @@ class ComplaintToATeacher extends Component {
                         <h2 className="subheaderdos">Queja a un Profesor</h2>
                     </div>
 
-                    <div>
+                    <div style={{textAlign: 'initial'}}>
                         <h3 className="mt-2 mb-4 text-muted">
                             Descripción
                         </h3>
@@ -99,7 +99,7 @@ class ComplaintToATeacher extends Component {
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
                             <Col xs={'8'} className={'text-left'} >
-                                <input className={'mt-2 font'} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -108,7 +108,7 @@ class ComplaintToATeacher extends Component {
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -117,7 +117,7 @@ class ComplaintToATeacher extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Nombre del Profesor</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='nombreProfesor' required='true' type='text' name='nombreProfesor' value={nombreProfesor} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreProfesor' required='true' type='text' name='nombreProfesor' value={nombreProfesor} onChange={this.handleChange} />
                             </Col>
                         </Row>
 

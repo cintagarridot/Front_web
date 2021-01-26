@@ -80,7 +80,7 @@ class AppointmentWithDirector extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">SOLICITAR CITA CON EL DIRECTOR</h2>
+                        <h2 className="subheaderdos">Solicitar cita con el Director</h2>
                     </div>
                     <form onSubmit={this.handleForPDF}>
 
@@ -89,7 +89,7 @@ class AppointmentWithDirector extends Component {
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
                             <Col xs={'8'} className={'text-left'} >
-                                <input className={'mt-2 font'} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -98,7 +98,7 @@ class AppointmentWithDirector extends Component {
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 

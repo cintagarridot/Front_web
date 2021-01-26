@@ -113,7 +113,7 @@ class AskForACourt extends Component {
                     <div className="pt-5 mt-5">
                         <h2 className="subheaderdos">Elección de un tribunal</h2>
                     </div>
-                    <div>
+                    <div style={{textAlign: 'initial'}}>
                         <h3 className="mt-2 mb-4 text-muted">
                             Descripción
                         </h3>
@@ -135,7 +135,7 @@ class AskForACourt extends Component {
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
                             <Col xs={'8'} className={'text-left'} >
-                                <input className={'mt-2 font'} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -144,7 +144,7 @@ class AskForACourt extends Component {
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -154,7 +154,7 @@ class AskForACourt extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Nombre del Tutor</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -163,7 +163,7 @@ class AskForACourt extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Tema elegido</label>
                             </Col>
                             <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -178,7 +178,7 @@ class AskForACourt extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Miembro 1</label>
                             </Col>
                             <Col xs={'6'} sm={'8'} lg={'8'}>
-                                <input className={'mt-2 font'} id='tribunal1' required='true' type='text' name='tribunal1' value={tribunal1} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tribunal1' required='true' type='text' name='tribunal1' value={tribunal1} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -187,7 +187,7 @@ class AskForACourt extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Miembro 2</label>
                             </Col>
                             <Col xs={'6'} sm={'8'} lg={'8'}>
-                                <input className={'mt-2 font'} id='tribunal2' required='true' type='text' name='tribunal2' value={tribunal2} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tribunal2' required='true' type='text' name='tribunal2' value={tribunal2} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -196,7 +196,7 @@ class AskForACourt extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Miembro 3</label>
                             </Col>
                             <Col xs={'6'} sm={'8'} lg={'8'}>
-                                <input className={'mt-2 font'} id='tribunal3' required='true' type='text' name='tribunal3' value={tribunal3} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tribunal3' required='true' type='text' name='tribunal3' value={tribunal3} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
@@ -205,7 +205,7 @@ class AskForACourt extends Component {
                                 <label className={'mt-2'} htmlFor='text'>Miembro 4</label>
                             </Col>
                             <Col xs={'6'} sm={'8'} lg={'8'}>
-                                <input className={'mt-2 font'} id='tribunal4' required='true' type='text' name='tribunal4' value={tribunal4} onChange={this.handleChange} />
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tribunal4' required='true' type='text' name='tribunal4' value={tribunal4} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
