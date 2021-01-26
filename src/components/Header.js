@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {Link, NavLink, Redirect} from 'react-router-dom';
 import logo from 'assets/images/logo.svg';
 
 import withAuth from './withAuth';
@@ -94,12 +94,12 @@ class Header extends Component{
                                         {user.username}
                                     </DropdownToggle>
                                     <DropdownMenu className={'dropdown-header-menu'}>
-                                        <DropdownItem>
-                                            <Link to={'/user'}>Ver perfil</Link>
+                                        <DropdownItem onClick={() => <Redirect to='/user'/>}>
+                                            Ver perfil
                                         </DropdownItem>
                                         <DropdownItem divider />
-                                        <DropdownItem>
-                                            <p onClick={this.props.logout}>Cerrar sesión</p>
+                                        <DropdownItem onClick={this.props.logout}>
+                                            Cerrar sesión
                                         </DropdownItem>
                                     </DropdownMenu>
                                 </Dropdown>
