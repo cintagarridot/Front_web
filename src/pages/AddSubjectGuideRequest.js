@@ -227,7 +227,7 @@ class AddSubjectGuideRequest extends Component {
 
             <Row>
               <Col xxs={'6'} xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
-                <label className={'mt-2'} htmlFor='text'>Nombre de la Asignatura</label>
+                <label className={'mt-2'} htmlFor='text'>Título</label>
               </Col>
               <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigName' required='true' type='text' name='AsigName' value={AsigName} onChange={this.handleChange} />
@@ -236,7 +236,7 @@ class AddSubjectGuideRequest extends Component {
 
             <Row>
               <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
-                <label className={'mt-2'} htmlFor='text'>Código de la Asignatura</label>
+                <label className={'mt-2'} htmlFor='text'>Código</label>
               </Col>
               <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigCod' required='true' type='text' name='AsigCod' value={AsigCod} onChange={this.handleChange} />
@@ -245,7 +245,7 @@ class AddSubjectGuideRequest extends Component {
 
             <Row>
               <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
-                <label className={'mt-2'} htmlFor='text'>Curso de la Asignatura</label>
+                <label className={'mt-2'} htmlFor='text'>Curso</label>
               </Col>
               <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigCurse' required='true' type='text' name='AsigCurse' value={AsigCurse} onChange={this.handleChange} />
