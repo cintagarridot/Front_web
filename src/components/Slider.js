@@ -4,6 +4,11 @@ import { Link, Redirect } from 'react-router-dom';
 /*import logomoodle from '../assets/images/logomoodle.png';
 import logoetsi from '../assets/images/logoetsi.png';
 import logouhu from '../assets/images/logouhu.jpg';*/
+import chatImage from 'assets/images/chat.jpg';
+import documentoImage from 'assets/images/documentos.jpg';
+import notificationImage from 'assets/images/notificacion.png';
+import noticiaImage from 'assets/images/noticias.jpeg';
+import perfilUsuario from 'assets/images/usuario.jpg';
 import News from 'components/News/List';
 import Header from 'components/Header';
 import { confirmAlert } from 'react-confirm-alert';
@@ -176,21 +181,21 @@ class Slider extends Component {
 
                     {this.props.size === 'principalPageButtons' &&
 
-                        <div className={'mt-5 mb-5 principalButtons'}>
+                        <div>
                             <Link to={'/news'}>
-                                <img src={'/src/assets/images/noticias.jpeg'} alt={'noticias'}/>
+                                <img src={noticiaImage} alt={'noticias'}/>
                             </Link>
                             <Link to={'/documents'}>
-                                <img src={'/src/assets/images/documentos.jpg'} alt={'documentos'}/>
+                                <img src={documentoImage} alt={'documentos'}/>
                             </Link>
                             <Link to={'/notifications'}>
-                                <img src={'/src/assets/images/notificacion.png'} alt={'notificaciones'}/>
+                                <img src={notificationImage} alt={'notificaciones'}/>
                             </Link>
                             <Link to={'/chat'}>
-                                <img src={'/src/assets/images/chat.jpg'} alt={'chat'}/>
+                                <img src={chatImage} alt={'chat'}/>
                             </Link>
                             <Link to={'/user'}>
-                                <img src={'/src/assets/images/usuario.jpg'} alt={'perfil usuario'}/>
+                                <img src={perfilUsuario} alt={'perfil usuario'}/>
                             </Link>
                         </div>
                     }
