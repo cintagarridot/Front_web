@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 /*import logomoodle from '../assets/images/logomoodle.png';
 import logoetsi from '../assets/images/logoetsi.png';
 import logouhu from '../assets/images/logouhu.jpg';*/
-import chatImage from 'assets/images/chat.jpg';
+import chatImage from 'assets/images/chat.jpeg';
 import documentoImage from 'assets/images/documentos.jpg';
 import notificationImage from 'assets/images/notificacion.png';
 import noticiaImage from 'assets/images/noticias.jpeg';
