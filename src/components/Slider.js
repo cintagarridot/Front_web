@@ -92,7 +92,6 @@ class Slider extends Component {
             <>
                 <Header />
 
-
                 <div id="slider" className={this.props.size} > {/*<!--le podemos poner varias clases para usarlas dependiendo de que pagina estemos-->*/}
 
                     {this.props.size === 'slider-initial' &&
@@ -239,10 +238,6 @@ class Slider extends Component {
             </>
 
         );
-
-
     }
-
 }
-
 export default withAuth(Slider);
