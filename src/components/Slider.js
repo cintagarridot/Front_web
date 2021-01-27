@@ -180,7 +180,6 @@ class Slider extends Component {
                     }
 
                     {this.props.size === 'principalPageButtons' &&
-
                         <div>
                             <Link to={'/news'}>
                                 <img src={noticiaImage} alt={'noticias'}/>

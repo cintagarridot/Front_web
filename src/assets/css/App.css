@@ -915,13 +915,18 @@ margin-right: 100px;
 }
 
 .principalPageButtons{
-  position: fixed;
-  display: flex;
-  align-content: space-between;
-  height: 85px;
-  width: 100%;
+  width:80vh;
+  max-width:100px;
+  height:80vh;
+  max-height: 100px;
+  position: relative;
   background: white;
-  border-bottom: 1px solid #ccc;
+}
+
+.principalPageButtons img{
+  position: absolute;
+  width: 20px;
+  height: 20px;
 }
 
 /*Imagen destacada a la izquierda en el blog*/
