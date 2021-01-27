@@ -92,10 +92,10 @@ class AddDocument extends Component {
           </div>
         <form /*encType="multipart/form-data"*/ onSubmit={this.handleForPDF}>
             <Row className={''}>
-              <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+              <Col xs={'2'} md={'1'} sm={'1'} lg={'1'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label htmlFor='title'>Título</label>
               </Col>
-              <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='title' required='true' type='text' name='title' value={title} onChange={this.handleChange} />
               </Col>
             </Row>

@@ -176,7 +176,7 @@ class CreateAnexoII extends Component {
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre completo</label>
                             </Col>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'text-left'} >
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'} className={'text-left'} >
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='name' required='true' type='text' name='name' value={name} onChange={this.handleChange} />
                             </Col>
                         </Row>
@@ -185,7 +185,7 @@ class CreateAnexoII extends Component {
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI</label>
                             </Col>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dni' required='true' type='text' name='dni' value={dni} onChange={this.handleChange} />
                             </Col>
                         </Row>
@@ -194,7 +194,7 @@ class CreateAnexoII extends Component {
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Teléfono</label>
                             </Col>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tlf' required='true' type='text' name='tlf' value={tlf} onChange={this.handleChange} />
                             </Col>
                         </Row>
@@ -203,7 +203,7 @@ class CreateAnexoII extends Component {
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Correo</label>
                             </Col>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='correo' required='true' type='text' name='correo' value={correo} onChange={this.handleChange} />
                             </Col>
                         </Row>
@@ -218,7 +218,7 @@ class CreateAnexoII extends Component {
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema 1</label>
                             </Col>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema1' required='true' type='text' name='tema1' value={tema1} onChange={this.handleChange} />
                             </Col>
                         </Row>
@@ -227,7 +227,7 @@ class CreateAnexoII extends Component {
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema 2</label>
                             </Col>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema2' required='true' type='text' name='tema2' value={tema2} onChange={this.handleChange} />
                             </Col>
                         </Row>
@@ -236,7 +236,7 @@ class CreateAnexoII extends Component {
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema 3</label>
                             </Col>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema3' required='true' type='text' name='tema3' value={tema3} onChange={this.handleChange} />
                             </Col>
                         </Row>
@@ -245,7 +245,7 @@ class CreateAnexoII extends Component {
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tutor</label>
                             </Col>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
                             </Col>
                         </Row>
