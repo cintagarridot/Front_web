@@ -120,7 +120,7 @@ class CreateAnexoV extends Component {
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
                             <Col xs={'10'} md={'8'} sm={'8'} lg={'8'} className={'text-left'} >
@@ -129,7 +129,7 @@ class CreateAnexoV extends Component {
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
                             <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
@@ -139,7 +139,7 @@ class CreateAnexoV extends Component {
 
 
                         <Row>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Nombre del Tutor</label>
                             </Col>
                             <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
@@ -148,7 +148,7 @@ class CreateAnexoV extends Component {
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema elegido</label>
                             </Col>
                             <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
@@ -157,7 +157,7 @@ class CreateAnexoV extends Component {
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Estado del TFG</label>
                             </Col>
                             <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>

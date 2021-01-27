@@ -95,7 +95,7 @@ class ComplaintToATeacher extends Component {
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
                             <Col xs={'10'} md={'8'} sm={'8'} lg={'8'} className={'text-left'} >
@@ -104,7 +104,7 @@ class ComplaintToATeacher extends Component {
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
                             <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
@@ -114,7 +114,7 @@ class ComplaintToATeacher extends Component {
 
                         <Row>
                             <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
-                                <label className={'mt-2'} htmlFor='text'>Nombre del Profesor</label>
+                                <label className={'mt-2'} htmlFor='text'>Profesor</label>
                             </Col>
                             <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreProfesor' required='true' type='text' name='nombreProfesor' value={nombreProfesor} onChange={this.handleChange} />

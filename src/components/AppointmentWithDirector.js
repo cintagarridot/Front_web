@@ -94,7 +94,7 @@ class AppointmentWithDirector extends Component {
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
                             <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'text-left'} >
@@ -103,7 +103,7 @@ class AppointmentWithDirector extends Component {
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
                             <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>

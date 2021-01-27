@@ -175,85 +175,85 @@ class AddSubjectGuideRequest extends Component {
         <form /*encType="multipart/form-data"*/ onSubmit={this.handleForPDF}>
 
             <Row className={''}>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label htmlFor='name'>Nombre completo</label>
               </Col>
-              <Col xs={'8'} className={'text-left'} >
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'} className={'text-left'} >
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='name' required='true' type='text' name='name' value={name} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>DNI</label>
               </Col>
-              <Col xs={'8'}>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dni' required='true' type='text' name='dni' value={dni} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>Teléfono</label>
               </Col>
-              <Col xs={'8'}>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tlf' required='true' type='text' name='tlf' value={tlf} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>Correo</label>
               </Col>
-              <Col xs={'8'}>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='correo' required='true' type='text' name='correo' value={correo} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
-                <label className={'mt-2'} htmlFor='text'>Curso que está cursando</label>
+              <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                <label className={'mt-2'} htmlFor='text'>Curso actual</label>
               </Col>
-              <Col xs={'8'}>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='curso' required='true' type='text' name='curso' value={curso} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-                <Col xs={'12'} className={'text-center mt-5 mb-5'}>
+                <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'text-center mt-5 mb-5'}>
                     <label>Datos de la asignatura</label>
                 </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xxs={'6'} xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>Nombre de la Asignatura</label>
               </Col>
-              <Col xs={'8'}>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigName' required='true' type='text' name='AsigName' value={AsigName} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>Código de la Asignatura</label>
               </Col>
-              <Col xs={'8'}>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigCod' required='true' type='text' name='AsigCod' value={AsigCod} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>Curso de la Asignatura</label>
               </Col>
-              <Col xs={'8'}>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigCurse' required='true' type='text' name='AsigCurse' value={AsigCurse} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col className={'text-center'}>
+              <Col style={{textAlign: 'end'}}>
                 <input className={'mt-4'} type='submit' value='Generar PDF' />
               </Col>
             </Row>
