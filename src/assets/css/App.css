@@ -924,7 +924,7 @@ margin-right: 100px;
   align-items: center;
   position: relative;
   background: white;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 #slider.principalPageButtons img{
