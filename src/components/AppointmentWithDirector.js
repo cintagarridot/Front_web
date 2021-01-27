@@ -94,25 +94,25 @@ class AppointmentWithDirector extends Component {
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
-                            <Col xs={'8'} className={'text-left'} >
+                            <Col xs={'6'} className={'text-left'} >
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
-                            <Col xs={'8'}>
+                            <Col xs={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col className={'text-center'}>
+                            <Col style={{textAlign: 'end'}}>
                                 <input className={'mt-4'} type='submit' value='Generar PDF' />
                             </Col>
                         </Row>
