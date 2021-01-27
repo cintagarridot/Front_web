@@ -131,86 +131,86 @@ class AskForACourt extends Component {
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
-                            <Col xs={'8'} className={'text-left'} >
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'text-left'} >
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
-                            <Col xs={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Nombre del Tutor</label>
                             </Col>
-                            <Col xs={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema elegido</label>
                             </Col>
-                            <Col xs={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'12'} className={'text-center mt-5 mb-5'}>
+                            <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'text-center mt-5 mb-5'}>
                                 <label>Tribunal</label>
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'2'} sm={'4'} lg={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Miembro 1</label>
                             </Col>
-                            <Col xs={'6'} sm={'8'} lg={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tribunal1' required='true' type='text' name='tribunal1' value={tribunal1} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'2'} sm={'4'} lg={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Miembro 2</label>
                             </Col>
-                            <Col xs={'6'} sm={'8'} lg={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tribunal2' required='true' type='text' name='tribunal2' value={tribunal2} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'2'} sm={'4'} lg={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Miembro 3</label>
                             </Col>
-                            <Col xs={'6'} sm={'8'} lg={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tribunal3' required='true' type='text' name='tribunal3' value={tribunal3} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'2'} sm={'4'} lg={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Miembro 4</label>
                             </Col>
-                            <Col xs={'6'} sm={'8'} lg={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tribunal4' required='true' type='text' name='tribunal4' value={tribunal4} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col className={'text-center'}>
+                            <Col style={{textAlign: 'end'}}>
                                 <input className={'mt-4'} type='submit' value='Generar PDF' />
                             </Col>
                         </Row>
