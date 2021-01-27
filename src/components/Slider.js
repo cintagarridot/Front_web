@@ -16,6 +16,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'
 import moment from 'moment';
 import axios from 'axios';
 import withAuth from "./withAuth";
+import {Col, Row} from "reactstrap";
 
 class Slider extends Component {
 
@@ -180,23 +181,42 @@ class Slider extends Component {
                     }
 
                     {this.props.size === 'principalPageButtons' &&
-                        <div>
-                            <Link to={'/news'}>
-                                <img src={noticiaImage} alt={'noticias'}/>
-                            </Link>
-                            <Link to={'/documents'}>
-                                <img src={documentoImage} alt={'documentos'}/>
-                            </Link>
-                            <Link to={'/notifications'}>
-                                <img src={notificationImage} alt={'notificaciones'}/>
-                            </Link>
-                            <Link to={'/chat'}>
-                                <img src={chatImage} alt={'chat'}/>
-                            </Link>
-                            <Link to={'/user'}>
-                                <img src={perfilUsuario} alt={'perfil usuario'}/>
-                            </Link>
-                        </div>
+                        <>
+                            <Row className={'text-center'}>
+                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                    <Link to={'/news'}>
+                                        <img src={noticiaImage} alt={'noticias'}/>
+                                    </Link>
+                                </Col>
+                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                    <Link to={'/documents'}>
+                                        <img src={documentoImage} alt={'documentos'}/>
+                                    </Link>
+                                </Col>
+                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                    <Link to={'/notifications'}>
+                                        <img src={notificationImage} alt={'notificaciones'}/>
+                                    </Link>
+                                </Col>
+                            </Row>
+                            <Row className={'text-center'}>
+                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                    <Link to={'/chat'}>
+                                        <img src={chatImage} alt={'chat'}/>
+                                    </Link>
+                                </Col>
+                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                    <Link to={'/chat'}>
+                                        <img src={chatImage} alt={'chat'}/>
+                                    </Link>
+                                </Col>
+                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                    <Link to={'/user'}>
+                                        <img src={perfilUsuario} alt={'perfil usuario'}/>
+                                    </Link>
+                                </Col>
+                            </Row>
+                        </>
                     }
 
                     {this.state.toUpdate &&
@@ -214,7 +234,7 @@ class Slider extends Component {
                     }
 
                     <div className="clearfix"></div>
-                </div >
+                </div>
 
             </>
 
@@ -222,7 +242,6 @@ class Slider extends Component {
 
 
     }
-
 
 }
 
