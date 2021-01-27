@@ -13,6 +13,7 @@ body{
 }
 
 #header {
+  position: fixed;
   display: flex;
   align-content: flex-start;
   top: 0; /*Para quitar el espacio que habia*/
@@ -22,7 +23,7 @@ body{
   background: white;
   border-bottom: 1px solid #ccc;
   /*border-top: 5px solid #61dafb; /*color azul de react*/
-  position: fixed;
+
 }
 
 .center {
@@ -911,6 +912,16 @@ margin-right: 100px;
   font-size: 15px;
   width: 30%;
   background-color:rgb(253, 65, 65);
+}
+
+.principalButtons{
+  position: fixed;
+  display: flex;
+  align-content: space-between;
+  height: 85px;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #ccc;
 }
 
 /*Imagen destacada a la izquierda en el blog*/

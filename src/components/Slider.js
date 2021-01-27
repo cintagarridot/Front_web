@@ -174,6 +174,27 @@ class Slider extends Component {
                         </div>
                     }
 
+                    {this.props.size === 'principalPageButtons' &&
+
+                        <div className={'mt-5 mb-5 principalButtons'}>
+                            <Link to={'/news'}>
+                                <img src={'/src/assets/images/noticias.jpeg'} alt={'noticias'}/>
+                            </Link>
+                            <Link to={'/documents'}>
+                                <img src={'/src/assets/images/documentos.jpg'} alt={'documentos'}/>
+                            </Link>
+                            <Link to={'/notifications'}>
+                                <img src={'/src/assets/images/notificacion.png'} alt={'notificaciones'}/>
+                            </Link>
+                            <Link to={'/chat'}>
+                                <img src={'/src/assets/images/chat.jpg'} alt={'chat'}/>
+                            </Link>
+                            <Link to={'/user'}>
+                                <img src={'/src/assets/images/usuario.jpg'} alt={'perfil usuario'}/>
+                            </Link>
+                        </div>
+                    }
+
                     {this.state.toUpdate &&
                         <News
                             idToUpdate={this.state.idToUpdate}

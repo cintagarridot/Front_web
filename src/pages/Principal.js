@@ -22,9 +22,14 @@ class Principal extends Component {
                 <Slider
                     size="slider-initial"
                     title="Departamento de Tecnologías de la Información"
-                    button="etsi"
-                    button2="moodle"
-                    button3="uhu"
+                    // button="etsi"
+                    // button2="moodle"
+                    // button3="uhu"
+                />
+
+                <Slider
+                    size="principalPageButtons"
+
                 />
 
                 <Asignatura />
