@@ -92,25 +92,25 @@ class AddDocument extends Component {
           </div>
         <form /*encType="multipart/form-data"*/ onSubmit={this.handleForPDF}>
             <Row className={''}>
-              <Col xs={'12'}>
+              <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label htmlFor='title'>Título</label>
               </Col>
-              <Col xs={'12'} >
+              <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='title' required='true' type='text' name='title' value={title} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'12'}>
+              <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>Texto</label>
               </Col>
-              <Col xs={'12'}>
+              <Col xs={'12'} md={'12'} sm={'12'} lg={'12'}>
                 <textarea className={'mt-2 font'} id='text' required='true' type='text' name='text' value={text} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col className={'text-center'}>
+              <Col style={{textAlign: 'end'}}>
                 <input className={'mt-4'} type='submit' value='Generar PDF' />
               </Col>
             </Row>

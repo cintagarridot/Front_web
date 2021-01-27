@@ -120,47 +120,47 @@ class CreateAnexoV extends Component {
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
-                            <Col xs={'8'} className={'text-left'} >
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'text-left'} >
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
-                            <Col xs={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Nombre del Tutor</label>
                             </Col>
-                            <Col xs={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema elegido</label>
                             </Col>
-                            <Col xs={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema' required='true' type='text' name='tema' value={tema} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Estado del TFG</label>
                             </Col>
-                            <Col xs={'8'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
                                 <select value={estadoTFG} style={{backgroundColor: 'white'}} onChange={this.handleChange} name='estadoTFG'>
                                     <option value="">Seleccionar estado del TFG...</option>
                                     <option value="favorablemente">Favorable</option>
@@ -170,7 +170,7 @@ class CreateAnexoV extends Component {
                         </Row>
 
                         <Row>
-                            <Col className={'text-center'}>
+                            <Col style={{textAlign: 'end'}}>
                                 <input className={'mt-4'} type='submit' value='Generar PDF' />
                             </Col>
                         </Row>
