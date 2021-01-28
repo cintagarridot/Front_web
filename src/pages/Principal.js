@@ -31,7 +31,6 @@ class Principal extends Component {
                     size="principalPageButtons"
                 />
 
-                <Asignatura />
 
             </div>
 

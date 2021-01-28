@@ -64,6 +64,11 @@ class Header extends Component{
                                     </li>
                                 </>
                             }
+                            {this.props.user.type !== 'admin' &&
+                                <li>
+                                    <NavLink to="/my-subjects" activeClassName="active">Asignaturas</NavLink>
+                                </li>
+                            }
                             <li>
                                 <NavLink to="/chat" activeClassName="active">Chat</NavLink>
                             </li>

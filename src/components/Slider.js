@@ -9,6 +9,7 @@ import documentoImage from 'assets/images/documentos.jpg';
 import notificationImage from 'assets/images/notificacion.png';
 import noticiaImage from 'assets/images/noticias.jpeg';
 import perfilUsuario from 'assets/images/usuario.jpg';
+import asignaturasImage from 'assets/images/asignaturas.png';
 import News from 'components/News/List';
 import Header from 'components/Header';
 import { confirmAlert } from 'react-confirm-alert';
@@ -186,33 +187,52 @@ class Slider extends Component {
                                     <Link to={'/news'}>
                                         <img src={noticiaImage} alt={'noticias'}/>
                                     </Link>
+                                    <a href={'/Front_web/#/news'}>Noticias</a>
                                 </Col>
                                 <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
                                     <Link to={'/documents'}>
                                         <img src={documentoImage} alt={'documentos'}/>
                                     </Link>
+                                    <a href={'/Front_web/#/documents'}>Documentos</a>
                                 </Col>
                                 <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
                                     <Link to={'/notifications'}>
                                         <img src={notificationImage} alt={'notificaciones'}/>
                                     </Link>
+                                    <a href={'/Front_web/#/notifications'}>Notificaciones</a>
                                 </Col>
                             </Row>
                             <Row className={'text-center'}>
                                 <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                    <Link to={'/chat'}>
-                                        <img src={chatImage} alt={'chat'}/>
-                                    </Link>
+                                    {this.props.user.type === 'admin' ? (
+                                        <>
+                                            <Link to={'/subjects-list'}>
+                                                <img src={asignaturasImage} alt={'subjects'}/>
+                                            </Link>
+                                            <a href={'/Front_web/#/subjects-list'}>Asignaturas</a>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Link to={'/my-subjects'}>
+                                                <img src={asignaturasImage} alt={'subjects'}/>
+                                            </Link>
+                                            <a href={'/Front_web/#/my-subjects'}>Asignaturas</a>
+                                        </>
+                                        )}
+
+
                                 </Col>
                                 <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
                                     <Link to={'/chat'}>
                                         <img src={chatImage} alt={'chat'}/>
                                     </Link>
+                                    <a href={'/Front_web/#/chat'}>Chat</a>
                                 </Col>
                                 <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
                                     <Link to={'/user'}>
                                         <img src={perfilUsuario} alt={'perfil usuario'}/>
                                     </Link>
+                                    <a href={'/Front_web/#/user'}>Perfil usuario</a>
                                 </Col>
                             </Row>
                         </>

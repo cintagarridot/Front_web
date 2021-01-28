@@ -41,6 +41,7 @@ import AskForCorrection from "./components/AskForCorrection";
 import AppointmentWithDirector from "./components/AppointmentWithDirector";
 import ComplaintToATeacher from "./components/ComplaintToATeacher";
 import SelectSubjectRoute from "./components/routes/SelectSubjectRoute";
+import MySubjects from "./components/Subjects/MySubjects";
 
 class App extends Component {
   render() {
@@ -60,6 +61,7 @@ class App extends Component {
                 <AnonRoute path="/signup" component={Signup} />
                 <AnonRoute path="/login" component={Login} />
                 <PrivateRoute path="/home" component={Principal} />
+                <PrivateRoute path="/my-subjects" component={MySubjects} />
                 <PrivateRoute exact path="/news" component={NewsPage} />
                 <PrivateRoute exact path="/news/create-news" component={NewsForm} />
                 <PrivateRoute exact path="/news/detail/:id" component={NewsDetail} />
