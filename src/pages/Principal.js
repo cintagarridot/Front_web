@@ -10,6 +10,7 @@ import withAuth from 'components/withAuth';
 import Asignatura from 'components/Asignatura';
 import Header from 'components/Header';
 import Slider from 'components/Slider';
+import {Col, Row} from "reactstrap";
 
 class Principal extends Component {
 
@@ -27,9 +28,14 @@ class Principal extends Component {
                     button3="uhu"
                 />
 
-                <Slider
-                    size="principalPageButtons"
-                />
+                <Row>
+                    <Col xs={'6'} md={'12'} sm={'12'} lg={'12'}>
+                        <Slider
+                            size="principalPageButtons"
+                        />
+                    </Col>
+                </Row>
+
 
 
             </div>

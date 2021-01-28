@@ -226,7 +226,7 @@ class Slider extends Component {
                                                             <img src={asignaturasImage} alt={'subjects'}/>
                                                         </Link>
                                                     </Row>
-                                                    <Row className={'justify-content-center mt-4'}>
+                                                    <Row className={'justify-content-center mt-4 mb-5'}>
                                                         <a href={'/Front_web/#/subjects-list'} className={'buttonA'}>Asignaturas</a>
                                                     </Row>
                                                 </>
@@ -237,7 +237,7 @@ class Slider extends Component {
                                                             <img src={asignaturasImage} alt={'subjects'}/>
                                                         </Link>
                                                     </Row>
-                                                   <Row className={'justify-content-center mt-4'}>
+                                                   <Row className={'justify-content-center mt-4 mb-5'}>
                                                        <a href={'/Front_web/#/my-subjects'} className={'buttonA'}>Asignaturas</a>
                                                    </Row>
                                                 </>
@@ -249,7 +249,7 @@ class Slider extends Component {
                                                     <img src={chatImage} style={{width: '180px'}} alt={'chat'}/>
                                                 </Link>
                                             </Row>
-                                            <Row className={'justify-content-center mt-4'}>
+                                            <Row className={'justify-content-center mt-4 mb-5'}>
                                                 <a href={'/Front_web/#/chat'} className={'buttonA'}>Chat</a>
                                             </Row>
                                         </Col>
@@ -259,7 +259,7 @@ class Slider extends Component {
                                                     <img src={perfilUsuario} alt={'perfil usuario'}/>
                                                 </Link>
                                             </Row>
-                                            <Row className={'justify-content-center mt-4'}>
+                                            <Row className={'justify-content-center mt-4 mb-5'}>
                                                 <a href={'/Front_web/#/user'} className={'buttonA'}>Perfil usuario</a>
                                             </Row>
                                         </Col>
