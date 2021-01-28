@@ -9,7 +9,7 @@ class MySubjects extends Component {
     render() {
 
         return (
-            <div className="mt-5">
+            <div className="pt-5 mt-5">
                 <Header/>
                 <Asignatura/>
 
