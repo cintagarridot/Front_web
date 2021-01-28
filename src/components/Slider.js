@@ -182,57 +182,88 @@ class Slider extends Component {
 
                     {this.props.size === 'principalPageButtons' &&
                         <>
-                            <Row className={'text-center'}>
-                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                    <Link to={'/news'}>
-                                        <img src={noticiaImage} alt={'noticias'}/>
-                                    </Link>
-                                    <a href={'/Front_web/#/news'}>Noticias</a>
-                                </Col>
-                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                    <Link to={'/documents'}>
-                                        <img src={documentoImage} alt={'documentos'}/>
-                                    </Link>
-                                    <a href={'/Front_web/#/documents'}>Documentos</a>
-                                </Col>
-                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                    <Link to={'/notifications'}>
-                                        <img src={notificationImage} alt={'notificaciones'}/>
-                                    </Link>
-                                    <a href={'/Front_web/#/notifications'}>Notificaciones</a>
-                                </Col>
-                            </Row>
-                            <Row className={'text-center'}>
-                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                    {this.props.user.type === 'admin' ? (
-                                        <>
-                                            <Link to={'/subjects-list'}>
-                                                <img src={asignaturasImage} alt={'subjects'}/>
-                                            </Link>
-                                            <a href={'/Front_web/#/subjects-list'}>Asignaturas</a>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Link to={'/my-subjects'}>
-                                                <img src={asignaturasImage} alt={'subjects'}/>
-                                            </Link>
-                                            <a href={'/Front_web/#/my-subjects'}>Asignaturas</a>
-                                        </>
-                                        )}
+                            <Row>
+                              <Col>
+                                    <Row className={'text-center'}>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row>
+                                                <Link to={'/news'}>
+                                                    <img src={noticiaImage} alt={'noticias'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row>
+                                                <a href={'/Front_web/#/news'} className={'buttonA'}>Noticias</a>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row>
+                                                <Link to={'/documents'}>
+                                                    <img src={documentoImage} alt={'documentos'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row>
+                                                <a href={'/Front_web/#/documents'} className={'buttonA'}>Documentos</a>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row>
+                                                <Link to={'/notifications'}>
+                                                    <img src={notificationImage} alt={'notificaciones'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row>
+                                                <a href={'/Front_web/#/notifications'} className={'buttonA'}>Notificaciones</a>
+                                            </Row>
+                                        </Col>
+                                    </Row>
 
-
-                                </Col>
-                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                    <Link to={'/chat'}>
-                                        <img src={chatImage} alt={'chat'}/>
-                                    </Link>
-                                    <a href={'/Front_web/#/chat'}>Chat</a>
-                                </Col>
-                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                    <Link to={'/user'}>
-                                        <img src={perfilUsuario} alt={'perfil usuario'}/>
-                                    </Link>
-                                    <a href={'/Front_web/#/user'}>Perfil usuario</a>
+                                    <Row className={'text-center'}>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            {this.props.user.type === 'admin' ? (
+                                                <>
+                                                    <Row>
+                                                        <Link to={'/subjects-list'}>
+                                                            <img src={asignaturasImage} alt={'subjects'}/>
+                                                        </Link>
+                                                    </Row>
+                                                    <Row>
+                                                        <a href={'/Front_web/#/subjects-list'} className={'buttonA'}>Asignaturas</a>
+                                                    </Row>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Row>
+                                                        <Link to={'/my-subjects'}>
+                                                            <img src={asignaturasImage} alt={'subjects'}/>
+                                                        </Link>
+                                                    </Row>
+                                                   <Row>
+                                                       <a href={'/Front_web/#/my-subjects'} className={'buttonA'}>Asignaturas</a>
+                                                   </Row>
+                                                </>
+                                                )}
+                                        </Col>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row>
+                                                <Link to={'/chat'}>
+                                                    <img src={chatImage} alt={'chat'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row>
+                                                <a href={'/Front_web/#/chat'} className={'buttonA'}>Chat</a>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row>
+                                                <Link to={'/user'}>
+                                                    <img src={perfilUsuario} alt={'perfil usuario'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row>
+                                                <a href={'/Front_web/#/user'} className={'buttonA'}>Perfil usuario</a>
+                                            </Row>
+                                        </Col>
+                                    </Row>
                                 </Col>
                             </Row>
                         </>
