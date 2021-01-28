@@ -4,6 +4,7 @@ import withAuth from '../components/withAuth.js';
 import axios from 'axios';
 import { Card, Col, Row, Alert, UncontrolledAlert } from 'reactstrap';
 import Recaptcha from 'react-recaptcha';
+import UHU from "../assets/images/UHU.png";
 
 class Signup extends Component {
 
@@ -95,6 +96,11 @@ class Signup extends Component {
             No se ha podido registrar. Compruebe que todos los campos están marcados y completos.
           </UncontrolledAlert>
         }
+        <Row className={'justify-content-center'}>
+          <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'logos'}>
+            <img src={UHU} alt={'logo uhu2'}/>
+          </Col>
+        </Row>
         <Card style={{ background: '#fffdfd' }} className="auth-card-signup">
           <form onSubmit={this.handleFormSubmit}>
             <Row className={''}>

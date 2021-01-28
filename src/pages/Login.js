@@ -44,10 +44,7 @@ class Login extends Component {
           </UncontrolledAlert>
         }
         <Row className={'justify-content-center'}>
-          <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
-            <img src={uhuLogo} alt={'logo uhu'}/>
-          </Col>
-          <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+          <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'logos'}>
             <img src={UHU} alt={'logo uhu2'}/>
           </Col>
         </Row>
