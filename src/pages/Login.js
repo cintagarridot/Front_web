@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withAuth from '../components/withAuth';
-import { Card, UncontrolledAlert } from 'reactstrap';
-
+import {Card, Col, Row, UncontrolledAlert} from 'reactstrap';
+import uhuLogo from 'assets/images/uhu.jpg';
+import UHU from 'assets/images/UHU.png';
 class Login extends Component {
   state = {
     username: '',
@@ -42,6 +43,14 @@ class Login extends Component {
             Usuario o contraseña incorrecta
           </UncontrolledAlert>
         }
+        <Row className={'justify-content-center'}>
+          <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+            <img src={uhuLogo} alt={'logo uhu'}/>
+          </Col>
+          <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+            <img src={UHU} alt={'logo uhu2'}/>
+          </Col>
+        </Row>
         <Card style={{ background: '#fffdfd' }} className="auth-card">
           <form onSubmit={this.handleFormSubmit}>
             <label htmlFor='username' >Username</label>
