@@ -183,35 +183,35 @@ class Slider extends Component {
                     {this.props.size === 'principalPageButtons' &&
                         <>
                             <Row>
-                              <Col>
+                              <Col xs={'8'} sm={'12'} md={'12'} lg={'12'}>
                                     <Row className={'text-center'}>
                                         <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                            <Row>
+                                            <Row className={'justify-content-center'}>
                                                 <Link to={'/news'}>
                                                     <img src={noticiaImage} alt={'noticias'}/>
                                                 </Link>
                                             </Row>
-                                            <Row>
+                                            <Row className={'justify-content-center mt-5'}>
                                                 <a href={'/Front_web/#/news'} className={'buttonA'}>Noticias</a>
                                             </Row>
                                         </Col>
                                         <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                            <Row>
+                                            <Row className={'justify-content-center'}>
                                                 <Link to={'/documents'}>
                                                     <img src={documentoImage} alt={'documentos'}/>
                                                 </Link>
                                             </Row>
-                                            <Row>
+                                            <Row className={'justify-content-center mt-5'}>
                                                 <a href={'/Front_web/#/documents'} className={'buttonA'}>Documentos</a>
                                             </Row>
                                         </Col>
                                         <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                            <Row>
+                                            <Row className={'justify-content-center'}>
                                                 <Link to={'/notifications'}>
                                                     <img src={notificationImage} alt={'notificaciones'}/>
                                                 </Link>
                                             </Row>
-                                            <Row>
+                                            <Row className={'justify-content-center mt-5'}>
                                                 <a href={'/Front_web/#/notifications'} className={'buttonA'}>Notificaciones</a>
                                             </Row>
                                         </Col>
@@ -221,45 +221,45 @@ class Slider extends Component {
                                         <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
                                             {this.props.user.type === 'admin' ? (
                                                 <>
-                                                    <Row>
+                                                    <Row className={'justify-content-center'}>
                                                         <Link to={'/subjects-list'}>
                                                             <img src={asignaturasImage} alt={'subjects'}/>
                                                         </Link>
                                                     </Row>
-                                                    <Row>
+                                                    <Row className={'justify-content-center mt-5'}>
                                                         <a href={'/Front_web/#/subjects-list'} className={'buttonA'}>Asignaturas</a>
                                                     </Row>
                                                 </>
                                             ) : (
                                                 <>
-                                                    <Row>
+                                                    <Row className={'justify-content-center'}>
                                                         <Link to={'/my-subjects'}>
                                                             <img src={asignaturasImage} alt={'subjects'}/>
                                                         </Link>
                                                     </Row>
-                                                   <Row>
+                                                   <Row className={'justify-content-center mt-5'}>
                                                        <a href={'/Front_web/#/my-subjects'} className={'buttonA'}>Asignaturas</a>
                                                    </Row>
                                                 </>
                                                 )}
                                         </Col>
                                         <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                            <Row>
+                                            <Row className={'justify-content-center'}>
                                                 <Link to={'/chat'}>
                                                     <img src={chatImage} alt={'chat'}/>
                                                 </Link>
                                             </Row>
-                                            <Row>
+                                            <Row className={'justify-content-center mt-5'}>
                                                 <a href={'/Front_web/#/chat'} className={'buttonA'}>Chat</a>
                                             </Row>
                                         </Col>
                                         <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
-                                            <Row>
+                                            <Row className={'justify-content-center'}>
                                                 <Link to={'/user'}>
                                                     <img src={perfilUsuario} alt={'perfil usuario'}/>
                                                 </Link>
                                             </Row>
-                                            <Row>
+                                            <Row className={'justify-content-center mt-5'}>
                                                 <a href={'/Front_web/#/user'} className={'buttonA'}>Perfil usuario</a>
                                             </Row>
                                         </Col>
