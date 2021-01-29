@@ -18,16 +18,15 @@ class Header extends Component{
 
 
     componentDidMount() {
-        const { user } = this.props;
         this.getUserUnreadNotifications();
-
     }
 
     getUserUnreadNotifications = async() => {
-        await notificationService.getUnreadNotifications().then((data) => {
-            console.log('data noti', data);
+        console.log('entro en el metodo unread del header')
+        await notificationService.getUnreadNotifications().then((result) =>{
+            console.log('data noti', result);
             this.setState({
-                unreadNotifications: data
+                unreadNotifications: result
             });
         });
     }

@@ -8,12 +8,12 @@ class NotificationService {
         })
     }
 
+    getUnreadNotifications = () => this.service.get('/notifications/unread').then(({data}) => data);
+
     /*Peticion para actualizar el estado de leido de una notificacion */
     markAsRead = (id) => this.service.put(`/notifications/${id}`).then(({data}) => data);
 
     deleteNotification = (id) => this.service.delete(`/notifications/${id}`).then(({data}) => data);
-
-    getUnreadNotifications = () => this.service.get('/notifications/unread').then(({data}) => data);
 
 }
 
