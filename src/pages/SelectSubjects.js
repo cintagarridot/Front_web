@@ -5,7 +5,7 @@ import subjectService from '../services/subject-service';
 import userService from '../services/user-service';
 
 import withAuth from 'components/withAuth';
-import {Col, CustomInput, Row} from 'reactstrap';
+import {Col, CustomInput, Row, UncontrolledAlert} from 'reactstrap';
 import UHU from "../assets/images/UHU.png";
 
 class SelectSubjects extends Component {
@@ -16,6 +16,7 @@ class SelectSubjects extends Component {
             subjectsSelected: [],
             userSubjects: this.props.user.subjects,
             redirectToHome: false,
+            alertNoSubjectsSelected: false,
         }
 
 
@@ -71,6 +72,10 @@ class SelectSubjects extends Component {
                         window.location.reload();
                     }
                 });
+            } else {
+                this.setState({
+                    alertNoSubjectsSelected: true
+                })
             }
     }
 
@@ -92,6 +97,12 @@ class SelectSubjects extends Component {
                     </>
                 ) : (
                     <>
+                        {
+                            this.state.alertNoSubjectsSelected &&
+                            <UncontrolledAlert color={'danger'} className={'font'}>
+                                Error. Debe marcar alguna asignatura.
+                            </UncontrolledAlert>
+                        }
                         <Row className={'justify-content-center mt-5'}>
                             <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'logos'}>
                                 <img src={UHU} alt={'logo uhu2'}/>
