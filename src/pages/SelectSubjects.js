@@ -5,7 +5,7 @@ import subjectService from '../services/subject-service';
 import userService from '../services/user-service';
 
 import withAuth from 'components/withAuth';
-import { CustomInput } from 'reactstrap';
+import {Col, CustomInput, Row} from 'reactstrap';
 
 class SelectSubjects extends Component {
 
@@ -97,18 +97,22 @@ class SelectSubjects extends Component {
                             <>
                                 {list.map(a => {
                                     return <div className={"mt-4"}>
-                                    <CustomInput
-                                    type="checkbox"
-                                    name=""
-                                    id={a._id}
-                                    value={a.title}
-                                    onChange={(e) => this.checkSelected(e.target.id)}
-                                    label={a.title}
-                                    />
+                                        <Row className={'justify-content-initial'}>
+                                            <Col xs={'8'} sm={'12'} md={'12'} lg={'12'}>
+                                                <CustomInput
+                                                    type="checkbox"
+                                                    name=""
+                                                    id={a._id}
+                                                    value={a.title}
+                                                    onChange={(e) => this.checkSelected(e.target.id)}
+                                                    label={a.title}
+                                                />
+                                            </Col>
+                                        </Row>
                                     </div>
                                 })
                                 }
-                                    <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                                <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
                             </>
                         }
                     </>
