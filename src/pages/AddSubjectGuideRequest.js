@@ -5,7 +5,7 @@ import Header from 'components/Header';
 
 class AddSubjectGuideRequest extends Component {
 
-  
+
     state = {
       name: '',
       dni: '',
@@ -19,16 +19,16 @@ class AddSubjectGuideRequest extends Component {
       modal: false,
       docName: '',
     }
-  
+
     handleForPDF = (event) => {
     event.preventDefault();
     const { name, dni, curso, correo, tlf, AsigCod, AsigName, AsigCurse } = this.state;
- 
+
     const title = 'Petición de guía de una asignatura';
 
     if(name !== '' && dni !== '' && tlf !== '' && curso !== '', correo !== '' && AsigCod !== '' &&
     AsigName !== '' && AsigCurse !== '' ){
-   
+
         const nombre = 'Nombre: ' + name;
         const dni_mine = 'DNI: ' + dni;
         const telefono = 'Teléfono: ' + tlf;
@@ -44,7 +44,7 @@ class AddSubjectGuideRequest extends Component {
         var doc = new jsPDF('p','in', 'letter', true),
         size = 12,
         font = ['Times', 'Roman'],
-        font, size, nombreCompleto, firstLine, curse, nif, gmail, asigName, asigCurse, asigCode, movil, 
+        font, size, nombreCompleto, firstLine, curse, nif, gmail, asigName, asigCurse, asigCode, movil,
         margin = 0.5, // inches on a 8.5 x 11 inch sheet.
         verticalOffset = margin;
 
@@ -55,7 +55,7 @@ class AddSubjectGuideRequest extends Component {
         firstLine = doc.setFont(font[0], font[1])
                 .setFontSize(18)
                 .splitTextToSize(title, 18);
-        
+
 
         nombreCompleto = doc.setFont(font[0], font[1])
                 .setFontSize(size)
@@ -68,7 +68,7 @@ class AddSubjectGuideRequest extends Component {
         gmail = doc.setFont(font[0], font[1])
         .setFontSize(size)
         .splitTextToSize(correo_mine, 7.5);
-                
+
         curse = doc.setFont(font[0], font[1])
         .setFontSize(size)
         .splitTextToSize(curso_mine, 7.5);
@@ -88,14 +88,14 @@ class AddSubjectGuideRequest extends Component {
         movil = doc.setFont(font[0], font[1])
         .setFontSize(size)
         .splitTextToSize(telefono, 7.5);
-                
+
         doc.text(3.2, verticalOffset + 18 / 72, firstLine)
         verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
         doc.text(0.5, verticalOffset + size / 72, 'Datos del alumno/a')
 
         verticalOffset += (firstLine.length + 0.5) * 30 / 72
-        
+
         doc.text(0.5, verticalOffset + size / 72, nombreCompleto)
 
         verticalOffset += (firstLine.length + 0.5) * 30 / 72
@@ -113,7 +113,7 @@ class AddSubjectGuideRequest extends Component {
         verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
         doc.text(0.5, verticalOffset + size / 72, movil)
-        
+
         verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
         doc.text(0.5, verticalOffset + size / 72, 'Datos de la asignatura')
@@ -133,16 +133,16 @@ class AddSubjectGuideRequest extends Component {
         verticalOffset += (firstLine.length + 0.5) * 30 / 72
 
         verticalOffset += (firstLine.length + 0.5) * 30 / 72
-        
+
         doc.save("subject-guide-request.pdf");
         this.setState({
         document: doc
         });
-          
+
     }else{
       alert('Debes completar todos los campos para generar tu documento.')
     }
-   
+
   }
 
   handleChange = (event) => {
@@ -163,94 +163,103 @@ class AddSubjectGuideRequest extends Component {
         <div className="pt-5 mt-5">
           <h2 className="subheaderdos">Petición de guía de una asignatura</h2>
         </div>
+
+          <div style={{textAlign: 'initial'}}>
+              <h3 className="mt-2 mb-4 text-muted">
+                  Descripción
+              </h3>
+              <h4 className={'mb-5 pb-5'}>
+                    Esta solicitud es para obtener el documento que concreta la planificación docente referida a la asignatura indicada abajo.
+              </h4>
+          </div>
         <form /*encType="multipart/form-data"*/ onSubmit={this.handleForPDF}>
-           
+
             <Row className={''}>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label htmlFor='name'>Nombre completo</label>
               </Col>
-              <Col xs={'8'} className={'text-left'} >
-                <input className={'mt-2 font'} id='name' required='true' type='text' name='name' value={name} onChange={this.handleChange} />
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'} className={'text-left'} >
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='name' required='true' type='text' name='name' value={name} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>DNI</label>
               </Col>
-              <Col xs={'8'}>
-                <input className={'mt-2 font'} id='dni' required='true' type='text' name='dni' value={dni} onChange={this.handleChange} />
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dni' required='true' type='text' name='dni' value={dni} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>Teléfono</label>
               </Col>
-              <Col xs={'8'}>
-                <input className={'mt-2 font'} id='tlf' required='true' type='text' name='tlf' value={tlf} onChange={this.handleChange} />
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tlf' required='true' type='text' name='tlf' value={tlf} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
+              <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                 <label className={'mt-2'} htmlFor='text'>Correo</label>
               </Col>
-              <Col xs={'8'}>
-                <input className={'mt-2 font'} id='correo' required='true' type='text' name='correo' value={correo} onChange={this.handleChange} />
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='correo' required='true' type='text' name='correo' value={correo} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
-                <label className={'mt-2'} htmlFor='text'>Curso que está cursando</label>
+              <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                <label className={'mt-2'} htmlFor='text'>Curso actual</label>
               </Col>
-              <Col xs={'8'}>
-                <input className={'mt-2 font'} id='curso' required='true' type='text' name='curso' value={curso} onChange={this.handleChange} />
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='curso' required='true' type='text' name='curso' value={curso} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-                <Col xs={'12'} className={'text-center mt-5 mb-5'}>
+                <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'text-center mt-5 mb-5'}>
                     <label>Datos de la asignatura</label>
                 </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
-                <label className={'mt-2'} htmlFor='text'>Nombre de la Asignatura</label>
+              <Col xxs={'6'} xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                <label className={'mt-2'} htmlFor='text'>Título</label>
               </Col>
-              <Col xs={'8'}>
-                <input className={'mt-2 font'} id='AsigName' required='true' type='text' name='AsigName' value={AsigName} onChange={this.handleChange} />
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xs={'4'} className={'text-right'}>
-                <label className={'mt-2'} htmlFor='text'>Código de la Asignatura</label>
-              </Col>
-              <Col xs={'8'}>
-                <input className={'mt-2 font'} id='AsigCod' required='true' type='text' name='AsigCod' value={AsigCod} onChange={this.handleChange} />
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigName' required='true' type='text' name='AsigName' value={AsigName} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col xs={'4'} className={'text-right'}>
-                <label className={'mt-2'} htmlFor='text'>Curso de la Asignatura</label>
+              <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                <label className={'mt-2'} htmlFor='text'>Código</label>
               </Col>
-              <Col xs={'8'}>
-                <input className={'mt-2 font'} id='AsigCurse' required='true' type='text' name='AsigCurse' value={AsigCurse} onChange={this.handleChange} />
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigCod' required='true' type='text' name='AsigCod' value={AsigCod} onChange={this.handleChange} />
               </Col>
             </Row>
 
             <Row>
-              <Col className={'text-center'}>
+              <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                <label className={'mt-2'} htmlFor='text'>Curso</label>
+              </Col>
+              <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='AsigCurse' required='true' type='text' name='AsigCurse' value={AsigCurse} onChange={this.handleChange} />
+              </Col>
+            </Row>
+
+            <Row>
+              <Col style={{textAlign: 'end'}}>
                 <input className={'mt-4'} type='submit' value='Generar PDF' />
               </Col>
             </Row>
 
           </form>
-          
+
       </section>
     </>
   );

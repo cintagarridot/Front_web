@@ -80,30 +80,39 @@ class AppointmentWithDirector extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">SOLICITAR CITA CON EL DIRECTOR</h2>
+                        <h2 className="subheaderdos">Solicitar cita con el Director</h2>
+                    </div>
+
+                    <div style={{textAlign: 'initial'}}>
+                        <h3 className="mt-2 mb-4 text-muted">
+                            Descripción
+                        </h3>
+                        <h4 className={'mb-5 pb-5'}>
+                            Esta solicitud se genera para concertar una cita con el Director del Departamento.
+                        </h4>
                     </div>
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre del Alumno</label>
                             </Col>
-                            <Col xs={'8'} className={'text-left'} >
-                                <input className={'mt-2 font'} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'text-left'} >
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreAlumno' required='true' type='text' name='nombreAlumno' value={nombreAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI del Alumno</label>
                             </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'}>
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dniAlumno' required='true' type='text' name='dniAlumno' value={dniAlumno} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col className={'text-center'}>
+                            <Col style={{textAlign: 'end'}}>
                                 <input className={'mt-4'} type='submit' value='Generar PDF' />
                             </Col>
                         </Row>

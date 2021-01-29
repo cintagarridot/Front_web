@@ -8,7 +8,7 @@ import {
     DropdownMenu,
     DropdownItem,
     Modal,
-    ModalHeader, ModalBody, ModalFooter, Button
+    ModalHeader, ModalBody, ModalFooter, Button, UncontrolledAlert
 } from "reactstrap";
 import { withRouter } from "react-router-dom";
 import { ContextMenuTrigger } from "react-contextmenu";
@@ -30,9 +30,12 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
   const [dropdownEditDoc, setDropdownEditDoc] = useState(false);
   const [editDocId, setEditDocId] = useState('');
-  const [docName, setDocName] = useState('');
+  const [docName, setDocName] = useState(element.title !== '' ? element.title : '');
   const [selectedFile, setSelectedFile] = useState();
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [alertFile, setAlertFile] = useState(false);
+
+  console.log('EEELEMENT', element)
 
   const deleteSubject  = (element) => {
     confirmAlert({
@@ -64,9 +67,27 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   });
 
     const deleteDocument = (id) => {
-        documentService.deleteDocument(id).then((result) => {
-            window.location.reload();
+        confirmAlert({
+            title: `${element.title}`,
+            message: '¿Estás segur@ de borrar este documento?',
+            buttons: [
+                {
+                    label: 'Borrar',
+                    onClick: () => {
+                        documentService.deleteDocument(id).then((result) => {
+                            window.location.reload();
+                        });
+                    }
+                },
+                {
+                    label: 'Cancelar',
+                    onClick: () => {
+
+                    }
+                }
+            ]
         });
+
     }
 
     const toggleDoc = () => {
@@ -88,6 +109,10 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     }
 
     const saveDocument = async () => {
+
+        if(selectedFile === undefined){
+            setAlertFile(true);
+        }
 
         // Create an object of formData
         const formData = new FormData();
@@ -151,6 +176,11 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
   return (
     <Col xs={'6'} sm={'8'} md={'12'} lg={'12'} xl={'12'} className="mb-5">
+        {alertFile &&
+        <UncontrolledAlert color={'danger'} className={'font'}>
+            Es necesario que se elija un PDF para editarlo.
+        </UncontrolledAlert>
+        }
       <ContextMenuTrigger id="menu_id" data={element.id}>
         <Card style={ !notifications ? { width: '1000px', height: '90px', fontSize: '16px',
          justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?

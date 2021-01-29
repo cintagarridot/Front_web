@@ -160,88 +160,98 @@ class CreateAnexoII extends Component {
                     <div className="pt-5 mt-5">
                         <h2 className="subheaderdos">Anexo II</h2>
                     </div>
+
+                    <div style={{textAlign: 'initial'}}>
+                        <h3 className="mt-2 mb-4 text-muted">
+                            Descripción
+                        </h3>
+                        <h4 className={'mb-5 pb-5'}>
+                            En este Anexo se realiza la selección de temas para el TFG en orden de prioridad. (Elección libre, apartado 4.4.a de la normativa)
+                        </h4>
+                    </div>
+
                     <form onSubmit={this.handleForPDF}>
 
                         <Row className={''}>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'6'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label htmlFor='name'>Nombre completo</label>
                             </Col>
-                            <Col xs={'8'} className={'text-left'} >
-                                <input className={'mt-2 font'} id='name' required='true' type='text' name='name' value={name} onChange={this.handleChange} />
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'} className={'text-left'} >
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='name' required='true' type='text' name='name' value={name} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>DNI</label>
                             </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='dni' required='true' type='text' name='dni' value={dni} onChange={this.handleChange} />
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='dni' required='true' type='text' name='dni' value={dni} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Teléfono</label>
                             </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='tlf' required='true' type='text' name='tlf' value={tlf} onChange={this.handleChange} />
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tlf' required='true' type='text' name='tlf' value={tlf} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Correo</label>
                             </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='correo' required='true' type='text' name='correo' value={correo} onChange={this.handleChange} />
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='correo' required='true' type='text' name='correo' value={correo} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'12'} className={'text-center mt-5 mb-5'}>
+                            <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'text-center mt-5 mb-5'}>
                                 <label>Temas a elegir</label>
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema 1</label>
                             </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='tema1' required='true' type='text' name='tema1' value={tema1} onChange={this.handleChange} />
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema1' required='true' type='text' name='tema1' value={tema1} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema 2</label>
                             </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='tema2' required='true' type='text' name='tema2' value={tema2} onChange={this.handleChange} />
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema2' required='true' type='text' name='tema2' value={tema2} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tema 3</label>
                             </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='tema3' required='true' type='text' name='tema3' value={tema3} onChange={this.handleChange} />
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='tema3' required='true' type='text' name='tema3' value={tema3} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col xs={'4'} className={'text-right'}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
                                 <label className={'mt-2'} htmlFor='text'>Tutor</label>
                             </Col>
-                            <Col xs={'8'}>
-                                <input className={'mt-2 font'} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                                <input className={'mt-2 font'} style={{backgroundColor: 'white'}} id='nombreTutor' required='true' type='text' name='nombreTutor' value={nombreTutor} onChange={this.handleChange} />
                             </Col>
                         </Row>
 
                         <Row>
-                            <Col className={'text-center'}>
+                            <Col style={{textAlign: 'end'}}>
                                 <input className={'mt-4'} type='submit' value='Generar PDF' />
                             </Col>
                         </Row>

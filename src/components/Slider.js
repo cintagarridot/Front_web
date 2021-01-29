@@ -4,6 +4,12 @@ import { Link, Redirect } from 'react-router-dom';
 /*import logomoodle from '../assets/images/logomoodle.png';
 import logoetsi from '../assets/images/logoetsi.png';
 import logouhu from '../assets/images/logouhu.jpg';*/
+import chatImage from 'assets/images/chat.jpeg';
+import documentoImage from 'assets/images/documentos.jpg';
+import notificationImage from 'assets/images/notificacion.png';
+import noticiaImage from 'assets/images/noticias.jpeg';
+import perfilUsuario from 'assets/images/usuario.jpg';
+import asignaturasImage from 'assets/images/asignaturas.png';
 import News from 'components/News/List';
 import Header from 'components/Header';
 import { confirmAlert } from 'react-confirm-alert';
@@ -11,6 +17,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'
 import moment from 'moment';
 import axios from 'axios';
 import withAuth from "./withAuth";
+import {Col, Row} from "reactstrap";
 
 class Slider extends Component {
 
@@ -85,7 +92,6 @@ class Slider extends Component {
         return (
             <>
                 <Header />
-
 
                 <div id="slider" className={this.props.size} > {/*<!--le podemos poner varias clases para usarlas dependiendo de que pagina estemos-->*/}
 
@@ -174,6 +180,95 @@ class Slider extends Component {
                         </div>
                     }
 
+                    {this.props.size === 'principalPageButtons' &&
+                        <>
+                            <Row>
+                              <Col xs={'8'} sm={'12'} md={'12'} lg={'12'}>
+                                    <Row className={'text-center'}>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row className={'justify-content-center mt-5'}>
+                                                <Link to={'/news'}>
+                                                    <img src={noticiaImage} alt={'noticias'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row className={'justify-content-center mt-4'}>
+                                                <a href={'/Front_web/#/news'} className={'buttonA'}>Noticias</a>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row className={'justify-content-center mt-5'}>
+                                                <Link to={'/documents'}>
+                                                    <img src={documentoImage} alt={'documentos'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row className={'justify-content-center mt-4'}>
+                                                <a href={'/Front_web/#/documents'} className={'buttonA'}>Documentos</a>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row className={'justify-content-center mt-5'}>
+                                                <Link to={'/notifications'}>
+                                                    <img src={notificationImage} alt={'notificaciones'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row className={'justify-content-center mt-4'}>
+                                                <a href={'/Front_web/#/notifications'} className={'buttonA'}>Notificaciones</a>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+
+                                    <Row className={'text-center'}>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            {this.props.user.type === 'admin' ? (
+                                                <>
+                                                    <Row className={'justify-content-center mt-5'}>
+                                                        <Link to={'/subjects-list'}>
+                                                            <img src={asignaturasImage} alt={'subjects'}/>
+                                                        </Link>
+                                                    </Row>
+                                                    <Row className={'justify-content-center mt-4 mb-5'}>
+                                                        <a href={'/Front_web/#/subjects-list'} className={'buttonA'}>Asignaturas</a>
+                                                    </Row>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Row className={'justify-content-center mt-5'}>
+                                                        <Link to={'/my-subjects'}>
+                                                            <img src={asignaturasImage} alt={'subjects'}/>
+                                                        </Link>
+                                                    </Row>
+                                                   <Row className={'justify-content-center mt-4 mb-5'}>
+                                                       <a href={'/Front_web/#/my-subjects'} className={'buttonA'}>Asignaturas</a>
+                                                   </Row>
+                                                </>
+                                                )}
+                                        </Col>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row className={'justify-content-center mt-5'}>
+                                                <Link to={'/chat'}>
+                                                    <img src={chatImage} style={{width: '180px'}} alt={'chat'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row className={'justify-content-center mt-4 mb-5'}>
+                                                <a href={'/Front_web/#/chat'} className={'buttonA'}>Chat</a>
+                                            </Row>
+                                        </Col>
+                                        <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                            <Row className={'justify-content-center mt-5'}>
+                                                <Link to={'/user'}>
+                                                    <img src={perfilUsuario} alt={'perfil usuario'}/>
+                                                </Link>
+                                            </Row>
+                                            <Row className={'justify-content-center mt-4 mb-5'}>
+                                                <a href={'/Front_web/#/user'} className={'buttonA'}>Perfil usuario</a>
+                                            </Row>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </>
+                    }
+
                     {this.state.toUpdate &&
                         <News
                             idToUpdate={this.state.idToUpdate}
@@ -189,16 +284,11 @@ class Slider extends Component {
                     }
 
                     <div className="clearfix"></div>
-                </div >
+                </div>
 
             </>
 
         );
-
-
     }
-
-
 }
-
 export default withAuth(Slider);

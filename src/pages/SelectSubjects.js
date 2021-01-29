@@ -5,7 +5,8 @@ import subjectService from '../services/subject-service';
 import userService from '../services/user-service';
 
 import withAuth from 'components/withAuth';
-import { CustomInput } from 'reactstrap';
+import {Col, CustomInput, Row, UncontrolledAlert} from 'reactstrap';
+import UHU from "../assets/images/UHU.png";
 
 class SelectSubjects extends Component {
 
@@ -15,6 +16,7 @@ class SelectSubjects extends Component {
             subjectsSelected: [],
             userSubjects: this.props.user.subjects,
             redirectToHome: false,
+            alertNoSubjectsSelected: false,
         }
 
 
@@ -70,6 +72,10 @@ class SelectSubjects extends Component {
                         window.location.reload();
                     }
                 });
+            } else {
+                this.setState({
+                    alertNoSubjectsSelected: true
+                })
             }
     }
 
@@ -91,24 +97,50 @@ class SelectSubjects extends Component {
                     </>
                 ) : (
                     <>
-                        <h2 className="subheaderdos">Selecciona las asignaturas de las que estés matriculado</h2>
+                        {
+                            this.state.alertNoSubjectsSelected &&
+                            <UncontrolledAlert color={'danger'} className={'font'}>
+                                Error. Debe marcar alguna asignatura.
+                            </UncontrolledAlert>
+                        }
+                        <Row className={'justify-content-center mt-5'}>
+                            <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'logos'}>
+                                <img src={UHU} alt={'logo uhu2'}/>
+                            </Col>
+                        </Row>
+                        {this.props.user.type === 'alumn' ? (
+                            <h2 className="mt-5 mb-5" style={{fontSize: '30px'}}>Selecciona las asignaturas de las que estés matriculado</h2>
+                        ) : (
+                                <h2 className="mt-5 mb-5" style={{fontSize: '30px'}}>Selecciona las asignaturas que estés impartiendo</h2>
+                            )
+                        }
 
                         {list && list.length > 0 &&
                             <>
-                                {list.map(a => {
-                                    return <div className={"mt-4"}>
-                                    <CustomInput
-                                    type="checkbox"
-                                    name=""
-                                    id={a._id}
-                                    value={a.title}
-                                    onChange={(e) => this.checkSelected(e.target.id)}
-                                    label={a.title}
-                                    />
-                                    </div>
-                                })
-                                }
-                                    <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                                <Row className={'justify-content-center'}>
+                                    <Col xs={'12'} sm={'12'} md={'12'} lg={'12'}>
+                                        {list.map(a => {
+                                            return <div className={"mt-4"}>
+                                                <Row className={'justify-content-initial mb-5'}>
+                                                        <CustomInput
+                                                            type="checkbox"
+                                                            name=""
+                                                            id={a._id}
+                                                            value={a.title}
+                                                            onChange={(e) => this.checkSelected(e.target.id)}
+                                                            label={a.title}
+                                                        />
+                                                </Row>
+                                            </div>
+                                        })
+                                        }
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col style={{textAlign: 'end'}}>
+                                        <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                                    </Col>
+                                </Row>
                             </>
                         }
                     </>

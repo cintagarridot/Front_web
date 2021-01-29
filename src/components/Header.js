@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {Link, NavLink, Redirect} from 'react-router-dom';
 import logo from 'assets/images/logo.svg';
 
 import withAuth from './withAuth';
@@ -31,7 +31,6 @@ class Header extends Component{
             dropdownOpen: !this.state.dropdownOpen
         })
     }
-
     render() {
         const { user } = this.props;
         return (
@@ -65,6 +64,11 @@ class Header extends Component{
                                     </li>
                                 </>
                             }
+                            {this.props.user.type !== 'admin' &&
+                                <li>
+                                    <NavLink to="/my-subjects" activeClassName="active">Asignaturas</NavLink>
+                                </li>
+                            }
                             <li>
                                 <NavLink to="/chat" activeClassName="active">Chat</NavLink>
                             </li>
@@ -94,13 +98,17 @@ class Header extends Component{
                                         {user.username}
                                     </DropdownToggle>
                                     <DropdownMenu className={'dropdown-header-menu'}>
-                                        <DropdownItem>
-                                            <Link to={'/user'}>Ver perfil</Link>
-                                        </DropdownItem>
+                                        <Link to={'/user'}>
+                                            <DropdownItem>
+                                               Ver perfil
+                                            </DropdownItem>
+                                        </Link>
                                         <DropdownItem divider />
-                                        <DropdownItem>
-                                            <p onClick={this.props.logout}>Cerrar sesión</p>
-                                        </DropdownItem>
+                                        <p onClick={this.props.logout}>
+                                            <DropdownItem>
+                                                Cerrar sesión
+                                            </DropdownItem>
+                                        </p>
                                     </DropdownMenu>
                                 </Dropdown>
                             </li>
