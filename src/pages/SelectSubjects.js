@@ -6,6 +6,7 @@ import userService from '../services/user-service';
 
 import withAuth from 'components/withAuth';
 import {Col, CustomInput, Row} from 'reactstrap';
+import UHU from "../assets/images/UHU.png";
 
 class SelectSubjects extends Component {
 
@@ -91,7 +92,17 @@ class SelectSubjects extends Component {
                     </>
                 ) : (
                     <>
-                        <h2 className="subheaderdos">Selecciona las asignaturas de las que estés matriculado</h2>
+                        <Row className={'justify-content-center'}>
+                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'logos'}>
+                                <img src={UHU} alt={'logo uhu2'}/>
+                            </Col>
+                        </Row>
+                        {this.props.user.type === 'alumn' ? (
+                            <h2 className="mt-5">Selecciona las asignaturas de las que estés matriculado</h2>
+                        ) : (
+                            <h2 className="mt-5">Selecciona las asignaturas que estés impartiendo</h2>
+                        )
+                        }
 
                         {list && list.length > 0 &&
                             <>
