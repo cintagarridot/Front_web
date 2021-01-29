@@ -346,10 +346,14 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                 Editar
                             </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem onClick={() => toggleShareDocModal(element)}>
-                                Compartir
-                            </DropdownItem>
-                            <DropdownItem divider />
+                            {props.user.type === 'alumn' &&
+                                <>
+                                    <DropdownItem onClick={() => toggleShareDocModal(element)}>
+                                        Compartir
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                </>
+                            }
                             <DropdownItem onClick={() => deleteDocument(element._id)}>
                                 Borrar
                             </DropdownItem>
