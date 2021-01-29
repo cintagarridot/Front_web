@@ -13,6 +13,7 @@ class NotificationService {
 
     deleteNotification = (id) => this.service.delete(`/notifications/${id}`).then(({data}) => data);
 
+    getUnreadNotifications = () => this.service.get('/unread').then(({data}) => data);
 
 }
 

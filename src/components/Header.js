@@ -4,6 +4,7 @@ import logo from 'assets/images/logo.svg';
 
 import withAuth from './withAuth';
 import {Badge, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem} from "reactstrap";
+import notificationService from "../services/notification-service";
 
 class Header extends Component{
 
@@ -17,15 +18,15 @@ class Header extends Component{
 
     componentDidMount() {
         const { user } = this.props;
-        user.notifications.map((notification) => {
-            if(notification.read === false){
-                this.setState({
-                    unreadNotifications: this.state.unreadNotifications + 1
-                })
-            }
-        })
-    }
+        notificationService.getUnreadNotifications().then((data) => {
+            console.log('data noti', data);
+            this.setState({
+                unreadNotifications: data
+            });
+        });
 
+    }
+    
     toggle = () => {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen
