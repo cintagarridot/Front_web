@@ -26,7 +26,7 @@ class Header extends Component{
         await notificationService.getUnreadNotifications().then((result) =>{
             console.log('data noti', result);
             this.setState({
-                unreadNotifications: result
+                unreadNotifications: result.unread
             });
         });
     }
