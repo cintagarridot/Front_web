@@ -125,8 +125,10 @@ class SelectSubjects extends Component {
                                         }
                                     </Col>
                                 </Row>
-                                <Row style={{textAlign: 'end'}}>
-                                    <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                                <Row>
+                                    <Col style={{textAlign: 'end'}}>
+                                        <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                                    </Col>
                                 </Row>
                             </>
                         }
