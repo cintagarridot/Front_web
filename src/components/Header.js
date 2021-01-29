@@ -88,7 +88,7 @@ class Header extends Component{
                                     <>
 
                                         <NavLink to="/notifications" activeClassName="active">
-                                            Notificaciones <Badge pill variant="danger">{user.notifications.length}</Badge>
+                                            Notificaciones <Badge pill variant="danger">{this.state.unreadNotifications}</Badge>
                                         </NavLink>
                                     </>
                                 ) : (
