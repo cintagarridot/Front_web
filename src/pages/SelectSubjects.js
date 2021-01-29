@@ -95,23 +95,25 @@ class SelectSubjects extends Component {
 
                         {list && list.length > 0 &&
                             <>
-                                {list.map(a => {
-                                    return <div className={"mt-4"}>
-                                        <Row className={'justify-content-initial'}>
-                                            <Col xs={'8'} sm={'12'} md={'12'} lg={'12'}>
-                                                <CustomInput
-                                                    type="checkbox"
-                                                    name=""
-                                                    id={a._id}
-                                                    value={a.title}
-                                                    onChange={(e) => this.checkSelected(e.target.id)}
-                                                    label={a.title}
-                                                />
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                })
-                                }
+                                <Row className={'justify-content-center'}>
+                                    <Col xs={'8'} sm={'12'} md={'12'} lg={'12'}>
+                                        {list.map(a => {
+                                            return <div className={"mt-4"}>
+                                                <Row className={'justify-content-initial'}>
+                                                        <CustomInput
+                                                            type="checkbox"
+                                                            name=""
+                                                            id={a._id}
+                                                            value={a.title}
+                                                            onChange={(e) => this.checkSelected(e.target.id)}
+                                                            label={a.title}
+                                                        />
+                                                </Row>
+                                            </div>
+                                        })
+                                        }
+                                    </Col>
+                                </Row>
                                 <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
                             </>
                         }
