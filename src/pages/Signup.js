@@ -97,7 +97,7 @@ class Signup extends Component {
           </UncontrolledAlert>
         }
         <Row className={'justify-content-center'}>
-          <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'logos'}>
+          <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'logos'}>
             <img src={UHU} alt={'logo uhu2'}/>
           </Col>
         </Row>

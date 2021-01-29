@@ -92,25 +92,25 @@ class SelectSubjects extends Component {
                     </>
                 ) : (
                     <>
-                        <Row className={'justify-content-center'}>
-                            <Col xs={'6'} md={'6'} sm={'6'} lg={'6'} className={'logos'}>
+                        <Row className={'justify-content-center mt-5'}>
+                            <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'logos'}>
                                 <img src={UHU} alt={'logo uhu2'}/>
                             </Col>
                         </Row>
                         {this.props.user.type === 'alumn' ? (
-                            <h2 className="mt-5">Selecciona las asignaturas de las que estés matriculado</h2>
+                            <h2 className="mt-5 mb-5" style={{fontSize: '30px'}}>Selecciona las asignaturas de las que estés matriculado</h2>
                         ) : (
-                            <h2 className="mt-5">Selecciona las asignaturas que estés impartiendo</h2>
-                        )
+                                <h2 className="mt-5 mb-5" style={{fontSize: '30px'}}>Selecciona las asignaturas que estés impartiendo</h2>
+                            )
                         }
 
                         {list && list.length > 0 &&
                             <>
                                 <Row className={'justify-content-center'}>
-                                    <Col xs={'8'} sm={'12'} md={'12'} lg={'12'}>
+                                    <Col xs={'12'} sm={'12'} md={'12'} lg={'12'}>
                                         {list.map(a => {
                                             return <div className={"mt-4"}>
-                                                <Row className={'justify-content-initial'}>
+                                                <Row className={'justify-content-initial mb-5'}>
                                                         <CustomInput
                                                             type="checkbox"
                                                             name=""
@@ -125,7 +125,9 @@ class SelectSubjects extends Component {
                                         }
                                     </Col>
                                 </Row>
-                                <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                                <Row style={{textAlign: 'end'}}>
+                                    <button className={"mt-5"} onClick={this.addSubjectsInUser}> Guardar asignaturas </button>
+                                </Row>
                             </>
                         }
                     </>
