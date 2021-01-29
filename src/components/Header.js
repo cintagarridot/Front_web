@@ -4,6 +4,7 @@ import logo from 'assets/images/logo.svg';
 
 import withAuth from './withAuth';
 import {Badge, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem} from "reactstrap";
+import notificationService from "../services/notification-service";
 
 class Header extends Component{
 
@@ -15,15 +16,19 @@ class Header extends Component{
         }
     }
 
+
     componentDidMount() {
-        const { user } = this.props;
-        user.notifications.map((notification) => {
-            if(notification.read === false){
-                this.setState({
-                    unreadNotifications: this.state.unreadNotifications + 1
-                })
-            }
-        })
+        this.getUserUnreadNotifications();
+    }
+
+    getUserUnreadNotifications = async() => {
+        console.log('entro en el metodo unread del header')
+        await notificationService.getUnreadNotifications().then((result) =>{
+            console.log('data noti', result);
+            this.setState({
+                unreadNotifications: result.unread
+            });
+        });
     }
 
     toggle = () => {
@@ -83,7 +88,7 @@ class Header extends Component{
                                     <>
 
                                         <NavLink to="/notifications" activeClassName="active">
-                                            Notificaciones <Badge pill variant="danger">{user.notifications.length}</Badge>
+                                            Notificaciones <Badge pill variant="danger">{this.state.unreadNotifications}</Badge>
                                         </NavLink>
                                     </>
                                 ) : (
