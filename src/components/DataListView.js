@@ -22,6 +22,7 @@ import subjectService from "services/subject-service";
 import { confirmAlert } from 'react-confirm-alert';
 import documentService from "../services/document-service";
 import notificationService from "../services/notification-service";
+import userService from "../services/user-service";
 
 
 const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, ...props }) => {
@@ -34,6 +35,10 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [selectedFile, setSelectedFile] = useState();
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [alertFile, setAlertFile] = useState(false);
+  const [dropdownShareDoc, setDropdownShareDoc] = useState(false);
+  const [shareDoc, setShareDoc] = useState({});
+  const [teachers, setTeachers] = useState([]);
+  const [teachersSelected, setTeachersSelected] = useState([]);
 
   console.log('EEELEMENT', element)
 
@@ -57,7 +62,22 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
   }
 
-  useEffect (() => {
+    const getTeacherList = async() => {
+        await userService.getTeachersList()
+            .then(res => {
+                console.log(res.data);
+                setTeachers(res.teachers);
+            });
+    }
+
+    useEffect(() => {
+        if(dropdownShareDoc === true){
+            getTeacherList();
+        }
+    }, [dropdownShareDoc])
+
+
+    useEffect (() => {
     if(document && element.path) {
       var file_split = element.path.split('\\');
       const file_name = file_split[6];
@@ -97,6 +117,11 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     const toggleEditDocModal = (id) => {
         setDropdownEditDoc(!dropdownEditDoc);
         setEditDocId(id);
+    }
+
+    const toggleShareDocModal = (document) => {
+        setDropdownShareDoc(!dropdownShareDoc);
+        setShareDoc(document);
     }
 
     const handleChangeEditDocName = (event) => {
@@ -171,6 +196,26 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 console.log('result', result)
                 window.location.reload();
             })
+        }
+    }
+
+    const checkSelected = (target) => {
+        if (teachersSelected.includes(target)) {
+            let i = teachersSelected.indexOf(target);
+            teachersSelected.splice(i, 1);
+        } else {
+            teachersSelected.push(target)
+        }
+        console.log('teachersSelected', teachersSelected)
+    }
+
+    const shareDocument = async () => {
+        if (teachersSelected.length !== 0) {
+            toggleShareDocModal();
+           /* return await documentService.editDocument().then((result) => {
+                window.location.reload();
+            });*/
+
         }
     }
 
@@ -301,6 +346,10 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                 Editar
                             </DropdownItem>
                             <DropdownItem divider />
+                            <DropdownItem onClick={() => toggleShareDocModal(element)}>
+                                Compartir
+                            </DropdownItem>
+                            <DropdownItem divider />
                             <DropdownItem onClick={() => deleteDocument(element._id)}>
                                 Borrar
                             </DropdownItem>
@@ -340,6 +389,44 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                             </ModalFooter>
                         </Modal>
                     </div>
+                }
+
+                {dropdownShareDoc &&
+                <div>
+                    <Modal isOpen={dropdownShareDoc} toggle={toggleShareDocModal} >
+                        <ModalHeader>Compartir documento</ModalHeader>
+                        <ModalBody>
+                            <Row>
+                                <Col xs={'12'}>
+                                    <h1 className={'mt-4 mb-4'}>Profesores</h1>
+                                </Col>
+                            </Row>
+                            <Row>
+                                {teachers &&
+                                    teachers.map((teacher) => {
+                                        return <div className={"mt-4"}>
+                                            <Row className={'justify-content-initial mb-5'}>
+                                                <CustomInput
+                                                    type="checkbox"
+                                                    name=""
+                                                    id={teacher._id}
+                                                    value={teacher.firstName}
+                                                    onChange={(e) => checkSelected(e.target.id)}
+                                                    label={teacher.firstName}
+                                                />
+                                            </Row>
+                                        </div>
+                                    })
+                                }
+                            </Row>
+                        </ModalBody>
+                        <ModalFooter>
+                            <Button color="primary" onClick={shareDocument}>Guardar</Button>{' '}
+                            <Button color="secondary" onClick={toggleShareDocModal}>Cancelar</Button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
+
                 }
             </>
           }
