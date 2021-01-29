@@ -16,17 +16,22 @@ class Header extends Component{
         }
     }
 
+
     componentDidMount() {
         const { user } = this.props;
-        notificationService.getUnreadNotifications().then((data) => {
+        this.getUserUnreadNotifications();
+
+    }
+
+    getUserUnreadNotifications = async() => {
+        await notificationService.getUnreadNotifications().then((data) => {
             console.log('data noti', data);
             this.setState({
                 unreadNotifications: data
             });
         });
-
     }
-    
+
     toggle = () => {
         this.setState({
             dropdownOpen: !this.state.dropdownOpen
