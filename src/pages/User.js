@@ -134,7 +134,7 @@ class User extends Component {
                     <Col xs={'7'}>
                         {!this.state.edit ? (
                             <Row style={{textAlign: 'initial'}}>
-                                <Col xs={'12'} className={'pb-3'}>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
                                     <Row>
                                         <h3 className='profile-text'>Nombre</h3>
                                     </Row>
@@ -142,7 +142,7 @@ class User extends Component {
                                         <h3>{this.state.firstName}</h3>
                                     </Row>
                                 </Col>
-                                <Col xs={'12'} className={'pb-3'}>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
                                     <Row>
                                         <h3 className='profile-text'>Apellidos</h3>
                                     </Row>
@@ -150,7 +150,7 @@ class User extends Component {
                                         <h3>{this.state.lastName}</h3>
                                     </Row>
                                 </Col>
-                                <Col xs={'12'} className={'pb-3'}>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
                                     <Row>
                                         <h3 className='profile-text'>Username</h3>
                                     </Row>
@@ -158,7 +158,7 @@ class User extends Component {
                                         <h3>{this.state.username}</h3>
                                     </Row>
                                 </Col>
-                                {(this.props.user.type === 'alumn' && this.props.user) &&
+                               {/* {(this.props.user.type === 'alumn' && this.props.user) &&
                                     <Col xs={'12'}>
                                         <Row>
                                             <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
@@ -177,7 +177,7 @@ class User extends Component {
                                             <h3>{this.props.user.subjects.length}</h3>
                                         </Row>
                                     </Col>
-                                }
+                                }*/}
 
                             </Row>
                         )
