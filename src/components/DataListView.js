@@ -408,18 +408,16 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                             <Row>
                                 {teachers &&
                                     teachers.map((teacher) => {
-                                        return <div className={"mt-4"}>
-                                            <Row className={'justify-content-initial mb-5'}>
-                                                <CustomInput
-                                                    type="checkbox"
-                                                    name=""
-                                                    id={teacher._id}
-                                                    value={teacher.firstName}
-                                                    onChange={(e) => checkSelected(e.target.id)}
-                                                    label={teacher.firstName}
-                                                />
-                                            </Row>
-                                        </div>
+                                        return <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'mb-5 ml-4'}>
+                                            <CustomInput
+                                                type="checkbox"
+                                                name=""
+                                                id={teacher._id}
+                                                value={teacher.firstName}
+                                                onChange={(e) => checkSelected(e.target.id)}
+                                                label={teacher.firstName}
+                                            />
+                                        </Row>
                                     })
                                 }
                             </Row>
