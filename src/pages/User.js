@@ -133,7 +133,7 @@ class User extends Component {
                     </Col>
                     <Col xs={'7'}>
                         {!this.state.edit ? (
-                            <Row>
+                            <Row style={{textAlign: 'initial'}}>
                                 <Col xs={'12'} className={'pb-3'}>
                                     <h3 className='profile-text'>Nombre</h3>
                                     <h3>{this.state.firstName}</h3>
@@ -152,11 +152,17 @@ class User extends Component {
                                         <h3>{this.props.user.subjects.length}</h3>
                                     </Col>
                                 }
+                                {(this.props.user.type === 'teacher' && this.props.user) &&
+                                    <Col xs={'12'}>
+                                        <h3 className='profile-text'>Número de asignaturas impartidas</h3>
+                                        <h3>{this.props.user.subjects.length}</h3>
+                                    </Col>
+                                }
 
                             </Row>
                         )
                             : (
-                                <Row>
+                                <Row style={{textAlign: 'initial'}}>
                                 <Col xs={'12'} className={'pb-3'}>
                                     <h3 className='profile-text'>Nombre</h3>
                                     <input className={'font'} name='name' type="text" onChange={this.handleChange}></input>
@@ -189,9 +195,12 @@ class User extends Component {
                     {/*</Col>*/}
                 </Row>
 
-                <Row className={'mt-5 justify-content-center'}>
+                <Row className={'mt-5'}>
                     <Col xs={'2'} className={'mt-5'}>
-                        <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar contraseña</button>
+                        <button style={{ fontSize: '12px', textAlign: 'end' }} onClick={this.toggleNewPassword} >Cambiar contraseña</button>
+                    </Col>
+                    <Col xs={'2'} className={'mt-5'}>
+                        <button style={{ fontSize: '12px', textAlign: 'end' }} onClick={this.toggleNewPassword} >Cambiar foto</button>
                     </Col>
                 </Row>
 
