@@ -21,6 +21,7 @@ class DocumentService {
 
   editDocument = (id, formData) => this.service.put(`/documents/${id}`, formData).then(({data}) => data);
 
+  shareDocument = (id, teachers) => this.service.put(`documents/${id}/share-document`, teachers).then(({data}) => data);
 }
 
 const documentService = new DocumentService();

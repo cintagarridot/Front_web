@@ -126,10 +126,10 @@ class DocumentsList extends Component {
             <section id="content" >
                     <Row className="pt-5 mt-5">
                         <Col xs='9'>
-                            {user.type !== 'admin' ? (
-                                <h2 className="subheaderdos">Mis documentos</h2>
-                            ) : (
+                            {user.type !== 'alumn' ? (
                                 <h2 className="subheaderdos">Documentos</h2>
+                            ) : (
+                                <h2 className="subheaderdos">Mis documentos</h2>
                             )}
                         </Col>
                         <Col xs='2' className="pt-5 mt-5">
@@ -180,7 +180,7 @@ class DocumentsList extends Component {
                             <Button color="primary" onClick={this.toggleModal} >Subir un documento</Button>
                         </Col>
                     </Row>
-                {user.type !== 'admin' && (
+                {user.type === 'alumn' && (
                     <>
 
                     {documentList && documentList.length > 0 ? (
@@ -256,6 +256,63 @@ class DocumentsList extends Component {
                                 </div>
                                 ) : (
                                     <h2 className="text-center">No hay documentos</h2>
+                                )}
+                            </TabPanel>
+                        </Tabs>
+                    </>
+                )}
+
+                {user.type === 'teacher' && (
+                    <>
+                        <Tabs>
+                            <TabList>
+                                <Tab selectedClassName="selected-tab-style">
+                                    Mis Documentos
+                                </Tab>
+                                <Tab
+                                    selectedClassName="selected-tab-style"
+                                >
+                                    Documentos de alumnos
+                                </Tab>
+                            </TabList>
+
+                            <TabPanel>
+                                {documentList && documentList.length > 0 ? (
+                                    <div>
+                                        {documentList.map((document) => {
+                                            return (
+                                                <DataListView
+                                                    key={document._id}
+                                                    element={document}
+                                                    onCheckItem={this.onCheckItem}
+                                                    document={true}
+                                                />
+                                            );
+                                        })
+                                        }
+                                    </div>
+                                ) : (
+                                    <h2 className="text-center">No hay documentos</h2>
+                                )}
+                            </TabPanel>
+
+                            <TabPanel>
+                                {user.sharedDocuments && user.sharedDocuments.length > 0 ? (
+                                    <div>
+                                        {user.sharedDocuments.map((shared) => {
+                                            return (
+                                                <DataListView
+                                                    key={shared._id}
+                                                    element={shared}
+                                                    onCheckItem={this.onCheckItem}
+                                                    document={true}
+                                                />
+                                            );
+                                        })
+                                        }
+                                    </div>
+                                ) : (
+                                    <h2 className="text-center">No te han compartido ningún documento</h2>
                                 )}
                             </TabPanel>
                         </Tabs>

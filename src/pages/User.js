@@ -133,30 +133,56 @@ class User extends Component {
                     </Col>
                     <Col xs={'7'}>
                         {!this.state.edit ? (
-                            <Row>
-                                <Col xs={'12'} className={'pb-3'}>
-                                    <h3 className='profile-text'>Nombre</h3>
-                                    <h3>{this.state.firstName}</h3>
+                            <Row style={{textAlign: 'initial'}}>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
+                                    <Row>
+                                        <h3 className='profile-text'>Nombre</h3>
+                                    </Row>
+                                    <Row>
+                                        <h3>{this.state.firstName}</h3>
+                                    </Row>
                                 </Col>
-                                <Col xs={'12'} className={'pb-3'}>
-                                    <h3 className='profile-text'>Apellidos</h3>
-                                    <h3>{this.state.lastName}</h3>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
+                                    <Row>
+                                        <h3 className='profile-text'>Apellidos</h3>
+                                    </Row>
+                                    <Row>
+                                        <h3>{this.state.lastName}</h3>
+                                    </Row>
                                 </Col>
-                                <Col xs={'12'} className={'pb-3'}>
-                                    <h3 className='profile-text'>Username</h3>
-                                    <h3>{this.state.username}</h3>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
+                                    <Row>
+                                        <h3 className='profile-text'>Username</h3>
+                                    </Row>
+                                    <Row>
+                                        <h3>{this.state.username}</h3>
+                                    </Row>
                                 </Col>
-                                {(this.props.user.type === 'alumn' && this.props.user) &&
+                               {/* {(this.props.user.type === 'alumn' && this.props.user) &&
                                     <Col xs={'12'}>
-                                        <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
-                                        <h3>{this.props.user.subjects.length}</h3>
+                                        <Row>
+                                            <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
+                                        </Row>
+                                        <Row>
+                                            <h3>{this.props.user.subjects.length}</h3>
+                                        </Row>
                                     </Col>
                                 }
+                                {(this.props.user.type === 'teacher' && this.props.user) &&
+                                    <Col xs={'12'}>
+                                        <Row>
+                                            <h3 className='profile-text'>Número de asignaturas impartidas</h3>
+                                        </Row>
+                                        <Row>
+                                            <h3>{this.props.user.subjects.length}</h3>
+                                        </Row>
+                                    </Col>
+                                }*/}
 
                             </Row>
                         )
                             : (
-                                <Row>
+                                <Row style={{textAlign: 'initial'}}>
                                 <Col xs={'12'} className={'pb-3'}>
                                     <h3 className='profile-text'>Nombre</h3>
                                     <input className={'font'} name='name' type="text" onChange={this.handleChange}></input>
@@ -189,9 +215,12 @@ class User extends Component {
                     {/*</Col>*/}
                 </Row>
 
-                <Row className={'mt-5 justify-content-center'}>
-                    <Col xs={'2'} className={'mt-5'}>
+                <Row className={'mt-5'} style={{textAlign: 'end'}}>
+                    <Col xs={'2'} md={'2'} lg={'2'} className={'mt-5 mr-3'}>
                         <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar contraseña</button>
+                    </Col>
+                    <Col xs={'2'} md={'2'} lg={'2'} className={'mt-5'}>
+                        <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar foto</button>
                     </Col>
                 </Row>
 
