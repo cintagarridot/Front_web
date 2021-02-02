@@ -215,10 +215,11 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             return await documentService.shareDocument(element._id, teachersSelected).then((result) => {
                 console.log('result shared document', result);
             })
-            toggleShareDocModal();
+
         } else {
             setShowRedText(true);
         }
+        toggleShareDocModal();
     }
 
   return (
