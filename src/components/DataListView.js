@@ -200,14 +200,13 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     }
 
     const checkSelected = (target) => {
-        console.log('target', target);
         if (teachersSelected.includes(target)) {
             let i = teachersSelected.indexOf(target);
             teachersSelected.splice(i, 1);
         } else {
-            teachersSelected.push(target);
+            teachersSelected.push(target)
         }
-        console.log('teachersSelected', teachersSelected);
+        console.log('teachersSelected', teachersSelected)
     }
 
     const shareDocument = async () => {
@@ -415,7 +414,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                                 name=""
                                                 id={teacher._id}
                                                 value={teacher.firstName}
-                                                onChange={(e) => checkSelected(e.target)}
+                                                onChange={(e) => checkSelected(e.target.id)}
                                                 label={teacher.firstName}
                                             />
                                         </Row>
