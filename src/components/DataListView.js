@@ -223,7 +223,8 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     }
 
   return (
-    <Col xs={'6'} sm={'8'} md={'12'} lg={'12'} xl={'12'} className="mb-5">
+  <Row>
+    <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} className="mb-5">
         {alertFile &&
         <UncontrolledAlert color={'danger'} className={'font'}>
             Es necesario que se elija un PDF para editarlo.
@@ -498,6 +499,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
         </Card>
       </ContextMenuTrigger>
     </Col>
+  </Row>
   );
 };
 
