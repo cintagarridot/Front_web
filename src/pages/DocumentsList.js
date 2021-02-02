@@ -316,8 +316,8 @@ class DocumentsList extends Component {
                                 )}
                             </TabPanel>
                         </Tabs>
-
-                }
+                    </>
+                )}
 
 
                 {this.state.modal &&
