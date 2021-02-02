@@ -407,13 +407,15 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                     <h1 className={'mt-4 mb-4'}>Profesores</h1>
                                 </Col>
                             </Row>
-                            <Row>
-                                <Col xs={'12'}>
-                                    <h4 style={{color: 'red'}}>
-                                        *Por favor, selecciona uno o más profesores
-                                    </h4>
-                                </Col>
-                            </Row>
+                            {showRedText &&
+                                <Row>
+                                    <Col xs={'12'}>
+                                        <h4 style={{color: 'red'}}>
+                                            *Por favor, selecciona uno o más profesores
+                                        </h4>
+                                    </Col>
+                                </Row>
+                            }
                             <Row>
                                 {teachers &&
                                     teachers.map((teacher) => {
