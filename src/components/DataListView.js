@@ -223,15 +223,17 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     }
 
   return (
-  <Row>
+
     <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} className="mb-5">
         {alertFile &&
         <UncontrolledAlert color={'danger'} className={'font'}>
             Es necesario que se elija un PDF para editarlo.
         </UncontrolledAlert>
         }
-      <ContextMenuTrigger id="menu_id" data={element.id}>
-        <Card style={ !notifications ? { width: '1000px', height: '90px', fontSize: '16px',
+      {/*<ContextMenuTrigger id="menu_id" data={element.id}>*/}
+      <Row className={'mt-5'}>
+      <Col xs={'12'} sm={'12'} xl={'12'} lg={'12'}>
+          <Card style={ !notifications ? { width: '1000px', height: '90px', fontSize: '16px',
          justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?
             { width: '1000px', height: '90px', fontSize: '16px',
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
@@ -497,9 +499,11 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             }
 
         </Card>
-      </ContextMenuTrigger>
+      </Col>
+      </Row>
+      {/*</ContextMenuTrigger>*/}
     </Col>
-  </Row>
+
   );
 };
 
