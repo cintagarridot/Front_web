@@ -239,7 +239,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
             notifications && element.read && !notificationOpen ? { /*width: '1000px',*/ height: '90px', fontSize: '16px',
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : notifications && notificationOpen ?
-                {  /*width: '1000px',*/ height: '250px', fontSize: '16px',
+                {  width: '100%', height: '250px', fontSize: '16px',
                     justifyContent: 'center', padding: '10px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
         }
           onClick={event => onCheckItem(event, element.id)}
@@ -457,12 +457,12 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                         </p>
                     </Col>
 
-                    <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                    <Col xs={'3'} sm={'2'} lg={'2'} xl={'2'}>
                         <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => openNotification(element)}>
                             Ver detalles
                         </button>
                     </Col>
-                    <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                    <Col xs={'3'} sm={'2'} lg={'2'} xl={'2'}>
                         <button className={'btn btn-primary'} style={{fontSize: '12px', backgroundColor: 'red', border: 'none'}} onClick={() => deleteNotification(element)}>
                             Borrar
                         </button>
@@ -473,7 +473,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             ) : notifications && notificationOpen ? (
                 <>
                     <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} className={'justify-content-center'}>
-                        <Col xs={'6'} md={'8'} sm={'8'} lg={'12'} xl={'12'}>
+                        <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} xl={'12'}>
                             <p className="list-item-heading truncate">
                                 {element.title}
                             </p>
@@ -481,14 +481,14 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
                     </Row>
                     <Row className={'mt-5'}>
-                        <Col xs={'6'} md={'8'} sm={'12'} lg={'12'} xl={'12'}>
+                        <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} xl={'12'}>
                             <p className="list-item-heading truncate">
                                 {element.content}
                             </p>
                         </Col>
                     </Row>
                     <Row className={'justify-content-center mt-5'}>
-                        <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                        <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                             <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => closeNotification(element)}>
                                 Ocultar detalles
                             </button>
