@@ -336,7 +336,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     {moment(element.date).format('L')}
                   </p>
                 </Col>
-                <Col xs={"2"}>
+                <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                     <Dropdown isOpen={dropdownDocOpen} toggle={toggleDoc}>
                         <DropdownToggle caret>
                             Opciones
