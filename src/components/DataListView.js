@@ -39,6 +39,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [shareDoc, setShareDoc] = useState({});
   const [teachers, setTeachers] = useState([]);
   const [teachersSelected, setTeachersSelected] = useState([]);
+  const [showRedText, setShowRedText] = useState(false);
 
   console.log('EEELEMENT', element)
 
@@ -210,12 +211,13 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     }
 
     const shareDocument = async () => {
-        if (teachersSelected.length !== 0) {
+        if (teachersSelected.length > 0) {
+            return await documentService.shareDocument(element._id, teachersSelected).then((result) => {
+                console.log('result shared document', result);
+            })
             toggleShareDocModal();
-           /* return await documentService.editDocument().then((result) => {
-                window.location.reload();
-            });*/
-
+        } else {
+            setShowRedText(true);
         }
     }
 
@@ -403,6 +405,13 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                             <Row>
                                 <Col xs={'12'}>
                                     <h1 className={'mt-4 mb-4'}>Profesores</h1>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs={'12'}>
+                                    <h4 style={{color: 'red'}}>
+                                        *Por favor, selecciona uno o más profesores
+                                    </h4>
                                 </Col>
                             </Row>
                             <Row>
