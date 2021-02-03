@@ -166,9 +166,11 @@ class User extends Component {
                 <Row className={'mb-5 pb-5'}>
                     <Col xs={'3'} md={'4'} lg={'3'} style={{ marginRight: '20px' }}>
                         {console.log('photo user', photo)}
-                        {(!photo || photo === {} || photo === undefined || photo === null) &&
+                        {(!photo || photo === {} || photo === undefined || photo === null) ? (
                             <img src={perfilUser} alt="imagen usuario"/>
-                        }
+                        ) : (
+                            <img src={photo.secure_url} alt={"imagen usuario"} />
+                        )}
 
                     </Col>
                     <Col xs={'9'} md={'3'} lg={'7'}>
