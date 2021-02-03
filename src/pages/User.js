@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from 'assets/images/logoetsi.png'
+import perfilUser from 'assets/images/perfilUser.png';
 
 import Header from 'components/Header';
 import withAuth from 'components/withAuth';
@@ -15,6 +15,7 @@ class User extends Component {
         username: '',
         firstName: '',
         lastName: '',
+        photo: {},
         modalNewPassword: false,
         newPass: '',
         newPass2: '',
@@ -27,6 +28,7 @@ class User extends Component {
             username: this.props.user.username,
             firstName: this.props.user.firstName,
             lastName: this.props.user.lastName,
+            photo: this.props.user.photo,
         })
     }
 
@@ -113,6 +115,7 @@ class User extends Component {
     }
 
     render() {
+        const { photo } = this.state;
         return (
 
             <div id="user">
@@ -128,10 +131,13 @@ class User extends Component {
                 <h2 className="subheaderUser">Datos</h2>
 
                 <Row className={'mb-5 pb-5'}>
-                    <Col xs={'3'} style={{ marginRight: '20px' }}>
-                        <img src={logo} class="app-logo" alt="Logotipo" />
+                    <Col xs={'4'} md={'4'} lg={'4'} style={{ marginRight: '20px' }}>
+                        {!photo &&
+                            <img src={perfilUser} alt="imagen usuario"/>
+                        }
+
                     </Col>
-                    <Col xs={'7'}>
+                    <Col xs={'8'} md={'8'} lg={'8'}>
                         {!this.state.edit ? (
                             <Row style={{textAlign: 'initial'}}>
                                 <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
