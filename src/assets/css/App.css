@@ -1028,6 +1028,13 @@ margin-right: 100px;
 }
 
 
+.directAccessButtons img{
+  position: relative;
+  display: inline-flex;
+  width: 120px;
+  height: 120px;
+}
+
 /*RESPONSIVE*/
 
 /*Desde la anchura 0px hasta la anchura 1334px de pantalla se van a producir estos estilos*/

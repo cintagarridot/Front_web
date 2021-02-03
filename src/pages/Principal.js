@@ -35,15 +35,15 @@ class Principal extends Component {
                     button3="uhu"
                 />
 
-                <Row>
-                    <Col xs={'6'} md={'12'} sm={'12'} lg={'12'}>
+                <Row className={'mt-5'}>
+                    <Col xs={'12'} md={'12'} sm={'12'} lg={'12'}>
                         <Card>
                             <CardBody>
                                 <>
-                                    <Row>
-                                        <Col xs={'8'} sm={'12'} md={'12'} lg={'12'}>
+                                    <Row className={'directAccessButtons'}>
+                                        <Col xs={'12'} sm={'12'} md={'12'} lg={'12'}>
                                             <Row className={'text-center'}>
-                                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                                <Col xs={'12'} md={'6'} sm={'4'} lg={'4'}>
                                                     <Row className={'justify-content-center mt-5'}>
                                                         <Link to={'/news'}>
                                                             <img src={noticiaImage} alt={'noticias'}/>
@@ -53,7 +53,7 @@ class Principal extends Component {
                                                         <a href={'/Front_web/#/news'} className={'buttonA'}>Noticias</a>
                                                     </Row>
                                                 </Col>
-                                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                                <Col xs={'12'} md={'6'} sm={'4'} lg={'4'}>
                                                     <Row className={'justify-content-center mt-5'}>
                                                         <Link to={'/documents'}>
                                                             <img src={documentoImage} alt={'documentos'}/>
@@ -63,7 +63,7 @@ class Principal extends Component {
                                                         <a href={'/Front_web/#/documents'} className={'buttonA'}>Documentos</a>
                                                     </Row>
                                                 </Col>
-                                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                                <Col xs={'12'} md={'6'} sm={'4'} lg={'4'}>
                                                     <Row className={'justify-content-center mt-5'}>
                                                         <Link to={'/notifications'}>
                                                             <img src={notificationImage} alt={'notificaciones'}/>
@@ -76,7 +76,7 @@ class Principal extends Component {
                                             </Row>
 
                                             <Row className={'text-center'}>
-                                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                                <Col xs={'12'} md={'6'} sm={'4'} lg={'4'}>
                                                     {this.props.user.type === 'admin' ? (
                                                         <>
                                                             <Row className={'justify-content-center mt-5'}>
@@ -101,7 +101,7 @@ class Principal extends Component {
                                                         </>
                                                     )}
                                                 </Col>
-                                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                                <Col xs={'12'} md={'6'} sm={'4'} lg={'4'}>
                                                     <Row className={'justify-content-center mt-5'}>
                                                         <Link to={'/chat'}>
                                                             <img src={chatImage} style={{width: '180px'}} alt={'chat'}/>
@@ -111,7 +111,7 @@ class Principal extends Component {
                                                         <a href={'/Front_web/#/chat'} className={'buttonA'}>Chat</a>
                                                     </Row>
                                                 </Col>
-                                                <Col xs={'4'} md={'4'} sm={'4'} lg={'4'}>
+                                                <Col xs={'12'} md={'6'} sm={'4'} lg={'4'}>
                                                     <Row className={'justify-content-center mt-5'}>
                                                         <Link to={'/user'}>
                                                             <img src={perfilUsuario} alt={'perfil usuario'}/>
