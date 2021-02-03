@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3db6592f8bf19d4a3dab44c741cad511",
+    "revision": "19857e2a3a646be5add7b82c9cf38e02",
     "url": "/Front_web/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Front_web/static/css/2.44e6c743.chunk.css"
   },
   {
-    "revision": "ffe8258bb73a1f9a028d",
+    "revision": "4d9b544d9aa40a258ebb",
     "url": "/Front_web/static/css/main.bc6f355f.chunk.css"
   },
   {
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Front_web/static/js/5.6d9fb266.chunk.js"
   },
   {
-    "revision": "ffe8258bb73a1f9a028d",
-    "url": "/Front_web/static/js/main.ba6e7c4d.chunk.js"
+    "revision": "4d9b544d9aa40a258ebb",
+    "url": "/Front_web/static/js/main.4c7162de.chunk.js"
   },
   {
     "revision": "d056d26f34a13fa74113",
@@ -56,12 +56,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Front_web/static/media/logo.25bf045c.svg"
   },
   {
-    "revision": "6273d90afce61acec1cf699bde2ff2f6",
-    "url": "/Front_web/static/media/logoetsi.6273d90a.png"
-  },
-  {
     "revision": "73c6000e89d3af023573659dadbfc91d",
     "url": "/Front_web/static/media/ojoVerNoticia.73c6000e.png"
+  },
+  {
+    "revision": "7a93ada7ea865f6b10f59dc484103e38",
+    "url": "/Front_web/static/media/perfilUser.7a93ada7.png"
   },
   {
     "revision": "c264eae757b98439ec4087ff8c857de1",
