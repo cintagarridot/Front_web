@@ -233,13 +233,13 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
       {/*<ContextMenuTrigger id="menu_id" data={element.id}>*/}
       <Row className={'mt-5'}>
       <Col xs={'12'} sm={'12'} xl={'12'} lg={'12'}>
-          <Card style={ !notifications ? { /*width: '1000px',*/ height: '90px', fontSize: '16px',
+          <Card style={ !notifications ? { /*width: '1000px', height: '90px',*/ fontSize: '16px',
          justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?
-            { /*width: '1000px',*/ height: '90px', fontSize: '16px',
+            { /*width: '1000px',height: '90px',*/  fontSize: '16px',
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
-            notifications && element.read && !notificationOpen ? { /*width: '1000px',*/ height: '90px', fontSize: '16px',
+            notifications && element.read && !notificationOpen ? { /*width: '1000px', height: '90px',*/ fontSize: '16px',
                 justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : notifications && notificationOpen ?
-                {  width: '100%', height: '250px', fontSize: '16px',
+                {  /*width: '1000px', height: '250px',*/ fontSize: '16px',
                     justifyContent: 'center', padding: '10px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
         }
           onClick={event => onCheckItem(event, element.id)}
@@ -249,7 +249,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           {subjects &&
             <>
               <Row xs={'12'} sm={'12'} lg={'12'} xl={'12'} >
-                <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
+                <Col xs={'12'} sm={'12'} lg={'6'} xl={'6'}>
                   <p className="list-item-heading mb-1 truncate">
                     {element.title}
                   </p>
@@ -258,17 +258,17 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
                 {props.user.type === 'admin' ?
                 <>
-                 <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                 <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                   <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
                     Ver detalles
                   </Link>
                 </Col>
-                  <Col xs={'2'} sm={'2'} lg={'2'} xl={'2'}>
+                  <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                     <button className={'btn-danger mt-1'} style={{height: '30px'}} onClick={() => deleteSubject(element)}>Borrar</button>
                   </Col>
                 </>
                 :(
-                  <Col xs={'4'} sm={'4'} lg={'4'} xl={'4'}>
+                  <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'}>
                   <Link to={'/subject/details/' + element._id} className={'btn btn-primary'} style={{fontSize: '15px'}} >
                     Ver detalles
                   </Link>
@@ -282,19 +282,19 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           {news &&
             <>
               <Row>
-                <Col xs={"4"}>
+                <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'}>
                     <p className="list-item-heading mb-1 truncate">
                       {element.title}
                     </p>
                 </Col>
 
-                <Col xs={"4"}>
+                <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'}>
                   <p className="mb-1 text-muted text-small ">
                     {moment(element.date).format('L')}
                   </p>
                 </Col>
 
-                <Col xs={"4"} style={{textAlign: 'center'}}>
+                <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'} style={{textAlign: 'center'}}>
                   <Link to={'/news/detail/' + element._id} className={'btn btn-primary'} style={{fontSize: '14px'}} >Ver detalles</Link>
                 </Col>
 
@@ -305,12 +305,12 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
           {usersList &&
             <>
-               <Col xs={"4"}>
+               <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'}>
                 <p className="list-item-heading mb-1 truncate">
                   {element.firstName} {element.lastName}
                 </p>
              </Col>
-             <Col xs={"4"}>
+             <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'}>
                 <p className="list-item-heading mb-1 truncate">
                   {element.username}
                 </p>
@@ -321,22 +321,22 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
           {document &&
             <>
               <Row>
-                <Col xs={"6"}>
+                <Col xs={'12'} sm={'12'} lg={'6'} xl={'6'}>
                     <p className="list-item-heading mb-1 truncate">
                       {element.title}
                     </p>
                 </Col>
-                <Col xs={"2"}>
+                <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                     <p className="list-item-heading mb-1 truncate">
                       {element.user.username}
                     </p>
                 </Col>
-                <Col xs={'2'}>
+                <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                   <p>
                     {moment(element.date).format('L')}
                   </p>
                 </Col>
-                <Col xs={"2"}>
+                <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                     <Dropdown isOpen={dropdownDocOpen} toggle={toggleDoc}>
                         <DropdownToggle caret>
                             Opciones
@@ -368,9 +368,6 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 </Col>
 
               </Row>
-
-                {console.log('selectedFile', selectedFile)}
-                {console.log('name', docName)}
                 {dropdownEditDoc &&
                     <div>
                         <Modal isOpen={dropdownEditDoc} toggle={toggleEditDocModal} >
@@ -451,18 +448,18 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             {notifications && !notificationOpen ? (
             <>
                 <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'} >
-                    <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
+                    <Col xs={'12'} sm={'12'} lg={'6'} xl={'6'}>
                         <p className="list-item-heading mb-1 truncate">
                             {element.title}
                         </p>
                     </Col>
 
-                    <Col xs={'3'} sm={'2'} lg={'2'} xl={'2'}>
+                    <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                         <button className={'btn btn-primary'} style={{fontSize: '12px'}}  onClick={() => openNotification(element)}>
                             Ver detalles
                         </button>
                     </Col>
-                    <Col xs={'3'} sm={'2'} lg={'2'} xl={'2'}>
+                    <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
                         <button className={'btn btn-primary'} style={{fontSize: '12px', backgroundColor: 'red', border: 'none'}} onClick={() => deleteNotification(element)}>
                             Borrar
                         </button>
