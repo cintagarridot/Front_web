@@ -10,7 +10,7 @@ import withAuth from 'components/withAuth';
 import Asignatura from 'components/Asignatura';
 import Header from 'components/Header';
 import Slider from 'components/Slider';
-import {Card, CardBody, Col, Row} from "reactstrap";
+import {Card, CardBody, CardTitle, Col, Row} from "reactstrap";
 import {Link} from "react-router-dom";
 import noticiaImage from "../assets/images/noticias.jpeg";
 import documentoImage from "../assets/images/documentos.jpg";
@@ -125,6 +125,51 @@ class Principal extends Component {
                                         </Col>
                                     </Row>
                                 </>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                </Row>
+
+                <Row className={'mt-5'}>
+                    <Col xs={'12'} md={'12'} sm={'12'} lg={'12'}>
+                        <Card>
+                            <CardTitle tag="h2">Información adicional</CardTitle>
+                            <CardBody>
+                                <Row>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <Link to={'http://www.uhu.es/etsi/secretaria/consultas-secretaria/'} target="_blank">
+                                            Consultas Secretaría
+                                        </Link>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <Link to={'http://www.uhu.es/etsi/informacion-academica/informacion-comun-todos-los-titulos/normativa-2/'} target="_blank">
+                                            Información detallada sobre el TFG/TFM
+                                        </Link>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <Link to={'https://moodle.uhu.es/'} target="_blank">
+                                            Acceso a Moodle
+                                        </Link>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <Link to={'http://www.uhu.es/dti/'} target="_blank">
+                                            Web del Departamento
+                                        </Link>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <Link to={'http://www.uhu.es/etsi/empresas/'} target="_blank">
+                                            Información sobre Empresas
+                                        </Link>
+                                    </Col>
+                                </Row>
                             </CardBody>
                         </Card>
                     </Col>
