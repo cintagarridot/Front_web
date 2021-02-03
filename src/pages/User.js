@@ -6,6 +6,7 @@ import withAuth from 'components/withAuth';
 import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row, UncontrolledAlert} from 'reactstrap';
 import axios from 'axios';
 import authService from "../services/auth-service";
+import photoService from "../services/photo-service";
 
 class User extends Component {
 
@@ -17,9 +18,11 @@ class User extends Component {
         lastName: '',
         photo: null,
         modalNewPassword: false,
+        modalNewPhoto: false,
         newPass: '',
         newPass2: '',
         alert: '',
+        newPhoto: null,
     }
 
     componentDidMount() {
@@ -93,9 +96,21 @@ class User extends Component {
         }
     }
 
+    handleChangeNewPhoto = (event) => {
+        this.setState({
+            newPhoto: event.target.value
+        });
+    }
+
     toggleNewPassword = () => {
         this.setState({
             modalNewPassword: !this.state.modalNewPassword
+        });
+    }
+
+    toggleNewPhoto = () => {
+        this.setState({
+            modalNewPhoto: !this.state.modalNewPhoto
         });
     }
 
@@ -111,6 +126,24 @@ class User extends Component {
             this.setState({
                 alert: 'danger'
             })
+        }
+    }
+
+    changePhoto = () => {
+        if(this.state.newPhoto !== null) {
+            // Create an object of formData
+            const formData = new FormData();
+
+            // Update the formData object
+            formData.append(
+                "image",
+                this.state.newPhoto,
+            );
+            console.log('formDataImage', formData);
+            photoService.changeUserPhoto(formData).then((result) => {
+                this.toggleNewPhoto();
+                window.location.reload();
+            });
         }
     }
 
@@ -223,11 +256,11 @@ class User extends Component {
                 </Row>
 
                 <Row className={'mt-5'} style={{textAlign: 'end'}}>
-                    <Col xs={'2'} md={'2'} lg={'2'} className={'mt-5 mr-3'}>
+                    <Col xs={'12'} md={'3'} lg={'10'} className={'mt-5 mr-3'}>
                         <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar contraseña</button>
                     </Col>
-                    <Col xs={'2'} md={'2'} lg={'2'} className={'mt-5'}>
-                        <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar foto</button>
+                    <Col xs={'12'} md={'2'} lg={'1'} className={'mt-5'}>
+                        <button style={{ fontSize: '12px' }} onClick={this.toggleNewPhoto} >Cambiar foto</button>
                     </Col>
                 </Row>
 
@@ -260,6 +293,28 @@ class User extends Component {
                         </ModalFooter>
                     </Modal>
                 </div>
+                }
+
+                {this.state.modalNewPhoto &&
+                    <>
+                        <Modal isOpen={this.state.modalNewPhoto} toggle={this.toggleNewPhoto} >
+                            <ModalHeader>Actualizar la foto de perfil</ModalHeader>
+                            <ModalBody>
+                                <Row>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <label className={'mt-2'} htmlFor='text'>Elige una nueva foto</label>
+                                    </Col>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <input className={'mt-2 font'} id='text' required='true' type="file" name='newPhoto' onChange={this.handleChangeNewPhoto} />
+                                    </Col>
+                                </Row>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="primary" onClick={this.changePhoto}>Guardar</Button>{' '}
+                                <Button color="secondary" onClick={this.toggleNewPhoto}>Cancelar</Button>
+                            </ModalFooter>
+                        </Modal>
+                    </>
                 }
 
                 <div className="clearfix"></div>
