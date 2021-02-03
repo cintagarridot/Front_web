@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import logo from 'assets/images/logoetsi.png'
+import perfilUser from 'assets/images/perfilUser.png';
 
 import Header from 'components/Header';
 import withAuth from 'components/withAuth';
 import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row, UncontrolledAlert} from 'reactstrap';
 import axios from 'axios';
 import authService from "../services/auth-service";
+import photoService from "../services/photo-service";
 
 class User extends Component {
 
@@ -15,10 +16,13 @@ class User extends Component {
         username: '',
         firstName: '',
         lastName: '',
+        photo: null,
         modalNewPassword: false,
+        modalNewPhoto: false,
         newPass: '',
         newPass2: '',
         alert: '',
+        newPhoto: null,
     }
 
     componentDidMount() {
@@ -27,6 +31,7 @@ class User extends Component {
             username: this.props.user.username,
             firstName: this.props.user.firstName,
             lastName: this.props.user.lastName,
+            photo: this.props.user.photo,
         })
     }
 
@@ -91,9 +96,21 @@ class User extends Component {
         }
     }
 
+    handleChangeNewPhoto = (event) => {
+        this.setState({
+            newPhoto: event.target.files[0]
+        });
+    }
+
     toggleNewPassword = () => {
         this.setState({
             modalNewPassword: !this.state.modalNewPassword
+        });
+    }
+
+    toggleNewPhoto = () => {
+        this.setState({
+            modalNewPhoto: !this.state.modalNewPhoto
         });
     }
 
@@ -112,7 +129,26 @@ class User extends Component {
         }
     }
 
+    changePhoto = () => {
+        if(this.state.newPhoto !== null) {
+            // Create an object of formData
+            const formData = new FormData();
+
+            // Update the formData object
+            formData.append(
+                "file0",
+                this.state.newPhoto,
+            );
+            console.log('formDataImage', formData);
+            photoService.changeUserPhoto(formData).then((result) => {
+                this.toggleNewPhoto();
+                window.location.reload();
+            });
+        }
+    }
+
     render() {
+        const { photo } = this.state;
         return (
 
             <div id="user">
@@ -128,10 +164,16 @@ class User extends Component {
                 <h2 className="subheaderUser">Datos</h2>
 
                 <Row className={'mb-5 pb-5'}>
-                    <Col xs={'3'} style={{ marginRight: '20px' }}>
-                        <img src={logo} class="app-logo" alt="Logotipo" />
+                    <Col xs={'3'} md={'4'} lg={'3'} style={{ marginRight: '20px' }}>
+                        {console.log('photo user', photo)}
+                        {(!photo || photo === {} || photo === undefined || photo === null) ? (
+                            <img src={perfilUser} alt="imagen usuario"/>
+                        ) : (
+                            <img src={photo.secure_url} alt={"imagen usuario"} />
+                        )}
+
                     </Col>
-                    <Col xs={'7'}>
+                    <Col xs={'9'} md={'3'} lg={'7'}>
                         {!this.state.edit ? (
                             <Row style={{textAlign: 'initial'}}>
                                 <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
@@ -216,11 +258,11 @@ class User extends Component {
                 </Row>
 
                 <Row className={'mt-5'} style={{textAlign: 'end'}}>
-                    <Col xs={'2'} md={'2'} lg={'2'} className={'mt-5 mr-3'}>
+                    <Col xs={'12'} md={'3'} lg={'10'} className={'mt-5 mr-3'}>
                         <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar contraseña</button>
                     </Col>
-                    <Col xs={'2'} md={'2'} lg={'2'} className={'mt-5'}>
-                        <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar foto</button>
+                    <Col xs={'12'} md={'2'} lg={'1'} className={'mt-5'}>
+                        <button style={{ fontSize: '12px' }} onClick={this.toggleNewPhoto} >Cambiar foto</button>
                     </Col>
                 </Row>
 
@@ -253,6 +295,28 @@ class User extends Component {
                         </ModalFooter>
                     </Modal>
                 </div>
+                }
+
+                {this.state.modalNewPhoto &&
+                    <>
+                        <Modal isOpen={this.state.modalNewPhoto} toggle={this.toggleNewPhoto} >
+                            <ModalHeader>Actualizar la foto de perfil</ModalHeader>
+                            <ModalBody>
+                                <Row>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <label className={'mt-2'} htmlFor='text'>Elige una nueva foto</label>
+                                    </Col>
+                                    <Col xs={'12'} md={'12'} lg={'12'}>
+                                        <input className={'mt-2 font'} id='text' required='true' type="file" name='newPhoto' onChange={this.handleChangeNewPhoto} />
+                                    </Col>
+                                </Row>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="primary" onClick={this.changePhoto}>Guardar</Button>{' '}
+                                <Button color="secondary" onClick={this.toggleNewPhoto}>Cancelar</Button>
+                            </ModalFooter>
+                        </Modal>
+                    </>
                 }
 
                 <div className="clearfix"></div>
