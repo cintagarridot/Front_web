@@ -98,7 +98,7 @@ class User extends Component {
 
     handleChangeNewPhoto = (event) => {
         this.setState({
-            newPhoto: event.target.value
+            newPhoto: event.target.files[0]
         });
     }
 
@@ -136,7 +136,7 @@ class User extends Component {
 
             // Update the formData object
             formData.append(
-                "image",
+                "file0",
                 this.state.newPhoto,
             );
             console.log('formDataImage', formData);
