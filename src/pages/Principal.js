@@ -133,41 +133,41 @@ class Principal extends Component {
                 <Row className={'mt-5'}>
                     <Col xs={'12'} md={'12'} sm={'12'} lg={'12'}>
                         <Card>
-                            <CardTitle tag="h2">Información adicional</CardTitle>
+                            <CardTitle tag="h2" className={"mt-5"} style={{fontSize: '30px'}}>Información adicional</CardTitle>
                             <CardBody>
-                                <Row>
+                                <Row className={"mt-4"} style={{fontSize: '16px'}}>
                                     <Col xs={'12'} md={'12'} lg={'12'}>
-                                        <Link to={'http://www.uhu.es/etsi/secretaria/consultas-secretaria/'} target="_blank">
+                                        <a href={'http://www.uhu.es/etsi/secretaria/consultas-secretaria/'} target="_blank">
                                             Consultas Secretaría
-                                        </Link>
+                                        </a>
                                     </Col>
                                 </Row>
-                                <Row>
+                                <Row className={"mt-4"} style={{fontSize: '16px'}}>
                                     <Col xs={'12'} md={'12'} lg={'12'}>
-                                        <Link to={'http://www.uhu.es/etsi/informacion-academica/informacion-comun-todos-los-titulos/normativa-2/'} target="_blank">
+                                        <a href={'http://www.uhu.es/etsi/informacion-academica/informacion-comun-todos-los-titulos/normativa-2/'} target="_blank">
                                             Información detallada sobre el TFG/TFM
-                                        </Link>
+                                        </a>
                                     </Col>
                                 </Row>
-                                <Row>
+                                <Row className={"mt-4"} style={{fontSize: '16px'}}>
                                     <Col xs={'12'} md={'12'} lg={'12'}>
-                                        <Link to={'https://moodle.uhu.es/'} target="_blank">
+                                        <a href={'https://moodle.uhu.es/'} target="_blank">
                                             Acceso a Moodle
-                                        </Link>
+                                        </a>
                                     </Col>
                                 </Row>
-                                <Row>
+                                <Row className={"mt-4"} style={{fontSize: '16px'}}>
                                     <Col xs={'12'} md={'12'} lg={'12'}>
-                                        <Link to={'http://www.uhu.es/dti/'} target="_blank">
+                                        <a href={'http://www.uhu.es/dti/'} target="_blank">
                                             Web del Departamento
-                                        </Link>
+                                        </a>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col xs={'12'} md={'12'} lg={'12'}>
-                                        <Link to={'http://www.uhu.es/etsi/empresas/'} target="_blank">
+                                        <a href={'http://www.uhu.es/etsi/empresas/'} target="_blank">
                                             Información sobre Empresas
-                                        </Link>
+                                        </a>
                                     </Col>
                                 </Row>
                             </CardBody>
