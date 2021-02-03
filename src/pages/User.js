@@ -131,14 +131,14 @@ class User extends Component {
                 <h2 className="subheaderUser">Datos</h2>
 
                 <Row className={'mb-5 pb-5'}>
-                    <Col xs={'4'} md={'4'} lg={'4'} style={{ marginRight: '20px' }}>
+                    <Col xs={'3'} md={'4'} lg={'3'} style={{ marginRight: '20px' }}>
                         {console.log('photo user', photo)}
                         {(!photo || photo === {} || photo === undefined || photo === null) &&
                             <img src={perfilUser} alt="imagen usuario"/>
                         }
 
                     </Col>
-                    <Col xs={'8'} md={'8'} lg={'8'}>
+                    <Col xs={'9'} md={'3'} lg={'7'}>
                         {!this.state.edit ? (
                             <Row style={{textAlign: 'initial'}}>
                                 <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'pb-3'}>
