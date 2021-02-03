@@ -132,7 +132,7 @@ class User extends Component {
 
                 <Row className={'mb-5 pb-5'}>
                     <Col xs={'4'} md={'4'} lg={'4'} style={{ marginRight: '20px' }}>
-                        {!photo &&
+                        {(!photo || photo === {}) &&
                             <img src={perfilUser} alt="imagen usuario"/>
                         }
 
