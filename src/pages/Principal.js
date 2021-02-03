@@ -135,7 +135,7 @@ class Principal extends Component {
                         <Card>
                             <CardTitle tag="h2" className={"mt-5"} style={{fontSize: '30px'}}>Información adicional</CardTitle>
                             <CardBody>
-                                <Row className={"mt-4"} style={{fontSize: '16px'}}>
+                                <Row className={"mt-3"} style={{fontSize: '16px'}}>
                                     <Col xs={'12'} md={'12'} lg={'12'}>
                                         <a href={'http://www.uhu.es/etsi/secretaria/consultas-secretaria/'} target="_blank">
                                             Consultas Secretaría
@@ -163,7 +163,7 @@ class Principal extends Component {
                                         </a>
                                     </Col>
                                 </Row>
-                                <Row>
+                                <Row className={"mt-4 mb-4"} style={{fontSize: '16px'}}>
                                     <Col xs={'12'} md={'12'} lg={'12'}>
                                         <a href={'http://www.uhu.es/etsi/empresas/'} target="_blank">
                                             Información sobre Empresas
