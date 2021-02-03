@@ -15,7 +15,7 @@ class User extends Component {
         username: '',
         firstName: '',
         lastName: '',
-        photo: {},
+        photo: null,
         modalNewPassword: false,
         newPass: '',
         newPass2: '',
