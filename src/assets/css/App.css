@@ -72,7 +72,7 @@ body{
 }
 
 #logo {
-  width: 30%; /*Para que la caja del logo tenga un tamaño del 30%*/
+  width: 20%; /*Para que la caja del logo tenga un tamaño del 30%*/
   font-size: 20px;
   float: left; /*Para que nos mueva el elemento a un lado*/
   margin-top: 25px; /*Margen para el texto del logo*/
@@ -1107,6 +1107,12 @@ margin-right: 100px;
   }
 
 
+}
+
+@media (max-width: 930px) {
+  .slider-data{
+    margin-top: 200px;
+  }
 }
 
 .link-to-pages{
