@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Front_web/static/css/main.9fe16e94.chunk.css",
+    "main.css": "/Front_web/static/css/main.7c380476.chunk.css",
     "main.js": "/Front_web/static/js/main.71a743e9.chunk.js",
     "main.js.map": "/Front_web/static/js/main.71a743e9.chunk.js.map",
     "runtime~main.js": "/Front_web/static/js/runtime~main.d25a4f45.js",
@@ -15,10 +15,10 @@
     "static/js/5.6d9fb266.chunk.js": "/Front_web/static/js/5.6d9fb266.chunk.js",
     "static/js/5.6d9fb266.chunk.js.map": "/Front_web/static/js/5.6d9fb266.chunk.js.map",
     "index.html": "/Front_web/index.html",
-    "precache-manifest.dd9e009a7a8d42bd743c042a3b146162.js": "/Front_web/precache-manifest.dd9e009a7a8d42bd743c042a3b146162.js",
+    "precache-manifest.e656b2f9c5c87a2cfffa5b12fb92801e.js": "/Front_web/precache-manifest.e656b2f9c5c87a2cfffa5b12fb92801e.js",
     "service-worker.js": "/Front_web/service-worker.js",
     "static/css/2.44e6c743.chunk.css.map": "/Front_web/static/css/2.44e6c743.chunk.css.map",
-    "static/css/main.9fe16e94.chunk.css.map": "/Front_web/static/css/main.9fe16e94.chunk.css.map",
+    "static/css/main.7c380476.chunk.css.map": "/Front_web/static/css/main.7c380476.chunk.css.map",
     "static/media/UHU.png": "/Front_web/static/media/UHU.f8f44493.png",
     "static/media/asignaturas.png": "/Front_web/static/media/asignaturas.50d633d2.png",
     "static/media/documentos.jpg": "/Front_web/static/media/documentos.abb7ec58.jpg",
