@@ -40,6 +40,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [teachers, setTeachers] = useState([]);
   const [teachersSelected, setTeachersSelected] = useState([]);
   const [showRedText, setShowRedText] = useState(false);
+  const [sharedDocument, setSharedDocument] = useState(false);
 
   console.log('EEELEMENT', element)
 
@@ -123,6 +124,10 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
     const toggleShareDocModal = (document) => {
         setDropdownShareDoc(!dropdownShareDoc);
         setShareDoc(document);
+    }
+
+    const toggleShareDocModalAndClose = () => {
+        setDropdownShareDoc(!dropdownShareDoc);
     }
 
     const handleChangeEditDocName = (event) => {
@@ -214,12 +219,15 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
         if (teachersSelected.length > 0) {
             return await documentService.shareDocument(element._id, teachersSelected).then((result) => {
                 console.log('result shared document', result);
+                setSharedDocument(true);
+                toggleShareDocModalAndClose();
             })
 
         } else {
             setShowRedText(true);
+            toggleShareDocModalAndClose();
         }
-        toggleShareDocModal();
+
     }
 
   return (
@@ -229,6 +237,11 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
         <UncontrolledAlert color={'danger'} className={'font'}>
             Es necesario que se elija un PDF para editarlo.
         </UncontrolledAlert>
+        }
+        {sharedDocument &&
+            <UncontrolledAlert color={'success'} className={'font'}>
+                El documento se ha compartido correctamente.
+            </UncontrolledAlert>
         }
       {/*<ContextMenuTrigger id="menu_id" data={element.id}>*/}
       <Row className={'mt-5'}>
