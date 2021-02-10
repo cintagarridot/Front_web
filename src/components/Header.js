@@ -5,6 +5,7 @@ import logo from 'assets/images/logo.svg';
 import withAuth from './withAuth';
 import {Badge, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, NavItem} from "reactstrap";
 import notificationService from "../services/notification-service";
+import UHU from "../assets/images/UHU.png";
 
 class Header extends Component{
 
@@ -47,7 +48,8 @@ class Header extends Component{
                        {/*} <img src={logo} className="app-logo" alt="Logotipo" />*/}
                         <span id="brand"> {/*<!-- span es una etiqueta generica y brand es como la marca del sitio -->*/}
                             <strong>UHU</strong>Web
-                     </span>
+                        </span>
+                        <img src={UHU} alt={'logo uhu2'}/>
                     </div>
 
 
