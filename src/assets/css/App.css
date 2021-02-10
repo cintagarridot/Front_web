@@ -78,16 +78,12 @@ body{
   margin-top: 25px; /*Margen para el texto del logo*/
 }
 
-#imgLogo {
-  width: 100px;
-  height: 30px;
-  margin-left: 100px;
-}
-
 #logo img{
   display: block;
   float: left;
-  height: 50px;
+  width: 100px;
+  height: 30px;
+  margin-left: 100px;
   margin-top: -10px; /*Margen para la imagen del logo*/
   margin-right: -2px; /*Margen de la derecha d la imagen*/
   animation: nombre-animacion infinite 30s linear; /*linear significa que siempre va a tener la misma velocidad*/

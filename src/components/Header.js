@@ -49,9 +49,6 @@ class Header extends Component{
                         <span id="brand"> {/*<!-- span es una etiqueta generica y brand es como la marca del sitio -->*/}
                             <strong>UHU</strong>Web
                         </span>
-                    </div>
-
-                    <div id="imgLogo">
                         <img src={UHU} alt={'logo uhu2'}/>
                     </div>
 
