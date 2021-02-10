@@ -78,6 +78,12 @@ body{
   margin-top: 25px; /*Margen para el texto del logo*/
 }
 
+#imgLogo {
+  width: 100px;
+  height: 30px;
+  margin-left: 100px;
+}
+
 #logo img{
   display: block;
   float: left;

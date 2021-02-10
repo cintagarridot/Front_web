@@ -49,9 +49,11 @@ class Header extends Component{
                         <span id="brand"> {/*<!-- span es una etiqueta generica y brand es como la marca del sitio -->*/}
                             <strong>UHU</strong>Web
                         </span>
-                        <img src={UHU} alt={'logo uhu2'}/>
                     </div>
 
+                    <div id="imgLogo">
+                        <img src={UHU} alt={'logo uhu2'}/>
+                    </div>
 
                     {/*-- MENU DE NAVEGACIÓN -->*/}
                     <nav id="menu"> {/*<!-- La etiqueta nav representa la parte de los links que llevan a otras paginas--> */}
