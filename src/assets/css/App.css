@@ -1215,6 +1215,10 @@ margin-right: 100px;
 
 }
 
+.auth-card input[text]{
+  width: 80%;
+}
+
 .logos img{
   width: 200px;
   height: 60px;
@@ -1230,7 +1234,7 @@ margin-right: 100px;
 }
 
 .auth-card-signup input[text]{
-  width: 200px;
+  width: 80%;
 }
 
 .card-add-subject{
