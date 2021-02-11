@@ -1076,6 +1076,20 @@ margin-right: 100px;
   }
 }
 
+@media (max-width: 450px){
+  .auth-card-signup{
+    width: 100%;
+  }
+
+  .auth-card-signup input[text] {
+    width: 73%;
+  }
+
+  .auth-card{
+    width: 100%;
+  }
+}
+
 
 @media (max-width: 658px){
 

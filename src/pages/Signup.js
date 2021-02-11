@@ -86,15 +86,15 @@ class Signup extends Component {
       <>
         {
           this.state.alert === 'danger' &&
-          <UncontrolledAlert color={'danger'} className={'font'}>
+          <Alert color={'danger'}  className={'font'}>
             No se ha podido registrar. Ya existe un usuario con ese username.
-          </UncontrolledAlert>
+          </Alert>
         }
         {
           this.state.alertNotVerified &&
-          <UncontrolledAlert color={'danger'} className={'font'}>
+          <Alert color={'danger'} className={'font'}>
             No se ha podido registrar. Compruebe que todos los campos están marcados y completos.
-          </UncontrolledAlert>
+          </Alert>
         }
         <Row className={'justify-content-center'}>
           <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'logos'}>
