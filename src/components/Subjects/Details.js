@@ -169,6 +169,13 @@ class SubjectDetails extends Component {
                                     </Card>
                                 </Col>
                             </Row>
+                            <Row>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'}>
+                                    <a href="javascript:history.back()">
+                                        Volver
+                                    </a>
+                                </Col>
+                            </Row>
                         </div>
 
                     }

@@ -9,6 +9,7 @@ class ComplaintToATeacher extends Component {
         nombreAlumno: '',
         dniAlumno: '',
         nombreProfesor: '',
+        complaint: '',
         document: {},
         modal: false,
         docName: '',
@@ -16,13 +17,15 @@ class ComplaintToATeacher extends Component {
 
     handleForPDF = (event) => {
         event.preventDefault();
-        const { nombreAlumno, dniAlumno, nombreProfesor } = this.state;
+        const { nombreAlumno, dniAlumno, nombreProfesor, complaint } = this.state;
 
-        const title = 'QUEJA A UN PROFESOR';
+        const title = 'SUGERENCIAS A UN PROFESOR';
 
-        if(nombreAlumno !== '' && dniAlumno !== '' && nombreProfesor !== ''){
+        if(nombreAlumno !== '' && dniAlumno !== '' && nombreProfesor !== '' && complaint !== ''){
 
-            const primerParrafo = `D./Dª ${nombreAlumno}, con DNI nº ${dniAlumno}, que cursa el Grado en Ingeniería Informática, añade una queja al Profesor ${nombreProfesor}.`;
+            const primerParrafo = `D./Dª ${nombreAlumno}, con DNI nº ${dniAlumno}, que cursa el Grado en Ingeniería Informática, desea añadir una sugerencia al Profesor ${nombreProfesor}.`;
+            const motivoSugerencia = `El motivo de la sugerencia es: ${complaint}`
+
 
             this.setState({
                 disabledButton: false,
@@ -30,7 +33,7 @@ class ComplaintToATeacher extends Component {
             var doc = new jsPDF('p','in', 'letter', true),
                 size = 12,
                 font = ['Times', 'Roman'],
-                font, size, firstLine, secondLine, thirdLine,
+                font, size, firstLine, secondLine, thirdLine, fourthLine,
                 margin = 0.5, // inches on a 8.5 x 11 inch sheet.
                 verticalOffset = margin;
 
@@ -45,6 +48,9 @@ class ComplaintToATeacher extends Component {
                 .setFontSize(size)
                 .splitTextToSize(primerParrafo, 7.5);
 
+            fourthLine = doc.setFont(font[0], font[1])
+                .setFontSize(size)
+                .splitTextToSize(motivoSugerencia, 7.5)
 
             doc.text(3.2, verticalOffset + 18 / 72, firstLine)
             verticalOffset += (firstLine.length + 0.7) * 30 / 72
@@ -52,8 +58,11 @@ class ComplaintToATeacher extends Component {
             doc.text(0.5, verticalOffset + 18 / 72, thirdLine)
             verticalOffset += (firstLine.length + 0.8) * 30 / 72
 
+            doc.text(0.5, verticalOffset + 18 / 72, fourthLine)
+            verticalOffset += (firstLine.length + 0.8) * 30 / 72
 
-            doc.save("quejaProfesor.pdf");
+
+            doc.save("sugerenciaProfesor.pdf");
             this.setState({
                 document: doc
             });
@@ -72,7 +81,7 @@ class ComplaintToATeacher extends Component {
 
     render () {
 
-        const { nombreAlumno, dniAlumno, nombreProfesor } = this.state;
+        const { nombreAlumno, dniAlumno, nombreProfesor, complaint } = this.state;
 
 
         return (
@@ -80,7 +89,7 @@ class ComplaintToATeacher extends Component {
                 <Header/>
                 <section id="content" >
                     <div className="pt-5 mt-5">
-                        <h2 className="subheaderdos">Queja a un Profesor</h2>
+                        <h2 className="subheaderdos">Sugerencias a un Profesor</h2>
                     </div>
 
                     <div style={{textAlign: 'initial'}}>
@@ -122,7 +131,21 @@ class ComplaintToATeacher extends Component {
                         </Row>
 
                         <Row>
-                            <Col style={{textAlign: 'end'}}>
+                            <Col xs={'4'} md={'2'} sm={'2'} lg={'2'} style={{textAlign: 'initial', marginTop: '9px'}}>
+                                <label className={'mt-2'} htmlFor='text'>Motivo</label>
+                            </Col>
+                            <Col xs={'10'} md={'8'} sm={'8'} lg={'8'}>
+                                <textarea className={'mt-2 font'} id='text' required='true' type='text' name='complaint' value={complaint} onChange={this.handleChange} />
+                            </Col>
+                        </Row>
+
+                        <Row style={{textAlign: 'end'}}>
+                            <Col xs={'12'} sm={'6'} md={'6'} lg={'6'}>
+                                <a href="javascript:history.back()">
+                                    Volver
+                                </a>
+                            </Col>
+                            <Col xs={'12'} sm={'6'} md={'6'} lg={'6'}>
                                 <input className={'mt-4'} type='submit' value='Generar PDF' />
                             </Col>
                         </Row>

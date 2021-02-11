@@ -209,8 +209,13 @@ class AskForACourt extends Component {
                             </Col>
                         </Row>
 
-                        <Row>
-                            <Col style={{textAlign: 'end'}}>
+                        <Row style={{textAlign: 'end'}}>
+                            <Col xs={'12'} sm={'6'} md={'6'} lg={'6'}>
+                                <a href="javascript:history.back()">
+                                    Volver
+                                </a>
+                            </Col>
+                            <Col xs={'12'} sm={'6'} md={'6'} lg={'6'}>
                                 <input className={'mt-4'} type='submit' value='Generar PDF' />
                             </Col>
                         </Row>
