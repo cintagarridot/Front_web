@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import withAuth from '../components/withAuth';
-import {Card, Col, Row, UncontrolledAlert} from 'reactstrap';
+import {Alert, Card, Col, Row, UncontrolledAlert} from 'reactstrap';
 import uhuLogo from 'assets/images/uhu.jpg';
 import UHU from 'assets/images/UHU.png';
 class Login extends Component {
@@ -32,20 +32,21 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
+  handleChangeDangerAlert = () => {
+    this.setState({
+      dangerAlert: false,
+    })
+  }
+
   render() {
     const { username, password } = this.state;
     return (
       <>
         {
           this.state.dangerAlert &&
-              <>
-                <UncontrolledAlert color="danger" className={'font'}>
-                  Usuario o contraseña incorrecta
-                </UncontrolledAlert>
-                {this.setState({
-                  dangerAlert: false,
-                })}
-              </>
+            <Alert severity="error" onClose={this.handleChangeDangerAlert}>
+              Usuario o contraseña erróneos
+            </Alert>
         }
         <Row className={'justify-content-center'}>
           <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'logos'}>
