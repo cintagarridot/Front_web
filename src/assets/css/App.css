@@ -1076,7 +1076,7 @@ margin-right: 100px;
   }
 }
 
-@media (max-width: 450px){
+@media (max-width: 550px){
   .auth-card-signup{
     width: 100%;
   }
@@ -1087,6 +1087,10 @@ margin-right: 100px;
 
   .auth-card{
     width: 100%;
+  }
+
+  .captcha{
+    width: 70%;
   }
 }
 

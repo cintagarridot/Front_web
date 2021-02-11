@@ -137,7 +137,7 @@ class Signup extends Component {
               </Col>
             </Row>
 
-            <Row className={'ml-5 mt-5'}>
+            <Row className={'ml-5 mt-5 captcha'}>
               <Col xs={'12'}>
                 <Recaptcha
                     sitekey="6Ldq6zsaAAAAAHbR1voqgk-EcissMmSyv3bfmoKZ"
