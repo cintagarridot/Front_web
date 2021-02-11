@@ -44,7 +44,7 @@ class Login extends Component {
       <>
         {
           this.state.dangerAlert &&
-            <Alert severity="error" onClose={this.handleChangeDangerAlert}>
+            <Alert color={'danger'} onClose={this.handleChangeDangerAlert}>
               Usuario o contraseña erróneos
             </Alert>
         }
