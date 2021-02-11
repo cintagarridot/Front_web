@@ -109,13 +109,13 @@ class AddDocument extends Component {
               </Col>
             </Row>
 
-            <Row style={{textAlign: 'end'}}>
-                <Col xs={'12'} sm={'6'} md={'6'} lg={'6'}>
+            <Row style={{textAlign: 'end', alignItems: 'center'}}>
+                <Col xs={'12'} sm={'11'} md={'11'} lg={'11'} className="buttonBack">
                     <a href="javascript:history.back()">
                         Volver
                     </a>
                 </Col>
-                <Col xs={'12'} sm={'6'} md={'6'} lg={'6'}>
+                <Col xs={'12'} sm={'1'} md={'1'} lg={'1'}>
                     <input className={'mt-4'} type='submit' value='Generar PDF' />
                 </Col>
             </Row>

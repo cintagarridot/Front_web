@@ -138,38 +138,42 @@ class DocumentsList extends Component {
                                     Rellenar solicitudes
                                 </DropdownToggle>
                                 <DropdownMenu>
-                                    <DropdownItem>
-                                        <Link to={'/generate-subject-guide-request'}>Petición de guía de una asignatura</Link>
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        <Link to={'/generate-anexo-II'}>Crear Anexo II</Link>
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    {user.type === 'teacher' &&
+                                    {user.type === 'alumn' &&
+                                        <>
+                                            <DropdownItem>
+                                                <Link to={'/generate-subject-guide-request'}>Petición de guía de una asignatura</Link>
+                                            </DropdownItem>
+                                            <DropdownItem divider />
+                                            <DropdownItem>
+                                                <Link to={'/generate-anexo-II'}>Crear Anexo II</Link>
+                                            </DropdownItem>
+                                            <DropdownItem divider />
+                                            <DropdownItem>
+                                                <Link to={'/generate-correction'}>Solicitar una corrección</Link>
+                                            </DropdownItem>
+                                            <DropdownItem divider />
+                                            <DropdownItem>
+                                                <Link to={'/complaint-a-teacher'}>Añadir una sugerencia a un profesor</Link>
+                                            </DropdownItem>
+                                            <DropdownItem divider />
+                                        </>
+                                    }
+                                    {user.type !== 'admin' &&
                                         <>
                                             <DropdownItem>
                                                 <Link to={'/generate-anexo-V'}>Crear Anexo V</Link>
                                             </DropdownItem>
                                             <DropdownItem divider />
+                                            <DropdownItem>
+                                                <Link to={'/court'}>Solicitar un tribunal</Link>
+                                            </DropdownItem>
+                                            <DropdownItem divider />
+                                            <DropdownItem>
+                                                <Link to={'/appointment-director'}>Solicitar una cita con el Director</Link>
+                                            </DropdownItem>
+                                            <DropdownItem divider />
                                         </>
                                     }
-                                    <DropdownItem>
-                                        <Link to={'/court'}>Solicitar un tribunal</Link>
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        <Link to={'/generate-correction'}>Solicitar una corrección</Link>
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        <Link to={'/appointment-director'}>Solicitar una cita con el Director</Link>
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        <Link to={'/complaint-a-teacher'}>Poner una queja a un profesor</Link>
-                                    </DropdownItem>
-                                    <DropdownItem divider />
                                     <DropdownItem>
                                         <Link to={'/generate-pdf'}>Generar documento libre</Link>
                                     </DropdownItem>
