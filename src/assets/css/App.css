@@ -1092,6 +1092,10 @@ margin-right: 100px;
   .captcha{
     width: 70%;
   }
+
+  .center{ /*para que cuando pongamos la pagina mas chica no se deforme*/
+    width:100%;
+  }
 }
 
 
