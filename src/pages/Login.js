@@ -36,12 +36,16 @@ class Login extends Component {
     const { username, password } = this.state;
     return (
       <>
-
         {
           this.state.dangerAlert &&
-          <UncontrolledAlert color="danger" className={'font'}>
-            Usuario o contraseña incorrecta
-          </UncontrolledAlert>
+              <>
+                <UncontrolledAlert color="danger" className={'font'}>
+                  Usuario o contraseña incorrecta
+                </UncontrolledAlert>
+                {this.setState({
+                  dangerAlert: false,
+                })}
+              </>
         }
         <Row className={'justify-content-center'}>
           <Col xs={'12'} md={'12'} sm={'12'} lg={'12'} className={'logos'}>

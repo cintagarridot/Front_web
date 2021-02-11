@@ -169,8 +169,8 @@ class SubjectDetails extends Component {
                                     </Card>
                                 </Col>
                             </Row>
-                            <Row>
-                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'}>
+                            <Row style={{textAlign: 'end', alignItems: 'center', marginTop: '20px'}}>
+                                <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} className="buttonBack">
                                     <a href="javascript:history.back()">
                                         Volver
                                     </a>
