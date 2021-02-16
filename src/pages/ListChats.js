@@ -88,10 +88,11 @@ const ListChats = (props) => {
       <Header />
       {!showList ? (
         <>
+        <h1 className="subheaderdos">Chats</h1>
         {console.log(props.user)}
           { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 ? (
             <div className="subheaderSpace">
-              <h2>Chats recientes</h2>
+              <h3>Chats recientes</h3>
               <ListGroup  style={{ fontSize: '25px' }}>
                 { userChats.map(chat => {
                   console.log('chat')
@@ -106,12 +107,12 @@ const ListChats = (props) => {
       
               </ListGroup>
               <button onClick={showUsersList} style={{float: 'right'}}>
-                  Crea uno
+                  Crea uno nuevo
               </button>
             </div>
           ) : (
               <>
-                <h1 className="subheaderSpace">No tienes ningún chat</h1>
+                <h3 className="subheaderSpace">No tienes ningún chat</h3>
                 <button onClick={showUsersList}>
                   Crea uno
               </button>
