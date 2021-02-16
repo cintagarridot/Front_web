@@ -86,7 +86,7 @@ const ListChats = (props) => {
   return (
     <div>
       <Header />
-      <h1 className="subheaderdos">Chats</h1>
+      <h1 className="subheaderUser">Chats</h1>
       {!showList ? (
         <>
         {console.log(props.user)}
@@ -106,17 +106,17 @@ const ListChats = (props) => {
                 }
       
               </ListGroup>
-              <button onClick={showUsersList} style={{float: 'right'}}>
+              <button onClick={showUsersList} style={{float: 'right', marginTop: '10px'}}>
                   Crea uno nuevo
               </button>
             </div>
           ) : (
-              <>
-                <h3 className="subheaderSpace">No tienes ningún chat</h3>
+              <div className="noChatsSpace">
+                <h3>No tienes ningún chat</h3>
                 <button onClick={showUsersList}>
                   Crea uno
               </button>
-              </>
+              </div>
             )
           }
         </>
