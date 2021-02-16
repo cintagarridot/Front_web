@@ -86,9 +86,9 @@ const ListChats = (props) => {
   return (
     <div>
       <Header />
+      <h1 className="subheaderdos">Chats</h1>
       {!showList ? (
         <>
-        <h1 className="subheaderdos">Chats</h1>
         {console.log(props.user)}
           { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 ? (
             <div className="subheaderSpace">
