@@ -37,6 +37,9 @@ box-sizing: border-box;
 const Chat = ({user, ...props}) => {
     const [socket] = useState(io(URL, {
         withCredentials: true,
+        extraHeaders: {
+            "Access-Control-Allow-Headers": "Content-Type, Authorization"
+        }
     }))
     const inputRef = useRef();
     const [messages, setMessages] = useState([]);
