@@ -35,7 +35,9 @@ box-sizing: border-box;
 `
 
 const Chat = ({user, ...props}) => {
-    const [socket] = useState(io(URL))
+    const [socket] = useState(io(URL, {
+        withCredentials: true,
+    }))
     const inputRef = useRef();
     const [messages, setMessages] = useState([]);
     const [form, setForm] = useState({ message: ''})
