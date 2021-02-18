@@ -67,7 +67,8 @@ const Chat = ({user, ...props}) => {
             console.log(chatFromApi)
             const data = chatFromApi.messages;
 
-            socket.on("message_receive", data  => {
+            console.log('socket lin70', socket);
+            socket.on("message_receive", (data)  => {
                 console.log('data')
                 console.log(data)
                 setMessages(old => [...old, data])
