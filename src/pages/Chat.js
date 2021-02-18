@@ -47,7 +47,7 @@ const Chat = ({user, ...props}) => {
         transportOptions: {
             polling: {
                 extraHeaders: {
-                    "Access-Control-Allow-Headers": "Content-Type, Authorization"
+                    "Access-Control-Allow-Headers": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
                 }
             }
         }
