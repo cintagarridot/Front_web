@@ -67,11 +67,15 @@ const Chat = ({user, ...props}) => {
             console.log(chatFromApi)
             const data = chatFromApi.messages;
 
-            console.log('socket lin70', socket);
-            socket.emit('connection', () => {
+            socket.emit("connection", () => {
+                console.log('emitido socket')
+                console.log('socket dentro del emit', socket);
 
             });
-            
+
+            console.log('socket lin76', socket);
+
+
             socket.on("message_receive", (data)  => {
                 console.log('data')
                 console.log(data)
