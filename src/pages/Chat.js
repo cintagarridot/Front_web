@@ -42,15 +42,15 @@ const Chat = ({user, ...props}) => {
     //     }
     // }))
 
-    const socket = useState(io(URL, {
+    const [socket] = useState(io(URL, {
         withCredentials: true,
-        transportOptions: {
-            polling: {
-                extraHeaders: {
-                    "Access-Control-Allow-Headers": "Bearer test, Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
-                }
-            }
-        }
+        // transportOptions: {
+        //     polling: {
+        //         extraHeaders: {
+        //             "Access-Control-Allow-Headers": "Bearer test, Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+        //         }
+        //     }
+        // }
     }));
 
     const inputRef = useRef();
