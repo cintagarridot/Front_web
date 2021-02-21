@@ -69,11 +69,11 @@ const Chat = ({user, ...props}) => {
             console.log(chatFromApi)
             const data = chatFromApi.messages;
 
-            socket.on('connection', onConnect);
+            socket.on("connect", () => {
+                console.log('socket connect front', socket.id); 
+            });
 
-            function onConnect(){
-              console.log('connect front ' + socket.id);
-            };
+           
 
             socket.on("message_receive", (data)  => {
                 console.log('data')
