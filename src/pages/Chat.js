@@ -70,12 +70,12 @@ const Chat = ({user, ...props}) => {
             const data = chatFromApi.messages;
 
             // socket.on("connect", () => {
-            socket.connect();
+            socket.io.connect();
             console.log('socket connect front', socket.id); 
             // });
 
 
-            socket.on("message_receive", (data)  => {
+            socket.io.on("message_receive", (data)  => {
                 console.log('data')
                 console.log(data)
                 setMessages(old => [...old, data])
