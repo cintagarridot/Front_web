@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React, { useEffect, useState, useRef } from 'react';
-import { io } from 'socket.io-client';
+import io from 'socket.io-client';
 import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
@@ -69,10 +69,10 @@ const Chat = ({user, ...props}) => {
             console.log(chatFromApi)
             const data = chatFromApi.messages;
 
-            socket.on("connect", () => {
-                socket.connect();
-                console.log('socket connect front', socket.id); 
-            });
+            // socket.on("connect", () => {
+            socket.connect();
+            console.log('socket connect front', socket.id); 
+            // });
 
 
             socket.on("message_receive", (data)  => {
