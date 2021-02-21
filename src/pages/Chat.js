@@ -47,7 +47,7 @@ const Chat = ({user, ...props}) => {
         transportOptions: {
             polling: {
                 extraHeaders: {
-                    "Access-Control-Allow-Headers": "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+                    "Access-Control-Allow-Headers": "Bearer test, Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
                 }
             }
         }
@@ -67,14 +67,11 @@ const Chat = ({user, ...props}) => {
             console.log(chatFromApi)
             const data = chatFromApi.messages;
 
-            socket.emit("connection", () => {
-                console.log('emitido socket')
-                console.log('socket dentro del emit', socket);
+            socket.on('connect', onConnect);
 
-            });
-
-            console.log('socket lin76', socket);
-
+            function onConnect(){
+              console.log('connect front ' + socket.id);
+            };
 
             socket.on("message_receive", (data)  => {
                 console.log('data')
