@@ -70,7 +70,7 @@ const Chat = ({user, ...props}) => {
             console.log(chatFromApi)
             const data = chatFromApi.messages;
 
-            socket.on('connect', onConnect);
+            socket.on('connection', onConnect);
 
             function onConnect(){
               console.log('connect front ' + socket.id);
