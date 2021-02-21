@@ -42,8 +42,9 @@ const Chat = ({user, ...props}) => {
     //     }
     // }))
 
-    const [socket] = useState(io(URL, {
-        withCredentials: true,
+    const [socket] = useState(io(URL
+        // , {
+        // withCredentials: true,
         // transportOptions: {
         //     polling: {
         //         extraHeaders: {
@@ -51,7 +52,9 @@ const Chat = ({user, ...props}) => {
         //         }
         //     }
         // }
-    }));
+    /*}*/));
+
+    console.log('socket after useState', socket);
 
     const inputRef = useRef();
     const [messages, setMessages] = useState([]);
