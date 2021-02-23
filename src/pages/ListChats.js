@@ -104,7 +104,10 @@ const ListChats = (props) => {
           otherUser: data.firstName + ' ' + data.lastName,
         }
         console.log('obj', obj);
-        otherUsersList.push(obj);
+        const found = otherUsersList.find((u) => u.otherUser === obj.otherUser);
+        if(!found) {
+          otherUsersList.push(obj);
+        }
       });
     });
 
