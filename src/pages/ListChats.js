@@ -18,10 +18,7 @@ const ListChats = (props) => {
   const [otherUser, setOtherUser] = useState();
   const [chat, setChat] = useState();
 
-  const [otherUsers, setOtherUsers] = useState([{
-    idChat: '',
-    otherUser: '',
-  }]);
+  const [otherUsers, setOtherUsers] = useState([]);
 
   useEffect(() => {
     let otherUsersList = [];
@@ -98,7 +95,8 @@ const ListChats = (props) => {
 
     chatsNews.forEach(async (chat) => {
       console.log('chat', chat);
-      const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
+      const otherUserFilteredId = chat.users && chat.users.find((e) => e._id !== props.user._id)
+      console.log('otherUserFilteredId', otherUserFilteredId);
       await chatService.getOtherUser(otherUserFilteredId).then((data) => {
         console.log('data other user', data);
         const obj = {
