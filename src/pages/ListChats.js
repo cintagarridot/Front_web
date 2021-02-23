@@ -16,6 +16,7 @@ const ListChats = (props) => {
   const [idChat, setIdChat] = useState('');
   const [userChats, setUserChats] = useState([]);
   const [otherUser, setOtherUser] = useState();
+  const [chatOtherUserId, setChatOtherUserId] = useState();
 
   useEffect(() => {
     console.log('props');
@@ -71,13 +72,14 @@ const ListChats = (props) => {
   }
 
 
-  const getOtherUserAction = (id) => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
+  const getOtherUserAction = useMemo(() => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
     
-      chatService.getOtherUser(id).then((data) => {
-        setOtherUser(data.username)
-      })
+      chatService.getOtherUser(chatOtherUserId).then((data) => {
+        console.log('data other user', data);
+        setOtherUser(data.firstName + ' ' + data.lastName);
+      });
 
-  }
+  }, [props.user.chats]);
 
   const goBack = () => {
       setShowList(false);
@@ -98,9 +100,10 @@ const ListChats = (props) => {
                   console.log('chat')
                   console.log(chat)
                         const otherUserFilteredId = chat.users.filter((e) => e._id !== props.user._id)
-                    
+                        setChatOtherUserId(otherUserFilteredId);
+                        {getOtherUserAction}
                         return <Link to={`/chat/${chat._id}`}>
-                          <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{otherUserFilteredId}</ListGroupItem>
+                          <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{otherUser}</ListGroupItem>
                         </Link>
                       })
                 }
