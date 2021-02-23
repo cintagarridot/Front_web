@@ -69,11 +69,16 @@ const ListChats = (props) => {
     const user = props.user;
     let otherUsersList = [];
 
+    console.log('entra en getUserChatsAction');
+
     await userService.getUserChats(user._id).then(chats => {
       setUserChats(chats);
     });
 
+    console.log('userChats', userChats);
+
     userChats.map(async (chat) => {
+      console.log('chat', chat);
       const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
       await chatService.getOtherUser(otherUserFilteredId).then((data) => {
         console.log('data other user', data);
@@ -90,18 +95,18 @@ const ListChats = (props) => {
   }
 
 
-  const getOtherUserAction = useMemo(() => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
+  // const getOtherUserAction = useMemo(() => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
     
-    console.log('chat', chat);
-    const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
+  //   console.log('chat', chat);
+  //   const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
 
-    console.log('otherUserFilteredId', otherUserFilteredId);
-      chatService.getOtherUser(otherUserFilteredId).then((data) => {
-        console.log('data other user', data);
-        setOtherUser(data.firstName + ' ' + data.lastName);
-      });
+  //   console.log('otherUserFilteredId', otherUserFilteredId);
+  //     chatService.getOtherUser(otherUserFilteredId).then((data) => {
+  //       console.log('data other user', data);
+  //       setOtherUser(data.firstName + ' ' + data.lastName);
+  //     });
 
-  }, [props.user.chats]);
+  // }, [props.user.chats]);
 
   const goBack = () => {
       setShowList(false);
