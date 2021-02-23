@@ -18,11 +18,15 @@ const ListChats = (props) => {
   const [otherUser, setOtherUser] = useState();
   const [chat, setChat] = useState();
 
+  const [otherUsers, setOtherUsers] = useState({
+    idChat: '',
+    otherUser: '',
+  });
+
   useEffect(() => {
     console.log('props');
     console.log(props)
     getUserChatsAction();
-   
   }, []);
 
   const createNewChat = (otherId) => {
@@ -63,19 +67,33 @@ const ListChats = (props) => {
 
   const getUserChatsAction = async () => {
     const user = props.user;
+    let otherUsersList = [];
 
-    userService.getUserChats(user._id).then(chats => {
+    await userService.getUserChats(user._id).then(chats => {
       setUserChats(chats);
     });
-     
 
+    userChats.map(async (chat) => {
+      const otherUserFilteredId = chat?.users.filter((e) => e._id !== props.user._id)
+      await chatService.getOtherUser(otherUserFilteredId).then((data) => {
+        console.log('data other user', data);
+        const obj = {
+          idChat: chat._id,
+          otherUser: data.firstName + ' ' + data.lastName,
+        }
+        console.log('obj', obj);
+        otherUsersList.push(obj);
+      });
+    });
+    console.log('otherUsersList', otherUsersList);
+    setOtherUsers(otherUsersList);   
   }
 
 
   const getOtherUserAction = useMemo(() => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
     
     console.log('chat', chat);
-    const otherUserFilteredId = chat.users.filter((e) => e._id !== props.user._id)
+    const otherUserFilteredId = chat?.users.filter((e) => e._id !== props.user._id)
 
     console.log('otherUserFilteredId', otherUserFilteredId);
       chatService.getOtherUser(otherUserFilteredId).then((data) => {
@@ -100,16 +118,12 @@ const ListChats = (props) => {
             <div className="subheaderSpace">
               <h3>Chats recientes</h3>
               <ListGroup  style={{ fontSize: '25px' }}>
-                { userChats.map(chat => {
-                  console.log('chat', chat)
-                        setChat(chat);
-                        return <Link to={`/chat/${chat._id}`}>
-                          {getOtherUserAction}
-                          <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{otherUser}</ListGroupItem>
-                        </Link>
-                      })
-                }
-      
+                { otherUsers && otherUsers.map(user => {
+                  console.log('user render', user);
+                  return <Link to={`/chat/${user.chatId}`}>
+                    <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{user.otherUser}</ListGroupItem>
+                  </Link>
+                })}
               </ListGroup>
               <button onClick={showUsersList} style={{float: 'right', marginTop: '10px'}}>
                   Crea uno nuevo
