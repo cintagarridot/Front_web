@@ -70,7 +70,7 @@ const ListChats = (props) => {
     let otherUsersList = [];
 
     console.log('entra en getUserChatsAction');
-
+    debugger;
     await userService.getUserChats(user._id).then((chats) => {
       setUserChats(chats);
       console.log('userChats', userChats);
