@@ -71,25 +71,24 @@ const ListChats = (props) => {
 
     console.log('entra en getUserChatsAction');
 
-    await userService.getUserChats(user._id).then(chats => {
+    await userService.getUserChats(user._id).then((chats) => {
       setUserChats(chats);
-    });
-
-    console.log('userChats', userChats);
-
-    userChats.map(async (chat) => {
-      console.log('chat', chat);
-      const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
-      await chatService.getOtherUser(otherUserFilteredId).then((data) => {
-        console.log('data other user', data);
-        const obj = {
-          idChat: chat._id,
-          otherUser: data.firstName + ' ' + data.lastName,
-        }
-        console.log('obj', obj);
-        otherUsersList.push(obj);
+      console.log('userChats', userChats);
+      chats.map(async (chat) => {
+        console.log('chat', chat);
+        const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
+        await chatService.getOtherUser(otherUserFilteredId).then((data) => {
+          console.log('data other user', data);
+          const obj = {
+            idChat: chat._id,
+            otherUser: data.firstName + ' ' + data.lastName,
+          }
+          console.log('obj', obj);
+          otherUsersList.push(obj);
+        });
       });
     });
+
     console.log('otherUsersList', otherUsersList);
     setOtherUsers(otherUsersList);   
   }
