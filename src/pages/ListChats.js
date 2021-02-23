@@ -24,29 +24,27 @@ const ListChats = (props) => {
   });
 
   useEffect(() => {
-    console.log('props');
-    console.log(props)
     let otherUsersList = [];
 
-    const usersChat = getUserChatsAction();
-    console.log('users', usersChat);
+    /*const usersChat =*/
+    getUserChatsAction();
 
-    usersChat.map((chat) => {
-      console.log('chat', chat);
-      const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
-      chatService.getOtherUser(otherUserFilteredId).then((data) => {
-        console.log('data other user', data);
-        const obj = {
-          idChat: chat._id,
-          otherUser: data.firstName + ' ' + data.lastName,
-        }
-        console.log('obj', obj);
-        otherUsersList.push(obj);
-      });
-    });
+    // usersChat.map((chat) => {
+    //   console.log('chat', chat);
+    //   const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
+    //   chatService.getOtherUser(otherUserFilteredId).then((data) => {
+    //     console.log('data other user', data);
+    //     const obj = {
+    //       idChat: chat._id,
+    //       otherUser: data.firstName + ' ' + data.lastName,
+    //     }
+    //     console.log('obj', obj);
+    //     otherUsersList.push(obj);
+    //   });
+    // });
 
-    console.log('otherUsersList', otherUsersList);
-    setOtherUsers(otherUsersList);   
+    // console.log('otherUsersList', otherUsersList);
+    // setOtherUsers(otherUsersList);   
 
   }, []);
 
@@ -89,15 +87,32 @@ const ListChats = (props) => {
   const getUserChatsAction = async () => {
     const user = props.user;
     let chatsNews = [];
+    let otherUsersList = [];
 
     console.log('entra en getUserChatsAction');
     await userService.getUserChats(user._id).then((chats) => {
       setUserChats(chats);
       chatsNews = chats;
-      console.log('userChats', userChats);
+      console.log('chatsNews', chatsNews);
     });
 
-    return chatsNews;
+    chatsNews.forEach(async (chat) => {
+      console.log('chat', chat);
+      const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
+      await chatService.getOtherUser(otherUserFilteredId).then((data) => {
+        console.log('data other user', data);
+        const obj = {
+          idChat: chat._id,
+          otherUser: data.firstName + ' ' + data.lastName,
+        }
+        console.log('obj', obj);
+        otherUsersList.push(obj);
+      });
+    });
+
+    console.log('otherUsersList', otherUsersList);
+    setOtherUsers(otherUsersList); 
+    
   }
 
 
