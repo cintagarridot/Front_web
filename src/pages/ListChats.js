@@ -18,10 +18,10 @@ const ListChats = (props) => {
   const [otherUser, setOtherUser] = useState();
   const [chat, setChat] = useState();
 
-  const [otherUsers, setOtherUsers] = useState({
+  const [otherUsers, setOtherUsers] = useState([{
     idChat: '',
     otherUser: '',
-  });
+  }]);
 
   useEffect(() => {
     let otherUsersList = [];
@@ -140,11 +140,11 @@ const ListChats = (props) => {
       {!showList ? (
         <>
         {console.log(props.user)}
-          { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 ? (
+          { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 && otherUsers.length > 0 ? (
             <div className="subheaderSpace">
               <h3>Chats recientes</h3>
               <ListGroup  style={{ fontSize: '25px' }}>
-                { otherUsers && otherUsers.map(user => {
+                { otherUsers.map((user) => {
                   console.log('user render', user);
                   return <Link to={`/chat/${user.chatId}`}>
                     <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{user.otherUser}</ListGroupItem>
