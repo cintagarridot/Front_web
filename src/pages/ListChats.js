@@ -93,7 +93,7 @@ const ListChats = (props) => {
       console.log('chatsNews', chatsNews);
     });
 
-    chatsNews.forEach(async (chat) => {
+    const list = chatsNews.map(async (chat) => {
       console.log('chat', chat);
       const otherUserFilteredId = chat.users && chat.users.find((e) => e._id !== props.user._id)
       console.log('otherUserFilteredId', otherUserFilteredId);
@@ -106,8 +106,9 @@ const ListChats = (props) => {
         console.log('obj', obj);
         otherUsersList.push(obj);
       });
+      return otherUsersList;
     });
-
+    console.log('list', list);
     console.log('otherUsersList', otherUsersList);
     setOtherUsers(otherUsersList); 
     
