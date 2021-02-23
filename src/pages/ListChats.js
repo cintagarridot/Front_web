@@ -93,11 +93,11 @@ const ListChats = (props) => {
       console.log('chatsNews', chatsNews);
     });
 
-    const list = await chatsNews.map(async (chat) => {
+    const list = chatsNews.map(async (chat) => {
       console.log('chat', chat);
       const otherUserFilteredId = chat.users && chat.users.find((e) => e._id !== props.user._id)
       console.log('otherUserFilteredId', otherUserFilteredId);
-      await chatService.getOtherUser(chat._id).then((data) => {
+      return await chatService.getOtherUser(chat._id).then((data) => {
         console.log('data other user', data);
         const obj = {
           idChat: chat._id,
@@ -106,8 +106,11 @@ const ListChats = (props) => {
         console.log('obj', obj);
         otherUsersList.push(obj);
       });
-      return otherUsersList;
     });
+
+    // Promise.all(list).then((l) => {
+
+    // })
     console.log('list', list);
     console.log('otherUsersList', otherUsersList);
     setOtherUsers(otherUsersList); 
