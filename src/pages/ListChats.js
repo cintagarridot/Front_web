@@ -93,7 +93,7 @@ const ListChats = (props) => {
       console.log('chatsNews', chatsNews);
     });
 
-    const list = chatsNews.map(async (chat) => {
+    const list = await chatsNews.map(async (chat) => {
       console.log('chat', chat);
       const otherUserFilteredId = chat.users && chat.users.find((e) => e._id !== props.user._id)
       console.log('otherUserFilteredId', otherUserFilteredId);
