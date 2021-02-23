@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 import chatService from 'services/chat-service';
