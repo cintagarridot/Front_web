@@ -101,7 +101,7 @@ const ListChats = (props) => {
                   console.log(chat)
                         const otherUserFilteredId = chat.users.filter((e) => e._id !== props.user._id)
                         setChatOtherUserId(otherUserFilteredId);
-                        getOtherUserAction
+                        getOtherUserAction();
                         return <Link to={`/chat/${chat._id}`}>
                           <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{otherUser}</ListGroupItem>
                         </Link>
