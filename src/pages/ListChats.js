@@ -93,7 +93,7 @@ const ListChats = (props) => {
   const getOtherUserAction = useMemo(() => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
     
     console.log('chat', chat);
-    const otherUserFilteredId = chat?.users.filter((e) => e._id !== props.user._id)
+    const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
 
     console.log('otherUserFilteredId', otherUserFilteredId);
       chatService.getOtherUser(otherUserFilteredId).then((data) => {
