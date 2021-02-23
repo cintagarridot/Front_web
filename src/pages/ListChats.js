@@ -74,7 +74,7 @@ const ListChats = (props) => {
     });
 
     userChats.map(async (chat) => {
-      const otherUserFilteredId = chat?.users.filter((e) => e._id !== props.user._id)
+      const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
       await chatService.getOtherUser(otherUserFilteredId).then((data) => {
         console.log('data other user', data);
         const obj = {
