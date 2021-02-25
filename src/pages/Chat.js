@@ -114,9 +114,10 @@ const Chat = ({user, ...props}) => {
         }
     }
 
-    sendMsg = (message) => {
+    const sendMsg = (message) => {
         console.log('message sendMsg', message);
-        refWebSocket.sendMessage(message)
+        console.log('props', props);
+        this.refWebSocket.sendMessage(message)
     }
 
 
@@ -130,7 +131,7 @@ const Chat = ({user, ...props}) => {
                   onMessage={handleSendMessage}
                   onClose={() => console.log('websocket client disconnected')}
                   ref={Websocket => {
-                    refWebSocket = Websocket
+                    this.refWebSocket = Websocket
                   }}
                 />
                 <ChatWrapper>
