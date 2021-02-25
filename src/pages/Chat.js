@@ -100,6 +100,7 @@ const Chat = ({user, ...props}) => {
         console.log('chatID al enviar mensaje', chatId);
         chatService.postMessage(message, chatId);
         setForm({ message: ''})
+        
     }
 
     const handleChange = e => {
@@ -113,14 +114,24 @@ const Chat = ({user, ...props}) => {
         }
     }
 
+    sendMsg = (message) => {
+        console.log('message sendMsg', message);
+        refWebSocket.sendMessage(message)
+    }
+
 
     return (
 
             <div className="chat">
                 <Header/>
                 <Websocket 
+                  onOpen={() => console.log('websocket client connected')}
                   url={URL}
                   onMessage={handleSendMessage}
+                  onClose={() => console.log('websocket client disconnected')}
+                  ref={Websocket => {
+                    refWebSocket = Websocket
+                  }}
                 />
                 <ChatWrapper>
                     <MessagesWrapper>
