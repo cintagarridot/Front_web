@@ -150,7 +150,7 @@ const ListChats = (props) => {
               <ListGroup  style={{ fontSize: '25px' }}>
                 { otherUsers.map((user) => {
                   console.log('user render', user);
-                  return <Link to={`/chat/${user.chatId}`}>
+                  return <Link to={`/chat/${user.idChat}`}>
                     <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{user.otherUser}</ListGroupItem>
                   </Link>
                 })}
