@@ -65,6 +65,7 @@ const Chat = ({user, ...props}) => {
 
     useEffect(() => {
         let paths = window.location.pathname.split('/');
+        console.log('window.location', window.location);
         let chatId = paths[paths.length-1];
         console.log('chatId', chatId)
         chatService.getChat(chatId).then(chatFromApi => {
@@ -91,6 +92,7 @@ const Chat = ({user, ...props}) => {
     const handleSendMessage = () => {
         const message = { owner: user._id , text: form.message }
         // socket.emit('message_send', message);
+        console.log('message', message)
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
         console.log('paths', paths)
