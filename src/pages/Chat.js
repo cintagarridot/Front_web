@@ -55,7 +55,7 @@ const Chat = ({user, ...props}) => {
     //     }
     // }));
 
-    console.log('socket after useState', socket);
+  //  console.log('socket after useState', socket);
 
     const inputRef = useRef();
     const [messages, setMessages] = useState([]);
@@ -75,7 +75,7 @@ const Chat = ({user, ...props}) => {
               onMessage={this.handleData.bind(this)}/>
             // socket.on("connect", () => {
             // socket.io.connect();
-            console.log('socket connect front', socket.id); 
+            // console.log('socket connect front', socket.id); 
             // });
 
 
