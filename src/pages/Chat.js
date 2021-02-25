@@ -62,6 +62,7 @@ const Chat = ({user, ...props}) => {
     const [messages, setMessages] = useState([]);
     const [form, setForm] = useState({ message: ''})
     const [chat, setChat] = useState();
+    const socket = useRef();
 
     useEffect(() => {
         let paths = window.location.href.split('/');
@@ -115,9 +116,9 @@ const Chat = ({user, ...props}) => {
     }
 
     const sendMsg = (message) => {
-        console.log('message sendMsg', message);
-        console.log('props', props);
-        this.refWebSocket.sendMessage(message)
+        console.log('socket', socket);
+        //console.log('props', props);
+       // this.refWebSocket.sendMessage(message)
     }
 
 
@@ -130,9 +131,8 @@ const Chat = ({user, ...props}) => {
                   url={URL}
                   onMessage={handleSendMessage}
                   onClose={() => console.log('websocket client disconnected')}
-                  ref={Websocket => {
-                    this.refWebSocket = Websocket
-                  }}
+                  reconnect={true}
+                  ref={socket}
                 />
                 <ChatWrapper>
                     <MessagesWrapper>
