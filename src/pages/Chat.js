@@ -119,7 +119,7 @@ const Chat = ({user, ...props}) => {
                 <Header/>
                 <Websocket 
                   url={URL}
-                  // onMessage={this.handleData.bind(this)}
+                  onMessage={this.handleSendMessage.bind(this)}
                 />
                 <ChatWrapper>
                     <MessagesWrapper>
