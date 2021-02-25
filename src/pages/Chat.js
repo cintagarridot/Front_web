@@ -94,7 +94,7 @@ const Chat = ({user, ...props}) => {
         // socket.emit('message_send', message);
         console.log('message', message)
 
-        socket.current.sendMessage(message);
+        socket.current.sendMessage(JSON.stringify(message));
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
         console.log('paths', paths)
