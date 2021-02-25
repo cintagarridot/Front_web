@@ -90,17 +90,16 @@ const Chat = ({user, ...props}) => {
     }, [])
 
     const handleSendMessage = () => {
-        console.log('socket', socket);
         const message = { owner: user._id , text: form.message }
         // socket.emit('message_send', message);
         console.log('message', message)
+
         socket.current.sendMessage(message);
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
         console.log('paths', paths)
         console.log('paths[paths.length-1]', paths[paths.length-1]);
         let chatId = paths[paths.length-1];
-        console.log('chatID al enviar mensaje', chatId);
         chatService.postMessage(message, chatId);
         setForm({ message: ''});
         
@@ -130,7 +129,7 @@ const Chat = ({user, ...props}) => {
                 <Websocket 
                   onOpen={() => console.log('websocket client connected')}
                   url={URL}
-                  onMessage={() => console.log('data received!')}
+                  onMessage={(e) => console.log('data received!', e)}
                   onClose={() => console.log('websocket client disconnected')}
                   reconnect={true}
                   ref={socket}
