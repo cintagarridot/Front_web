@@ -90,6 +90,8 @@ const Chat = ({user, ...props}) => {
     }, [])
 
     const handleSendMessage = () => {
+        console.log('socket', socket);
+
         const message = { owner: user._id , text: form.message }
         // socket.emit('message_send', message);
         console.log('message', message)
@@ -100,7 +102,7 @@ const Chat = ({user, ...props}) => {
         let chatId = paths[paths.length-1];
         console.log('chatID al enviar mensaje', chatId);
         chatService.postMessage(message, chatId);
-        setForm({ message: ''})
+        setForm({ message: ''});
         
     }
 
@@ -116,7 +118,6 @@ const Chat = ({user, ...props}) => {
     }
 
     const sendMsg = (message) => {
-        console.log('socket', socket);
         //console.log('props', props);
        // this.refWebSocket.sendMessage(message)
     }
