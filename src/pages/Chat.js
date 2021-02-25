@@ -62,7 +62,7 @@ const Chat = ({user, ...props}) => {
     const [messages, setMessages] = useState([]);
     const [form, setForm] = useState({ message: ''})
     const [chat, setChat] = useState();
-    const socket = useRef();
+    const { current: socket } = useRef();
 
     useEffect(() => {
         let paths = window.location.href.split('/');
@@ -91,10 +91,10 @@ const Chat = ({user, ...props}) => {
 
     const handleSendMessage = () => {
         console.log('socket', socket);
-
         const message = { owner: user._id , text: form.message }
         // socket.emit('message_send', message);
         console.log('message', message)
+        socket.sendMessage(message);
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
         console.log('paths', paths)
@@ -130,7 +130,7 @@ const Chat = ({user, ...props}) => {
                 <Websocket 
                   onOpen={() => console.log('websocket client connected')}
                   url={URL}
-                  onMessage={handleSendMessage}
+                  onMessage={() => console.log('data received!')}
                   onClose={() => console.log('websocket client disconnected')}
                   reconnect={true}
                   ref={socket}
