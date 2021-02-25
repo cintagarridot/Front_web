@@ -116,9 +116,9 @@ const Chat = ({user, ...props}) => {
         }
     }
 
-    const sendMsg = (message) => {
-        //console.log('props', props);
-       // this.refWebSocket.sendMessage(message)
+    const receiveMessage = (message) => {
+        console.log('message', message);
+        console.log('JSON.parse(message)', JSON.parse(message));
     }
 
 
@@ -129,7 +129,7 @@ const Chat = ({user, ...props}) => {
                 <Websocket 
                   onOpen={() => console.log('websocket client connected')}
                   url={URL}
-                  onMessage={(e) => console.log('data received!', e)}
+                  onMessage={(e) => receiveMessage(e)}
                   onClose={() => console.log('websocket client disconnected')}
                   reconnect={true}
                   ref={socket}
