@@ -64,8 +64,7 @@ const Chat = ({user, ...props}) => {
     const [chat, setChat] = useState();
 
     useEffect(() => {
-        let paths = window.location.pathname.split('/');
-        console.log('window.location', window.location);
+        let paths = window.location.href.split('/');
         let chatId = paths[paths.length-1];
         console.log('chatId', chatId)
         chatService.getChat(chatId).then(chatFromApi => {
