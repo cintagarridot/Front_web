@@ -62,7 +62,7 @@ const Chat = ({user, ...props}) => {
     const [messages, setMessages] = useState([]);
     const [form, setForm] = useState({ message: ''})
     const [chat, setChat] = useState();
-    const { current: socket } = useRef();
+    const socket = useRef();
 
     useEffect(() => {
         let paths = window.location.href.split('/');
@@ -94,7 +94,7 @@ const Chat = ({user, ...props}) => {
         const message = { owner: user._id , text: form.message }
         // socket.emit('message_send', message);
         console.log('message', message)
-        socket.sendMessage(message);
+        socket.current.sendMessage(message);
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
         console.log('paths', paths)
