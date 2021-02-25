@@ -13,7 +13,7 @@ import withAuth from 'components/withAuth';
 import chatService from 'services/chat-service'
 
 import { useHistory, useLocation } from 'react-router-dom';
-const URL = 'wss://uhu-back.herokuapp.com/'
+const URL = 'ws://uhu-back.herokuapp.com/'
 // const URL = 'ws://uhu-back.herokuapp.com/socket.io/?EIO=3&transport=websocket';
 
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
