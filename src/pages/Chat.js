@@ -71,8 +71,6 @@ const Chat = ({user, ...props}) => {
             console.log(chatFromApi)
             const data = chatFromApi.messages;
 
-            <Websocket url={URL}
-              onMessage={this.handleData.bind(this)}/>
             // socket.on("connect", () => {
             // socket.io.connect();
             // console.log('socket connect front', socket.id); 
@@ -118,6 +116,10 @@ const Chat = ({user, ...props}) => {
 
             <div className="chat">
                 <Header/>
+                <Websocket 
+                  url={URL}
+                  // onMessage={this.handleData.bind(this)}
+                />
                 <ChatWrapper>
                     <MessagesWrapper>
                         {messages && messages.map((message, index) => (
