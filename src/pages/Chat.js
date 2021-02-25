@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import React, { useEffect, useState, useRef } from 'react';
-import io from 'socket.io-client';
+// import io from 'socket.io-client';
+import Websocket from 'react-websocket';
+
 import { css, jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 
@@ -11,7 +13,7 @@ import withAuth from 'components/withAuth';
 import chatService from 'services/chat-service'
 
 import { useHistory, useLocation } from 'react-router-dom';
-const URL = 'https://uhu-back.herokuapp.com/socket.io/?EIO=3&transport=polling';
+const URL = 'ws://uhu-back.herokuapp.com/socket.io/?EIO=3&transport=websocket';
 
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
 const ChatWrapper = styled.div`
@@ -42,16 +44,16 @@ const Chat = ({user, ...props}) => {
     //     }
     // }))
 
-    const [socket] = useState(io(URL, {
-        withCredentials: true,
-        transportOptions: {
-            polling: {
-                extraHeaders: {
-                    "Access-Control-Allow-Headers": "Bearer test, Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
-                }
-            }
-        }
-    }));
+    // const [socket] = useState(io(URL, {
+    //     withCredentials: true,
+    //     transportOptions: {
+    //         polling: {
+    //             extraHeaders: {
+    //                 "Access-Control-Allow-Headers": "Bearer test, Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+    //             }
+    //         }
+    //     }
+    // }));
 
     console.log('socket after useState', socket);
 
@@ -69,17 +71,19 @@ const Chat = ({user, ...props}) => {
             console.log(chatFromApi)
             const data = chatFromApi.messages;
 
+            <Websocket url={URL}
+              onMessage={this.handleData.bind(this)}/>
             // socket.on("connect", () => {
-            socket.io.connect();
+            // socket.io.connect();
             console.log('socket connect front', socket.id); 
             // });
 
 
-            socket.io.on("message_receive", (data)  => {
-                console.log('data')
-                console.log(data)
-                setMessages(old => [...old, data])
-            });
+            // socket.io.on("message_receive", (data)  => {
+            //     console.log('data')
+            //     console.log(data)
+            //     setMessages(old => [...old, data])
+            // });
             setChat(chatFromApi);
             setMessages(chatFromApi.messages)
         })
@@ -87,7 +91,7 @@ const Chat = ({user, ...props}) => {
 
     const handleSendMessage = () => {
         const message = { owner: user._id , text: form.message }
-        socket.emit('message_send', message);
+        // socket.emit('message_send', message);
         setMessages(oldMessages => [...oldMessages, message]);
         let paths = window.location.pathname.split('/');
         console.log('paths', paths)
