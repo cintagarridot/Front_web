@@ -13,8 +13,8 @@ import withAuth from 'components/withAuth';
 import chatService from 'services/chat-service'
 
 import { useHistory, useLocation } from 'react-router-dom';
-// const URL = 'ws://uhu-back.herokuapp.com/'
-const URL = 'ws://99.81.152.224';
+const URL = 'ws://uhu-back.herokuapp.com/';
+// const URL = 'ws://99.81.152.224';
 
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
 const ChatWrapper = styled.div`
