@@ -31,6 +31,7 @@
   },
   "scripts": {
     "start": "serve -s build",
+    "build": "serve -s build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
