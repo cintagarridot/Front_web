@@ -96,9 +96,7 @@ const Chat = ({user, ...props}) => {
 
         socket.current.sendMessage(JSON.stringify(message));
         setMessages(oldMessages => [...oldMessages, message]);
-        let paths = window.location.pathname.split('/');
-        console.log('paths', paths)
-        console.log('paths[paths.length-1]', paths[paths.length-1]);
+        let paths = window.location.href.split('/');
         let chatId = paths[paths.length-1];
         chatService.postMessage(message, chatId);
         setForm({ message: ''});
