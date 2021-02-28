@@ -120,9 +120,13 @@ const Chat = ({user, ...props}) => {
         console.log('message', message);
         console.log('JSON.parse(message)', JSON.parse(message));
         const parseMessage = JSON.parse(message);
-        let messagesArray = messages;
-        messagesArray.push(parseMessage);
-        setMessages(messagesArray);
+        const parsed2 = JSON.parse(parseMessage);
+        console.log('parsed2', parsed2);
+        // let messagesArray = messages;
+        // messagesArray.push(parseMessage);
+        // setMessages(messagesArray);
+        setMessages([...messages, parsed2]);
+
         console.log('MESSAGES TOTAL', messages);
     }
 
