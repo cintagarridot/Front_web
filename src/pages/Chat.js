@@ -119,6 +119,8 @@ const Chat = ({user, ...props}) => {
     const receiveMessage = (message) => {
         console.log('message', message);
         console.log('JSON.parse(message)', JSON.parse(message));
+        setMessages(oldMessages => [...oldMessages, message]);
+        console.log('MESSAGES TOTAL', messages);
     }
 
 
