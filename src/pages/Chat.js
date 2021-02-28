@@ -100,7 +100,7 @@ const Chat = ({user, ...props}) => {
         console.log('paths', paths)
         console.log('paths[paths.length-1]', paths[paths.length-1]);
         let chatId = paths[paths.length-1];
-       // chatService.postMessage(message, chatId);
+        chatService.postMessage(message, chatId);
         setForm({ message: ''});
         
     }
