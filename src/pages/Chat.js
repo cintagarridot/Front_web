@@ -87,19 +87,23 @@ const Chat = ({user, ...props}) => {
             setChat(chatFromApi);
             setMessages(chatFromApi.messages);
             const dataJoin = { 
-                room: chatFromApi._id,
-                join: chatFromApi.users
+                join: chatFromApi._id
             }
             socket.current.sendMessage(JSON.stringify(dataJoin));    
         })
     }, [])
 
     const handleSendMessage = () => {
-        const message = { owner: user._id , text: form.message }
-        // socket.emit('message_send', message);
+        const message = { 
+            room: chatFromApi._id,
+            msg: {
+                owner: user._id , text: form.message 
+            }
+        }
+        // const message = { owner: user._id , text: form.message }
         console.log('message', message)
         
-        if(message.text !== ''){
+        if(message.msg.text !== ''){
             socket.current.sendMessage(JSON.stringify(message));
             setMessages(oldMessages => [...oldMessages, message]);
 
