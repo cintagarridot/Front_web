@@ -158,7 +158,7 @@ const Chat = ({user, ...props}) => {
                             {console.log('message')}
                             {console.log(message)}
 
-                            <Message key={index} message={message.text} owner={message.owner} />
+                            <Message key={index} message={message.msg.text} owner={message.msg.owner} />
                             </>
                         ))}
                     </MessagesWrapper>
