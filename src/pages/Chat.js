@@ -131,8 +131,8 @@ const Chat = ({user, ...props}) => {
     }
 
     const receiveMessage = (message) => {
+        console.log('received message', message);
 
-        const parseMessage = JSON.parse(message);
         const parsed2 = JSON.parse(parseMessage);
 
         setMessages([...messages, parsed2]);
