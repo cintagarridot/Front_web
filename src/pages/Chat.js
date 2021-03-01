@@ -85,7 +85,12 @@ const Chat = ({user, ...props}) => {
             //     setMessages(old => [...old, data])
             // });
             setChat(chatFromApi);
-            setMessages(chatFromApi.messages)
+            setMessages(chatFromApi.messages);
+            const dataJoin = { 
+                room = chatFromApi._id,
+                message: message
+            }
+            socket.current.sendMessage(JSON.stringify(dataJoin));    
         })
     }, [])
 
@@ -93,14 +98,17 @@ const Chat = ({user, ...props}) => {
         const message = { owner: user._id , text: form.message }
         // socket.emit('message_send', message);
         console.log('message', message)
-
-        socket.current.sendMessage(JSON.stringify(message));
-        setMessages(oldMessages => [...oldMessages, message]);
-        let paths = window.location.href.split('/');
-        let chatId = paths[paths.length-1];
-        chatService.postMessage(message, chatId);
-        setForm({ message: ''});
         
+        if(message.text !== ''){
+            socket.current.sendMessage(JSON.stringify(message));
+            setMessages(oldMessages => [...oldMessages, message]);
+
+            let paths = window.location.href.split('/');
+            let chatId = paths[paths.length-1];
+            chatService.postMessage(message, chatId);
+
+            setForm({ message: ''});
+        }
     }
 
     const handleChange = e => {
@@ -115,14 +123,10 @@ const Chat = ({user, ...props}) => {
     }
 
     const receiveMessage = (message) => {
-        console.log('message', message);
-        console.log('JSON.parse(message)', JSON.parse(message));
+
         const parseMessage = JSON.parse(message);
         const parsed2 = JSON.parse(parseMessage);
-        console.log('parsed2', parsed2);
-        // let messagesArray = messages;
-        // messagesArray.push(parseMessage);
-        // setMessages(messagesArray);
+
         setMessages([...messages, parsed2]);
 
         console.log('MESSAGES TOTAL', messages);

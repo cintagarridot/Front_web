@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, Spinner } from 'reactstrap';
 
 import chatService from 'services/chat-service';
 import userService from 'services/user-service';
@@ -17,6 +17,7 @@ const ListChats = (props) => {
   const [userChats, setUserChats] = useState([]);
   const [otherUser, setOtherUser] = useState();
   const [chat, setChat] = useState();
+  const [status, setStatus] = useState(null);
 
   const [otherUsers, setOtherUsers] = useState([]);
 
@@ -68,6 +69,7 @@ const ListChats = (props) => {
         setList(...list);
         console.log(list)
         setShowList(true);
+        setStatus('success');
       })
     }
 
@@ -75,6 +77,7 @@ const ListChats = (props) => {
       await userService.getAlumnsList().then(data => {
         setList(data.alumns);
         setShowList(true);
+        setStatus('success');
       })
     }
 
@@ -115,6 +118,7 @@ const ListChats = (props) => {
       console.log('l', l);
       console.log('otherUsersList', otherUsersList);
       setOtherUsers(otherUsersList); 
+      setStatus('success');
     });
 
   }
@@ -135,59 +139,67 @@ const ListChats = (props) => {
 
   const goBack = () => {
       setShowList(false);
+      setStatus(null);
   }
 
   return (
     <div>
       <Header />
       <h1 className="subheaderUser">Chats</h1>
-      {!showList ? (
-        <>
-        {console.log(props.user)}
-          { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 && otherUsers.length > 0 ? (
-            <div className="subheaderSpace">
-              <h3>Chats recientes</h3>
-              <ListGroup  style={{ fontSize: '25px' }}>
-                { otherUsers.map((user) => {
-                  console.log('user render', user);
-                  return <Link to={`/chat/${user.idChat}`}>
-                    <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{user.otherUser}</ListGroupItem>
-                  </Link>
-                })}
+      {status !== 'success' ? (
+        <div>
+            <Spinner color="info" />
+        </div>
+      ) : (
+        !showList ? (
+          <>
+          {console.log(props.user)}
+            { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 && otherUsers.length > 0 ? (
+              <div className="subheaderSpace">
+                <h3>Chats recientes</h3>
+                <ListGroup  style={{ fontSize: '25px' }}>
+                  { otherUsers.map((user) => {
+                    console.log('user render', user);
+                    return <Link to={`/chat/${user.idChat}`}>
+                      <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{user.otherUser}</ListGroupItem>
+                    </Link>
+                  })}
+                </ListGroup>
+                <button onClick={showUsersList} style={{float: 'right', marginTop: '10px'}}>
+                    Crea uno nuevo
+                </button>
+              </div>
+            ) : (
+                <div className="noChatsSpace">
+                  <h3>No tienes ningún chat</h3>
+                  <button onClick={showUsersList}>
+                    Crea uno
+                </button>
+                </div>
+              )
+            }
+          </>
+  
+        ) : (
+          <div className={'subheaderSpace'}>
+              <h2>Usuarios</h2>
+              <ListGroup style={{ fontSize: '25px' }}>
+                {list && list.length > 0 &&
+                  list.map(l => {
+                    return <ListGroupItem tag="a" onClick={() => createNewChat(l._id)} style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{l.firstName} {l.lastName}</ListGroupItem>
+                  })
+                }
+  
               </ListGroup>
-              <button onClick={showUsersList} style={{float: 'right', marginTop: '10px'}}>
-                  Crea uno nuevo
+              <button onClick={goBack} style={{float: 'right'}}>
+                  Atrás
               </button>
             </div>
-          ) : (
-              <div className="noChatsSpace">
-                <h3>No tienes ningún chat</h3>
-                <button onClick={showUsersList}>
-                  Crea uno
-              </button>
-              </div>
-            )
-          }
-        </>
+          )
 
-      ) : (
-        <div className={'subheaderSpace'}>
-            <h2>Usuarios</h2>
-            <ListGroup style={{ fontSize: '25px' }}>
-              {list && list.length > 0 &&
-                list.map(l => {
-                  return <ListGroupItem tag="a" onClick={() => createNewChat(l._id)} style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{l.firstName} {l.lastName}</ListGroupItem>
-                })
-              }
-
-            </ListGroup>
-            <button onClick={goBack} style={{float: 'right'}}>
-                Atrás
-            </button>
-          </div>
         )
-
-      }
+      } 
+      
       {redirectToChat &&
         <Redirect to={'/chat/' + idChat} />
       }
