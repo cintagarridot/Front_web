@@ -87,7 +87,7 @@ const Chat = ({user, ...props}) => {
             setChat(chatFromApi);
             setMessages(chatFromApi.messages);
             const dataJoin = { 
-                room = chatFromApi._id,
+                room: chatFromApi._id,
                 message: message
             }
             socket.current.sendMessage(JSON.stringify(dataJoin));    
