@@ -94,8 +94,12 @@ const Chat = ({user, ...props}) => {
     }, [])
 
     const handleSendMessage = () => {
+
+        let paths = window.location.href.split('/');
+        let chatId = paths[paths.length-1];
+
         const message = { 
-            room: chatFromApi._id,
+            room: chatId,
             msg: {
                 owner: user._id , text: form.message 
             }
@@ -107,8 +111,6 @@ const Chat = ({user, ...props}) => {
             socket.current.sendMessage(JSON.stringify(message));
             setMessages(oldMessages => [...oldMessages, message]);
 
-            let paths = window.location.href.split('/');
-            let chatId = paths[paths.length-1];
             chatService.postMessage(message, chatId);
 
             setForm({ message: ''});
