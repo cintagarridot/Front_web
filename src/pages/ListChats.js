@@ -139,7 +139,6 @@ const ListChats = (props) => {
 
   const goBack = () => {
       setShowList(false);
-      setStatus(null);
   }
 
   return (
