@@ -67,7 +67,7 @@ const Chat = ({user, ...props}) => {
     useEffect(() => {
         let paths = window.location.href.split('/');
         let chatId = paths[paths.length-1];
-        console.log('chatId', chatId)
+
         chatService.getChat(chatId).then(chatFromApi => {
             console.log('chatFromApi')
             console.log(chatFromApi)
@@ -86,12 +86,12 @@ const Chat = ({user, ...props}) => {
             // });
             setChat(chatFromApi);
             // setMessages(chatFromApi.messages);
-            console.log()
-            const dataJoin = { 
-                user: user._id,
-                join: chatFromApi._id
-            }
-            socket.current.sendMessage(JSON.stringify(dataJoin));    
+
+            // const dataJoin = { 
+            //     user: user._id,
+            //     join: chatFromApi._id
+            // }
+            // socket.current.sendMessage(JSON.stringify(dataJoin));    
         })
     }, [])
 
@@ -100,16 +100,16 @@ const Chat = ({user, ...props}) => {
         let paths = window.location.href.split('/');
         let chatId = paths[paths.length-1];
 
-        const message = { 
-            room: chatId,
-            msg: {
-                owner: user._id , text: form.message 
-            }
-        }
-        // const message = { owner: user._id , text: form.message }
+        // const message = { 
+        //     room: chatId,
+        //     msg: {
+        //         owner: user._id , text: form.message 
+        //     }
+        // }
+        const message = { owner: user._id , text: form.message }
         console.log('message', message)
         
-        if(message.msg.text !== ''){
+        if(message.text !== ''){
             socket.current.sendMessage(JSON.stringify(message));
             setMessages(oldMessages => [...oldMessages, message]);
 
@@ -160,7 +160,7 @@ const Chat = ({user, ...props}) => {
                             {console.log('message')}
                             {console.log(message)}
 
-                            <Message key={index} message={message.msg.text} owner={message.msg.owner} />
+                            <Message key={index} message={message.text} owner={message.owner} />
                             </>
                         ))}
                     </MessagesWrapper>
