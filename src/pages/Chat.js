@@ -85,7 +85,7 @@ const Chat = ({user, ...props}) => {
             //     setMessages(old => [...old, data])
             // });
             setChat(chatFromApi);
-            setMessages(chatFromApi.messages);
+            // setMessages(chatFromApi.messages);
             console.log()
             const dataJoin = { 
                 user: props.user._id,

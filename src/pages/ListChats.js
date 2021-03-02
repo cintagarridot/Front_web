@@ -118,9 +118,9 @@ const ListChats = (props) => {
       console.log('l', l);
       console.log('otherUsersList', otherUsersList);
       setOtherUsers(otherUsersList); 
-      setStatus('success');
     });
 
+    setStatus('success');
   }
 
 
@@ -138,7 +138,7 @@ const ListChats = (props) => {
   // }, [props.user.chats]);
 
   const goBack = () => {
-      setShowList(false);
+    setShowList(false);
   }
 
   return (
