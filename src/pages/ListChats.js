@@ -145,7 +145,7 @@ const ListChats = (props) => {
     <div>
       <Header />
       <h1 className="subheaderUser">Chats</h1>
-      {status !== 'success' ? (
+      {status !== 'success' && otherUsers !== [] && otherUsers.length !== 0 ? (
         <div>
             <Spinner color="info" />
         </div>
