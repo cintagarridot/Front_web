@@ -19,7 +19,7 @@ const URL = 'wss://uhu-back.herokuapp.com/';
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
 const ChatWrapper = styled.div`
 width: 100%;
-height: 80vh;
+height: 90vh;
 display: flex;
 justify-content: space-between;
 flex-direction: column;
