@@ -100,7 +100,7 @@ const ListChats = (props) => {
       console.log('chat', chat);
       const otherUserFilteredId = chat.users && chat.users.find((e) => e._id !== props.user._id)
       console.log('otherUserFilteredId', otherUserFilteredId);
-      await chatService.getOtherUser(chat._id).then((data) => {
+      await chatService.getOtherUser(chat._id, props.user._id).then((data) => {
         console.log('data other user', data);
         const obj = {
           idChat: chat._id,

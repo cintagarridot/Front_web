@@ -19,7 +19,7 @@ const URL = 'wss://uhu-back.herokuapp.com/';
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
 const ChatWrapper = styled.div`
 width: 100%;
-height: 100vh;
+height: 80vh;
 display: flex;
 justify-content: space-between;
 flex-direction: column;
@@ -38,26 +38,6 @@ box-sizing: border-box;
 `
 
 const Chat = ({user, ...props}) => {
-    // const [socket] = useState(io(URL, {
-    //     withCredentials: true,
-    //     extraHeaders: {
-    //         "Access-Control-Allow-Headers": "Content-Type, Authorization"
-    //     }
-    // }))
-
-    // const [socket] = useState(io(URL, {
-    //     withCredentials: true,
-    //     transportOptions: {
-    //         polling: {
-    //             extraHeaders: {
-    //                 "Access-Control-Allow-Headers": "Bearer test, Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
-    //             }
-    //         }
-    //     }
-    // }));
-
-  //  console.log('socket after useState', socket);
-
     const inputRef = useRef();
     const [messages, setMessages] = useState([]);
     const [form, setForm] = useState({ message: ''})
