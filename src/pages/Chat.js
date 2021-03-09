@@ -23,7 +23,7 @@ height: 90vh;
 display: flex;
 justify-content: space-between;
 flex-direction: column;
-padding-top: 100px;
+padding-top: 40px;
 font-size: 16px;
 `
 const MessagesWrapper = styled.div`
@@ -37,11 +37,23 @@ justify-content: flex-end;
 box-sizing: border-box;
 `
 
+const InfoChat = styled.div`
+width: 100%;
+heigh: 30vh;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+padding-top: 100px;
+font-size: 16px;
+
+`
+
 const Chat = ({user, ...props}) => {
     const inputRef = useRef();
     const [messages, setMessages] = useState([]);
     const [form, setForm] = useState({ message: ''})
     const [chat, setChat] = useState();
+    const [chatUser, setChatUser] = useState();
     const socket = useRef();
 
     useEffect(() => {
@@ -52,26 +64,14 @@ const Chat = ({user, ...props}) => {
             console.log('chatFromApi')
             console.log(chatFromApi)
             const data = chatFromApi.messages;
-
-            // socket.on("connect", () => {
-            // socket.io.connect();
-            // console.log('socket connect front', socket.id); 
-            // });
-
-
-            // socket.io.on("message_receive", (data)  => {
-            //     console.log('data')
-            //     console.log(data)
-            //     setMessages(old => [...old, data])
-            // });
-            setChat(chatFromApi);
-            // setMessages(chatFromApi.messages);
-
-            // const dataJoin = { 
-            //     user: user._id,
-            //     join: chatFromApi._id
-            // }
-            // socket.current.sendMessage(JSON.stringify(dataJoin));    
+            chatFromApi.users.forEach((user) => {
+                if (user._id !== props.user._id) {
+                    console.log('other user', user);
+                    setChatUser(user);
+                }
+            });
+    
+            setChat(chatFromApi);  
         })
     }, [])
 
@@ -133,6 +133,11 @@ const Chat = ({user, ...props}) => {
                   reconnect={true}
                   ref={socket}
                 />
+                <InfoChat>
+                    <h1>
+                        {chatUser}
+                    </h1>
+                </InfoChat>
                 <ChatWrapper>
                     <MessagesWrapper>
                         {messages && messages.map((message, index) => (
