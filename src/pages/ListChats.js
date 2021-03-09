@@ -100,7 +100,7 @@ const ListChats = (props) => {
       console.log('chat', chat);
       const otherUserFilteredId = chat.users && chat.users.find((e) => e._id !== props.user._id)
       console.log('otherUserFilteredId', otherUserFilteredId);
-      await chatService.getOtherUser(chat._id, props.user._id).then((data) => {
+      await chatService.getOtherUser(chat._id, user._id).then((data) => {
         console.log('data other user', data);
         const obj = {
           idChat: chat._id,
@@ -145,15 +145,10 @@ const ListChats = (props) => {
     <div>
       <Header />
       <h1 className="subheaderUser">Chats</h1>
-      {status !== 'success' && otherUsers !== [] && otherUsers.length !== 0 ? (
-        <div>
-            <Spinner color="info" />
-        </div>
-      ) : (
-        !showList ? (
+        {!showList ? (
           <>
           {console.log(props.user)}
-            { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 && otherUsers.length > 0 ? (
+            { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 && otherUsers.length > 0 && status === 'success' ? (
               <div className="subheaderSpace">
                 <h3>Chats recientes</h3>
                 <ListGroup  style={{ fontSize: '25px' }}>
@@ -168,14 +163,17 @@ const ListChats = (props) => {
                     Crea uno nuevo
                 </button>
               </div>
-            ) : (
+            ) : !props.user.chats && props.user.chats.length === 0 && userChats.length === 0 && otherUsers.length === 0 && status === 'success' ? (
                 <div className="noChatsSpace">
                   <h3>No tienes ningún chat</h3>
                   <button onClick={showUsersList}>
                     Crea uno
                 </button>
                 </div>
+              ) : (
+                <Spinner color="info" />
               )
+
             }
           </>
   
