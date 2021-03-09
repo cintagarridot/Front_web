@@ -148,7 +148,7 @@ const ListChats = (props) => {
         {!showList ? (
           <>
           {console.log(props.user)}
-            { props.user.chats && props.user.chats.length > 0 && userChats.length > 0 && otherUsers.length > 0 && status === 'success' ? (
+            { props.user.chats && props.user.chats.length > 0 && otherUsers.length > 0 && status === 'success' ? (
               <div className="subheaderSpace">
                 <h3>Chats recientes</h3>
                 <ListGroup  style={{ fontSize: '25px' }}>
@@ -163,7 +163,7 @@ const ListChats = (props) => {
                     Crea uno nuevo
                 </button>
               </div>
-            ) : !props.user.chats && props.user.chats.length === 0 && userChats.length === 0 && otherUsers.length === 0 && status === 'success' ? (
+            ) : !props.user.chats && props.user.chats.length === 0 && otherUsers.length === 0 && status === 'success' ? (
                 <div className="noChatsSpace">
                   <h3>No tienes ningún chat</h3>
                   <button onClick={showUsersList}>
@@ -193,8 +193,6 @@ const ListChats = (props) => {
               </button>
             </div>
           )
-
-        )
       } 
       
       {redirectToChat &&
