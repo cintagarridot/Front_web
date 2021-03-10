@@ -44,25 +44,28 @@ const Chat = ({user, ...props}) => {
     const [form, setForm] = useState({ message: ''})
     const [chat, setChat] = useState();
     const [chatUser, setChatUser] = useState();
+    const [actualState, setActualState] = useState('');
     const socket = useRef();
 
     useEffect(() => {
         let paths = window.location.href.split('/');
         let chatId = paths[paths.length-1];
+        console.log('props chat', props);
+        console.log('props user', user);
 
         chatService.getChat(chatId).then(chatFromApi => {
             console.log('chatFromApi')
             console.log(chatFromApi)
             const data = chatFromApi.messages;
             chatFromApi.users.forEach((u) => {
-                console.log('props', props);
-                if (u._id !== props.user._id) {
-                    console.log('other user', user);
+                if (u._id !== user._id) {
+                    console.log('other user', u);
                     setChatUser(u);
                 }
             });
     
             setChat(chatFromApi);  
+            setActualState('success');
         })
     }, [])
 
@@ -124,50 +127,58 @@ const Chat = ({user, ...props}) => {
                   reconnect={true}
                   ref={socket}
                 />
-                <Row className="subheader">
-                    <Col xs={'12'} sm={'10'} md={'10'} lg={'10'}>
-                        <h1>
-                            {chatUser.firstName} {chatUser.lastName}
-                        </h1>
-                    </Col>
-                    <Col xs={'12'} sm={'2'} md={'2'} lg={'2'}>
-                        <button className="btn btn-primary">
-                            Abandonar chat
-                        </button>
-                    </Col>
-                </Row>
-                <ChatWrapper>
-                    <MessagesWrapper>
-                        {messages && messages.map((message, index) => (
-                           <>
-                            {console.log('message')}
-                            {console.log(message)}
+                {actualState === 'success' ? (
+                    <>
+                        <Row className="subheader">
+                            <Col xs={'12'} sm={'10'} md={'10'} lg={'10'}>
+                                <h1>
+                                    {chatUser.firstName} {chatUser.lastName}
+                                </h1>
+                            </Col>
+                            <Col xs={'12'} sm={'2'} md={'2'} lg={'2'}>
+                                <button className="btn btn-primary">
+                                    Abandonar chat
+                                </button>
+                            </Col>
+                        </Row>
+                        <ChatWrapper>
+                            <MessagesWrapper>
+                                {messages && messages.map((message, index) => (
+                                <>
+                                    {console.log('message')}
+                                    {console.log(message)}
 
-                            <Message key={index} message={message.text} owner={message.owner} />
-                            </>
-                        ))}
-                    </MessagesWrapper>
+                                    <Message key={index} message={message.text} owner={message.owner} />
+                                    </>
+                                ))}
+                            </MessagesWrapper>
 
-                    <div css={css`display: flex; width: 100%; align-items: center`}>
-                        <input css={css`
-                        padding: 20px; 
-                        margin: 10px;
-                        width: 100%;
-                        &:hover{
-                            border: 2px solid #ff0;
-                        }
-                        `
-                        }
-                        name="message"
-                        ref={inputRef}
-                        value={form.message}
-                        onKeyUp={handleSubmit}
-                        onChange={handleChange} /> {/*css con emotion/core hayque usar JSX de la 1 linea */}
-                        <button className="btn btn-primary" onClick={handleSendMessage}>Enviar</button>
-                    </div>
+                            <div css={css`display: flex; width: 100%; align-items: center`}>
+                                <input css={css`
+                                padding: 20px; 
+                                margin: 10px;
+                                width: 100%;
+                                &:hover{
+                                    border: 2px solid #ff0;
+                                }
+                                `
+                                }
+                                name="message"
+                                ref={inputRef}
+                                value={form.message}
+                                onKeyUp={handleSubmit}
+                                onChange={handleChange} /> {/*css con emotion/core hayque usar JSX de la 1 linea */}
+                                <button className="btn btn-primary" onClick={handleSendMessage}>Enviar</button>
+                            </div>
 
-                </ChatWrapper>
+                        </ChatWrapper>
 
+                    </>
+                ) : (
+                    <Spinner color="info" />
+                )        
+                }
+                
                 <div className="clearfix"></div>
             </div>
 
