@@ -37,17 +37,6 @@ justify-content: flex-end;
 box-sizing: border-box;
 `
 
-const InfoChat = styled.div`
-width: 100%;
-heigh: 30vh;
-display: flex;
-justify-content: space-between;
-flex-direction: column;
-padding-top: 100px;
-font-size: 16px;
-
-`
-
 const Chat = ({user, ...props}) => {
     const inputRef = useRef();
     const [messages, setMessages] = useState([]);
@@ -64,10 +53,11 @@ const Chat = ({user, ...props}) => {
             console.log('chatFromApi')
             console.log(chatFromApi)
             const data = chatFromApi.messages;
-            chatFromApi.users.forEach((user) => {
-                if (user._id !== props.user._id) {
+            chatFromApi.users.forEach((u) => {
+                console.log('props', props);
+                if (u._id !== props.user._id) {
                     console.log('other user', user);
-                    setChatUser(user);
+                    setChatUser(u);
                 }
             });
     
@@ -133,11 +123,18 @@ const Chat = ({user, ...props}) => {
                   reconnect={true}
                   ref={socket}
                 />
-                <InfoChat>
-                    <h1>
-                        {chatUser}
-                    </h1>
-                </InfoChat>
+                <Row className="subheader">
+                    <Col xs={'12'} sm={'10'} md={'10'} lg={'10'}>
+                        <h1>
+                            {chatUser.firstName} {chatUser.lastName}
+                        </h1>
+                    </Col>
+                    <Col xs={'12'} sm={'2'} md={'2'} lg={'2'}>
+                        <button className="btn btn-primary">
+                            Abandonar chat
+                        </button>
+                    </Col>
+                </Row>
                 <ChatWrapper>
                     <MessagesWrapper>
                         {messages && messages.map((message, index) => (
