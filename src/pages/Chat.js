@@ -14,6 +14,7 @@ import { Col, Row, Spinner } from 'reactstrap';
 import chatService from 'services/chat-service'
 
 import { useHistory, useLocation } from 'react-router-dom';
+import userService from 'services/user-service';
 const URL = 'wss://uhu-back.herokuapp.com/';
 // const URL = 'ws://99.81.152.224';
 
@@ -63,8 +64,8 @@ const Chat = ({user, ...props}) => {
                     console.log('other user ===', u);
                 } else {
                     console.log('other user !==', u);
-                    chatService.getOtherUser(chat._id, user._id).then((data) => {
-                        console.log('data other user', data);
+                    userService.getOneUser(u).then((data) => {
+                        console.log('data user');
                         setChatUser(data);
                         setActualState('success');
                     })
