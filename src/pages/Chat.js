@@ -57,15 +57,21 @@ const Chat = ({user, ...props}) => {
             console.log('chatFromApi')
             console.log(chatFromApi)
             const data = chatFromApi.messages;
+
             chatFromApi.users.forEach((u) => {
-                if (u._id !== user._id) {
-                    console.log('other user', u);
-                    setChatUser(u);
+                if (u._id === user._id) {
+                    console.log('other user ===', u);
+                } else {
+                    console.log('other user !==', u);
+                    chatService.getOtherUser(chat._id, user._id).then((data) => {
+                        console.log('data other user', data);
+                        setChatUser(data);
+                        setActualState('success');
+                    })
                 }
             });
     
             setChat(chatFromApi);  
-            setActualState('success');
         })
     }, [])
 
@@ -129,7 +135,7 @@ const Chat = ({user, ...props}) => {
                 />
                 {actualState === 'success' ? (
                     <>
-                        <Row className="subheader">
+                        <Row className="subheaderChat">
                             <Col xs={'12'} sm={'10'} md={'10'} lg={'10'}>
                                 <h1>
                                     {chatUser.firstName} {chatUser.lastName}
@@ -175,7 +181,9 @@ const Chat = ({user, ...props}) => {
 
                     </>
                 ) : (
-                    <Spinner color="info" />
+                    <div className="subheaderChat">
+                        <Spinner color="info" />
+                    </div>
                 )        
                 }
                 

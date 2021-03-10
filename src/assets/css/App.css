@@ -419,6 +419,15 @@ textarea{
   text-align: center;
 }
 
+.subheaderChat{
+  font-size: 38px;
+  padding-top: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
 .subheaderdos{
 
   font-size: 38px;
