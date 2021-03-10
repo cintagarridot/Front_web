@@ -419,6 +419,12 @@ textarea{
   text-align: center;
 }
 
+.chatName{
+  display: flex;
+  justify-content: initial;
+  align-items: center;
+}
+
 .subheaderChat{
   font-size: 38px;
   padding-top: 20px;

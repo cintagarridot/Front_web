@@ -138,7 +138,7 @@ const Chat = ({user, ...props}) => {
                 {actualState === 'success' ? (
                     <>
                         <Row className="subheaderChat">
-                            <Col xs={'12'} sm={'10'} md={'10'} lg={'10'}>
+                            <Col xs={'12'} sm={'10'} md={'10'} lg={'10'} className="chatName">
                                 <h1>
                                     {chatUser.firstName} {chatUser.lastName}
                                 </h1>
