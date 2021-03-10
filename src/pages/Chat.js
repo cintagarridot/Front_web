@@ -9,7 +9,7 @@ import styled from '@emotion/styled';
 import Header from 'components/Header';
 import Message from 'components/elements/message';
 import withAuth from 'components/withAuth';
-import { Col, Row } from 'reactstrap';
+import { Col, Row, Spinner } from 'reactstrap';
 
 import chatService from 'services/chat-service'
 
