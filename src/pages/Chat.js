@@ -25,7 +25,6 @@ height: 90vh;
 display: flex;
 justify-content: space-between;
 flex-direction: column;
-padding-top: 40px;
 font-size: 16px;
 `
 const MessagesWrapper = styled.div`
@@ -65,9 +64,11 @@ const Chat = ({user, ...props}) => {
                 } else {
                     console.log('other user !==', u);
                     userService.getOneUser(u).then((data) => {
-                        console.log('data user');
-                        setChatUser(data);
-                        setActualState('success');
+                        if(data.usuario.username !== user.username) {
+                            console.log('data user', data.usuario)
+                            setChatUser(data.usuario);
+                            setActualState('success');
+                        }                        
                     })
                 }
             });
