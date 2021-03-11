@@ -148,7 +148,7 @@ const ListChats = (props) => {
   return (
     <div>
       <Header />
-      <h1 className="subheaderUser">Chats</h1>
+      <h1 className="subheaderUser">Chats recientes</h1>
         {!showList ? (
           <>
           {console.log('condition chat', props.user.chats && props.user.chats.length > 0 && otherUsers.length > 0 && status === 'success')}
