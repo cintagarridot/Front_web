@@ -154,12 +154,12 @@ const ListChats = (props) => {
   return (
     <div>
       <Header />
-      <h1 className="subheaderUser">Chats :)</h1>
+      <h1 className="subheaderUser">Chats</h1>
         {!showList ? (
           <>
           {console.log('condition chat', props.user.chats && props.user.chats.length > 0 && otherUsers.length > 0 && status === 'success')}
           {console.log('chat', props.user, otherUsers, status)}
-            { props.user.chats && props.user.chats.length > 0 && otherUsers.length > 0 && status === 'success' ? (
+            { props.user.chats && props.user.chats.length > 0 && status === 'success' ? (
               <div className="subheaderSpace">
                 {otherUsers.map((user) => {
                   return (
