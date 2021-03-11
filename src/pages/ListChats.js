@@ -124,6 +124,8 @@ const ListChats = (props) => {
     });
     console.log('list chat', list);
     Promise.all(list).then((l) => {
+      console.log('l', l);
+      console.log('list dentro del promise', list)
       console.log('otherUsersList', otherUsersList);
       setOtherUsers(otherUsersList); 
       setStatus('success');
