@@ -99,7 +99,7 @@ const ListChats = (props) => {
 
     const list = chatsNews.map(async (chat) => {
       console.log('chat', chat);
-      await chat.users.forEach((u) => {
+      await chat.users.forEach(async (u) => {
         if (u._id === user._id) {
             console.log('other user ===', u);
         } else {
