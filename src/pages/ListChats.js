@@ -104,12 +104,14 @@ const ListChats = (props) => {
             console.log('other user ===', u);
         } else {
             console.log('other user !==', u);
-            userService.getOneUser(u).then((data) => {
+            await userService.getOneUser(u).then((data) => {
                 if(data.usuario.username !== user.username) {
+                  console.log('data.usuario.username', data.usuario.username)
                   const obj = {
                     idChat: chat._id,
                     otherUser: data.usuario.firstName + ' ' + data.usuario.lastName,
                   }
+                  console.log('obj', obj);
                   otherUsersList.push(obj);
                 }                        
             })
