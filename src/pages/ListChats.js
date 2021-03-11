@@ -146,7 +146,7 @@ const ListChats = (props) => {
   return (
     <div>
       <Header />
-      <h1 className="subheaderUser">Chats</h1>
+      <h1 className="subheaderUser">Chats !!!</h1>
         {!showList ? (
           <>
           {console.log(props.user)}
