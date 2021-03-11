@@ -25,7 +25,7 @@ import notificationService from "../services/notification-service";
 import userService from "../services/user-service";
 
 
-const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, ...props }) => {
+const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, chats, ...props }) => {
 
   const [ documentPath, setDocumentPath ] = useState('');
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
