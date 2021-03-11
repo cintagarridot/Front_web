@@ -6,6 +6,7 @@ import userService from 'services/user-service';
 import Header from 'components/Header';
 import withAuth from 'components/withAuth';
 import { Redirect, Link } from 'react-router-dom';
+import DataListView from 'components/DataListView';
 
 const ListChats = (props) => {
   // fetch a chatService.getChatsByUser, pintar la lista que devuelva
@@ -85,11 +86,11 @@ const ListChats = (props) => {
   }
 
   const getUserChatsAction = async () => {
-    const user = props.user;
+    const { user } = props;
     let chatsNews = [];
     let otherUsersList = [];
 
-    console.log('entra en getUserChatsAction');
+
     await userService.getUserChats(user._id).then((chats) => {
       setUserChats(chats);
       chatsNews = chats;
@@ -98,29 +99,30 @@ const ListChats = (props) => {
 
     const list = chatsNews.map(async (chat) => {
       console.log('chat', chat);
-      const otherUserFilteredId = chat.users && chat.users.find((e) => e._id !== props.user._id)
-      console.log('otherUserFilteredId', otherUserFilteredId);
-      await chatService.getOtherUser(chat._id, user._id).then((data) => {
-        console.log('data other user', data);
-        const obj = {
-          idChat: chat._id,
-          otherUser: data.firstName + ' ' + data.lastName,
-        }
-        console.log('obj', obj);
-        const found = otherUsersList.find((u) => u.otherUser === obj.otherUser);
-        if(!found) {
-          otherUsersList.push(obj);
+      await chat.users.forEach((u) => {
+        if (u._id === user._id) {
+            console.log('other user ===', u);
+        } else {
+            console.log('other user !==', u);
+            userService.getOneUser(u).then((data) => {
+                if(data.usuario.username !== user.username) {
+                  const obj = {
+                    idChat: chat._id,
+                    otherUser: data.usuario.firstName + ' ' + data.usuario.lastName,
+                  }
+                  otherUsersList.push(obj);
+                }                        
+            })
         }
       });
     });
 
     Promise.all(list).then((l) => {
-      console.log('l', l);
       console.log('otherUsersList', otherUsersList);
       setOtherUsers(otherUsersList); 
     });
-
     setStatus('success');
+
   }
 
 
@@ -151,14 +153,24 @@ const ListChats = (props) => {
             { props.user.chats && props.user.chats.length > 0 && otherUsers.length > 0 && status === 'success' ? (
               <div className="subheaderSpace">
                 <h3>Chats recientes</h3>
-                <ListGroup  style={{ fontSize: '25px' }}>
+                {otherUsers.map((user) => {
+                  return (
+                    <DataListView
+                        key={user._id}
+                        element={user}
+                        chats
+                        onCheckItem={this.onCheckItem}
+                      />
+                  );
+                })}
+                {/* <ListGroup  style={{ fontSize: '25px' }}>
                   { otherUsers.map((user) => {
                     console.log('user render', user);
                     return <Link to={`/chat/${user.idChat}`}>
                       <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{user.otherUser}</ListGroupItem>
                     </Link>
                   })}
-                </ListGroup>
+                </ListGroup> */}
                 <button onClick={showUsersList} style={{float: 'right', marginTop: '10px'}}>
                     Crea uno nuevo
                 </button>

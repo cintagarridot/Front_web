@@ -21,7 +21,7 @@ const URL = 'wss://uhu-back.herokuapp.com/';
 /*css con emotion/styled NO SE USA EL JSX DE LA 1 LINEA */
 const ChatWrapper = styled.div`
 width: 100%;
-height: 90vh;
+height: 75vh;
 display: flex;
 justify-content: space-between;
 flex-direction: column;
@@ -113,15 +113,14 @@ const Chat = ({user, ...props}) => {
     }
 
     const receiveMessage = (message) => {
-        console.log('received message', message);
-
         const parsed2 = JSON.parse(message);
 
         setMessages([...messages, parsed2]);
-
-        console.log('MESSAGES TOTAL', messages);
     }
 
+    const leftChat = () => {
+
+    }
 
     return (
 
@@ -144,9 +143,9 @@ const Chat = ({user, ...props}) => {
                                 </h1>
                             </Col>
                             <Col xs={'12'} sm={'2'} md={'2'} lg={'2'}>
-                                <button className="btn btn-primary">
-                                    Abandonar chat
-                                </button>
+                                <a href="javascript:history.back()">
+                                    Volver
+                                </a>
                             </Col>
                         </Row>
                         <ChatWrapper>
