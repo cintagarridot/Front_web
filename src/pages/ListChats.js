@@ -97,14 +97,14 @@ const ListChats = (props) => {
       console.log('chatsNews', chatsNews);
     });
 
-    const list = await chatsNews.map(async (chat) => {
+    const list = chatsNews.map(async (chat) => {
       console.log('chat', chat);
       await chat.users.forEach(async (u) => {
         if (u._id === user._id) {
             console.log('other user ===', u);
         } else {
             console.log('other user !==', u);
-            await userService.getOneUser(u).then((data) => {
+            userService.getOneUser(u).then((data) => {
                 if(data.usuario.username !== user.username) {
                   console.log('data.usuario.username', data.usuario.username)
                   const obj = {
@@ -152,7 +152,7 @@ const ListChats = (props) => {
   return (
     <div>
       <Header />
-      <h1 className="subheaderUser">Chats</h1>
+      <h1 className="subheaderUser">Chats :)</h1>
         {!showList ? (
           <>
           {console.log('condition chat', props.user.chats && props.user.chats.length > 0 && otherUsers.length > 0 && status === 'success')}
