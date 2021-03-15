@@ -516,12 +516,6 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                         </p>
                     </Col>
 
-                    <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'}>
-                        <p className="mb-1 text-muted text-small ">
-                            {moment(element.date).format('L')}
-                        </p>
-                    </Col>
-
                     <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'} style={{textAlign: 'center'}}>
                         <Link to={`/chat/${element.idChat}`} className={'btn btn-primary'} style={{fontSize: '14px'}} >Chatear</Link>
                     </Col>

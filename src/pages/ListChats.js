@@ -141,7 +141,7 @@ const ListChats = (props) => {
           {console.log('status render', status)}
           {console.log('chat', props.user, otherUsers, status)}
             { props.user.chats && props.user.chats.length > 0 && status === 'success' ? (
-              <div className="subheaderSpace">
+              <div className="mt-5 pt-1">
                 {otherUsers.map((user) => {
                   console.log('user otheruser', user)
                   return (
