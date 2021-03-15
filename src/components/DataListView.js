@@ -65,7 +65,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
   }
 
-  const deleteChat = (id) => {
+  const deleteChat = (user, id) => {
     confirmAlert({
         title: 'Borrar '+ element.otherUser,
         message: '¿Estás seguro de borrar este chat?',
