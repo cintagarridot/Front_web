@@ -95,7 +95,7 @@ const ListChats = (props) => {
       console.log('chatsNews', chatsNews);
     });
 
-    const list = Promise.all(chatsNews.map(async (chat) => {
+    Promise.all(await chatsNews.forEach(async (chat) => {
       console.log('chat', chat);
       await chat.users.forEach(async (u) => {
         if (u._id === user._id) {
@@ -111,22 +111,24 @@ const ListChats = (props) => {
                   }
                   console.log('obj', obj);
                   otherUsersList.push(obj);
-                  return otherUsersList;
                 }                        
             })
         }
       });
     }));
-    console.log('list chat', list);
-    Promise.all(list).then((l) => {
-      console.log('l[0]', l[0]);
-      console.log('list dentro del promise', list)
-      console.log('otherUsersList', otherUsersList);
-      setOtherUsers(l[0]); 
-      setStatus('success');
-      console.log('status despues', status)
-    });
-    console.log('hola soy cinta2 jej')
+    console.log('list chat', otherUsersList);
+    setOtherUsers(otherUsersList); 
+    setStatus('success');
+
+    // Promise.all(list).then((l) => {
+    //   console.log('l[0]', l[0]);
+    //   console.log('list dentro del promise', list)
+    //   console.log('otherUsersList', otherUsersList);
+    //   setOtherUsers(l[0]); 
+    //   setStatus('success');
+    //   console.log('status despues', status)
+    // });
+    console.log('hola soy cinta3 jej')
   }
 
   const goBack = () => {
