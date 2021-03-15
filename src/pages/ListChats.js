@@ -111,18 +111,16 @@ const ListChats = (props) => {
                   }
                   console.log('obj', obj);
                   otherUsersList.push(obj);
-                  setOtherUsers(otherUsers, ...obj);
                 }                        
             });
             console.log('otherUserList dentro', otherUsersList);
+            console.log('otherUsersList dentro .length', otherUsersList.length);
+            setOtherUsers(otherUsersList);
+            setStatus('success');
         }
       });
       
     }));
-    console.log('list chat', otherUsersList);
-    console.log('otherUserList.length', otherUsersList.length);
-    setOtherUsers(otherUsersList); 
-    setStatus('success');
 
     // Promise.all(list).then((l) => {
     //   console.log('l[0]', l[0]);
@@ -132,7 +130,7 @@ const ListChats = (props) => {
     //   setStatus('success');
     //   console.log('status despues', status)
     // });
-    console.log('hola soy cinta6 jej')
+    console.log('hola soy cinta7 jej')
   }
 
   const goBack = () => {
