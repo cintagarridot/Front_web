@@ -70,7 +70,6 @@ const ListChats = (props) => {
         setList(...list);
         console.log(list)
         setShowList(true);
-        setStatus('success');
       })
     }
 
@@ -78,7 +77,6 @@ const ListChats = (props) => {
       await userService.getAlumnsList().then(data => {
         setList(data.alumns);
         setShowList(true);
-        setStatus('success');
       })
     }
 
@@ -129,23 +127,10 @@ const ListChats = (props) => {
       console.log('otherUsersList', otherUsersList);
       setOtherUsers(l[0]); 
       setStatus('success');
+      console.log('status despues', status)
     });
 
   }
-
-
-  // const getOtherUserAction = useMemo(() => {  // POR SI NO SE PUEDE USAR FILTER EN EL RENDER COGER EL OTRO ID DEL OTRO USUARIO QUE NO SOY YO
-    
-  //   console.log('chat', chat);
-  //   const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
-
-  //   console.log('otherUserFilteredId', otherUserFilteredId);
-  //     chatService.getOtherUser(otherUserFilteredId).then((data) => {
-  //       console.log('data other user', data);
-  //       setOtherUser(data.firstName + ' ' + data.lastName);
-  //     });
-
-  // }, [props.user.chats]);
 
   const goBack = () => {
     setShowList(false);
@@ -157,11 +142,13 @@ const ListChats = (props) => {
       <h1 className="subheaderUser">Chats</h1>
         {!showList ? (
           <>
-          {console.log('condition chat', props.user.chats && props.user.chats.length > 0 && otherUsers.length > 0 && status === 'success')}
+          {console.log('otherUsers.length render', otherUsers.length > 0)}
+          {console.log('status render', status)}
           {console.log('chat', props.user, otherUsers, status)}
             { props.user.chats && props.user.chats.length > 0 && status === 'success' ? (
               <div className="subheaderSpace">
                 {otherUsers.map((user) => {
+                  console.log('user otheruser', user)
                   return (
                     <DataListView
                         key={user._id}
