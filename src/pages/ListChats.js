@@ -95,7 +95,7 @@ const ListChats = (props) => {
       console.log('chatsNews', chatsNews);
     });
 
-    Promise.all(await chatsNews.forEach(async (chat) => {
+    Promise.all(chatsNews.forEach(async (chat) => {
       console.log('chat', chat);
       await chat.users.forEach(async (u) => {
         if (u._id === user._id) {
@@ -115,10 +115,12 @@ const ListChats = (props) => {
             })
         }
       });
+      console.log('list chat', otherUsersList);
+      console.log('otherUserList.length', otherUsersList.length);
+      setOtherUsers(otherUsersList); 
+      setStatus('success');
     }));
-    console.log('list chat', otherUsersList);
-    setOtherUsers(otherUsersList); 
-    setStatus('success');
+   
 
     // Promise.all(list).then((l) => {
     //   console.log('l[0]', l[0]);
@@ -128,7 +130,7 @@ const ListChats = (props) => {
     //   setStatus('success');
     //   console.log('status despues', status)
     // });
-    console.log('hola soy cinta3 jej')
+    console.log('hola soy cinta4 jej')
   }
 
   const goBack = () => {
@@ -141,7 +143,7 @@ const ListChats = (props) => {
       <h1 className="subheaderUser">Chats</h1>
         {!showList ? (
           <>
-          {console.log('otherUsers.length render', otherUsers.length > 0)}
+          {console.log('otherUsers.length render', otherUsers.length)}
           {console.log('status render', status)}
           {console.log('chat', props.user, otherUsers, status)}
             { props.user.chats && props.user.chats.length > 0 && status === 'success' ? (
