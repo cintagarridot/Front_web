@@ -23,9 +23,10 @@ import { confirmAlert } from 'react-confirm-alert';
 import documentService from "../services/document-service";
 import notificationService from "../services/notification-service";
 import userService from "../services/user-service";
+import chatService from "services/chat-service";
 
 
-const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, chats, ...props }) => {
+const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, chats, auth, ...props }) => {
 
   const [ documentPath, setDocumentPath ] = useState('');
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
@@ -62,6 +63,26 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
       ]
   })
 
+  }
+
+  const deleteChat = (id) => {
+    confirmAlert({
+        title: 'Borrar '+ element.otherUser,
+        message: '¿Estás seguro de borrar este chat?',
+        buttons: [
+            {
+                label: 'Borrar',
+                onClick: () => {
+                  userService.deleteChat(user, id);
+                  userService.deleteChat(element.otherUser, id);
+                  window.location.reload();
+                }
+            },
+            {
+                label: 'Cancelar',
+            }
+        ]
+    })
   }
 
     const getTeacherList = async() => {
@@ -520,6 +541,9 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                         <Link to={`/chat/${element.idChat}`} className={'btn btn-primary'} style={{fontSize: '14px'}} >Chatear</Link>
                     </Col>
 
+                    <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'} style={{textAlign: 'center'}}>
+                        <button onClick={() => deleteChat(auth._id, element._id)} className={'btn-danger'} style={{fontSize: '14px'}} >Eliminar</button>
+                    </Col>
                 </Row>
             )}
 

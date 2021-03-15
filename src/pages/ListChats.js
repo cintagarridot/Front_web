@@ -149,6 +149,7 @@ const ListChats = (props) => {
                         key={user._id}
                         element={user}
                         chats
+                        auth={props.user}
                       />
                   );
                 })}
