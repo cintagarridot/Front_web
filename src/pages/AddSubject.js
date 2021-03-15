@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Card, Col, Row, Alert, UncontrolledAlert } from 'reactstrap';
 import Select from 'react-select';
 import { Field } from 'formik';
+import Header from 'components/Header.js';
 
 class AddSubject extends Component {
 
