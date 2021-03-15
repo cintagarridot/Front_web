@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import withAuth from 'components/withAuth';
 
 import DataListView from 'components/DataListView';
-import {Row, Col} from 'reactstrap';
+import {Row, Col, Spinner} from 'reactstrap';
 import userService from 'services/user-service';
 
 
