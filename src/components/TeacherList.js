@@ -4,7 +4,7 @@ import withAuth from 'components/withAuth';
 
 import Header from 'components/Header';
 import DataListView from 'components/DataListView';
-import {Row, Col} from 'reactstrap';
+import {Row, Col, Spinner} from 'reactstrap';
 import userService from 'services/user-service';
 
 
@@ -38,7 +38,10 @@ class TeacherList extends Component {
     render() {
         return (
             <div>  
-                {this.state.teachers && this.state.teachers.length > 0 && this.state.teachers.map(t => {
+                {this.state.status !== 'success' &&
+                    <Spinner color="info" />
+                }
+                {this.state.teachers && this.state.teachers.length > 0 && this.state.status === 'success' && this.state.teachers.map(t => {
                      return (
                         <DataListView
                             key={t.id}
@@ -48,7 +51,7 @@ class TeacherList extends Component {
                         />
                      )
                 })}
-                {this.state.teachers && this.state.teachers.length === 0 &&
+                {this.state.teachers && this.state.teachers.length === 0 && this.state.status === 'success' &&
 
                     <h2 className="text-center">No hay profesores registrados</h2>
 

@@ -6,7 +6,7 @@ import subjectService from 'services/subject-service';
 import loading from 'assets/images/loading.jpg';
 import Header from 'components/Header.js';
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Dropdown,
-    DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
+    DropdownItem, DropdownMenu, DropdownToggle, Spinner } from 'reactstrap';
 import documentService from 'services/document-service';
 import { Link } from 'react-router-dom';
 import userService from 'services/user-service';
@@ -224,7 +224,7 @@ class DocumentsList extends Component {
                             </TabList>
 
                             <TabPanel>
-                                {allDocuments && allDocuments.length > 0 ? (
+                                {allDocuments && allDocuments.length > 0 && this.state.status === 'success' ? (
                                 <div>
                                     {allDocuments.map((document) => {
                                         return (
@@ -238,13 +238,15 @@ class DocumentsList extends Component {
                                     })
                                     }
                                 </div>
-                                ) : (
+                                ) : allDocuments && allDocuments.length === 0 && this.state.status === 'success' ? (
                                     <h2 className="text-center">No hay documentos</h2>
+                                ) : (
+                                    <Spinner color="info" />
                                 )}
                             </TabPanel>
 
                             <TabPanel>
-                            {documentList && documentList.length > 0 ? (
+                            {documentList && documentList.length > 0 && this.state.status === 'success' ? (
                                 <div>
                                     {documentList.map((document) => {
                                         return (
@@ -258,8 +260,10 @@ class DocumentsList extends Component {
                                     })
                                     }
                                 </div>
-                                ) : (
+                                ) : documentList && documentList.length === 0  && this.state.status === 'success' ? (
                                     <h2 className="text-center">No hay documentos</h2>
+                                ) : (
+                                    <Spinner color="info" />
                                 )}
                             </TabPanel>
                         </Tabs>
@@ -281,7 +285,7 @@ class DocumentsList extends Component {
                             </TabList>
 
                             <TabPanel>
-                                {documentList && documentList.length > 0 ? (
+                                {documentList && documentList.length > 0 && this.state.status === 'success' ? (
                                     <div>
                                         {documentList.map((document) => {
                                             return (
@@ -295,13 +299,15 @@ class DocumentsList extends Component {
                                         })
                                         }
                                     </div>
-                                ) : (
+                                ) : documentList.length === 0 && this.state.status === 'success' ? (
                                     <h2 className="text-center">No hay documentos</h2>
+                                ) : (
+                                    <Spinner color="info" />
                                 )}
                             </TabPanel>
 
                             <TabPanel>
-                                {user.sharedDocuments && user.sharedDocuments.length > 0 ? (
+                                {user.sharedDocuments && user.sharedDocuments.length > 0 && this.state.status === 'success' ? (
                                     <div>
                                         {user.sharedDocuments.map((shared) => {
                                             return (
@@ -315,8 +321,10 @@ class DocumentsList extends Component {
                                         })
                                         }
                                     </div>
-                                ) : (
+                                ) : user.sharedDocuments && user.sharedDocuments.length === 0 && this.state.status === 'success' ? (
                                     <h2 className="text-center">No te han compartido ningún documento</h2>
+                                ) : (
+                                    <Spinner color="info" />
                                 )}
                             </TabPanel>
                         </Tabs>

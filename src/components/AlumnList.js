@@ -37,7 +37,10 @@ class AlumnList extends Component {
     render() {
         return (
             <div>  
-                {this.state.alumns && this.state.alumns.length > 0 && this.state.alumns.map(a => {
+                {this.state.status !== 'success' &&
+                    <Spinner color="info" />
+                }
+                {this.state.alumns && this.state.alumns.length > 0 && this.state.status === 'success'  && this.state.alumns.map(a => {
                      return (
                         <DataListView
                             key={a.id}
@@ -47,7 +50,7 @@ class AlumnList extends Component {
                         />
                      )
                 })}
-                 {this.state.alumns && this.state.alumns.length === 0 &&
+                 {this.state.alumns && this.state.alumns.length === 0 && this.state.status === 'success' &&
 
                     <h2 className="text-center">No hay alumnos registrados</h2>
 

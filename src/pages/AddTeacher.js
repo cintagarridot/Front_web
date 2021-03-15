@@ -4,6 +4,7 @@ import withAuth from '../components/withAuth.js';
 import axios from 'axios';
 import { Card, Col, Row, Alert, UncontrolledAlert } from 'reactstrap';
 import userService from 'services/user-service.js';
+import Header from 'components/Header.js';
 
 class AddTeacher extends Component {
 
@@ -60,6 +61,7 @@ class AddTeacher extends Component {
     const { username, password, firstName, lastName } = this.state;
     return (
       <>
+      <Header/>
         {
           this.state.alert === 'danger' &&
           <UncontrolledAlert color={'danger'} className={'font'}>
