@@ -108,6 +108,7 @@ const ListChats = (props) => {
                   const obj = {
                     idChat: chat._id,
                     otherUser: data.usuario.firstName + ' ' + data.usuario.lastName,
+                    username: data.usuario.username,
                   }
                   console.log('obj', obj);
                   otherUsersList.push(obj);
@@ -153,22 +154,14 @@ const ListChats = (props) => {
                       />
                   );
                 })}
-                {/* <ListGroup  style={{ fontSize: '25px' }}>
-                  { otherUsers.map((user) => {
-                    console.log('user render', user);
-                    return <Link to={`/chat/${user.idChat}`}>
-                      <ListGroupItem tag="a" style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{user.otherUser}</ListGroupItem>
-                    </Link>
-                  })}
-                </ListGroup> */}
-                <button onClick={showUsersList} style={{float: 'right', marginTop: '10px'}}>
+                <button onClick={showUsersList} className={"btn btn-light"} style={{margin: 'auto', marginTop: '10px'}}>
                     Crea uno nuevo
                 </button>
               </div>
             ) : !props.user.chats && props.user.chats.length === 0 && otherUsers.length === 0 && status === 'success' ? (
                 <div className="noChatsSpace">
                   <h3>No tienes ningún chat</h3>
-                  <button onClick={showUsersList}>
+                  <button className={"btn btn-light"} onClick={showUsersList}>
                     Crea uno
                 </button>
                 </div>
@@ -182,14 +175,32 @@ const ListChats = (props) => {
         ) : (
           <div className={'subheaderSpace'}>
               <h2>Usuarios</h2>
-              <ListGroup style={{ fontSize: '25px' }}>
+              {/* <ListGroup style={{ fontSize: '25px' }}>
                 {list && list.length > 0 &&
                   list.map(l => {
                     return <ListGroupItem tag="a" onClick={() => createNewChat(l._id)} style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{l.firstName} {l.lastName}</ListGroupItem>
                   })
                 }
   
-              </ListGroup>
+              </ListGroup> */}
+                {list && list.length > 0 &&
+                  list.map((l) => {
+                    console.log('l', l)
+                    const found = otherUsers.find((oth) => oth.username === l.username)
+                    console.log('found', found);
+                    if(!found){
+                      return ( <DataListView
+                        key={l._id}
+                        element={l}
+                        newChat
+                        auth={props.user}
+                        createNewChatMethod={createNewChat}
+                      /> );
+                    }
+                  }) 
+                }
+                  
+
               <button onClick={goBack} style={{float: 'right'}}>
                   Atrás
               </button>

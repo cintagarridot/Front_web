@@ -26,7 +26,8 @@ import userService from "../services/user-service";
 import chatService from "services/chat-service";
 
 
-const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, chats, auth, ...props }) => {
+const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckItem, document, notifications, chats, auth,
+    createNewChatMethod, newChat, ...props }) => {
 
   const [ documentPath, setDocumentPath ] = useState('');
   const [dropdownDocOpen, setDropdownDocOpen] = useState(false);
@@ -542,7 +543,21 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     </Col>
 
                     <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'} style={{textAlign: 'center'}}>
-                        <button onClick={() => deleteChat(auth._id, element._id)} className={'btn-danger'} style={{fontSize: '14px'}} >Eliminar</button>
+                        <button onClick={() => deleteChat(auth._id, element._id)} className={'btn-danger'} style={{fontSize: '11px'}} >Eliminar</button>
+                    </Col>
+                </Row>
+            )}
+
+            {newChat && (
+                <Row className="d-flex align-items-center">
+                    <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'}>
+                        <p className="list-item-heading mb-1 truncate">
+                            {element.firstName} {element.lastName}
+                        </p>
+                    </Col>
+
+                    <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'} style={{textAlign: 'center'}}>
+                       <button onClick={() => createNewChatMethod(element._id)} className={'btn btn-primary'} style={{fontSize: '14px'}}>Crear chat</button>
                     </Col>
                 </Row>
             )}
