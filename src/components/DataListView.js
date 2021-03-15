@@ -340,16 +340,18 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
           {usersList &&
             <>
-               <Col xs={'12'} sm={'8'} lg={'8'} xl={'8'}>
-                <p className="list-item-heading mb-1 truncate">
-                  {element.firstName} {element.lastName}
-                </p>
-             </Col>
-             <Col xs={'12'} sm={'4'} lg={'4'} xl={'4'}>
-                <p className="list-item-heading mb-1 truncate">
-                  {element.username}
-                </p>
-            </Col>
+                <Row className="d-flex align-items-center">
+                    <Col xs={'12'} sm={'8'} lg={'8'} xl={'8'}>
+                        <p className="list-item-heading mb-1 truncate">
+                        {element.firstName} {element.lastName}
+                        </p>
+                    </Col>
+                    <Col xs={'12'} sm={'4'} lg={'4'} xl={'4'}>
+                        <p className="list-item-heading mb-1 truncate">
+                        {element.username}
+                        </p>
+                    </Col>
+                </Row>
             </>
           }
 
