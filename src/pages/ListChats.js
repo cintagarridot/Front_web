@@ -25,26 +25,8 @@ const ListChats = (props) => {
   useEffect(() => {
     let otherUsersList = [];
 
-    /*const usersChat =*/
     getUserChatsAction();
-
-    // usersChat.map((chat) => {
-    //   console.log('chat', chat);
-    //   const otherUserFilteredId = chat.users && chat.users.filter((e) => e._id !== props.user._id)
-    //   chatService.getOtherUser(otherUserFilteredId).then((data) => {
-    //     console.log('data other user', data);
-    //     const obj = {
-    //       idChat: chat._id,
-    //       otherUser: data.firstName + ' ' + data.lastName,
-    //     }
-    //     console.log('obj', obj);
-    //     otherUsersList.push(obj);
-    //   });
-    // });
-
-    // console.log('otherUsersList', otherUsersList);
-    // setOtherUsers(otherUsersList);   
-
+ 
   }, []);
 
   const createNewChat = (otherId) => {
@@ -65,9 +47,9 @@ const ListChats = (props) => {
 
     if (user.type === 'alumn') {
       await userService.getTeachersList().then(data => {
-        console.log(data.teachers)
-        list.push(data.teachers);
-        setList(...list);
+        // console.log(data.teachers)
+        // list.push(data.teachers);
+        setList(data.teachers);
         console.log(list)
         setShowList(true);
       })
@@ -175,14 +157,6 @@ const ListChats = (props) => {
         ) : (
           <div className={'subheaderSpace'}>
               <h2>Usuarios</h2>
-              {/* <ListGroup style={{ fontSize: '25px' }}>
-                {list && list.length > 0 &&
-                  list.map(l => {
-                    return <ListGroupItem tag="a" onClick={() => createNewChat(l._id)} style={{ color: 'black', textDecoration: 'none', cursor: 'pointer' }}>{l.firstName} {l.lastName}</ListGroupItem>
-                  })
-                }
-  
-              </ListGroup> */}
                 {list && list.length > 0 &&
                   list.map((l) => {
                     console.log('l', l)
