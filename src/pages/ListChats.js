@@ -95,7 +95,7 @@ const ListChats = (props) => {
       console.log('chatsNews', chatsNews);
     });
 
-    await Promise.all(chatsNews.forEach(async (chat) => {
+    Promise.all(chatsNews.forEach(async (chat) => {
       console.log('chat', chat);
       chat.users.forEach(async (u) => {
         if (u._id === user._id) {
@@ -111,8 +111,10 @@ const ListChats = (props) => {
                   }
                   console.log('obj', obj);
                   otherUsersList.push(obj);
+                  setOtherUsers(otherUsers, ...obj);
                 }                        
-            })
+            });
+            console.log('otherUserList dentro', otherUsersList);
         }
       });
       
@@ -130,7 +132,7 @@ const ListChats = (props) => {
     //   setStatus('success');
     //   console.log('status despues', status)
     // });
-    console.log('hola soy cinta5 jej')
+    console.log('hola soy cinta6 jej')
   }
 
   const goBack = () => {
