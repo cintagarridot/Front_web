@@ -68,6 +68,7 @@ class AddSubject extends Component {
     const { title, content, creditos, curso } = this.state;
     return (
       <>
+      <Header/>
         {
           this.state.alert === 'danger' &&
           <UncontrolledAlert color={'danger'} className={'font'}>
@@ -118,6 +119,9 @@ class AddSubject extends Component {
                     <option value="4">4</option>
                     <option value="5">5</option>
                     <option value="6">6</option>
+                    <option value="6">7</option>
+                    <option value="6">8</option>
+                    <option value="6">9</option>
                 </select>
                 </Col>
                 </Row>
