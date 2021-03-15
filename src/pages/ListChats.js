@@ -122,15 +122,7 @@ const ListChats = (props) => {
       
     }));
 
-    // Promise.all(list).then((l) => {
-    //   console.log('l[0]', l[0]);
-    //   console.log('list dentro del promise', list)
-    //   console.log('otherUsersList', otherUsersList);
-    //   setOtherUsers(l[0]); 
-    //   setStatus('success');
-    //   console.log('status despues', status)
-    // });
-    console.log('hola soy cinta7 jej')
+    console.log('hola soy cinta8 jej')
   }
 
   const goBack = () => {
@@ -155,7 +147,6 @@ const ListChats = (props) => {
                         key={user._id}
                         element={user}
                         chats
-                        onCheckItem={this.onCheckItem}
                       />
                   );
                 })}
