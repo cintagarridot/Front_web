@@ -96,12 +96,15 @@ const ListChats = (props) => {
                   otherUsersList.push(obj);
                 }                        
             });
-            if(index === chatsNews.length - 1) {
-              console.log('otherUserList dentro', otherUsersList);
-              console.log('otherUsersList dentro .length', otherUsersList.length);
-              setOtherUsers(otherUsersList);
-              setStatus('success');
-            }
+            
+        }
+        console.log('index', index);
+        console.log('chatsNews.length', chatsNews.length);
+        if(index === chatsNews.length - 1) {
+          console.log('otherUserList dentro', otherUsersList);
+          console.log('otherUsersList dentro .length', otherUsersList.length);
+          setOtherUsers(otherUsersList);
+          setStatus('success');
         }
       });
       
