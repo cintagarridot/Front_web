@@ -143,7 +143,7 @@ const Chat = ({user, ...props}) => {
                                 </h1>
                             </Col>
                             <Col xs={'12'} sm={'2'} md={'2'} lg={'2'}>
-                                <a href="javascript:history.back()">
+                                <a style={{fontSize: '2.5rem'}} href="javascript:history.back()">
                                     Volver
                                 </a>
                             </Col>
