@@ -95,14 +95,14 @@ const ListChats = (props) => {
       console.log('chatsNews', chatsNews);
     });
 
-    Promise.all(chatsNews.forEach(async (chat) => {
+    await Promise.all(chatsNews.forEach(async (chat) => {
       console.log('chat', chat);
-      await chat.users.forEach(async (u) => {
+      chat.users.forEach(async (u) => {
         if (u._id === user._id) {
             console.log('other user ===', u);
         } else {
             console.log('other user !==', u);
-            userService.getOneUser(u).then((data) => {
+            await userService.getOneUser(u).then((data) => {
                 if(data.usuario.username !== user.username) {
                   console.log('data.usuario.username', data.usuario.username)
                   const obj = {
@@ -115,12 +115,12 @@ const ListChats = (props) => {
             })
         }
       });
-      console.log('list chat', otherUsersList);
-      console.log('otherUserList.length', otherUsersList.length);
-      setOtherUsers(otherUsersList); 
-      setStatus('success');
+      
     }));
-   
+    console.log('list chat', otherUsersList);
+    console.log('otherUserList.length', otherUsersList.length);
+    setOtherUsers(otherUsersList); 
+    setStatus('success');
 
     // Promise.all(list).then((l) => {
     //   console.log('l[0]', l[0]);
@@ -130,7 +130,7 @@ const ListChats = (props) => {
     //   setStatus('success');
     //   console.log('status despues', status)
     // });
-    console.log('hola soy cinta4 jej')
+    console.log('hola soy cinta5 jej')
   }
 
   const goBack = () => {
