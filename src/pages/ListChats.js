@@ -157,7 +157,7 @@ const ListChats = (props) => {
                     Crea uno nuevo
                 </button>
               </div>
-            ) : !props.user.chats && props.user.chats.length === 0 && status === 'success' ? (
+            ) : props.user.chats && props.user.chats.length === 0 && status === 'success' ? (
                 <div className="noChatsSpace">
                   <h3>No tienes ningún chat</h3>
                   <button className={"btn btn-light"} onClick={showUsersList}>
