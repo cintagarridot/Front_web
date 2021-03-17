@@ -79,11 +79,14 @@ const ListChats = (props) => {
 
     setUserChats(user.chats);
     chatsNews = chats;
+    console.log('userChats', user.chats)
     console.log('chatsNews', chatsNews);
 
     Promise.all(user.chats.map(async (chat, index) => {
       console.log('chat', chat);
-      chat.users.forEach(async (u) => {
+      const c = await chatService.getChat(chat);
+      console.log('c', c);
+      c.users.forEach(async (u) => {
         if (u._id === user._id) {
             console.log('other user ===', u);
         } else {
