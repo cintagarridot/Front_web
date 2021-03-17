@@ -45,7 +45,7 @@ class UserService {
 
   getDocuments = (id) => this.user.get(`/users/${id}/documents`).then(({data}) => data);
 
-  deleteChat = (user, id) => this.user.delete(`/users/delete/user/${user}/chat/${id}`)
+  deleteChat = (user, id) => this.user.delete(`/users/delete/user/${user}/chat/${id}`).then(({data}) => data);
 
 }
 
