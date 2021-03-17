@@ -82,7 +82,7 @@ const ListChats = (props) => {
     console.log('userChats', user.chats)
     console.log('chatsNews', chatsNews);
 
-    Promise.all(user.chats.map(async (chat, index) => {
+    Promise.all(user.chats.forEach(async (chat, index) => {
       console.log('chat', chat);
       const c = await chatService.getChat(chat);
       console.log('c', c);
@@ -95,7 +95,7 @@ const ListChats = (props) => {
                 if(data.usuario.username !== user.username) {
                   console.log('data.usuario.username', data.usuario.username)
                   const obj = {
-                    idChat: chat._id,
+                    idChat: c._id,
                     otherUser: data.usuario.firstName + ' ' + data.usuario.lastName,
                     username: data.usuario.username,
                     otherUserId: data.usuario._id,
@@ -108,7 +108,7 @@ const ListChats = (props) => {
         }
         console.log('index', index);
         console.log('chatsNews.length', chatsNews.length);
-        if(index === chatsNews.length - 1) {
+        if(index === user.chats.length - 1) {
           console.log('otherUserList dentro', otherUsersList);
           console.log('otherUsersList dentro .length', otherUsersList.length);
           setOtherUsers(otherUsersList);
