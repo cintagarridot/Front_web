@@ -82,42 +82,48 @@ const ListChats = (props) => {
     console.log('userChats', user.chats)
     console.log('chatsNews', chatsNews);
 
-    Promise.all(user.chats.forEach(async (chat, index) => {
-      console.log('chat', chat);
-      const c = await chatService.getChat(chat);
-      console.log('c', c);
-      c.users.forEach(async (u) => {
-        if (u._id === user._id) {
-            console.log('other user ===', u);
-        } else {
-            console.log('other user !==', u);
-            await userService.getOneUser(u).then((data) => {
-                if(data.usuario.username !== user.username) {
-                  console.log('data.usuario.username', data.usuario.username)
-                  const obj = {
-                    idChat: c._id,
-                    otherUser: data.usuario.firstName + ' ' + data.usuario.lastName,
-                    username: data.usuario.username,
-                    otherUserId: data.usuario._id,
-                  }
-                  console.log('obj', obj);
-                  otherUsersList.push(obj);
-                }                        
-            });
-            
-        }
-        console.log('index', index);
-        console.log('chatsNews.length', chatsNews.length);
-        if(index === user.chats.length - 1) {
-          console.log('otherUserList dentro', otherUsersList);
-          console.log('otherUsersList dentro .length', otherUsersList.length);
-          setOtherUsers(otherUsersList);
-          setStatus('success');
-        }
-      });
-      
-    }));
+    if(user.chats.length > 0) {
+      Promise.all(user.chats.forEach(async (chat, index) => {
+        console.log('chat', chat);
+        const c = await chatService.getChat(chat);
+        console.log('c', c);
+        c.users.forEach(async (u) => {
+          if (u._id === user._id) {
+              console.log('other user ===', u);
+          } else {
+              console.log('other user !==', u);
+              await userService.getOneUser(u).then((data) => {
+                  if(data.usuario.username !== user.username) {
+                    console.log('data.usuario.username', data.usuario.username)
+                    const obj = {
+                      idChat: c._id,
+                      otherUser: data.usuario.firstName + ' ' + data.usuario.lastName,
+                      username: data.usuario.username,
+                      otherUserId: data.usuario._id,
+                    }
+                    console.log('obj', obj);
+                    otherUsersList.push(obj);
+                  }                        
+              });
+              
+          }
+          console.log('index', index);
+          console.log('chatsNews.length', chatsNews.length);
+          if(index === user.chats.length - 1) {
+            console.log('otherUserList dentro', otherUsersList);
+            console.log('otherUsersList dentro .length', otherUsersList.length);
+            setOtherUsers(otherUsersList);
+            setStatus('success');
+          }
+        });
+      }));
 
+    } else {
+      setOtherUsers(otherUsersList);
+      setStatus('success');
+    }
+      
+    
     console.log('hola soy cinta9 jej')
   }
 
@@ -151,7 +157,7 @@ const ListChats = (props) => {
                     Crea uno nuevo
                 </button>
               </div>
-            ) : !props.user.chats && props.user.chats.length === 0 && otherUsers.length === 0 && status === 'success' ? (
+            ) : !props.user.chats && props.user.chats.length === 0 && status === 'success' ? (
                 <div className="noChatsSpace">
                   <h3>No tienes ningún chat</h3>
                   <button className={"btn btn-light"} onClick={showUsersList}>
