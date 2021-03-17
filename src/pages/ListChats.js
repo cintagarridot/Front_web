@@ -80,7 +80,7 @@ const ListChats = (props) => {
     Promise.all(chatsNews.forEach(async (chat, index) => {
       console.log('chat', chat);
       chat.users.forEach(async (u) => {
-        if (u._id.equals(user._id)) {
+        if (u._id === user._id) {
             console.log('other user ===', u);
         } else {
             console.log('other user !==', u);
