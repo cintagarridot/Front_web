@@ -75,8 +75,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                 label: 'Borrar',
                 onClick: () => {
                   userService.deleteChat(user, id);
-                  userService.deleteChat(element.otherUser, id);
-                  window.location.reload();
+                  //window.location.reload();
                 }
             },
             {
