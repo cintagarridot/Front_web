@@ -71,13 +71,17 @@ const ListChats = (props) => {
     let otherUsersList = [];
 
 
-    await userService.getUserChats(user._id).then((chats) => {
-      setUserChats(chats);
-      chatsNews = chats;
-      console.log('chatsNews', chatsNews);
-    });
+    // await userService.getUserChats(user._id).then((chats) => {
+    //   setUserChats(chats);
+    //   chatsNews = chats;
+    //   console.log('chatsNews', chatsNews);
+    // });
 
-    Promise.all(chatsNews.forEach(async (chat, index) => {
+    setUserChats(user.chats);
+    chatsNews = chats;
+    console.log('chatsNews', chatsNews);
+
+    Promise.all(user.chats.map(async (chat, index) => {
       console.log('chat', chat);
       chat.users.forEach(async (u) => {
         if (u._id === user._id) {
