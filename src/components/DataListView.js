@@ -544,7 +544,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     </Col>
 
                     <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'} style={{textAlign: 'center'}}>
-                        <button onClick={() => deleteChat(auth._id, element._id)} className={'btn-danger'} style={{fontSize: '11px'}} >Eliminar</button>
+                        <button onClick={() => deleteChat(auth._id, element.idChat)} className={'btn-danger'} style={{fontSize: '11px'}} >Eliminar</button>
                     </Col>
                 </Row>
             )}
