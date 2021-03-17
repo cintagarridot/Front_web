@@ -80,7 +80,7 @@ const ListChats = (props) => {
     Promise.all(chatsNews.forEach(async (chat, index) => {
       console.log('chat', chat);
       chat.users.forEach(async (u) => {
-        if (u._id === user._id) {
+        if (u._id.equals(user._id)) {
             console.log('other user ===', u);
         } else {
             console.log('other user !==', u);
@@ -91,6 +91,7 @@ const ListChats = (props) => {
                     idChat: chat._id,
                     otherUser: data.usuario.firstName + ' ' + data.usuario.lastName,
                     username: data.usuario.username,
+                    otherUserId: data.usuario._id,
                   }
                   console.log('obj', obj);
                   otherUsersList.push(obj);
