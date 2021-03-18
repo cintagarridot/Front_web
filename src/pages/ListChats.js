@@ -123,8 +123,7 @@ const ListChats = (props) => {
       setStatus('success');
     }
       
-    
-    console.log('hola soy cinta9 jej')
+    window.location.reload();
   }
 
   const goBack = () => {
