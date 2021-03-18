@@ -560,7 +560,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                     </Col>
 
                     <Col xs={'12'} sm={'12'} lg={'4'} xl={'4'} style={{textAlign: 'center'}}>
-                       <button onClick={() => createNewChatMethod(element.otherUserId)} className={'btn btn-primary'} style={{fontSize: '14px'}}>Crear chat</button>
+                       <button onClick={() => createNewChatMethod(element._id)} className={'btn btn-primary'} style={{fontSize: '14px'}}>Crear chat</button>
                     </Col>
                 </Row>
             )}
