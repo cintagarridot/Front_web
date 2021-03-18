@@ -119,7 +119,6 @@ class DocumentsList extends Component {
         const { user } = this.props;
         const { documents, status, allDocuments, dropdownOpen } = this.state;
         const documentList = user.documents;
-
         return (
             <>
             <Header/>
@@ -246,7 +245,7 @@ class DocumentsList extends Component {
                             </TabPanel>
 
                             <TabPanel>
-                            {documentList && documentList.length > 0 && this.state.status === 'success' ? (
+                            {documentList && documentList.length > 0 ? (
                                 <div>
                                     {documentList.map((document) => {
                                         return (
@@ -260,7 +259,7 @@ class DocumentsList extends Component {
                                     })
                                     }
                                 </div>
-                                ) : documentList && documentList.length === 0  && this.state.status === 'success' ? (
+                                ) : documentList && documentList.length === 0 ? (
                                     <h2 className="text-center">No hay documentos</h2>
                                 ) : (
                                     <Spinner color="info" />
@@ -285,7 +284,7 @@ class DocumentsList extends Component {
                             </TabList>
 
                             <TabPanel>
-                                {documentList && documentList.length > 0 && this.state.status === 'success' ? (
+                                {documentList && documentList.length > 0 ? (
                                     <div>
                                         {documentList.map((document) => {
                                             return (
@@ -299,7 +298,7 @@ class DocumentsList extends Component {
                                         })
                                         }
                                     </div>
-                                ) : documentList.length === 0 && this.state.status === 'success' ? (
+                                ) : documentList && documentList.length === 0 ? (
                                     <h2 className="text-center">No hay documentos</h2>
                                 ) : (
                                     <Spinner color="info" />
@@ -307,7 +306,7 @@ class DocumentsList extends Component {
                             </TabPanel>
 
                             <TabPanel>
-                                {user.sharedDocuments && user.sharedDocuments.length > 0 && this.state.status === 'success' ? (
+                                {user.sharedDocuments && user.sharedDocuments.length > 0 ? (
                                     <div>
                                         {user.sharedDocuments.map((shared) => {
                                             return (
@@ -321,7 +320,7 @@ class DocumentsList extends Component {
                                         })
                                         }
                                     </div>
-                                ) : user.sharedDocuments && user.sharedDocuments.length === 0 && this.state.status === 'success' ? (
+                                ) : user.sharedDocuments && user.sharedDocuments.length === 0 ? (
                                     <h2 className="text-center">No te han compartido ningún documento</h2>
                                 ) : (
                                     <Spinner color="info" />

@@ -83,7 +83,7 @@ const ListChats = (props) => {
     console.log('chatsNews', chatsNews);
 
     if(user.chats.length > 0) {
-      Promise.all(user.chats.forEach(async (chat, index) => {
+      /*Promise.all(*/user.chats.forEach(async (chat, index) => {
         console.log('chat', chat);
         const c = await chatService.getChat(chat);
         console.log('c', c);
@@ -116,14 +116,13 @@ const ListChats = (props) => {
             setStatus('success');
           }
         });
-      }));
+      })/*)*/;
 
     } else {
       setOtherUsers(otherUsersList);
       setStatus('success');
     }
       
-    window.location.reload();
   }
 
   const goBack = () => {
