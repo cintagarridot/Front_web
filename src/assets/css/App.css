@@ -1171,6 +1171,24 @@ margin-right: 100px;
   }
 }
 
+@media only screen and (min-width: 1347px) and (max-width: 1694px) {  
+  .slider-data{
+    margin-top: 200px;
+  }
+
+  .subheaderdos {
+    margin-top: 130px;
+  }
+
+  .subheader{
+    margin-top: 130px;
+  }
+
+  .subheaderUser{
+    margin-top: 250px;
+  }
+}
+
 .link-to-pages{
   font-style: none;
   color: white;
