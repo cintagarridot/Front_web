@@ -161,7 +161,7 @@ class User extends Component {
                     </UncontrolledAlert>
                 }
 
-                <h2 className="subheaderUser">Datos</h2>
+                <h2 className="subheader">Datos</h2>
 
                 <Row className={'mb-5 pb-5'}>
                     <Col xs={'3'} md={'4'} lg={'3'} style={{ marginRight: '20px' }}>

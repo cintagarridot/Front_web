@@ -132,7 +132,7 @@ const ListChats = (props) => {
   return (
     <div>
       <Header />
-      <h1 className="subheaderUser">Chats</h1>
+      <h1 className="subheader">Chats</h1>
         {!showList ? (
           <>
           {console.log('otherUsers.length render', otherUsers.length)}

@@ -412,7 +412,7 @@ textarea{
 .subheader{
   font-size: 38px;
   padding-top: 20px;
-  margin-top: 10px;
+  margin-top: 70px;
   margin-bottom: 30px;
   border-bottom: 1px solid rgb(226, 226, 226); /*linea divisoria*/
   padding-bottom: 10px;
@@ -428,7 +428,7 @@ textarea{
 .subheaderChat{
   font-size: 38px;
   padding-top: 20px;
-  margin-top: 50px;
+  margin-top: 70px;
   margin-bottom: 30px;
   padding-bottom: 10px;
   text-align: center;
