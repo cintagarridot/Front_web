@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Col, Row } from 'reactstrap';
 
 import Table from 'components/Table';
 import axios from 'axios';
