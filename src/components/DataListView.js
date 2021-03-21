@@ -270,13 +270,13 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
       <Row className={'mt-5'}>
       <Col xs={'12'} sm={'12'} xl={'12'} lg={'12'}>
           <Card style={ !notifications ? { /*width: '1000px', height: '90px',*/ fontSize: '16px',
-         justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?
+         justifyContent: 'center', padding: '25px', boxShadow: '1px #d4d4d4', borderRadius: '10px'} : notifications && !element.read && !notificationOpen ?
             { /*width: '1000px',height: '90px',*/  fontSize: '16px',
-                justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
+                justifyContent: 'center', padding: '40px', boxShadow: '1px #d4d4d4', borderRadius: '10px', background: '#ADD8E6'} :
             notifications && element.read && !notificationOpen ? { /*width: '1000px', height: '90px',*/ fontSize: '16px',
-                justifyContent: 'center', padding: '20px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : notifications && notificationOpen ?
+                justifyContent: 'center', padding: '40px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : notifications && notificationOpen ?
                 {  /*width: '1000px', height: '250px',*/ fontSize: '16px',
-                    justifyContent: 'center', padding: '10px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
+                    justifyContent: 'center', padding: '40px', boxShadow: '1px #d4d4d4', borderRadius: '10px' } : { }
         }
           onClick={event => onCheckItem(event, element.id)}
 

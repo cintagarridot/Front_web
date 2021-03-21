@@ -49,7 +49,7 @@ class NewsPage extends Component {
                         {user.type !== 'alumn' ?
                             <>
                                 <Col xs={'8'} sm={'10'} md={'10'} lg={'11'}>
-                                    <h2 className="subheader">Noticias</h2>
+                                    <h2 className="subheaderdos">Noticias</h2>
                                 </Col>
                                 <Col xs={'4'} sm={'2'} md={'2'} lg={'1'}>
                                     <button className="buttonSearch" onClick={this.createNews}>
@@ -59,7 +59,7 @@ class NewsPage extends Component {
                             </>
                             : (
                                 <Col xs={'12'} sm={'12'} md={'12'} lg={'12'}>
-                                    <h2 className="subheader">Noticias</h2>
+                                    <h2 className="subheaderdos">Noticias</h2>
                                 </Col>
                             )
                         }
