@@ -549,8 +549,8 @@ textarea{
 #slider.slider-noticia{
 
   display: block;
-  width: 1200px;
-  height: 740px;
+  width: 100%;
+  height: 100%;
   background: rgba(248, 238, 238, 0.774);
   text-align: left;
   margin-top: 150px;
