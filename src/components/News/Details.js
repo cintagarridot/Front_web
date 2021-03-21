@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'reactstrap';
 
 import Table from 'components/Table';
 import axios from 'axios';
@@ -112,20 +111,16 @@ class NewsDetail extends Component {
                                 Volver
                             </a>
                         </div>
-
-                        <Row>
-                            <Col xs={'12'} sm={'12'} md={'12'} lg={'12'} xl={'12'}>
-                                <Slider
-                                    size="slider-noticia"
-                                    id={this.state.news._id}
-                                    title={this.state.news.title}
-                                    content={this.state.news.content}
-                                    author={this.state.user}
-                                    date={this.state.news.date}
-                                ></Slider>
-                            </Col>
-                        </Row>
-                       
+                            
+                        <Slider
+                            size="slider-noticia"
+                            id={this.state.news._id}
+                            title={this.state.news.title}
+                            content={this.state.news.content}
+                            author={this.state.user}
+                            date={this.state.news.date}
+                        ></Slider>
+                                                 
                     </div>
 
                 }

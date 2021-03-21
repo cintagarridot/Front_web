@@ -141,36 +141,37 @@ class Slider extends Component {
                     }
 
                     {this.props.size === 'slider-noticia' && !this.props.image &&
-                        <div>
-                            {console.log(this.props.author)}
-                            <h1 className="subheaderdos">{this.props.title}</h1>
-                            <div id="newsDivContent2">
-                                <p>{this.props.content}</p>
-                            </div>
-                            <div id="newsDivAuthor">
-                                <h3>Autor</h3>
-                                <h4>{this.props.author.firstName} {this.props.author.lastName}</h4>
-                            </div>
-                            <div id="newsDivDate">
-                                <h2>Fecha: {moment(this.props.date).format('L')}</h2>
-                            </div>
-
-                            {console.log('this.props.author', this.props.author)}
-                            {console.log('this.props.user', this.props.user)}
-                            {((this.props.author._id === this.props.user._id) || (this.props.user.type === 'admin')) &&
-                                <div id="newsButton2">
-                                    <button className="delete" onClick={() => this.handleDelete(this.props.id)}>Borrar
-                                    </button>
-                                    {/*{this.state.toUpdate &&*/}
-                                    {/*<News*/}
-                                    {/*    idToUpdate={this.state.idToUpdate}*/}
-                                    {/*    update="true"*/}
-                                    {/*/>*/}
-                                    {/*}*/}
-
+                        <Row>
+                            <Col xs={'12'} sm={'12'} lg={'12'}>
+                                <h1 className="subheaderdos">{this.props.title}</h1>
+                                <div id="newsDivContent2">
+                                    <p>{this.props.content}</p>
                                 </div>
-                            }
-                        </div>
+                                <div id="newsDivAuthor">
+                                    <h3>Autor</h3>
+                                    <h4>{this.props.author.firstName} {this.props.author.lastName}</h4>
+                                </div>
+                                <div id="newsDivDate">
+                                    <h2>Fecha: {moment(this.props.date).format('L')}</h2>
+                                </div>
+
+                                {console.log('this.props.author', this.props.author)}
+                                {console.log('this.props.user', this.props.user)}
+                                {((this.props.author._id === this.props.user._id) || (this.props.user.type === 'admin')) &&
+                                    <div id="newsButton2">
+                                        <button className="delete" onClick={() => this.handleDelete(this.props.id)}>Borrar
+                                        </button>
+                                        {/*{this.state.toUpdate &&*/}
+                                        {/*<News*/}
+                                        {/*    idToUpdate={this.state.idToUpdate}*/}
+                                        {/*    update="true"*/}
+                                        {/*/>*/}
+                                        {/*}*/}
+
+                                    </div>
+                                }
+                            </Col>  
+                        </Row>
                     }
 
                     {
