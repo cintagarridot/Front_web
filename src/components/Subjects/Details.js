@@ -47,6 +47,7 @@ class SubjectDetails extends Component {
             <>
                 {console.log('subject cgarrido test')}
                 {console.log(subject)}
+                {console.log('HAY UN CAMBIOOO EN DETAILS')}
 
                 <Header />
 
