@@ -45,7 +45,7 @@ class SubjectDetails extends Component {
 
         return (
             <>
-                {console.log('subject')}
+                {console.log('subject cgarrido test')}
                 {console.log(subject)}
 
                 <Header />
