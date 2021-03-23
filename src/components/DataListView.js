@@ -377,34 +377,41 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                   </p>
                 </Col>
                 <Col xs={'12'} sm={'12'} lg={'2'} xl={'2'}>
-                    <Dropdown isOpen={dropdownDocOpen} toggle={toggleDoc}>
-                        <DropdownToggle caret>
-                            Opciones
-                        </DropdownToggle>
-                        <DropdownMenu>
-                            <DropdownItem>
-                                <a href={element.secure_url} id="enlaceVerPdf" target="_blank">
-                                    Ver
-                                </a>
-                            </DropdownItem>
-                            <DropdownItem divider />
-                            <DropdownItem onClick={() => toggleEditDocModal(element._id)}>
-                                Editar
-                            </DropdownItem>
-                            <DropdownItem divider />
-                            {props.user.type === 'alumn' &&
-                                <>
-                                    <DropdownItem onClick={() => toggleShareDocModal(element)}>
-                                        Compartir
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                </>
-                            }
-                            <DropdownItem onClick={() => deleteDocument(element._id)}>
-                                Borrar
-                            </DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
+                    {element.user.username === props.user.username ? 
+                        <Dropdown isOpen={dropdownDocOpen} toggle={toggleDoc}>
+                            <DropdownToggle caret>
+                                Opciones
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem>
+                                    <a href={element.secure_url} id="enlaceVerPdf" target="_blank">
+                                        Ver
+                                    </a>
+                                </DropdownItem>
+                                <DropdownItem divider />
+                                <DropdownItem onClick={() => toggleEditDocModal(element._id)}>
+                                    Editar
+                                </DropdownItem>
+                                <DropdownItem divider />
+                                {props.user.type === 'alumn' &&
+                                    <>
+                                        <DropdownItem onClick={() => toggleShareDocModal(element)}>
+                                            Compartir
+                                        </DropdownItem>
+                                        <DropdownItem divider />
+                                    </>
+                                }
+                                <DropdownItem onClick={() => deleteDocument(element._id)}>
+                                    Borrar
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
+                        : (
+                            <a href={element.secure_url} id="enlaceVerPdf" target="_blank">
+                                Ver
+                            </a>
+                        )
+                    }
                 </Col>
 
               </Row>
@@ -472,7 +479,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                         </Row>
                                     })
                                     : (
-                                        <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} style={{margin: 'auto'}}>
+                                        <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'ml-5 ml-5 mt-5 pt-5'}>
                                             <Spinner color="info" />
                                         </Row>
                                     )
