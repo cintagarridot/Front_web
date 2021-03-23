@@ -472,7 +472,9 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                         </Row>
                                     })
                                     : (
-                                        <Spinner color="info" />
+                                        <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} style={{margin: 'auto'}}>
+                                            <Spinner color="info" />
+                                        </Row>
                                     )
                                 }
                             </Row>
