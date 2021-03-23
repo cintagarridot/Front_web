@@ -16,7 +16,7 @@ import classnames from "classnames";
 import withAuth from 'components/withAuth';
 import moment from 'moment';
 import 'moment/locale/es';
-import {Col, Row} from "reactstrap";
+import {Col, Row, Spinner} from "reactstrap";
 import { Link } from 'react-router-dom';
 import subjectService from "services/subject-service";
 import { confirmAlert } from 'react-confirm-alert';
@@ -40,6 +40,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
   const [dropdownShareDoc, setDropdownShareDoc] = useState(false);
   const [shareDoc, setShareDoc] = useState({});
   const [teachers, setTeachers] = useState([]);
+  const [statusTeachers, setStatusTeachers] = useState('');
   const [teachersSelected, setTeachersSelected] = useState([]);
   const [showRedText, setShowRedText] = useState(false);
   const [sharedDocument, setSharedDocument] = useState(false);
@@ -92,6 +93,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             .then(res => {
                 console.log(res.data);
                 setTeachers(res.teachers);
+                setStatusTeachers('success');
             });
     }
 
@@ -456,7 +458,7 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                 </Row>
                             }
                             <Row>
-                                {teachers &&
+                                {teachers && statusTeachers === 'success' ?
                                     teachers.map((teacher) => {
                                         return <Row xs={'12'} sm={'12'} md={'12'} lg={'12'} className={'mb-5 ml-4'}>
                                             <CustomInput
@@ -469,6 +471,9 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
                                             />
                                         </Row>
                                     })
+                                    : (
+                                        <Spinner color="info" />
+                                    )
                                 }
                             </Row>
                         </ModalBody>
