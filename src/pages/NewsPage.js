@@ -11,6 +11,8 @@ class NewsPage extends Component {
     state = {
         create: false,
         deleted: false,
+        news: [],
+        status: '',
     }
 
     componentDidMount () {
@@ -25,6 +27,21 @@ class NewsPage extends Component {
         this.setState({
             create: !this.state.create
         })
+    }
+
+    getNewsList = async() => {
+
+        const news = axios.create({
+            baseURL: 'https://uhu-back.herokuapp.com/news/',
+            withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
+          })
+        news.get("/").then(({data}) => {
+            this.setState({
+                news: data.noticias,
+                status: 'success'
+            })
+        })
+
     }
 
     render() {
@@ -64,7 +81,7 @@ class NewsPage extends Component {
                             )
                         }
                     </Row>
-                    <NewsList props={this.props} />
+                    <NewsList props={this.props} news={this.state.news} status={this.state.status} />
                     <div className="clearfix"></div>
 
 

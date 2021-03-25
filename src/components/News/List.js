@@ -10,34 +10,31 @@ import { Spinner } from 'reactstrap';
 class NewsList extends Component {
 
     state = {
-        news: [],
+        actualNews: [],
         byId: {},
-        searchById: false,
         updated: false,
         deleted: false,
-        status: null,
     }
 
     componentDidMount() {
 
-       this.getNewsList();
+       this.setState({
+           actualNews: this.props.news,
+       })
 
     }
 
-    getNewsList = async() => {
-
-        const news = axios.create({
-            baseURL: 'https://uhu-back.herokuapp.com/news/',
-            withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
-          })
-        news.get("/").then(({data}) => {
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prevProps', prevProps);
+        console.log('prevState', prevState);
+        if(prevProps.news.length !== this.props.news.length){
+            console.log('entra en el component did update de news');
             this.setState({
-                news: data.noticias,
-                status: 'success'
-            })
-        })
-
+                actualNews: this.props.news
+            });
+        }
     }
+
 
 
     onCheckItem  = (event, id) => {
@@ -51,13 +48,13 @@ class NewsList extends Component {
 
             <section id="content" >
 
-                {this.state.status !== 'success' ? (
+                {this.props.status !== 'success' ? (
                     <div>
                         <Spinner color="info" />
                         {/*<h2>Cargando...</h2>*/}
                     </div>
                 ) : (
-                        !this.state.searchById && this.state.news.length > 0 ?
+                        this.state.actualNews.length > 0 ?
 
                             this.state.news.map(n => {
                                 return (
