@@ -16,6 +16,7 @@ class NewsPage extends Component {
     }
 
     componentDidMount () {
+        this.getNewsList();
         if(this.props.location.search === '?deleted=true'){
             this.setState({
                 deleted:true,
