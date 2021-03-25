@@ -27,6 +27,7 @@ class SomeUserInfo extends Component {
         this.getUser();
         if(this.state.subjectsId.length > 0) {
            const s = this.getSubjects();
+           console.log('s', s)
             this.setState({
                 subjects: s,
             });
@@ -35,7 +36,7 @@ class SomeUserInfo extends Component {
 
     getSubjects = async () => {
         let subjs = [];
-        this.state.subjectsId.forEach((s) => {
+        this.state.subjectsId.forEach(async (s) => {
             await subjectService.getSubjectById(s).then((data) => {
                 subjs.push(data.subject);
             });
