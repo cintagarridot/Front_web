@@ -27,6 +27,7 @@ class NewsList extends Component {
     componentDidUpdate(prevProps, prevState) {
         console.log('prevProps', prevProps);
         console.log('prevState', prevState);
+        console.log('this.props.news', this.props.news);
         if(prevProps.news.length !== this.props.news.length){
             console.log('entra en el component did update de news');
             this.setState({

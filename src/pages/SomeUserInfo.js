@@ -6,6 +6,7 @@ import withAuth from 'components/withAuth';
 import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row, Spinner, UncontrolledAlert} from 'reactstrap';
 import axios from 'axios';
 import userService from "../services/user-service";
+import subjectService from 'services/subject-service';
 
 class SomeUserInfo extends Component {
 
@@ -17,13 +18,30 @@ class SomeUserInfo extends Component {
         lastName: '',
         photo: null,
         alert: '',
+        subjectsId: '',
+        subjects: [],
         success: '',
     }
 
     componentDidMount() {
         this.getUser();
+        if(this.state.subjectsId.length > 0) {
+           const s = this.getSubjects();
+            this.setState({
+                subjects: s,
+            });
+        }
     }
 
+    getSubjects = async () => {
+        let subjs = [];
+        this.state.subjectsId.forEach((s) => {
+            await subjectService.getSubjectById(s).then((data) => {
+                subjs.push(data.subject);
+            });
+        });
+        return subjs;
+    }
 
     getUser = async () => {      
         let paths = window.location.href.split('/');
@@ -37,6 +55,7 @@ class SomeUserInfo extends Component {
                 firstName: usuario.firstName,
                 lastName: usuario.lastName,
                 photo: usuario.photo,
+                subjectsId: usuario.subjects,
                 status: 'success',
             })
         })
@@ -94,26 +113,46 @@ class SomeUserInfo extends Component {
                                             <h3>{this.state.username}</h3>
                                         </Row>
                                     </Col>
-                                {/* {(this.props.user.type === 'alumn' && this.props.user) &&
+                                    {(this.props.user.type === 'alumn') &&
                                         <Col xs={'12'}>
                                             <Row>
-                                                <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
+                                                <h3 className='profile-text'>Asignaturas matriculadas</h3>
                                             </Row>
-                                            <Row>
-                                                <h3>{this.props.user.subjects.length}</h3>
-                                            </Row>
+                                            {subjects ? subjects.map((subject, i) => {
+                                                return (
+                                                    <DataListView
+                                                        key={subject.id}
+                                                        element={subject}
+                                                        onCheckItem={this.onCheckItem}
+                                                        subjects
+                                                    />
+                                                );
+                                            })
+                                            : (
+                                                <h2 className="text-center">{this.state.firstName} no está cursando ninguna asignatura</h2>
+                                            )}   
                                         </Col>
                                     }
-                                    {(this.props.user.type === 'teacher' && this.props.user) &&
+                                    {(this.props.user.type === 'teacher') &&
                                         <Col xs={'12'}>
                                             <Row>
-                                                <h3 className='profile-text'>Número de asignaturas impartidas</h3>
+                                                <h3 className='profile-text'>Asignaturas impartidas</h3>
                                             </Row>
-                                            <Row>
-                                                <h3>{this.props.user.subjects.length}</h3>
-                                            </Row>
+                                            {subjects ? subjects.map((subject, i) => {
+                                                return (
+                                                    <DataListView
+                                                        key={subject.id}
+                                                        element={subject}
+                                                        onCheckItem={this.onCheckItem}
+                                                        subjects
+                                                    />
+                                                );
+                                            })
+                                            : (
+                                                <h2 className="text-center">{this.state.firstName} no está impartiendo ninguna asignatura</h2>
+                                            )}   
                                         </Col>
-                                    }*/}
+                                    }
 
                                 </Row>
 
