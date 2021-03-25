@@ -21,7 +21,7 @@ class SomeUserInfo extends Component {
     }
 
     componentDidMount() {
-        getUser();
+        this.getUser();
     }
 
 
