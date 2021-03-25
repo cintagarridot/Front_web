@@ -7,6 +7,7 @@ import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row, Spinner, U
 import axios from 'axios';
 import userService from "../services/user-service";
 import subjectService from 'services/subject-service';
+import DataListView from 'components/DataListView';
 
 class SomeUserInfo extends Component {
 
@@ -119,7 +120,7 @@ class SomeUserInfo extends Component {
                                             <Row>
                                                 <h3 className='profile-text'>Asignaturas matriculadas</h3>
                                             </Row>
-                                            {subjects ? subjects.map((subject, i) => {
+                                            {this.state.subjects?.length > 0 ? this.state.subjects.map((subject, i) => {
                                                 return (
                                                     <DataListView
                                                         key={subject.id}
@@ -139,7 +140,7 @@ class SomeUserInfo extends Component {
                                             <Row>
                                                 <h3 className='profile-text'>Asignaturas impartidas</h3>
                                             </Row>
-                                            {subjects ? subjects.map((subject, i) => {
+                                            {this.state.subjects?.length > 0 ? this.state.subjects.map((subject, i) => {
                                                 return (
                                                     <DataListView
                                                         key={subject.id}
