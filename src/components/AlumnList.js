@@ -41,28 +41,16 @@ class AlumnList extends Component {
                     <Spinner color="info" />
                 }
                 {this.state.alumns && this.state.alumns.length > 0 && this.state.status === 'success'  && (
-                    <>
-                        <Row className="d-flex justify-content-center mb-1 mt-1">
-                            <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
-                                <p className="list-item-heading mb-1 truncate">
-                                    NOMBRE
-                                </p>
-                            </Col>
-                            <Col xs={'6'} sm={'6'} lg={'6'} xl={'6'}>
-                                <p className="list-item-heading mb-1 truncate">
-                                    USUARIO
-                                </p>
-                            </Col>
-                        </Row>
-                        {this.state.alumns.map(a => {
-                            return <DataListView
-                                key={a.id}
-                                element={a}
-                                onCheckItem={this.onCheckItem}
-                                usersList   
-                            />
-                        })}
-                    </>
+                   
+                    this.state.alumns.map(a => {
+                        return <DataListView
+                            key={a.id}
+                            element={a}
+                            onCheckItem={this.onCheckItem}
+                            usersList   
+                        />
+                    })
+                    
                 )}
                  {this.state.alumns && this.state.alumns.length === 0 && this.state.status === 'success' &&
 

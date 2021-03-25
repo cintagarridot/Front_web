@@ -42,6 +42,7 @@ import AppointmentWithDirector from "./components/AppointmentWithDirector";
 import ComplaintToATeacher from "./components/ComplaintToATeacher";
 import SelectSubjectRoute from "./components/routes/SelectSubjectRoute";
 import MySubjects from "./components/Subjects/MySubjects";
+import SomeUserInfo from 'pages/SomeUserInfo.js';
 
 class App extends Component {
   render() {
@@ -70,6 +71,7 @@ class App extends Component {
                 <PrivateRoute path="/user" component={User} />
                 <PrivateRoute path="/subject/details/:id" component={SubjectDetails} />
                 <PrivateRoute exact path="/notifications" component={Notifications} />
+                <PrivateRoute exact path="/user/info/:id" component={SomeUserInfo} />
                 <AdminRoute path="/users-list" component={UsersList} />
                 <AdminRoute path="/add-teacher" component={AddTeacher} />
                 <AdminRoute path="/subjects-list" component={SubjectsList} />

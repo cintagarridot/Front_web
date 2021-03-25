@@ -345,9 +345,9 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
             <>
                 <Row className="d-flex align-items-center">
                     <Col xs={'12'} sm={'8'} lg={'8'} xl={'8'}>
-                        <p className="list-item-heading mb-1 truncate">
+                        <a className="list-item-heading mb-1 truncate" href={`/Front_web/#/user/info/${element._id}`}>
                         {element.firstName} {element.lastName}
-                        </p>
+                        </a>
                     </Col>
                     <Col xs={'12'} sm={'4'} lg={'4'} xl={'4'}>
                         <p className="list-item-heading mb-1 truncate">
