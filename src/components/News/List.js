@@ -56,7 +56,7 @@ class NewsList extends Component {
                 ) : (
                         this.state.actualNews.length > 0 ?
 
-                            this.state.news.map(n => {
+                            this.state.actualNews.map(n => {
                                 return (
                                   <DataListView
                                         key={n._id}
