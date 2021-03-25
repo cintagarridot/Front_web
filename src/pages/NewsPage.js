@@ -4,7 +4,7 @@ import withAuth from 'components/withAuth';
 import Header from 'components/Header';
 import { Col, Row, UncontrolledAlert } from 'reactstrap';
 import { Link, Redirect } from 'react-router-dom';
-
+import Axios from 'axios';
 
 class NewsPage extends Component {
 
@@ -31,7 +31,7 @@ class NewsPage extends Component {
 
     getNewsList = async() => {
 
-        const news = axios.create({
+        const news = Axios.create({
             baseURL: 'https://uhu-back.herokuapp.com/news/',
             withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
           })
