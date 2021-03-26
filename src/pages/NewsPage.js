@@ -21,6 +21,7 @@ class NewsPage extends Component {
             this.setState({
                 deleted:true,
             })
+            window.location.reload();
         }
     }
 

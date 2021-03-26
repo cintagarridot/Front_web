@@ -18,6 +18,7 @@ class NewsForm extends Component {
         title: '',
         content: '',
         image: '',
+        created: false,
     }
 
     componentDidMount() {
@@ -42,9 +43,8 @@ class NewsForm extends Component {
                 console.log(data)
                 this.setState({
                     alert: 'success',
+                    created: true,
                 })
-                window.location.reload();
-
             })
             /* 404 */
             .catch((data) => {
@@ -138,7 +138,7 @@ class NewsForm extends Component {
                                                     </Col>
 
                                                     <Col xs={'0.1'}>
-                                                        <button style={{ fontSize: '14px', textTransform: 'uppercase' }} className="btn btn-secondary" size='lg' color="secondary"><a className={'link-to-pages'} href="/Front_web/#/news">Cancelar</a></button>
+                                                        <a href="javascript:history.back()" className={'btn btn-secondary link-to-pages'} style={{ fontSize: '14px', textTransform: 'uppercase' }}>Cancelar</a>
                                                     </Col>
                                                 </Row>
                                             </FormGroup>
@@ -147,6 +147,9 @@ class NewsForm extends Component {
                             </Formik>
 
                         </div>
+                        {this.state.created &&
+                            <Redirect to="/news"/>
+                        }
 
                     </div>
 
