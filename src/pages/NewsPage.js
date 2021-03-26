@@ -61,14 +61,14 @@ class NewsPage extends Component {
                 <Header />
 
                 <div className={'items-center'}>
-                    {
+                    {/* {
                         this.state.deleted === true &&
                         // <UncontrolledAlert color="success" fade={false} style={{ fontSize: '20px' }}>
                         //     La noticia se ha borrado correctamente
                         // </UncontrolledAlert>
                         // <Redirect to='/news' />
 
-                    }
+                    } */}
 
 
                     <Row>
