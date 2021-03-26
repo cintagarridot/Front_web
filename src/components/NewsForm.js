@@ -70,7 +70,9 @@ class NewsForm extends Component {
                         <>
                             <UncontrolledAlert color="success" fade={false} style={{ fontSize: '20px' }}>
                                 Noticia creada correctamente
-                        </UncontrolledAlert>
+                            </UncontrolledAlert>
+                            
+                            <Redirect to="/Front_web/#/news" />
 
                         </>
                         : (this.state.alert === 'fail' &&
@@ -134,11 +136,11 @@ class NewsForm extends Component {
                                             <FormGroup>
                                                 <Row>
                                                     <Col xs={'2'}>
-                                                        <a href='/Front_web/#/news'><Input type="submit" value='Crear' style={{ fontSize: '14px' }}></Input></a>
+                                                        <Input type="submit" value='Crear' style={{ fontSize: '14px' }}></Input>
                                                     </Col>
 
                                                     <Col xs={'0.1'}>
-                                                        <a href="javascript:history.back()" className={'btn btn-secondary link-to-pages'} style={{ fontSize: '14px', textTransform: 'uppercase' }}>Cancelar</a>
+                                                        <a href="/Front_web/#/news" className={'btn btn-secondary link-to-pages'} style={{ fontSize: '14px', textTransform: 'uppercase' }}>Cancelar</a>
                                                     </Col>
                                                 </Row>
                                             </FormGroup>

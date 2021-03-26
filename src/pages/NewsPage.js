@@ -21,7 +21,7 @@ class NewsPage extends Component {
             this.setState({
                 deleted:true,
             })
-            window.location.reload();
+            
         }
     }
 
@@ -60,6 +60,9 @@ class NewsPage extends Component {
                         <UncontrolledAlert color="success" fade={false} style={{ fontSize: '20px' }}>
                             La noticia se ha borrado correctamente
                         </UncontrolledAlert>
+                    }
+                    { this.state.deleted === true &&
+                        <Redirect to='/news' />
                     }
 
 
