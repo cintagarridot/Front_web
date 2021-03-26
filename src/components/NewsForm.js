@@ -43,7 +43,6 @@ class NewsForm extends Component {
                 console.log(data)
                 this.setState({
                     alert: 'success',
-                    created: true,
                 })
             })
             /* 404 */
@@ -68,10 +67,9 @@ class NewsForm extends Component {
                 <div className={'items-center'}>
                     {this.state.alert === 'success' ?
                         <>
-                            <UncontrolledAlert color="success" fade={false} style={{ fontSize: '20px' }}>
+                            {/* <UncontrolledAlert color="success" fade={false} style={{ fontSize: '20px' }}>
                                 Noticia creada correctamente
-                            </UncontrolledAlert>
-                            
+                            </UncontrolledAlert> */}
                             <Redirect to="/Front_web/#/news" />
 
                         </>
@@ -136,7 +134,7 @@ class NewsForm extends Component {
                                             <FormGroup>
                                                 <Row>
                                                     <Col xs={'2'}>
-                                                        <Input type="submit" value='Crear' style={{ fontSize: '14px' }}></Input>
+                                                        <a href='/Front_web/#/news'><Input type="submit" value='Crear' style={{ fontSize: '14px' }}></Input></a>
                                                     </Col>
 
                                                     <Col xs={'0.1'}>

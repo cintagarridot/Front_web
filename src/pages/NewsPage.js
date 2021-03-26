@@ -25,6 +25,12 @@ class NewsPage extends Component {
         }
     }
 
+    componentDidUpdate() {
+        if(this.state.deleted) {
+            window.location.reload();
+        }
+    }
+
     createNews = () => {
         this.setState({
             create: !this.state.create
@@ -57,12 +63,11 @@ class NewsPage extends Component {
                 <div className={'items-center'}>
                     {
                         this.state.deleted === true &&
-                        <UncontrolledAlert color="success" fade={false} style={{ fontSize: '20px' }}>
-                            La noticia se ha borrado correctamente
-                        </UncontrolledAlert>
-                    }
-                    { this.state.deleted === true &&
-                        <Redirect to='/news' />
+                        // <UncontrolledAlert color="success" fade={false} style={{ fontSize: '20px' }}>
+                        //     La noticia se ha borrado correctamente
+                        // </UncontrolledAlert>
+                        // <Redirect to='/news' />
+
                     }
 
 
