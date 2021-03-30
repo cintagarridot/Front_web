@@ -75,7 +75,7 @@ class SubjectDetails extends Component {
                                                             <h5>Grado</h5>
                                                         </div>
                                                     </Col>
-                                                    <Col xs={'12'} sm={'2'} lg={'1'} xl={'1'}>
+                                                    <Col xs={'12'} sm={'3'} lg={'3'} xl={'3'}>
                                                         <div>
                                                             <h5>{subject.grado}</h5>
                                                         </div>
@@ -87,7 +87,7 @@ class SubjectDetails extends Component {
                                                             <h5>Curso</h5>
                                                         </div>
                                                     </Col>
-                                                    <Col xs={'12'} sm={'2'} lg={'1'} xl={'1'}>
+                                                    <Col xs={'12'} sm={'3'} lg={'3'} xl={'3'}>
                                                         <div>
                                                             <h5>{subject.curso}</h5>
                                                         </div>
@@ -99,7 +99,7 @@ class SubjectDetails extends Component {
                                                             <h5>Créditos</h5>
                                                         </div>
                                                     </Col>
-                                                    <Col xs={'12'} sm={'2'} lg={'1'} xl={'1'}>
+                                                    <Col xs={'12'} sm={'3'} lg={'3'} xl={'3'}>
                                                         <div>
                                                             <h5>{subject.creditos}</h5>
                                                         </div>
