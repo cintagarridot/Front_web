@@ -14,6 +14,7 @@ class AddSubject extends Component {
     content: '',
     creditos: '',
     curso: '',
+    grado: '',
     toUserSubjectList: false,
     alert: '',
     missContent: false,
@@ -26,13 +27,14 @@ class AddSubject extends Component {
     const content = this.state.content;
     const creditos = this.state.creditos;
     const curso = this.state.curso;
+    const grado = this.state.grado;
 
     const newSubject = axios.create({
         baseURL: 'https://uhu-back.herokuapp.com',
         withCredentials: true, //poner siempre, es el que controla la cookie del header en una petición y es lo que lee el back para saber si tiene current user
     });
-    if(title !== '' && content !== '' && creditos !== '' && curso !== '') {
-        newSubject.post("/subjects/", {title, content, creditos, curso})
+    if(title !== '' && content !== '' && creditos !== '' && curso !== '' && grado !== '') {
+        newSubject.post("/subjects/", {title, content, creditos, curso, grado})
             .then(data => {
                 console.log(data)
                 this.setState({
@@ -40,6 +42,7 @@ class AddSubject extends Component {
                     content: '',
                     creditos: '',
                     curso: '',
+                    grado: '',
                     toUserSubjectList: true,
                 });
 
@@ -66,7 +69,7 @@ class AddSubject extends Component {
   }
 
   render() {
-    const { title, content, creditos, curso } = this.state;
+    const { title, content, creditos, curso, grado } = this.state;
     return (
       <>
       <Header/>
@@ -138,6 +141,31 @@ class AddSubject extends Component {
                         <option value="2º">2º</option>
                         <option value="3º">3º</option>
                         <option value="4º">4º</option>
+                    </select>
+                </Col>
+                </Row>
+
+                <Row>
+                <Col xs={'12'}>
+                    <label className={'mt-2'} htmlFor='grado'>Grado</label>
+                </Col>
+                <Col xs={'12'}>
+                    <select value={grado} onChange={this.handleChange} name='grado'>
+                        <option value="">Seleccionar grado...</option>
+                        <option value="Ingeniería Informática">Ingeniería Informática</option>
+                        <option value="Ingeniería Mecánica">Ingeniería Mecánica</option>
+                        <option value="Ingeniería Eléctrica">Ingeniería Eléctrica</option>
+                        <option value="Ingeniería Electrónica Industrial">Ingeniería Electrónica Industrial</option>
+                        <option value="Ingeniería Energética">Ingeniería Energética</option>
+                        <option value="Ingeniería Forestal y del Medio Natural">Ingeniería Forestal y del Medio Natural</option>
+                        <option value="Ingeniería Química Industrial">Ingeniería Química Industrial</option>
+                        <option value="Ingeniería en Explotación de Minas y Recursos Energéticos">Ingeniería en Explotación de Minas y Recursos Energéticos</option>
+                        <option value="Ingeniería Agrícola">Ingeniería Agrícola</option>
+                        <option value="Máster en Ingeniería Informática">Máster en Ingeniería Informática</option>
+                        <option value="Máster en Economía Finanzas y Computación">Máster en Economía Finanzas y Computación</option>
+                        <option value="Máster en Profesorado de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanza de Idiomas">Máster en Profesorado de Educación Secundaria Obligatoria y Bachillerato, Formación Profesional y Enseñanza de Idiomas</option>
+                        <option value="Ingeniería Técnica en Informática de Sistemas">Ingeniería Técnica en Informática de Sistemas</option> 
+                        <option value="Ingeniería Técnica en Informática de Gestión">Ingeniería Técnica en Informática de Gestión</option>
                     </select>
                 </Col>
                 </Row>
