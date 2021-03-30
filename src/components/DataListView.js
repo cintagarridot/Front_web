@@ -49,14 +49,15 @@ const DataListView = ({ isSelect, element, subjects, news, usersList, onCheckIte
 
   const deleteSubject  = (element) => {
     confirmAlert({
-      title: 'Borrar '+element.title,
+      title: 'Borrar ' + element.title,
       message: '¿Estás seguro de borrar esta asignatura?',
       buttons: [
           {
               label: 'Borrar',
               onClick: () => {
-                subjectService.deleteSubject(element._id);
-                window.location.reload();
+                subjectService.deleteSubject(element._id).then((result) => {
+                    window.location.reload();
+                });
               }
           },
           {

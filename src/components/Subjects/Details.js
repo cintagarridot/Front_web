@@ -72,6 +72,18 @@ class SubjectDetails extends Component {
                                                 <Row xs={'12'} sm={'6'} lg={'3'} xl={'3'} className={'justify-content-center mt-4'}>
                                                     <Col xs={'12'} sm={'3'} lg={'1'} xl={'1'}>
                                                         <div>
+                                                            <h5>Grado</h5>
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={'12'} sm={'2'} lg={'1'} xl={'1'}>
+                                                        <div>
+                                                            <h5>{subject.grado}</h5>
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                                <Row xs={'12'} sm={'6'} lg={'3'} xl={'3'} className={'justify-content-center mt-4'}>
+                                                    <Col xs={'12'} sm={'3'} lg={'1'} xl={'1'}>
+                                                        <div>
                                                             <h5>Curso</h5>
                                                         </div>
                                                     </Col>
