@@ -47,6 +47,10 @@ class UserService {
 
   deleteChat = (user, id) => this.user.delete(`/users/delete/user/${user}/chat/${id}`).then(({data}) => data);
 
+  deleteUser = (id) => this.user.delete(`/delete/${id}`).then(({data}) => data);
+
+  askForDeleteMySelf = (id) => this.user.put(`/askForDelete/:${id}`).then(({data}) => data);
+
 }
 
 const userService = new UserService();

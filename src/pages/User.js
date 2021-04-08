@@ -7,6 +7,7 @@ import {Button, Col, Modal, ModalBody, ModalFooter, ModalHeader, Row, Uncontroll
 import axios from 'axios';
 import authService from "../services/auth-service";
 import photoService from "../services/photo-service";
+import userService from 'services/user-service';
 
 class User extends Component {
 
@@ -23,6 +24,7 @@ class User extends Component {
         newPass2: '',
         alert: '',
         newPhoto: null,
+        askForDelete: false,
     }
 
     componentDidMount() {
@@ -147,6 +149,34 @@ class User extends Component {
         }
     }
 
+    askForDelete = () => {
+        confirmAlert({
+            title: 'Solicitud de baja',
+            message: `Vas a solicitar darte de baja en UHUWeb, ¿estás seguro?`,
+            buttons: [
+                {
+                    label: 'Sí',
+                    onClick: () => {
+                        userService.askForDeleteMySelf(this.state.id).then((result) => {
+                            console.log('result solicitud de baja', result);
+                            this.setState({
+                                askForDelete: true
+                            });
+                        });
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => {
+                        this.setState({
+                            toDelete: false
+                        })
+                    }
+                }
+            ]
+        })
+    }
+
     render() {
         const { photo } = this.state;
         return (
@@ -158,6 +188,12 @@ class User extends Component {
                     this.state.alert === 'danger' &&
                     <UncontrolledAlert color={'danger'} className={'font'}>
                         No se ha podido cambiar la contraseña. Las contraseñas que se han introducido no son iguales.
+                    </UncontrolledAlert>
+                }
+
+                {this.state.askForDelete && 
+                    <UncontrolledAlert color={'success'} className={'font'}>
+                        Se ha completado la solicitud correctamente. Te darán de baja lo antes posible.
                     </UncontrolledAlert>
                 }
 
@@ -200,26 +236,7 @@ class User extends Component {
                                         <h3>{this.state.username}</h3>
                                     </Row>
                                 </Col>
-                               {/* {(this.props.user.type === 'alumn' && this.props.user) &&
-                                    <Col xs={'12'}>
-                                        <Row>
-                                            <h3 className='profile-text'>Número de asignaturas matriculadas</h3>
-                                        </Row>
-                                        <Row>
-                                            <h3>{this.props.user.subjects.length}</h3>
-                                        </Row>
-                                    </Col>
-                                }
-                                {(this.props.user.type === 'teacher' && this.props.user) &&
-                                    <Col xs={'12'}>
-                                        <Row>
-                                            <h3 className='profile-text'>Número de asignaturas impartidas</h3>
-                                        </Row>
-                                        <Row>
-                                            <h3>{this.props.user.subjects.length}</h3>
-                                        </Row>
-                                    </Col>
-                                }*/}
+                               
 
                             </Row>
                         )
@@ -263,6 +280,9 @@ class User extends Component {
                     </Col>
                     <Col xs={'12'} md={'2'} lg={'1'} className={'mt-5'}>
                         <button style={{ fontSize: '12px' }} onClick={this.toggleNewPhoto} >Cambiar foto</button>
+                    </Col>
+                    <Col xs={'12'} md={'2'} lg={'1'} className={'mt-5'}>
+                        <button className={'btn-danger'} style={{ fontSize: '12px' }} onClick={this.askForDelete}>Solicitar baja</button>
                     </Col>
                 </Row>
 

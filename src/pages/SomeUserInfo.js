@@ -8,6 +8,7 @@ import axios from 'axios';
 import userService from "../services/user-service";
 import subjectService from 'services/subject-service';
 import DataListView from 'components/DataListView';
+import { Redirect } from 'react-router';
 
 class SomeUserInfo extends Component {
 
@@ -22,6 +23,7 @@ class SomeUserInfo extends Component {
         subjectsId: '',
         subjects: [],
         success: '',
+        toDelete: false,
     }
 
     componentDidMount() {
@@ -67,8 +69,36 @@ class SomeUserInfo extends Component {
 
     }
 
+    deleteUser = () => {
+        confirmAlert({
+            title: 'Dar de baja a un usuario',
+            message: `Vas a dar de baja a ${this.state.firstName}, ¿estás seguro?`,
+            buttons: [
+                {
+                    label: 'Sí',
+                    onClick: () => {
+                        userService.deleteUser(this.state.id).then((result) => {
+                            console.log('result dar de baja user', result);
+                            this.setState({
+                                toDelete: true
+                            });
+                        });
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => {
+                        this.setState({
+                            toDelete: false
+                        })
+                    }
+                }
+            ]
+        })
+    }
+
     render() {
-        const { photo } = this.state;
+        const { photo, toDelete } = this.state;
         return (
 
             <div id="user">
@@ -160,11 +190,21 @@ class SomeUserInfo extends Component {
 
                         </Col>
                     </>
-                : (
-                    <Spinner color="info" />
-                )}
+                    : (
+                        <Spinner color="info" />
+                    )}
                     
                 </Row>
+
+                <Row className={'mt-5'} style={{textAlign: 'end'}}>
+                    <Col xs={'12'} md={'3'} lg={'10'} className={'mt-5 mr-3'}>
+                        <button className={'btn-danger'} style={{ fontSize: '12px' }} onClick={this.deleteUser} >Dar de baja</button>
+                    </Col>
+                </Row>
+
+                {toDelete &&
+                    <Redirect to='/users-list' />
+                }
 
                 <div className="clearfix"></div>
 
