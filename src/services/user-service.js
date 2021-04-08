@@ -49,7 +49,7 @@ class UserService {
 
   deleteUser = (id) => this.user.delete(`/delete/${id}`).then(({data}) => data);
 
-  askForDeleteMySelf = (id) => this.user.put(`/askForDelete/:${id}`).then(({data}) => data);
+  askForDeleteMySelf = (id) => this.user.put(`/askForDelete/${id}`).then(({data}) => data);
 
 }
 

@@ -276,10 +276,10 @@ class User extends Component {
                 </Row>
 
                 <Row className={'mt-5'} style={{textAlign: 'end'}}>
-                    <Col xs={'12'} md={'3'} lg={'10'} className={'mt-5 mr-3'}>
+                    <Col xs={'12'} md={'4'} lg={'7'} className={'mt-5 mr-3'}>
                         <button style={{ fontSize: '12px' }} onClick={this.toggleNewPassword} >Cambiar contraseña</button>
                     </Col>
-                    <Col xs={'12'} md={'2'} lg={'1'} className={'mt-5'}>
+                    <Col xs={'12'} md={'2'} lg={'2'} className={'mt-5'}>
                         <button style={{ fontSize: '12px' }} onClick={this.toggleNewPhoto} >Cambiar foto</button>
                     </Col>
                     <Col xs={'12'} md={'2'} lg={'1'} className={'mt-5'}>
