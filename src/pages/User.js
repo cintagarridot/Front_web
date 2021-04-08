@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import perfilUser from 'assets/images/perfilUser.png';
+import { confirmAlert } from 'react-confirm-alert';
 
 import Header from 'components/Header';
 import withAuth from 'components/withAuth';
