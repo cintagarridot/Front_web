@@ -193,12 +193,12 @@ class User extends Component {
                 }
 
                 {this.state.askForDelete && 
-                    <UncontrolledAlert color={'success'} className={'font'}>
+                    <UncontrolledAlert color={'success'} className={'font'} style={{marginTop: '100px'}}>
                         Se ha completado la solicitud correctamente. Te darán de baja lo antes posible.
                     </UncontrolledAlert>
                 }
 
-                <h2 className="subheader">Datos</h2>
+                <h2 className="subheader" style={this.state.askForDelete && {marginTop: '0px'}}>Datos</h2>
 
                 <Row className={'mb-5 pb-5'}>
                     <Col xs={'3'} md={'4'} lg={'3'} style={{ marginRight: '20px' }}>
