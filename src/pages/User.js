@@ -282,9 +282,12 @@ class User extends Component {
                     <Col xs={'12'} md={'2'} lg={'2'} className={'mt-5'}>
                         <button style={{ fontSize: '12px' }} onClick={this.toggleNewPhoto} >Cambiar foto</button>
                     </Col>
-                    <Col xs={'12'} md={'2'} lg={'1'} className={'mt-5'}>
-                        <button className={'btn-danger'} style={{ fontSize: '12px' }} onClick={this.askForDelete}>Solicitar baja</button>
-                    </Col>
+                    {this.props.user.type !== 'admin' &&
+                        <Col xs={'12'} md={'2'} lg={'1'} className={'mt-5'}>
+                         <button className={'btn-danger'} style={{ fontSize: '12px' }} onClick={this.askForDelete}>Solicitar baja</button>
+                        </Col>
+                    }
+                    
                 </Row>
 
 

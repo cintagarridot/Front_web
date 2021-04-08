@@ -198,7 +198,7 @@ class SomeUserInfo extends Component {
                 </Row>
 
                 <Row className={'mt-5'} style={{textAlign: 'end'}}>
-                    <Col xs={'12'} md={'3'} lg={'10'} className={'mt-5 mr-3'}>
+                    <Col xs={'12'} md={'3'} lg={'12'} className={'mt-5 mr-3'}>
                         <button className={'btn-danger'} style={{ fontSize: '12px' }} onClick={this.deleteUser} >Dar de baja</button>
                     </Col>
                 </Row>
