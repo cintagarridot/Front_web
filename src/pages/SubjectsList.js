@@ -49,7 +49,7 @@ class SubjectsList extends Component {
                             <h2 className="subheaderdos">Asignaturas</h2>
 
                         </Col>
-                        <Col xs='2' className="pt-5 mt-5">
+                        <Col xs='2'>
                             <Link to={'/add-subject'} className={'btn btn-primary addSubject'} style={{fontSize: '13px'}}>Añadir asignatura</Link>
                         </Col>
                     </Row>

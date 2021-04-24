@@ -1118,11 +1118,34 @@ margin-right: 100px;
 }
 
 
-@media (max-width: 658px){
+@media (max-width: 641px){
 
 
   .center{ /*para que cuando pongamos la pagina mas chica no se deforme*/
       width:100%;
+  }
+
+  .addTeacher {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+
+  .addSubject {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+
+  .documentButtons {
+    margin-top: 5px;
+  }
+
+  .buttonSearch {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+
+  #menu {
+    width: 60%;
   }
 
   #menu ul{
