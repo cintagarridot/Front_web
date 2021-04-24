@@ -843,6 +843,10 @@ margin-right: 100px;
   height: 22px;
 }
 
+.documentButtons {
+  margin-top: 50px;
+}
+
 /*BOTON PARA VOLVER A LA PAG DE NOTICIAS*/
 #goBackButton a{
   float: left;
@@ -1160,6 +1164,22 @@ margin-right: 100px;
 
   .subheaderdos {
     margin-top: 130px;
+  }
+
+  .buttonSearch {
+    margin-top: 160px;
+  }
+
+  .documentButtons {
+    margin-top: 150px;
+  }
+
+  .addTeacher {
+    margin-top: 100px;
+  }
+
+  .addSubject {
+    margin-top: 90px;
   }
 
   .subheader{

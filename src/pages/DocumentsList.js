@@ -131,7 +131,7 @@ class DocumentsList extends Component {
                                 <h2 className="subheaderdos">Mis documentos</h2>
                             )}
                         </Col>
-                        <Col xs='2' className="pt-5 mt-5">
+                        <Col xs='2' className="documentButtons">
                             <Dropdown isOpen={dropdownOpen} toggle={this.toggle}>
                                 <DropdownToggle caret>
                                     Rellenar solicitudes
@@ -179,7 +179,7 @@ class DocumentsList extends Component {
                             </DropdownMenu>
                             </Dropdown>
                         </Col>
-                        <Col xs='1' className="pt-5 mt-5">
+                        <Col xs='1' className="documentButtons">
                             <Button color="primary" onClick={this.toggleModal} >Subir un documento</Button>
                         </Col>
                     </Row>
