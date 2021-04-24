@@ -38,7 +38,7 @@ class UsersList extends Component {
                         <Col xs='10'>
                             <h2 className="subheaderdos">Usuarios</h2>
                         </Col>
-                        <Col xs='2' className="pt-5 mt-5">
+                        <Col xs='2'>
                             <Link to={'/add-teacher'} className={'btn btn-primary addTeacher'} style={{fontSize: '13px'}}>Añadir profesor</Link>
                         </Col>
                     </Row>
