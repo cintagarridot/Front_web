@@ -1329,7 +1329,8 @@ margin-right: 100px;
 .auth-card-signup{
   margin: auto;
   margin-top: 60px;
-  width: 80%;
+  width: 100%;
+  position: absolute;
   height: 600px;
   align-items: center;
   justify-content: center;
