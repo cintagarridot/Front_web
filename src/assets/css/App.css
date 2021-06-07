@@ -1099,7 +1099,11 @@ margin-right: 100px;
   }
 
   .delete{
-    width: 100%;
+    width: 130px;
+  }
+
+  #slider.slider-noticia{
+    margin-top: 230px;
   }
 }
 
@@ -1125,7 +1129,11 @@ margin-right: 100px;
   }
 
   .delete{
-    width: 100%;
+    width: 130px;
+  }
+
+  #slider.slider-noticia{
+    margin-top: 230px;
   }
 }
 
